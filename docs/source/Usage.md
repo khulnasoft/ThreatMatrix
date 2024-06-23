@@ -19,9 +19,9 @@ This page includes the most important things to know and understand when using I
 
 ## How to interact with IntelX
 
-Intel Owl main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.
+IntelX main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.
 
-There are multiple ways to interact with the Intel Owl APIs,
+There are multiple ways to interact with the IntelX APIs,
 
 1. Web Interface
 
@@ -38,13 +38,13 @@ There are multiple ways to interact with the Intel Owl APIs,
 
 <div class="admonition hint">
 <p class="admonition-title">Hint: Tokens Creation</p>
-The server authentication is managed by API tokens. So, if you want to interact with Intel Owl, you have two ways to do that:
+The server authentication is managed by API tokens. So, if you want to interact with IntelX, you have two ways to do that:
 <ul>
 <li>If you are a normal user, you can go to the "API Access/Sessions" section of the GUI and create a Token there.</li>
 <li>If you are an administrator of IntelX, you can create one or more unprivileged users from the Django Admin Interface and then generate a token for those users.
 </li>
 </ul>
-Afterwards you can leverage the created tokens with the Intel Owl Client.
+Afterwards you can leverage the created tokens with the IntelX Client.
 </div>
 
 ## Plugins Framework

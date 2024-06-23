@@ -1,6 +1,6 @@
 # Advanced Configuration
 
-This page includes details about some advanced features that Intel Owl provides which can be **optionally** configured by the administrator.
+This page includes details about some advanced features that IntelX provides which can be **optionally** configured by the administrator.
 
   - [ElasticSearch](#elastic-search)
     - [Kibana](#kibana)
@@ -34,7 +34,7 @@ In the `env_file_app_template`, you'd see various elasticsearch related environm
 
 #### Kibana
 
-Intel Owl provides a Kibana's "Saved Object" configuration (with example dashboard and visualizations). It can be downloaded from [here](https://github.com/khulnasoft/IntelX/blob/develop/configuration/Kibana-Saved-Conf.ndjson) and can be imported into Kibana by going to the "Saved Objects" panel (http://localhost:5601/app/management/kibana/objects).
+IntelX provides a Kibana's "Saved Object" configuration (with example dashboard and visualizations). It can be downloaded from [here](https://github.com/khulnasoft/IntelX/blob/develop/configuration/Kibana-Saved-Conf.ndjson) and can be imported into Kibana by going to the "Saved Objects" panel (http://localhost:5601/app/management/kibana/objects).
 
 #### Example Configuration
 
@@ -102,7 +102,7 @@ While configuring Google Auth2 you can choose either to enable access to the all
 
 IntelX leverages [Django-auth-ldap](https://github.com/django-auth-ldap/django-auth-ldap) to perform authentication via LDAP.
 
-How to configure and enable LDAP on Intel Owl?
+How to configure and enable LDAP on IntelX?
 
 1. Change the values with your LDAP configuration inside `configuration/ldap_config.py`. This file is mounted as a docker volume, so you won't need to rebuild the image.
 
@@ -119,7 +119,7 @@ For more details on how to configure this file, check the <a href="https://djang
 IntelX leverages [Django-radius](https://github.com/robgolding/django-radius) to perform authentication
 via RADIUS server.
 
-How to configure and enable RADIUS authentication on Intel Owl?
+How to configure and enable RADIUS authentication on IntelX?
 
 1. Change the values with your RADIUS auth configuration inside `configuration/radius_config.py`. This file is mounted as a
    docker volume, so you won't need to rebuild the image.
@@ -227,7 +227,7 @@ You need to configure the environment variable `AWS_SES` to `True` to enable it.
 
 You can use the "Secrets Manager" to store your credentials. In this way your secrets would be better protected.
 
-Instead of adding the variables to the environment file, you should just add them with the same name on the AWS Secrets Manager and Intel Owl will fetch them transparently.
+Instead of adding the variables to the environment file, you should just add them with the same name on the AWS Secrets Manager and IntelX will fetch them transparently.
 
 Obviously, you should have created and managed the permissions in AWS in advance and accordingly to your infrastructure requirements.
 
