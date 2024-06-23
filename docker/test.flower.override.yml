@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  flower:
+    image: khulnasoft/intelx:test
+    volumes:
+      - ../:/opt/deploy/intelx
