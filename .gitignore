@@ -1,0 +1,50 @@
+# ide
+.idea
+.vscode
+
+
+__pycache__
+test_files
+docker/env_file_app
+docker/env_file_postgres
+docker/env_file_integrations
+docker/custom.override.yml
+venv/
+intelx_test_env/
+compose-elk.yml
+
+.python_history
+.viminfo
+
+
+# docs
+docs_env/
+docs/build/
+
+
+configuration/service_account_keyfile.json
+configuration/custom_yara/*
+coverage_reports/
+docker/.env.start.test
+docker/.env.start
+.ipython
+.subversion
+.bash_history
+.cache
+.google-cookie
+.quark-engine
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+/.env
+
+# post run dev
+integrations/malware_tools_analyzers/clamav/sigs

@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  celery_worker_local:
+    image: khulnasoft/intelx:test
+    volumes:
+      - ../:/opt/deploy/intelx
+
+  celery_worker_long:
+    image: khulnasoft/intelx:test
+    volumes:
+      - ../:/opt/deploy/intelx
+
+  celery_worker_ingestor:
+    image: khulnasoft/intelx:test
+    volumes:
+      - ../:/opt/deploy/intelx

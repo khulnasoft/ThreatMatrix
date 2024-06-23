@@ -1,0 +1,15 @@
+[flake8]
+max-line-length = 88
+ignore =
+    W503,
+    E231,
+    W605,
+exclude =
+    Dockerfile,
+    docker-compose*,
+    venv,
+    docs,
+    migrations,
+    virtualenv,
+    ldap_config.py
+    api_app/analyzers_manager/migrations/*

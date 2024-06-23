@@ -1,0 +1,155 @@
+permissions: read-all
+name: Build & Tests
+
+on:
+  pull_request:
+    branches: [master, develop]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "integrations/**"
+
+jobs:
+  detect-changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{steps.diff_check.outputs.frontend}}
+    steps:
+      - uses: actions/checkout@v4.1.0
+        with:
+          ref: ${{ github.base_ref }}
+      - uses: actions/checkout@v4.1.0
+        with:
+          clean: false
+      - name: Generate diffs
+        run: |
+          git branch -a --list | cat
+          FRONTEND_CHANGES=$(git diff --compact-summary origin/${{ github.base_ref }} -- frontend/* | wc -l)
+          echo "::set-output name=frontend::$FRONTEND_CHANGES"
+        id: diff_check
+
+  linters:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout IntelX
+        uses: actions/checkout@v4.1.0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: 3.11
+
+      - name: Install Dependencies
+        run: |
+          pip3 install --upgrade pip
+          pip3 install -r requirements/test-requirements.txt
+
+      - name: Black formatter
+        run: |
+          black . --check --diff --exclude "migrations|venv"
+
+      - name: Lint with flake8 (PEP8 enforcer + linter)
+        run: |
+          flake8 . --config=.flake8 --show-source
+
+      - name: isort
+        run: |
+          isort . --profile black --filter-files --check-only --diff --skip configuration/ldap_config.py
+
+  backend-tests:
+    runs-on: ubuntu-latest
+    needs: linters
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout IntelX
+        uses: actions/checkout@v4.1.0
+
+      - name: Prepare Launch
+        run: |
+          unzip -P intelx tests/test_files.zip -d test_files
+          cp docker/env_file_app_template docker/env_file_app
+          cp docker/env_file_postgres_template docker/env_file_postgres
+
+      - name: Startup script launch (Slow)
+        if: contains(github.base_ref, 'master')
+        run: |
+          cp docker/env_file_integrations_template docker/env_file_integrations
+          ./start ci up --all_analyzers -- --build -d
+        env:
+          DOCKER_BUILDKIT: 1
+          BUILDKIT_PROGRESS: "plain"
+          STAGE: "ci"
+          REPO_DOWNLOADER_ENABLED: false
+
+      - name: Startup script launch (Fast)
+        if: "!contains(github.base_ref, 'master')"
+        run: |
+          ./start ci up -- --build -d
+        env:
+          DOCKER_BUILDKIT: 1
+          BUILDKIT_PROGRESS: "plain"
+          STAGE: "ci"
+          REPO_DOWNLOADER_ENABLED: false
+
+      - name: Docker debug
+        if: always()
+        run: |
+          docker ps -a
+          docker logs intelx_uwsgi
+          docker logs intelx_daphne
+
+      - name: Setup coverage
+        run: |
+          docker exec intelx_uwsgi pip3 install coverage
+
+      - name: Run test
+        run: |
+          docker exec intelx_uwsgi coverage run manage.py test --keepdb tests
+
+  frontend-tests:
+    runs-on: ubuntu-latest
+    needs: ["detect-changes"]
+    if: ${{ needs.detect-changes.outputs.frontend > 0 }}
+
+    steps:
+      - uses: actions/checkout@v4.1.0
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 15
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-build-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            npm-build-${{ hashFiles('frontend/package-lock.json') }}
+            npm-build-
+            npm
+      - name: Install dependencies
+        run: |
+          npm i --no-optional --no-audit --no-fund
+        working-directory: ./frontend
+      - name: Lint with eslint
+        run: |
+          npm run lint
+        working-directory: ./frontend
+      - name: Lint with prettier
+        run: |
+          npm run prettier:check
+        working-directory: ./frontend
+      - name: Lint with stylelint
+        run: |
+          npm run prettier:stylelint-check
+        working-directory: ./frontend
+      - name: Test with Jest
+        run: |
+          npm run test -- --silent --coverage
+        working-directory: ./frontend

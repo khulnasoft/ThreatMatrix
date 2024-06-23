@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: library/postgres:16-alpine
+    container_name: intelx_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./env_file_postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      interval: 5s
+      timeout: 2s
+      retries: 6
+      start_period: 3s
+
+
+  uwsgi:
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+
+  celery_worker_default:
+    depends_on:
+      postgres:
+        condition: service_healthy

@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: sphinxcontrib-openapi
+Version: 0.8.3
+Summary: OpenAPI (fka Swagger) spec renderer for Sphinx
+Home-page: https://github.com/sphinx-contrib/openapi
+Author: Ihor Kalnytskyi
+Author-email: ihor@kalnytskyi.com
+License: BSD
+Project-URL: Documentation, https://sphinxcontrib-openapi.readthedocs.io/
+Project-URL: Source, https://github.com/sphinx-contrib/openapi
+Project-URL: Bugs, https://github.com/sphinx-contrib/openapi/issues
+Keywords: sphinx openapi swagger rest api renderer docs
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Framework :: Setuptools Plugin
+Classifier: Framework :: Sphinx
+Classifier: Framework :: Sphinx :: Extension
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: sphinx >=2.0
+Requires-Dist: sphinxcontrib-httpdomain >=1.5.0
+Requires-Dist: PyYAML >=3.12
+Requires-Dist: jsonschema >=2.5.1
+Requires-Dist: sphinx-mdinclude >=0.5.2
+Requires-Dist: picobox >=2.2
+Requires-Dist: deepmerge >=0.1
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+
+=====================
+sphinxcontrib-openapi
+=====================
+
+**sphinxcontrib-openapi** is a `Sphinx`_ extension to generate APIs docs from
+`OpenAPI`_ (fka Swagger) spec. It depends on `sphinxcontrib-httpdomain`_ that
+provides an HTTP domain for describing RESTful HTTP APIs, so we don't need to
+reinvent the wheel.
+
+.. code:: bash
+
+   $ python3 -m pip install sphinxcontrib-openapi
+
+
+Usage
+=====
+
+Pass ``sphinxcontrib-openapi`` to ``extensions`` list in  Sphinx's ``conf.py``
+
+.. code:: python
+
+   extensions = [
+      ...
+      'sphinxcontrib.openapi',
+   ]
+
+and feel free to use the ``openapi`` directive to render OpenAPI specs
+
+.. code:: restructuredtext
+
+   .. openapi:: path/to/openapi.yml
+
+
+Links
+=====
+
+* Documentation: https://sphinxcontrib-openapi.readthedocs.org/
+* Source: https://github.com/sphinx-contrib/openapi
+* Bugs: https://github.com/sphinx-contrib/openapi/issues
+
+
+.. _Sphinx: https://www.sphinx-doc.org/en/master/
+.. _OpenAPI: https://github.com/OAI/OpenAPI-Specification
+.. _sphinxcontrib-httpdomain: https://sphinxcontrib-httpdomain.readthedocs.io/
