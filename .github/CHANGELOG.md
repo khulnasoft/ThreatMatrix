@@ -293,7 +293,7 @@ and restart IntelX. It should solve the permissions problem.
 
 With this release we welcome new official maintainers of IntelX:
 - [Simone Berni](https://twitter.com/0ssig3no): Key Contributor and Backend Maintainer
-- [Daniele Rosetti](https://github.com/drosetti): Key Contributor and Frontend Maintainer
+- [Daniele Rosetti](https://github.com/nxpkg): Key Contributor and Frontend Maintainer
 
 These awesome guys will help us maintaining the project and will bring IntelX to the next level! 🚀
 Be ready for new awesome features!
@@ -400,7 +400,7 @@ Each contributor wrote a blog post regarding his work for IntelX during this sum
   - [Aditya Pratap Singh](https://twitter.com/devmrfitz): [IntelX v4 improvements](https://www.honeynet.org/2022/09/26/gsoc-2022-project-summary-intelx-v4-improvements/)
   - [Hussain Khan](https://twitter.com/Hussain41099635): [IntelX Go Client](https://www.honeynet.org/2022/09/06/gsoc-2022-project-summary-intelx-go-client-go-intelx/)
 
-I would like to thank them and all the mentors (@sp35, @eshaan7, @0ssigeno, @drosetti) for the efforts put in the place during the last months!
+I would like to thank them and all the mentors (@sp35, @eshaan7, @0ssigeno, @nxpkg) for the efforts put in the place during the last months!
 
 Looking forward for the Google Summer of Code 2023!
 
@@ -437,7 +437,7 @@ Looking forward for the Google Summer of Code 2023!
 
 After months of work, we are finally ready to move forward and anticipate the new major 4.0.0 release for IntelX!
 
-The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/eshaan7_), in ReactJS, and the code included in the main IntelX repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
+The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/khulnasoft), in ReactJS, and the code included in the main IntelX repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
 
 The overall user feeling should be drastically improved. We hope you'll enjoy the new appearance of IntelX! Please try it out and provide us feedback!
 

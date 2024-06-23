@@ -117,13 +117,3 @@ In 2022 IntelX joined the official [DigitalOcean Open Source Program](https://ww
 ### Other collaborations
  * [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=intelx&utm_medium=banner)
  * [Tines](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx)
-
-
-## About the author and maintainers
-
-Feel free to contact the main developers at any time on Twitter:
-
-- [Matteo Lodi](https://twitter.com/matte_lodi): Author and principal maintainer
-- [Simone Berni](https://twitter.com/0ssig3no): Backend Maintainer
-- [Daniele Rosetti](https://github.com/drosetti): Frontend Maintainer
-- [Eshaan Bansal](https://twitter.com/eshaan7_): Key Contributor

@@ -57,7 +57,7 @@ updates:
       day: "tuesday"
     target-branch: "develop"
     reviewers:
-      - drosetti
+      - nxpkg
 
   - package-ecosystem: "docker"
     directory: "/docker"
