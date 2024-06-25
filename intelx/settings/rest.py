@@ -39,7 +39,7 @@ REST_DURIN = {
     "AUTH_HEADER_PREFIX": "Token",
     "TOKEN_CACHE_TIMEOUT": 300,  # 5 minutes
     "REFRESH_TOKEN_ON_LOGIN": True,
-    "API_ACCESS_CLIENT_NAME": "PyIntelX",
+    "API_ACCESS_CLIENT_NAME": "IntelpY",
     "API_ACCESS_EXCLUDE_FROM_SESSIONS": True,
     "API_ACCESS_RESPONSE_INCLUDE_TOKEN": True,
     # not part of durin but used in data migration

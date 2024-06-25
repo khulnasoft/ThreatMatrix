@@ -6,7 +6,7 @@ Main features:
 
 - Provides enrichment of Threat Intel for malware as well as observables (IP, Domain, URL, hash, etc).
 - This application is built to **scale out** and to **speed up the retrieval of threat info**.
-- Thanks to the official libraries [pyintelx](https://github.com/khulnasoft/pyintelx) and [go-intelx](https://github.com/khulnasoft/go-intelx), it can be integrated easily in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually.
+- Thanks to the official libraries [intelpy](https://github.com/khulnasoft/intelpy) and [go-intelx](https://github.com/khulnasoft/go-intelx), it can be integrated easily in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually.
 - IntelX is composed of:
   - **analyzers** that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)
   - **connectors** that can be run to export data to external platforms (like MISP or OpenCTI)

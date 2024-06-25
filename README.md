@@ -30,7 +30,7 @@ This application is built to **scale out** and to **speed up the retrieval of th
 It provides:
 - **Enrichment of Threat Intel** for files as well as observables (IP, Domain, URL, hash, etc).
 - A Fully-fledged REST APIs written in Django and Python.
-- An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries [pyintelx](https://github.com/khulnasoft/pyintelx) and [go-intelx](https://github.com/khulnasoft/go-intelx))
+- An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries [intelpy](https://github.com/khulnasoft/intelpy) and [go-intelx](https://github.com/khulnasoft/go-intelx))
 - A **built-in GUI**: provides features such as dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, etc.
 - A **framework** composed of modular components called **Plugins**:
   - *analyzers* that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)

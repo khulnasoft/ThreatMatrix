@@ -27,9 +27,9 @@ There are multiple ways to interact with the IntelX APIs,
 
    - Built-in Web interface with dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, tags management and more features
    
-2. pyIntelX (CLI/SDK)
+2. intelpY (CLI/SDK)
 
-   - Official Python client that is available at: [PyIntelX](https://github.com/khulnasoft/pyintelx),
+   - Official Python client that is available at: [IntelpY](https://github.com/khulnasoft/intelpy),
    - Can be used as a library for your own python projects or...
    - directly via the command line interface.
 
@@ -68,7 +68,7 @@ Analyzers are the most important plugins in IntelX. They allow to perform data e
 The following is the list of the available analyzers you can run out-of-the-box. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-analyzer-config`
+- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-analyzer-config`
 
 ##### File analyzers:
 
@@ -301,7 +301,7 @@ Connectors are designed to run after every successful analysis which makes them 
 The following is the list of the available connectors. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-connector-config`
+- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-connector-config`
 
 ##### List of pre-built Connectors
 
@@ -397,7 +397,7 @@ This is a feature introduced since IntelX v4.1.0! Please provide feedback about 
 The following is the list of the available pre-built playbooks. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-playbook-config`
+- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-playbook-config`
 
 ##### List of pre-built playbooks
 
@@ -545,8 +545,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Stop a plugin whose status is `running`/`pending`:
 
   - GUI: Buttons on reports table on job result page.
-  - PyIntelX: `IntelX.kill_analyzer` and `IntelX.kill_connector` function.
-  - CLI: `$ pyintelx jobs kill-analyzer <job_id> <analyzer_name>` and `$ pyintelx jobs kill-connector <job_id> <connector_name>`
+  - IntelpY: `IntelX.kill_analyzer` and `IntelX.kill_connector` function.
+  - CLI: `$ intelpy jobs kill-analyzer <job_id> <analyzer_name>` and `$ intelpy jobs kill-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type/{plugin_name}/kill` and `PATCH /api/job/{job_id}/connector/{connector_name}/kill`
 
 - **retry:**
@@ -554,8 +554,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Retry a plugin whose status is `failed`/`killed`:
 
   - GUI: Buttons on reports table on job result page.
-  - PyIntelX: `IntelX.retry_analyzer` and `IntelX.retry_connector` function,
-  - CLI: `$ pyintelx jobs retry-analyzer <job_id> <analyzer_name>` and `$ pyintelx jobs retry-connector <job_id> <connector_name>`
+  - IntelpY: `IntelX.retry_analyzer` and `IntelX.retry_connector` function,
+  - CLI: `$ intelpy jobs retry-analyzer <job_id> <analyzer_name>` and `$ intelpy jobs retry-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type}/{plugin_name}/retry`
 
 - **healthcheck:**
@@ -563,8 +563,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Check if a plugin is able to connect to its provider:
 
   - GUI: Buttons on every plugin table.
-  - PyIntelX: `IntelX.analyzer_healthcheck` and `IntelX.connector_healthcheck` methods.
-  - CLI: `$ pyintelx analyzer-healthcheck <analyzer_name>` and `$ pyintelx connector-healthcheck <connector_name>`
+  - IntelpY: `IntelX.analyzer_healthcheck` and `IntelX.connector_healthcheck` methods.
+  - CLI: `$ intelpy analyzer-healthcheck <analyzer_name>` and `$ intelpy connector-healthcheck <connector_name>`
   - API: `GET /api/{plugin_type}/{plugin_name}/healthcheck`
   
 - **pull:**
