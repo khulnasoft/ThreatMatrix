@@ -275,7 +275,7 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
             if not param_value:
                 raise AnalyzerRunException(
                     "Unexpected Error. "
-                    f"Please check log files under /var/log/intelx/{name.lower()}/"
+                    f"Please check log files under /var/log/intel_x/{name.lower()}/"
                 )
         # just in case couldn't catch the error manually
         resp.raise_for_status()

@@ -19,13 +19,7 @@ describe("TableVisualizer component", () => {
       <TableVisualizer
         id="test-id"
         size="col-6"
-        columns={[
-          {
-            name: "column_name",
-            maxWidth: 300,
-            description: "test description",
-          },
-        ]}
+        columns={["column_name"]}
         data={[
           {
             column_name: (
@@ -79,15 +73,7 @@ describe("TableVisualizer component", () => {
         id="test-id"
         size="col-6"
         alignment="around"
-        columns={[
-          {
-            name: "column_name",
-            maxWidth: 300,
-            description: "test description",
-            disableFilters: true,
-            disableSortBy: true,
-          },
-        ]}
+        columns={["column_name"]}
         data={[
           {
             column_name: (
@@ -100,7 +86,8 @@ describe("TableVisualizer component", () => {
           },
         ]}
         pageSize={3}
-        sortBy={[{ id: "column_name", desc: false }]}
+        disableFilters
+        disableSortBy
       />,
     );
 

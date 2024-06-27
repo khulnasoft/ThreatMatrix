@@ -5,13 +5,13 @@
 
 import sys
 
-from intelx import secrets
+from intel_x import secrets
 
 from .aws import AWS_RDS_IAM_ROLE, AWS_REGION
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-PG_DB = secrets.get_secret("DB_NAME", "intelx_db")
+PG_DB = secrets.get_secret("DB_NAME", "intel_x_db")
 PG_HOST = secrets.get_secret("DB_HOST")
 PG_PORT = secrets.get_secret("DB_PORT")
 PG_USER = secrets.get_secret("DB_USER")

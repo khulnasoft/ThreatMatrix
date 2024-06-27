@@ -1,6 +1,6 @@
 # Advanced Configuration
 
-This page includes details about some advanced features that IntelX provides which can be **optionally** configured by the administrator.
+This page includes details about some advanced features that Intel Owl provides which can be **optionally** configured by the administrator.
 
   - [ElasticSearch](#elastic-search)
     - [Kibana](#kibana)
@@ -34,7 +34,7 @@ In the `env_file_app_template`, you'd see various elasticsearch related environm
 
 #### Kibana
 
-IntelX provides a Kibana's "Saved Object" configuration (with example dashboard and visualizations). It can be downloaded from [here](https://github.com/khulnasoft/IntelX/blob/develop/configuration/Kibana-Saved-Conf.ndjson) and can be imported into Kibana by going to the "Saved Objects" panel (http://localhost:5601/app/management/kibana/objects).
+Intel Owl provides a Kibana's "Saved Object" configuration (with example dashboard and visualizations). It can be downloaded from [here](https://github.com/khulnasoft/IntelX/blob/develop/configuration/Kibana-Saved-Conf.ndjson) and can be imported into Kibana by going to the "Saved Objects" panel (http://localhost:5601/app/management/kibana/objects).
 
 #### Example Configuration
 
@@ -68,7 +68,7 @@ To activate this feature, it is necessary to set `ELASTICSEARCH_BI_ENABLED` to `
 `ELASTICSEARCH_BI_HOST` to `elasticsearch:9200`
 or your elasticsearch server.
 
-An [index template](https://github.com/khulnasoft/IntelX/configuration/elastic_search_mappings/intelx_bi.json) is created after the first bulk submission of reports. 
+An [index template](https://github.com/khulnasoft/IntelX/configuration/elastic_search_mappings/intel_x_bi.json) is created after the first bulk submission of reports. 
 If you want to use kibana to visualize your data/make dashboard, you must create an index pattern:
 Go to Kibana -> Discover -> Stack Management -> Index Patterns -> search for your index and use as time field `timestamp` 
 
@@ -102,7 +102,7 @@ While configuring Google Auth2 you can choose either to enable access to the all
 
 IntelX leverages [Django-auth-ldap](https://github.com/django-auth-ldap/django-auth-ldap) to perform authentication via LDAP.
 
-How to configure and enable LDAP on IntelX?
+How to configure and enable LDAP on Intel Owl?
 
 1. Change the values with your LDAP configuration inside `configuration/ldap_config.py`. This file is mounted as a docker volume, so you won't need to rebuild the image.
 
@@ -119,7 +119,7 @@ For more details on how to configure this file, check the <a href="https://djang
 IntelX leverages [Django-radius](https://github.com/robgolding/django-radius) to perform authentication
 via RADIUS server.
 
-How to configure and enable RADIUS authentication on IntelX?
+How to configure and enable RADIUS authentication on Intel Owl?
 
 1. Change the values with your RADIUS auth configuration inside `configuration/radius_config.py`. This file is mounted as a
    docker volume, so you won't need to rebuild the image.
@@ -227,7 +227,7 @@ You need to configure the environment variable `AWS_SES` to `True` to enable it.
 
 You can use the "Secrets Manager" to store your credentials. In this way your secrets would be better protected.
 
-Instead of adding the variables to the environment file, you should just add them with the same name on the AWS Secrets Manager and IntelX will fetch them transparently.
+Instead of adding the variables to the environment file, you should just add them with the same name on the AWS Secrets Manager and Intel Owl will fetch them transparently.
 
 Obviously, you should have created and managed the permissions in AWS in advance and accordingly to your infrastructure requirements.
 
@@ -295,7 +295,7 @@ IntelX can still be started by using the standard `docker compose` command, but 
 
 ### Options
 The `--project-directory` and `-p` options are required to run the project.
-Default values set by `./start` script are "docker" and "intelx", respectively.
+Default values set by `./start` script are "docker" and "intel_x", respectively.
 
 The startup is based on [chaining](https://docs.docker.com/compose/multiple-compose-files/merge/) various Docker Compose YAML files using `-f` option. 
 All Docker Compose files are stored in `docker/` directory of the project.
@@ -304,13 +304,13 @@ In their absence, the `postgres.override.yml` and `rabbitmq.override.yml` files 
 
 The command composed, considering what is said above (using `sudo`), is
 ```bash
-sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -p intelx up
+sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -p intel_x up
 ```
 
 The other most common compose file that can be used is for the testing environment. 
 The equivalent of running `./start test up` is adding the `test.override.yml` file, resulting in:
 ```bash
-sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -f docker/test.override.yml -p intelx up
+sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -f docker/test.override.yml -p intel_x up
 ```
 
 All other options available in the `./start` script (`./start -h` to view them) essentially chain other compose file to `docker compose` command with corresponding filenames.

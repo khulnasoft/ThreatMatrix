@@ -24,7 +24,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 14  # seconds * minutes * hours * days
 if DEBUG:
     MIDDLEWARE.append("silk.middleware.SilkyMiddleware")
 
-ROOT_URLCONF = "intelx.urls"
+ROOT_URLCONF = "intel_x.urls"
 
 TEMPLATES = [
     {
@@ -45,7 +45,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "intelx.wsgi.application"
+WSGI_APPLICATION = "intel_x.wsgi.application"
 
 # Internationalization
 

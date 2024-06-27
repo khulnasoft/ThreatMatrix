@@ -11,16 +11,17 @@ services:
         PYCTI_VERSION: ${PYCTI_VERSION:-5.10.0}
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
     environment:
       - DEBUG=True
       - DJANGO_TEST_SERVER=True
       - DJANGO_WATCHMAN_TIMEOUT=60
+      - WATCHMAN=True
 
   daphne:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
 
   nginx:
     build:
@@ -33,13 +34,19 @@ services:
   celery_beat:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
     environment:
       - DEBUG=True
+      - DJANGO_TEST_SERVER=True
+      - DJANGO_WATCHMAN_TIMEOUT=60
+      - WATCHMAN=True
 
   celery_worker_default:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
     environment:
       - DEBUG=True
+      - DJANGO_TEST_SERVER=True
+      - DJANGO_WATCHMAN_TIMEOUT=60
+      - WATCHMAN=True

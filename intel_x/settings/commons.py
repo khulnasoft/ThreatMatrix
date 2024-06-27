@@ -9,14 +9,14 @@ DEBUG = get_secret("DEBUG", False) == "True" or get_secret("DEBUG", False) is Tr
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).parent.parent.parent.parent
-PROJECT_LOCATION = BASE_DIR / "intelx"
+PROJECT_LOCATION = BASE_DIR / "intel_x"
 BASE_STATIC_PATH = PROJECT_LOCATION / "static"
 MEDIA_ROOT = BASE_DIR / "files_required"
 CONFIG_ROOT = PROJECT_LOCATION / "configuration"
 BLINT_REPORTS_PATH = MEDIA_ROOT / "blint"
 YARA_RULES_PATH = MEDIA_ROOT / "yara"  # path for manual yara rules
 
-LOG_DIR = Path("/") / "var" / "log" / "intelx"
+LOG_DIR = Path("/") / "var" / "log" / "intel_x"
 # test / ci
 MOCK_CONNECTIONS = get_secret("MOCK_CONNECTIONS", False) == "True"
 STAGE = get_secret("STAGE", "local")

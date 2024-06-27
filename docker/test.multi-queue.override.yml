@@ -4,14 +4,14 @@ services:
   celery_worker_local:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
 
   celery_worker_long:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x
 
   celery_worker_ingestor:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x

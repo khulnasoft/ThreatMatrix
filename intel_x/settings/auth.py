@@ -7,7 +7,7 @@
 
 import os
 
-from intelx import secrets
+from intel_x import secrets
 
 AUTH_USER_MODEL = "certego_saas_user.User"  # custom user model
 
@@ -39,7 +39,7 @@ if LDAP_ENABLED:
 if RADIUS_AUTH_ENABLED:
     from configuration.radius_config import *  # lgtm [py/polluting-import] skipcq PYL-W0614
 
-    AUTHENTICATION_BACKENDS.append("intelx.backends.CustomRADIUSBackend")
+    AUTHENTICATION_BACKENDS.append("intel_x.backends.CustomRADIUSBackend")
 
 AUTHLIB_OAUTH_CLIENTS = {}
 

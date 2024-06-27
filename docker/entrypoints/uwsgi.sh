@@ -1,11 +1,10 @@
 #!/bin/bash
 
-until cd /opt/deploy/intelx
+until cd /opt/deploy/intel_x
 do
     echo "Waiting for server volume..."
 done
-mkdir -p /var/log/intelx/django /var/log/intelx/uwsgi /var/log/intelx/asgi /opt/deploy/intelx/files_required/blint /opt/deploy/intelx/files_required/yara
-chown -R www-data:www-data /var/log/intelx/django /var/log/intelx/uwsgi /var/log/intelx/asgi /opt/deploy/intelx/files_required/blint /opt/deploy/intelx/files_required/yara
+sudo su www-data -c "mkdir -p /var/log/intel_x/django /var/log/intel_x/uwsgi /var/log/intel_x/asgi /opt/deploy/intel_x/files_required/blint /opt/deploy/intel_x/files_required/yara"
 
 # Apply database migrations
 echo "Waiting for db to be ready..."
@@ -31,20 +30,9 @@ CHANGELOG_NOTIFICATION_COMMAND='python manage.py changelog_notification .github/
 
 if [[ $DEBUG == "True" ]] && [[ $DJANGO_TEST_SERVER == "True" ]];
 then
-    # Create superuser if it does not exist
-    exists=$(echo "from django.contrib.auth import get_user_model; User = get_user_model(); print(User.objects.filter(username='admin').exists())" | python manage.py shell)
-
-    if [ "$exists" == "True" ]; then
-        echo "Superuser 'admin' already exists."
-    else
-        echo "Creating superuser 'admin' with password 'admin'..."
-        echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
-        echo "Superuser 'admin' created successfully."
-    fi
-
     $CHANGELOG_NOTIFICATION_COMMAND --debug
     python manage.py runserver 0.0.0.0:8001
 else
     $CHANGELOG_NOTIFICATION_COMMAND
-    /usr/local/bin/uwsgi --ini /etc/uwsgi/sites/intelx.ini --stats 127.0.0.1:1717 --stats-http
+    /usr/local/bin/uwsgi --ini /etc/uwsgi/sites/intel_x.ini --stats 127.0.0.1:1717 --stats-http
 fi

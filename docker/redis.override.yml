@@ -22,7 +22,7 @@ services:
     hostname: redis
     restart: unless-stopped
     volumes:
-      - generic_logs:/var/log/intelx
+      - generic_logs:/var/log/intel_x
     expose:
       - "6379"
     healthcheck:

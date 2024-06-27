@@ -66,7 +66,7 @@ def post_migrate_api_app(
         return
     from django_celery_beat.models import PeriodicTask
 
-    from intelx.tasks import update
+    from intel_x.tasks import update
 
     for module in PythonModule.objects.filter(health_check_schedule__isnull=False):
         for config in module.configs.filter(health_check_task__isnull=True):

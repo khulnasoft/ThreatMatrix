@@ -18,8 +18,8 @@ from django.utils.timezone import now
 from django_celery_beat.models import PeriodicTask
 
 from api_app.choices import Status
-from intelx import secrets
-from intelx.celery import app, get_queue_name
+from intel_x import secrets
+from intel_x.celery import app, get_queue_name
 
 logger = logging.getLogger(__name__)
 
@@ -166,7 +166,7 @@ def check_stuck_analysis(minutes_ago: int = 25, check_pending: bool = False):
 @shared_task(base=FailureLoggedTask, soft_time_limit=150)
 def update(python_module_pk: int):
     from api_app.models import PythonModule
-    from intelx.celery import broadcast
+    from intel_x.celery import broadcast
 
     python_module: PythonModule = PythonModule.objects.get(pk=python_module_pk)
     if settings.NFS:

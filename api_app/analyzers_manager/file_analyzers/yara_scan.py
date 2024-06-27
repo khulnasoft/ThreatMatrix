@@ -18,7 +18,7 @@ from django.utils.functional import cached_property
 from api_app.analyzers_manager.classes import FileAnalyzer
 from api_app.analyzers_manager.exceptions import AnalyzerRunException
 from api_app.models import Parameter, PluginConfig
-from intelx.settings._util import set_permissions
+from intel_x.settings._util import set_permissions
 
 logger = logging.getLogger(__name__)
 
@@ -162,7 +162,7 @@ class YaraRepo:
 
     @property
     def compiled_file_name(self):
-        return "intelx_compiled.yas"
+        return "intel_x_compiled.yas"
 
     @cached_property
     def first_level_directories(self) -> List[PosixPath]:

@@ -10,7 +10,7 @@ docker/env_file_postgres
 docker/env_file_integrations
 docker/custom.override.yml
 venv/
-intelx_test_env/
+intel_x_test_env/
 compose-elk.yml
 
 .python_history
@@ -45,6 +45,3 @@ coverage.xml
 *.cover
 .hypothesis/
 /.env
-
-# post run dev
-integrations/malware_tools_analyzers/clamav/sigs

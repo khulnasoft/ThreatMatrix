@@ -1,7 +1,7 @@
 # This file is a part of IntelX https://github.com/khulnasoft/IntelX
 # See the file 'LICENSE' for copying permission.
 
-from intelx import secrets
+from intel_x import secrets
 
 from .commons import DEBUG, LOG_DIR
 
@@ -33,17 +33,17 @@ LOGGING = {
             "filename": f"{DJANGO_LOG_DIRECTORY}/api_app_errors.log",
             "formatter": "stdfmt",
         },
-        "intelx": {
+        "intel_x": {
             "level": INFO_OR_DEBUG_LEVEL,
             # we use Logrotate instead of RotatingFileHandler because more reliable
             "class": "logging.handlers.WatchedFileHandler",
-            "filename": f"{DJANGO_LOG_DIRECTORY}/intelx.log",
+            "filename": f"{DJANGO_LOG_DIRECTORY}/intel_x.log",
             "formatter": "stdfmt",
         },
-        "intelx_error": {
+        "intel_x_error": {
             "level": "ERROR",
             "class": "logging.handlers.WatchedFileHandler",
-            "filename": f"{DJANGO_LOG_DIRECTORY}/intelx_errors.log",
+            "filename": f"{DJANGO_LOG_DIRECTORY}/intel_x_errors.log",
             "formatter": "stdfmt",
         },
         "celery": {
@@ -122,8 +122,8 @@ LOGGING = {
             "level": INFO_OR_DEBUG_LEVEL,
             "propagate": True,
         },
-        "intelx": {
-            "handlers": ["intelx", "intelx_error"],
+        "intel_x": {
+            "handlers": ["intel_x", "intel_x_error"],
             "level": INFO_OR_DEBUG_LEVEL,
             "propagate": True,
         },
@@ -132,7 +132,7 @@ LOGGING = {
             "level": INFO_OR_DEBUG_LEVEL,
             "propagate": True,
         },
-        "intelx.tasks": {
+        "intel_x.tasks": {
             "handlers": ["celery", "celery_error"],
             "level": INFO_OR_DEBUG_LEVEL,
             "propagate": True,

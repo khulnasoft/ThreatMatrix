@@ -14,12 +14,12 @@ from django.conf import settings
 from kombu import Queue
 from kombu.common import Broadcast
 
-from intelx.settings import STAGE_PRODUCTION, STAGE_STAGING
+from intel_x.settings import STAGE_PRODUCTION, STAGE_STAGING
 
 logger = logging.getLogger(__name__)
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "intelx.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "intel_x.settings")
 
-app = Celery("intelx")
+app = Celery("intel_x")
 
 
 def get_queue_url(queue):
@@ -94,7 +94,7 @@ app.conf.update(
     accept_content=["application/json"],
     task_serializer="json",
     result_serializer="json",
-    imports=("intelx.tasks",),
+    imports=("intel_x.tasks",),
     worker_redirect_stdouts=False,
     worker_hijack_root_logger=False,
     # this is to avoid RAM issues caused by long usage of this tool
@@ -135,7 +135,7 @@ app.conf.beat_schedule = {
         },
     },
     "remove_old_jobs": {
-        "task": "intelx.tasks.remove_old_jobs",
+        "task": "intel_x.tasks.remove_old_jobs",
         "schedule": crontab(minute=10, hour=2),
         "options": {
             "queue": get_queue_name(settings.DEFAULT_QUEUE),
@@ -143,7 +143,7 @@ app.conf.beat_schedule = {
         },
     },
     "check_stuck_analysis": {
-        "task": "intelx.tasks.check_stuck_analysis",
+        "task": "intel_x.tasks.check_stuck_analysis",
         "schedule": crontab(minute="*/5"),
         "kwargs": {"check_pending": True},
         "options": {
@@ -152,7 +152,7 @@ app.conf.beat_schedule = {
         },
     },
     "update_notifications_with_releases": {
-        "task": "intelx.tasks.update_notifications_with_releases",
+        "task": "intel_x.tasks.update_notifications_with_releases",
         "schedule": crontab(minute=0, hour=22),
         "options": {
             "queue": get_queue_name(settings.DEFAULT_QUEUE),

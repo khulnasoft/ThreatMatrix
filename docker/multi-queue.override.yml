@@ -16,8 +16,8 @@ services:
     hostname: celery_worker_local
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_local.sh
@@ -35,8 +35,8 @@ services:
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_long.sh
@@ -54,8 +54,8 @@ services:
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_ingestor.sh

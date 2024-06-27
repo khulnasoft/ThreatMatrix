@@ -1,9 +1,9 @@
-# IntelX
+<img src="docs/static/intel_x_positive.png" width=547 height=150 alt="Intel Owl"/>
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/IntelX)](https://github.com/khulnasoft/IntelX/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/IntelX?style=social)](https://github.com/khulnasoft/IntelX/stargazers)
 [![Docker](https://img.shields.io/docker/pulls/khulnasoft/intelx)](https://hub.docker.com/repository/docker/khulnasoft/intelx)
-[![Twitter Follow](https://img.shields.io/twitter/follow/intelx?style=social)](https://twitter.com/khulnasoft)
+[![Twitter Follow](https://img.shields.io/twitter/follow/intel_x?style=social)](https://twitter.com/intel_x)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/intelx/)
 [![Official Site](https://img.shields.io/badge/official-site-blue)](https://khulnasoft.github.io)
 [![Live Instance](https://img.shields.io/badge/live-demo-blue)](https://intelx.honeynet.org)
@@ -17,6 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/IntelX.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/IntelX/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
+# Intel Owl
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
@@ -30,7 +31,7 @@ This application is built to **scale out** and to **speed up the retrieval of th
 It provides:
 - **Enrichment of Threat Intel** for files as well as observables (IP, Domain, URL, hash, etc).
 - A Fully-fledged REST APIs written in Django and Python.
-- An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries [intelpy](https://github.com/khulnasoft/intelpy) and [go-intelx](https://github.com/khulnasoft/go-intelx))
+- An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries [pyintelx](https://github.com/khulnasoft/pyintelx) and [go-intelx](https://github.com/khulnasoft/go-intelx))
 - A **built-in GUI**: provides features such as dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, etc.
 - A **framework** composed of modular components called **Plugins**:
   - *analyzers* that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)
@@ -62,8 +63,67 @@ You can see the full list of all available analyzers in the [documentation](http
 
 As open source project maintainers, we strongly rely on external support to get the resources and time to work on keeping the project alive, with a constant release of new features, bug fixes and general improvements.
 
-Because of this, we joined [Open Collective](https://opencollective.com/intelx-project) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support IntelX and all the community by choosing a plan (BRONZE, SILVER, etc).
+Because of this, we joined [Open Collective](https://opencollective.com/intelx) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support IntelX and all the community by choosing a plan (BRONZE, SILVER, etc).
 
-<a href="https://opencollective.com/intelx-project/donate" target="_blank">
-  <img src="https://opencollective.com/intelx-project/donate/button@2x.png?color=blue" width=200 />
+<a href="https://opencollective.com/intelx/donate" target="_blank">
+  <img src="https://opencollective.com/intelx/donate/button@2x.png?color=blue" width=200 />
 </a>
+
+### 🥇 GOLD
+
+#### Certego
+
+<a href="https://certego.net/?utm_source=intelx"> <img style="margin-right: 2px" width=250 height=71 src="docs/static/Certego.png" alt="Certego Logo"/></a>
+
+[Certego](https://certego.net/?utm_source=intelx) is a MDR (Managed Detection and Response) and Threat Intelligence Provider based in Italy.
+
+IntelX was born out of Certego's Threat intelligence R&D division and is constantly maintained and updated thanks to them.
+
+#### The Honeynet Project
+
+<a href="https://www.honeynet.org"> <img style="border: 0.2px solid black" width=125 height=125 src="docs/static/honeynet_logo.png" alt="Honeynet.org logo"> </a>
+
+[The Honeynet Project](https://www.honeynet.org) is a non-profit organization working on creating open source cyber security tools and sharing knowledge about cyber threats.
+
+Thanks to Honeynet, we are hosting a public demo of the application [here](https://intelx.honeynet.org). If you are interested, please contact a member of Honeynet to get access to the public service.
+
+#### Google Summer of Code
+<a href="https://summerofcode.withgoogle.com/"> <img style="border: 0.2px solid black" width=150 height=89 src="docs/static/gsoc_logo.png" alt="GSoC logo"> </a>
+
+Since its birth this project has been participating in the [Google Summer of Code](https://summerofcode.withgoogle.com/) (GSoC)!
+
+If you are interested in participating in the next Google Summer of Code, check all the info available in the [dedicated repository](https://github.com/khulnasoft/gsoc)!
+
+
+### 🥈 SILVER
+
+#### ThreatHunter.ai
+
+<a href="https://threathunter.ai?utm_source=intelx"> <img style="border: 0.2px solid black" width=194 height=80 src="docs/static/threathunter_logo.png" alt="ThreatHunter.ai logo"> </a>
+
+[ThreatHunter.ai®](https://threathunter.ai?utm_source=intelx), is a 100% Service-Disabled Veteran-Owned Small Business started in 2007 under the name Milton Security Group. ThreatHunter.ai is the global leader in Dynamic Threat Hunting. Operating a true 24x7x365 Security Operation Center with AI/ML-enhanced human Threat Hunters, ThreatHunter.ai has changed the industry in how threats are found, and mitigated in real time. For over 15 years, our teams of Threat Hunters have stopped hundreds of thousands of threats and assisted organizations in defending against threat actors around the clock.
+
+### 🥉 BRONZE
+
+#### Docker
+
+In 2021 IntelX joined the official [Docker Open Source Program](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/). This allows IntelX developers to easily manage Docker images and focus on writing the code. You may find the official IntelX Docker images [here](https://hub.docker.com/search?q=khulnasoft).
+
+#### DigitalOcean
+
+In 2022 IntelX joined the official [DigitalOcean Open Source Program](https://www.digitalocean.com/open-source?utm_medium=opensource&utm_source=IntelX).
+
+
+### Other collaborations
+ * [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=intelx&utm_medium=banner)
+ * [Tines](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx)
+
+
+## About the author and maintainers
+
+Feel free to contact the main developers at any time on Twitter:
+
+- [Matteo Lodi](https://twitter.com/matte_lodi): Author and principal maintainer
+- [Simone Berni](https://twitter.com/0ssig3no): Backend Maintainer
+- [Daniele Rosetti](https://github.com/drosetti): Frontend Maintainer
+- [Eshaan Bansal](https://twitter.com/eshaan7_): Key Contributor

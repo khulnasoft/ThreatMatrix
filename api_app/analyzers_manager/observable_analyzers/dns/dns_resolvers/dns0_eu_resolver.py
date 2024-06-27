@@ -22,9 +22,6 @@ class DNS0EUResolver(classes.ObservableAnalyzer):
     class NotADomain(Exception):
         pass
 
-    url = "https://dns0.eu"
-    headers = {"Accept": "application/dns-json"}
-
     query_type: str
 
     def run(self):
@@ -41,9 +38,11 @@ class DNS0EUResolver(classes.ObservableAnalyzer):
                 else:
                     raise self.NotADomain()
 
+            headers = {"Accept": "application/dns-json"}
+            url = "https://dns0.eu"
             params = {"name": observable, "type": self.query_type}
 
-            response = requests.get(self.url, headers=self.headers, params=params)
+            response = requests.get(url, headers=headers, params=params)
             response.raise_for_status()
             resolutions = response.json().get("Answer", [])
         except requests.RequestException:

@@ -5,7 +5,7 @@ import os
 
 from django.core.files.storage import FileSystemStorage
 
-from intelx import secrets
+from intel_x import secrets
 
 from ._util import get_secret
 from .commons import BASE_STATIC_PATH, MEDIA_ROOT
@@ -28,7 +28,7 @@ if LOCAL_STORAGE:
             # we have one single sample for every analyzer
             return file.path
 
-    DEFAULT_FILE_STORAGE = "intelx.settings.FileSystemStorageWrapper"
+    DEFAULT_FILE_STORAGE = "intel_x.settings.FileSystemStorageWrapper"
 else:
     from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -54,5 +54,5 @@ else:
                         local_file_object.write(content)
             return _path
 
-    DEFAULT_FILE_STORAGE = "intelx.settings.S3Boto3StorageWrapper"
+    DEFAULT_FILE_STORAGE = "intel_x.settings.S3Boto3StorageWrapper"
     AWS_STORAGE_BUCKET_NAME = secrets.get_secret("AWS_STORAGE_BUCKET_NAME")

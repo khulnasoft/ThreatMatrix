@@ -123,7 +123,8 @@ function convertToElement(element, idElement, isChild = false) {
             return obj;
           })}
           pageSize={element.pageSize}
-          sortBy={[{ id: element.sortById, desc: element.sortByDesc }]}
+          disableFilters={element.disableFilters}
+          disableSortBy={element.disableSortBy}
         />
       );
       break;

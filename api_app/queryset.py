@@ -50,7 +50,7 @@ class SendToBiQuerySet(models.QuerySet):
     @staticmethod
     def _create_index_template():
         with open(
-            settings.CONFIG_ROOT / "elastic_search_mappings" / "intelx_bi.json"
+            settings.CONFIG_ROOT / "elastic_search_mappings" / "intel_x_bi.json"
         ) as f:
             body = json.load(f)
             body["index_patterns"] = [f"{settings.ELASTICSEARCH_BI_INDEX}-*"]
@@ -545,7 +545,7 @@ class PythonConfigQuerySet(AbstractConfigQuerySet):
 
     def get_signatures(self, job) -> Generator[Signature, None, None]:
         from api_app.models import AbstractReport, Job, PythonConfig
-        from intelx import tasks
+        from intel_x import tasks
 
         job: Job
         for config in self:

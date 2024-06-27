@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - generic_logs:/var/log/intelx
+      - generic_logs:/var/log/intel_x
       - shared_htpasswd:/opt/deploy/shared_htpasswd
     expose:
       - "5555"

@@ -1,7 +1,7 @@
 from django.core.mail import EmailMessage
 
 from api_app.connectors_manager.classes import Connector
-from intelx.settings import DEFAULT_FROM_EMAIL
+from intel_x.settings import DEFAULT_FROM_EMAIL
 from tests.mock_utils import if_mock_connections, patch
 
 

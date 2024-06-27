@@ -24,7 +24,7 @@ from rest_framework.views import APIView
 
 from certego_saas.ext.mixins import RecaptchaV2Mixin
 from certego_saas.ext.throttling import POSTUserRateThrottle
-from intelx.settings import AUTH_USER_MODEL
+from intel_x.settings import AUTH_USER_MODEL
 
 from .oauth import oauth
 from .serializers import (

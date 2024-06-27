@@ -1,7 +1,7 @@
 # This file is a part of IntelX https://github.com/khulnasoft/IntelX
 # See the file 'LICENSE' for copying permission.
 
-from intelx import secrets
+from intel_x import secrets
 
 # AWS settings
 AWS_IAM_ACCESS = secrets.get_secret("AWS_IAM_ACCESS", False) == "True"

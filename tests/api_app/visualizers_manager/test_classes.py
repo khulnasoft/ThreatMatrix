@@ -17,7 +17,6 @@ from api_app.visualizers_manager.classes import (
     VisualizableObject,
     VisualizablePage,
     VisualizableTable,
-    VisualizableTableColumn,
     VisualizableTitle,
     VisualizableVerticalList,
     Visualizer,
@@ -25,11 +24,7 @@ from api_app.visualizers_manager.classes import (
 from api_app.visualizers_manager.decorators import (
     visualizable_error_handler_with_params,
 )
-from api_app.visualizers_manager.enums import (
-    VisualizableColor,
-    VisualizableSize,
-    VisualizableTableColumnSize,
-)
+from api_app.visualizers_manager.enums import VisualizableColor, VisualizableSize
 from api_app.visualizers_manager.models import VisualizerConfig
 from tests import CustomTestCase
 
@@ -206,7 +201,7 @@ class VisualizableVerticalListTestCase(CustomTestCase):
                     "alignment": "center",
                     "bold": False,
                     "color": "",
-                    "disable": True,
+                    "disable": False,
                     "icon": "",
                     "italic": False,
                     "link": "",
@@ -246,33 +241,15 @@ class VisualizableTableTestCase(CustomTestCase):
                 )
             }
         ]
-        columns = [
-            VisualizableTableColumn(
-                name="column_name",
-                description="test description",
-                max_width=VisualizableTableColumnSize.S_300,
-                disable_filters=True,
-                disable_sort_by=True,
-            ),
-        ]
-        vvl = VisualizableTable(
-            columns=columns, data=data, sort_by_desc=True, sort_by_id="column_name"
-        )
+        columns = ["column_name"]
+        vvl = VisualizableTable(columns=columns, data=data)
         expected_result = {
             "size": "auto",
             "alignment": "around",
-            "columns": [
-                {
-                    "name": "column_name",
-                    "max_width": 300,
-                    "description": "test description",
-                    "disable_filters": True,
-                    "disable_sort_by": True,
-                }
-            ],
+            "columns": ["column_name"],
             "page_size": 5,
-            "sort_by_id": "column_name",
-            "sort_by_desc": True,
+            "disable_filters": False,
+            "disable_sort_by": False,
             "type": "table",
             "data": [
                 {
@@ -296,30 +273,17 @@ class VisualizableTableTestCase(CustomTestCase):
         self.assertEqual(vvl.to_dict(), expected_result)
 
     def test_to_dict_data_null(self):
-        columns = [
-            VisualizableTableColumn(
-                name="column_name",
-                description="test description",
-            ),
-        ]
+        columns = ["column_name"]
         vvl = VisualizableTable(columns=columns, data=[])
         expected_result = {
             "size": "auto",
             "alignment": "around",
-            "columns": [
-                {
-                    "name": "column_name",
-                    "max_width": 300,
-                    "description": "test description",
-                    "disable_filters": False,
-                    "disable_sort_by": False,
-                }
-            ],
+            "columns": ["column_name"],
             "page_size": 5,
+            "disable_filters": False,
+            "disable_sort_by": False,
             "type": "table",
             "data": [],
-            "sort_by_id": "",
-            "sort_by_desc": False,
         }
         self.assertCountEqual(vvl.to_dict(), expected_result)
 
@@ -553,24 +517,3 @@ class ErrorHandlerTestCase(CustomTestCase):
                 "type": "title",
             },
         )
-
-
-class VisualizableTableColumnTestCase(CustomTestCase):
-    def test_to_dict(self):
-        co = VisualizableTableColumn(
-            name="id",
-            description="test description",
-            max_width=VisualizableTableColumnSize.S_300,
-            disable_filters=True,
-            disable_sort_by=True,
-        )
-        result = co.to_dict()
-
-        expected_result = {
-            "name": "id",
-            "description": "test description",
-            "max_width": 300,
-            "disable_filters": True,
-            "disable_sort_by": True,
-        }
-        self.assertEqual(expected_result, result)

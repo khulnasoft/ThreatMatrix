@@ -8,7 +8,7 @@ from django.dispatch import receiver
 
 from api_app.pivots_manager.models import PivotConfig
 from api_app.signals import migrate_finished
-from intelx.celery import get_queue_name
+from intel_x.celery import get_queue_name
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ def post_migrate_pivots_manager(
     logger.info(f"Post migrate {args} {kwargs}")
     if check_unapplied:
         return
-    from intelx.tasks import refresh_cache
+    from intel_x.tasks import refresh_cache
 
     refresh_cache.apply_async(
         queue=get_queue_name(settings.CONFIG_QUEUE),

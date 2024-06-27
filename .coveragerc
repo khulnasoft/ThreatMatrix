@@ -2,7 +2,7 @@
 branch = True
 source = 
     api_app
-    intelx
+    intel_x
 concurrency = multiprocessing
 parallel = True
 

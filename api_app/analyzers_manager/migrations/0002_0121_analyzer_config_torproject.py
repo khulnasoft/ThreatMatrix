@@ -25,7 +25,7 @@ plugin = {
                 "month_of_year": "*",
             },
             "name": "api_app.analyzers_manager.observable_analyzers.tor.TorUpdate",
-            "task": "intelx.tasks.update",
+            "task": "intel_x.tasks.update",
             "kwargs": '{"python_module_pk": 101}',
             "queue": "default",
             "enabled": True,

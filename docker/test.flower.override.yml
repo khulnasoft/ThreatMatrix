@@ -4,4 +4,4 @@ services:
   flower:
     image: khulnasoft/intelx:test
     volumes:
-      - ../:/opt/deploy/intelx
+      - ../:/opt/deploy/intel_x

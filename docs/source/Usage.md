@@ -19,17 +19,17 @@ This page includes the most important things to know and understand when using I
 
 ## How to interact with IntelX
 
-IntelX main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.
+Intel Owl main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.
 
-There are multiple ways to interact with the IntelX APIs,
+There are multiple ways to interact with the Intel Owl APIs,
 
 1. Web Interface
 
    - Built-in Web interface with dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, tags management and more features
    
-2. intelpY (CLI/SDK)
+2. pyIntelX (CLI/SDK)
 
-   - Official Python client that is available at: [IntelpY](https://github.com/khulnasoft/intelpy),
+   - Official Python client that is available at: [PyIntelX](https://github.com/khulnasoft/pyintelx),
    - Can be used as a library for your own python projects or...
    - directly via the command line interface.
 
@@ -38,13 +38,13 @@ There are multiple ways to interact with the IntelX APIs,
 
 <div class="admonition hint">
 <p class="admonition-title">Hint: Tokens Creation</p>
-The server authentication is managed by API tokens. So, if you want to interact with IntelX, you have two ways to do that:
+The server authentication is managed by API tokens. So, if you want to interact with Intel Owl, you have two ways to do that:
 <ul>
 <li>If you are a normal user, you can go to the "API Access/Sessions" section of the GUI and create a Token there.</li>
 <li>If you are an administrator of IntelX, you can create one or more unprivileged users from the Django Admin Interface and then generate a token for those users.
 </li>
 </ul>
-Afterwards you can leverage the created tokens with the IntelX Client.
+Afterwards you can leverage the created tokens with the Intel Owl Client.
 </div>
 
 ## Plugins Framework
@@ -68,7 +68,7 @@ Analyzers are the most important plugins in IntelX. They allow to perform data e
 The following is the list of the available analyzers you can run out-of-the-box. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-analyzer-config`
+- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-analyzer-config`
 
 ##### File analyzers:
 
@@ -100,7 +100,6 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `Suricata`: Analyze PCAPs with open IDS signatures with [Suricata engine](https://github.com/OISF/suricata)
 * `Thug_HTML_Info`: Perform hybrid dynamic/static analysis on a HTML file using [Thug low-interaction honeyclient](https://thug-honeyclient.readthedocs.io/)
 * `Xlm_Macro_Deobfuscator`: [XlmMacroDeobfuscator](https://github.com/DissectMalware/XLMMacroDeobfuscator) deobfuscate xlm macros
-* `DetectItEasy`:[DetectItEasy](https://github.com/horsicq/Detect-It-Easy) is a program for determining types of files.
 * `Yara`: scan a file with
   * [ATM malware yara rules](https://github.com/fboldewin/YARA-rules)
   * [bartblaze yara rules](https://github.com/bartblaze/Yara-rules)
@@ -152,8 +151,6 @@ The following is the list of the available analyzers you can run out-of-the-box.
 - `YARAify_File_Search`: scan an hash against [YARAify](https://yaraify.abuse.ch/) database
 -  `Zippy_scan` : [Zippy](https://github.com/thinkst/zippy): Fast method to classify text as AI or human-generated; takes in `lzma`,`zlib`,`brotli` as input based engines; `ensemble` being default.
 - `Blint`: [Blint](https://github.com/owasp-dep-scan/blint) is a Binary Linter that checks the security properties and capabilities of your executables. Supported binary formats: - Android (apk, aab) - ELF (GNU, musl) - PE (exe, dll) - Mach-O (x64, arm64)
-- `MalprobScan` : [Malprob](https://malprob.io/) is a leading malware detection and identification service, powered by cutting-edge AI technology.
-
 ##### Observable analyzers (ip, domain, url, hash)
 
 ###### Internal tools
@@ -260,7 +257,6 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `CyCat`: [CyCat](https://cycat.org/) or the CYbersecurity Resource CATalogue aims at mapping and documenting, in a single formalism and catalogue available cybersecurity tools, rules, playbooks, processes and controls. 
 * `Vulners`: [Vulners](vulners.com) is the most complete and the only fully correlated security intelligence database, which goes through constant updates and links 200+ data sources in a unified machine-readable format. It contains 8 mln+ entries, including CVEs, advisories, exploits, and IoCs — everything you need to stay abreast on the latest security threats.
 * `AILTypoSquatting`:[AILTypoSquatting](https://github.com/typosquatter/ail-typo-squatting) is a Python library to generate list of potential typo squatting domains with domain name permutation engine to feed AIL and other systems.
-* `MalprobSearch`:[Malprob](https://malprob.io/) is a leading malware detection and identification service, powered by cutting-edge AI technology.
 
 ##### Generic analyzers (email, phone number, etc.; anything really)
 
@@ -301,7 +297,7 @@ Connectors are designed to run after every successful analysis which makes them 
 The following is the list of the available connectors. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-connector-config`
+- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-connector-config`
 
 ##### List of pre-built Connectors
 
@@ -367,7 +363,6 @@ To simplify the process, take example from the pre-built visualizers listed belo
 - `Domain_Reputation`: Visualizer for the Playbook "Popular_URL_Reputation_Services"
 - `IP_Reputation`: Visualizer for the Playbook "Popular_IP_Reputation_Services"
 - `Pivot`: Visualizer that can be used in a Playbook to show the Pivot execution result. See [Pivots](#pivots) for more info.
-- `Passive_DNS`: Visualizer for the Playbook "Passive_DNS".
 
 ### Ingestors
 
@@ -397,7 +392,7 @@ This is a feature introduced since IntelX v4.1.0! Please provide feedback about 
 The following is the list of the available pre-built playbooks. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelpy](https://github.com/khulnasoft/intelpy): `$ intelpy get-playbook-config`
+- [pyintelx](https://github.com/khulnasoft/pyintelx): `$ pyintelx get-playbook-config`
 
 ##### List of pre-built playbooks
 
@@ -409,7 +404,6 @@ The following is the list of the available pre-built playbooks. You can also nav
 - `Takedown_Request`: Start investigation to request to take down a malicious domain. A mail will be sent to the domain's abuse contacts found
 - `Abuse_IP`: Playbook containing the Abusix analyzer. It is executed after the Takedown_Request playbook
 - `Send_Abuse_Email`: Playbook containing the AbuseSubmitter connector to send an email to request to take down a malicious domain. It is executed after the Abuse_IP playbook
-- `Passive_DNS`: Playbook containing the analyzers that retrieve information from Passive DNS
 
 #### Playbooks creation and customization
 
@@ -545,8 +539,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Stop a plugin whose status is `running`/`pending`:
 
   - GUI: Buttons on reports table on job result page.
-  - IntelpY: `IntelX.kill_analyzer` and `IntelX.kill_connector` function.
-  - CLI: `$ intelpy jobs kill-analyzer <job_id> <analyzer_name>` and `$ intelpy jobs kill-connector <job_id> <connector_name>`
+  - PyIntelX: `IntelX.kill_analyzer` and `IntelX.kill_connector` function.
+  - CLI: `$ pyintelx jobs kill-analyzer <job_id> <analyzer_name>` and `$ pyintelx jobs kill-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type/{plugin_name}/kill` and `PATCH /api/job/{job_id}/connector/{connector_name}/kill`
 
 - **retry:**
@@ -554,8 +548,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Retry a plugin whose status is `failed`/`killed`:
 
   - GUI: Buttons on reports table on job result page.
-  - IntelpY: `IntelX.retry_analyzer` and `IntelX.retry_connector` function,
-  - CLI: `$ intelpy jobs retry-analyzer <job_id> <analyzer_name>` and `$ intelpy jobs retry-connector <job_id> <connector_name>`
+  - PyIntelX: `IntelX.retry_analyzer` and `IntelX.retry_connector` function,
+  - CLI: `$ pyintelx jobs retry-analyzer <job_id> <analyzer_name>` and `$ pyintelx jobs retry-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type}/{plugin_name}/retry`
 
 - **healthcheck:**
@@ -563,8 +557,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Check if a plugin is able to connect to its provider:
 
   - GUI: Buttons on every plugin table.
-  - IntelpY: `IntelX.analyzer_healthcheck` and `IntelX.connector_healthcheck` methods.
-  - CLI: `$ intelpy analyzer-healthcheck <analyzer_name>` and `$ intelpy connector-healthcheck <connector_name>`
+  - PyIntelX: `IntelX.analyzer_healthcheck` and `IntelX.connector_healthcheck` methods.
+  - CLI: `$ pyintelx analyzer-healthcheck <analyzer_name>` and `$ pyintelx connector-healthcheck <connector_name>`
   - API: `GET /api/{plugin_type}/{plugin_name}/healthcheck`
   
 - **pull:**

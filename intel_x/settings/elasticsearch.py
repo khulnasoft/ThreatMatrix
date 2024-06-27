@@ -3,7 +3,7 @@
 
 from elasticsearch import Elasticsearch
 
-from intelx import secrets
+from intel_x import secrets
 
 ELASTICSEARCH_BI_ENABLED = (
     secrets.get_secret("ELASTICSEARCH_BI_ENABLED", False) == "True"

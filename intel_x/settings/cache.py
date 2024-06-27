@@ -40,8 +40,8 @@ class DatabaseCacheExtended(DatabaseCache):
 
 CACHES = {
     "default": {
-        "BACKEND": "intelx.settings.cache.DatabaseCacheExtended",
+        "BACKEND": "intel_x.settings.cache.DatabaseCacheExtended",
         "LOCATION": "intelx_cache",
-        "KEY_FUNCTION": "intelx.settings.cache.plain_key",
+        "KEY_FUNCTION": "intel_x.settings.cache.plain_key",
     }
 }

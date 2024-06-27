@@ -1,10 +1,12 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX"
+# This file is a part of IntelX https://github.com/khulnasoft/IntelX
 # See the file 'LICENSE' for copying permission.
 
 import sys
 from pathlib import PosixPath
 
-header0 = "# This file is a part of IntelX https://github.com/khulnasoft/IntelX"
+header0 = (
+    "# This file is a part of IntelX https://github.com/khulnasoft/IntelX"
+)
 header1 = "# See the file 'LICENSE' for copying permission."
 
 

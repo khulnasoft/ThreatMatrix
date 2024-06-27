@@ -26,7 +26,7 @@ class IngestorConfigSignalsTestCase(CustomTestCase):
         )
         self.assertIsNotNone(ic.periodic_task)
         self.assertEqual(ic.periodic_task.name, "TestIngestor")
-        self.assertEqual(ic.periodic_task.task, "intelx.tasks.execute_ingestor")
+        self.assertEqual(ic.periodic_task.task, "intel_x.tasks.execute_ingestor")
         self.assertFalse(ic.periodic_task.enabled)
         self.assertEqual(ic.periodic_task.crontab, crontab)
         self.assertEqual(ic.periodic_task.queue, "default")

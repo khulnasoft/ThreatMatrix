@@ -16,12 +16,12 @@ RUN npm install npm@latest --location=global \
 FROM python:3.11.7 as backend-build
 
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE intelx.settings
-ENV PYTHONPATH /opt/deploy/intelx
-ENV LOG_PATH /var/log/intelx
+ENV DJANGO_SETTINGS_MODULE intel_x.settings
+ENV PYTHONPATH /opt/deploy/intel_x
+ENV LOG_PATH /var/log/intel_x
 ARG REPO_DOWNLOADER_ENABLED=true
 ARG WATCHMAN=false
-ENV watch_logs_cmd "watch -n1 tail -n10 /var/log/intelx/django/api_app.log"
+ENV watch_logs_cmd "watch -n1 tail -n10 /var/log/intel_x/django/api_app.log"
 ARG PYCTI_VERSION=6.1.0
 
 RUN mkdir -p ${LOG_PATH} \
@@ -57,7 +57,7 @@ RUN pip3 install --no-cache-dir --compile -r project-requirements.txt \
 COPY . $PYTHONPATH
 
 RUN touch ${LOG_PATH}/django/api_app.log ${LOG_PATH}/django/api_app_errors.log \
-    && touch ${LOG_PATH}/django/intelx.log ${LOG_PATH}/django/intelx_errors.log \
+    && touch ${LOG_PATH}/django/intel_x.log ${LOG_PATH}/django/intel_x_errors.log \
     && touch ${LOG_PATH}/django/celery.log ${LOG_PATH}/django/celery_errors.log \
     && touch ${LOG_PATH}/django/django_auth_ldap.log ${LOG_PATH}/django/django_errors.log \
     && touch ${LOG_PATH}/django/certego_saas.log ${LOG_PATH}/django/certego_saas_errors.log \

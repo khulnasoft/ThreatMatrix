@@ -5,7 +5,7 @@ DB_HOST=postgres
 DB_PORT=5432
 DB_USER=user
 DB_PASSWORD=password
-DB_NAME=intelx_db
+DB_NAME=intel_x_db
 
 # Config variables
 OLD_JOBS_RETENTION_DAYS=2
@@ -52,7 +52,7 @@ DEBUG=True
 DISABLE_LOGGING_TEST=True
 MOCK_CONNECTIONS=True
 HTTPS_ENABLED=not_enabled
-DJANGO_SETTINGS_MODULE=intelx.settings
+DJANGO_SETTINGS_MODULE=intel_x.settings
 COVERAGE_PROCESS_START=.coveragerc
 
 # broker configuration

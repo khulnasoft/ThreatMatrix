@@ -9,11 +9,11 @@ services:
     image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
     container_name: intelx_uwsgi
     volumes:
-      - ../configuration/intelx.ini:/etc/uwsgi/sites/intelx.ini # uwsgi configuration file
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration/intel_x.ini:/etc/uwsgi/sites/intel_x.ini # uwsgi configuration file
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - ../frontend/public/env.js:/var/www/reactapp/env.js # this is needed because we have to mount the file from the server to the image BEFORE staticfiles
-      - static_content:/opt/deploy/intelx/static
+      - static_content:/opt/deploy/intel_x/static
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/uwsgi.sh
@@ -34,7 +34,7 @@ services:
     container_name: intelx_daphne
     restart: unless-stopped
     volumes:
-      - generic_logs:/var/log/intelx
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/daphne.sh
@@ -63,6 +63,8 @@ services:
       - ../configuration/nginx/locations.conf:/etc/nginx/locations.conf
       - nginx_logs:/var/log/nginx
       - static_content:/var/www/static
+    ports:
+      - "80:80"
     depends_on:
       uwsgi:
         condition: service_healthy
@@ -74,8 +76,8 @@ services:
     container_name: intelx_celery_beat
     restart: unless-stopped
     volumes:
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_beat.sh
@@ -93,8 +95,8 @@ services:
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intelx/configuration
-      - generic_logs:/var/log/intelx
+      - ../configuration:/opt/deploy/intel_x/configuration
+      - generic_logs:/var/log/intel_x
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_default.sh

@@ -32,7 +32,7 @@ from api_app.serializers.report import AbstractReportSerializerInterface
 from api_app.visualizers_manager.models import VisualizerConfig
 from certego_saas.apps.organization.permissions import IsObjectOwnerOrSameOrgPermission
 from certego_saas.apps.user.models import User
-from intelx.celery import get_queue_name
+from intel_x.celery import get_queue_name
 
 logger = logging.getLogger(__name__)
 
@@ -359,7 +359,7 @@ class _AbstractJobCreateSerializer(rfs.ModelSerializer):
                 starting_job=validated_data["parent"], ending_job=job, pivot_config=None
             )
         if send_task:
-            from intelx.tasks import job_pipeline
+            from intel_x.tasks import job_pipeline
 
             logger.info(f"Sending task for job {job.pk}")
             job_pipeline.apply_async(
@@ -1079,7 +1079,7 @@ class JobBISerializer(AbstractBIInterface, ModelSerializer):
 
     def to_representation(self, instance: Job):
         data = super().to_representation(instance)
-        return self.to_elastic_dict(data, self.get_index())
+        return self.to_elastic_dict(data)
 
     @staticmethod
     def get_playbook(instance: Job):

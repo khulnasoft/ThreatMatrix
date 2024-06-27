@@ -30,8 +30,8 @@ from certego_saas.apps.organization.permissions import (
 from certego_saas.ext.helpers import cache_action_response, parse_humanized_range
 from certego_saas.ext.mixins import SerializerActionMixin
 from certego_saas.ext.viewsets import ReadAndDeleteOnlyViewSet
-from intelx import tasks
-from intelx.celery import app as celery_app
+from intel_x import tasks
+from intel_x.celery import app as celery_app
 
 from .analyzers_manager.constants import ObservableTypes
 from .choices import ObservableClassification

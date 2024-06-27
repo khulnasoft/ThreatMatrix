@@ -4,7 +4,7 @@ There are a lot of different ways you could choose to contribute to the IntelX P
 
 - main repository: [IntelX](https://github.com/khulnasoft/IntelX)
 
-- official Python client:  [intelpy](https://github.com/khulnasoft/intelpy).
+- official Python client:  [pyintelx](https://github.com/khulnasoft/pyintelx).
 
 - official GO client: [go-intelx](https://github.com/khulnasoft/go-intelx).
 
@@ -14,7 +14,7 @@ There are a lot of different ways you could choose to contribute to the IntelX P
 
 ## Rules
 
-IntelX welcomes contributors from anywhere and from any kind of education or skill level. We strive to create a community of developers that is welcoming, friendly and right.
+Intel Owl welcomes contributors from anywhere and from any kind of education or skill level. We strive to create a community of developers that is welcoming, friendly and right.
 
 For this reason it is important to follow some easy rules based on a simple but important concept: **Respect**.
 
@@ -665,6 +665,6 @@ This is the reason why it is important to add tons of logs in the application...
 
 Where are IntelX logs?
 With a default installation of IntelX, you would be able to get the application data from the following paths in your OS:
-* `/var/lib/docker/volumes/intelx_generic_logs/_data/django`: Django Application logs
-* `/var/lib/docker/volumes/intelx_generic_logs/_data/uwsgi`: Uwsgi application server logs
-* `/var/lib/docker/volumes/intelx_nginx_logs/_data/`: Nginx Web Server Logs
+* `/var/lib/docker/volumes/intel_x_generic_logs/_data/django`: Django Application logs
+* `/var/lib/docker/volumes/intel_x_generic_logs/_data/uwsgi`: Uwsgi application server logs
+* `/var/lib/docker/volumes/intel_x_nginx_logs/_data/`: Nginx Web Server Logs

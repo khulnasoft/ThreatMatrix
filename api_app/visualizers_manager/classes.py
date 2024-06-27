@@ -16,7 +16,6 @@ from api_app.visualizers_manager.enums import (
     VisualizableIcon,
     VisualizableLevelSize,
     VisualizableSize,
-    VisualizableTableColumnSize,
 )
 from api_app.visualizers_manager.exceptions import (
     VisualizerConfigurationException,
@@ -209,7 +208,7 @@ class VisualizableVerticalList(VisualizableListMixin, VisualizableObject):
                     f"value {v} should be a VisualizableObject and not a string"
                 )
         if fill_empty and not value:
-            value = [VisualizableBase(value="no data available", disable=True)]
+            value = [VisualizableBase(value="no data available", disable=False)]
         if not name:
             start_open = True
         self.value = value
@@ -262,58 +261,23 @@ class VisualizableVerticalList(VisualizableListMixin, VisualizableObject):
         return "vertical_list"
 
 
-class VisualizableTableColumn:
-    def __init__(
-        self,
-        name: str,
-        max_width: VisualizableTableColumnSize = VisualizableTableColumnSize.S_300,
-        description: str = "",
-        disable_filters: bool = False,
-        disable_sort_by: bool = False,
-    ):
-        self.name = name
-        self.description = description
-        self.disable_filters = disable_filters
-        self.disable_sort_by = disable_sort_by
-        self.max_width = max_width
-
-    @property
-    def attributes(self) -> List[str]:
-        return [
-            "name",
-            "description",
-            "disable_filters",
-            "disable_sort_by",
-            "max_width",
-        ]
-
-    def to_dict(self) -> Dict:
-        if not self:
-            return {}
-        result = {attr: getattr(self, attr) for attr in self.attributes}
-        for key, value in result.items():
-            if isinstance(value, Enum):
-                result[key] = value.value
-        return result
-
-
 class VisualizableTable(VisualizableObject):
     def __init__(
         self,
-        columns: List[VisualizableTableColumn],
+        columns: List[str],
         data: List[Dict[str, VisualizableObject]],
         size: VisualizableSize = VisualizableSize.S_AUTO,
         alignment: VisualizableAlignment = VisualizableAlignment.AROUND,
         page_size: int = 5,
-        sort_by_id: str = "",
-        sort_by_desc: bool = False,
+        disable_filters: bool = False,
+        disable_sort_by: bool = False,
     ):
         super().__init__(size=size, alignment=alignment, disable=False)
         self.data = data
         self.columns = columns
         self.page_size = page_size
-        self.sort_by_id = sort_by_id
-        self.sort_by_desc = sort_by_desc
+        self.disable_filters = disable_filters
+        self.disable_sort_by = disable_sort_by
 
     @property
     def attributes(self) -> List[str]:
@@ -321,8 +285,8 @@ class VisualizableTable(VisualizableObject):
             "data",
             "columns",
             "page_size",
-            "sort_by_id",
-            "sort_by_desc",
+            "disable_filters",
+            "disable_sort_by",
         ]
 
     @property
@@ -332,7 +296,6 @@ class VisualizableTable(VisualizableObject):
     def to_dict(self) -> Dict:
         result = super().to_dict()
         data: List[Dict[str, VisualizableObject]] = result.pop("data", [])
-        columns: List[VisualizableTableColumn] = result.pop("columns", [])
         if any(x for x in data):
             new_data = []
             for element in data:
@@ -346,12 +309,6 @@ class VisualizableTable(VisualizableObject):
             result["data"] = new_data
         else:
             result["data"] = []
-        if any(x for x in columns):
-            result["columns"] = [
-                column.to_dict() for column in columns if column is not None
-            ]
-        else:
-            result["columns"] = []
         result.pop("disable")
         return result
 
@@ -426,8 +383,6 @@ class Visualizer(Plugin, metaclass=abc.ABCMeta):
     VList = VisualizableVerticalList
     HList = VisualizableHorizontalList
     Table = VisualizableTable
-
-    TableColumn = VisualizableTableColumn
 
     LevelSize = VisualizableLevelSize
     Page = VisualizablePage

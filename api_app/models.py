@@ -60,8 +60,8 @@ from api_app.queryset import (
 from api_app.validators import plugin_name_validator, validate_runtime_configuration
 from certego_saas.apps.organization.organization import Organization
 from certego_saas.models import User
-from intelx import tasks
-from intelx.celery import get_queue_name
+from intel_x import tasks
+from intel_x.celery import get_queue_name
 
 logger = logging.getLogger(__name__)
 
@@ -152,7 +152,7 @@ class PythonModule(models.Model):
         self._clean_python_module()
 
     def generate_update_periodic_task(self):
-        from intelx.tasks import update
+        from intel_x.tasks import update
 
         if hasattr(self, "update_schedule") and self.update_schedule:
             enabled = settings.REPO_DOWNLOADER_ENABLED and not self.disabled
@@ -478,7 +478,7 @@ class Job(MP_Node):
         from api_app.connectors_manager.models import ConnectorConfig
         from api_app.visualizers_manager.models import VisualizerConfig
         from api_app.websocket import JobConsumer
-        from intelx.celery import app as celery_app
+        from intel_x.celery import app as celery_app
 
         for config in [AnalyzerConfig, ConnectorConfig, VisualizerConfig]:
             reports = self.__get_config_reports(config).filter(
@@ -882,7 +882,7 @@ class OrganizationPluginConfiguration(models.Model):
             0
         ]
         if not self.rate_limit_enable_task:
-            from intelx.tasks import enable_configuration_for_org_for_rate_limit
+            from intel_x.tasks import enable_configuration_for_org_for_rate_limit
 
             self.rate_limit_enable_task = PeriodicTask.objects.create(
                 name=f"{self.config.name}"
@@ -1253,7 +1253,7 @@ class PythonConfig(AbstractConfig):
         return params.filter(configured=True)
 
     def generate_health_check_periodic_task(self):
-        from intelx.tasks import health_check
+        from intel_x.tasks import health_check
 
         if (
             hasattr(self.python_module, "health_check_schedule")

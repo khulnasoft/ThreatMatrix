@@ -4,7 +4,7 @@
 # flake8: noqa
 
 # Tests
-TEST_RUNNER = "intelx.test_runner.MyTestRunner"
+TEST_RUNNER = "intel_x.test_runner.MyTestRunner"
 
 # Application definition
 INSTALLED_APPS = [

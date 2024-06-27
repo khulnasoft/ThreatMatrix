@@ -250,11 +250,11 @@ We have done some big refactor changes that could make your application do not w
 
 **CARE!!!** After having upgraded IntelX, in case the application does not start and you get an error like this:
 ```commandline
-PermissionError: [Errno 13] Permission denied: '/var/log/intelx/django/authentication.log
+PermissionError: [Errno 13] Permission denied: '/var/log/intel_x/django/authentication.log
 ```
 just run this:
 ```commandline
-sudo chown -R www-data:www-data /var/lib/docker/volumes/intelx_generic_logs/_data/django
+sudo chown -R www-data:www-data /var/lib/docker/volumes/intel_x_generic_logs/_data/django
 ```
 and restart IntelX. It should solve the permissions problem.
 
@@ -293,7 +293,7 @@ and restart IntelX. It should solve the permissions problem.
 
 With this release we welcome new official maintainers of IntelX:
 - [Simone Berni](https://twitter.com/0ssig3no): Key Contributor and Backend Maintainer
-- [Daniele Rosetti](https://github.com/nxpkg): Key Contributor and Frontend Maintainer
+- [Daniele Rosetti](https://github.com/drosetti): Key Contributor and Frontend Maintainer
 
 These awesome guys will help us maintaining the project and will bring IntelX to the next level! 🚀
 Be ready for new awesome features!
@@ -346,18 +346,18 @@ All open source and cyber security fans! We are calling you! Be the next contrib
 (...and under the hood we did some fixes and updates here and there)
 
 ## [v4.1.4](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.4)
-With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/intelx-project): [ThreatHunter.ai](https://threathunter.ai/?utm_source=intelx)! Thank you for your help!
+With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/intelx): [ThreatHunter.ai](https://threathunter.ai/?utm_source=intelx)! Thank you for your help!
 
 Moreover this release solves a bug regarding the creation of organization-level secrets which was not possible before.
 
 And this is the last release of this year for us! We will see each other back in 2023!
 
 ## [v4.1.3](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.3)
-With this version we officially announce that we have joined [Open Collective](https://opencollective.com/intelx-project) with the IntelX Project!
+With this version we officially announce that we have joined [Open Collective](https://opencollective.com/intelx) with the IntelX Project!
 
 If you love this project and you would like to help us, we would love to get your support there!
-<a href="https://opencollective.com/intelx-project/donate" target="_blank">
-  <img src="https://opencollective.com/intelx-project/donate/button@2x.png?color=blue" width=150 />
+<a href="https://opencollective.com/intelx/donate" target="_blank">
+  <img src="https://opencollective.com/intelx/donate/button@2x.png?color=blue" width=150 />
 </a>
 
 **New/Improved Analyzers:**
@@ -400,7 +400,7 @@ Each contributor wrote a blog post regarding his work for IntelX during this sum
   - [Aditya Pratap Singh](https://twitter.com/devmrfitz): [IntelX v4 improvements](https://www.honeynet.org/2022/09/26/gsoc-2022-project-summary-intelx-v4-improvements/)
   - [Hussain Khan](https://twitter.com/Hussain41099635): [IntelX Go Client](https://www.honeynet.org/2022/09/06/gsoc-2022-project-summary-intelx-go-client-go-intelx/)
 
-I would like to thank them and all the mentors (@sp35, @eshaan7, @0ssigeno, @nxpkg) for the efforts put in the place during the last months!
+I would like to thank them and all the mentors (@sp35, @eshaan7, @0ssigeno, @drosetti) for the efforts put in the place during the last months!
 
 Looking forward for the Google Summer of Code 2023!
 
@@ -437,7 +437,7 @@ Looking forward for the Google Summer of Code 2023!
 
 After months of work, we are finally ready to move forward and anticipate the new major 4.0.0 release for IntelX!
 
-The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/khulnasoft), in ReactJS, and the code included in the main IntelX repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
+The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/eshaan7_), in ReactJS, and the code included in the main IntelX repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
 
 The overall user feeling should be drastically improved. We hope you'll enjoy the new appearance of IntelX! Please try it out and provide us feedback!
 
@@ -620,7 +620,7 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 
 ## [v3.2.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.1)
 
-> Update IntelpY to version [4.1.3](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#413).
+> Update PyIntelX to version [4.1.3](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#413).
 
 **REST API changes**:
 
@@ -664,7 +664,7 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 
 **Notes:**
 
-- Update IntelpY to version [4.1.0](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#410).
+- Update PyIntelX to version [4.1.0](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#410).
 - Introducing IntelX Official [Parternship & Sponsorship Tiers](https://github.com/khulnasoft/IntelX/blob/master/.github/partnership_and_sponsors.md).
 - IntelX now has an official integration in [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx) templates.
 
@@ -702,7 +702,7 @@ This is a minor patch release.
 
 **Notes:**
 
-- Update IntelpY to version [4.0.0](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#400).
+- Update PyIntelX to version [4.0.0](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#400).
 - If you modified your local `analyzer_config.json` file, then you will need to merge the changes manually because of the new format.
 
 **Features:**
@@ -833,15 +833,15 @@ Then a lot of maintenance and overall project stability issues solved:
 - Introduced the possibility to enable/disable SSL check while connecting to a MISP platform. Thanks to @raw-data.
 - Users can now request to kill a job whose status is `running`.
   - GUI: Button on job result page.
-  - IntelpY: `IntelX.kill_running_job` function
-  - CLI: `$ intelpy jobs kill <id>`
+  - PyIntelX: `IntelX.kill_running_job` function
+  - CLI: `$ pyintelx jobs kill <id>`
   - API: `PATCH /api/jobs/{id}/kill`
 - Users can now delete a job.
   - GUI: Button on job result page.
-  - IntelpY: `IntelX.delete_job_by_id` function
-  - CLI: `$ intelpy jobs rm <id>`
+  - PyIntelX: `IntelX.delete_job_by_id` function
+  - CLI: `$ pyintelx jobs rm <id>`
   - API: `DELETE /api/jobs/{id}`
-- Users can now delete a tag from the command line/intelpy (Eg: `$ intelpy tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
+- Users can now delete a tag from the command line/pyintelx (Eg: `$ pyintelx tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
 
 **Others:**
 
@@ -957,7 +957,7 @@ This version was released earlier to fix installation problems triggered by the 
 
 **BREAKING CHANGE:**
 
-- New Token authentication method using the django-rest-durin package. When upgrading IntelX to `v1.8.0`, intelpy users must upgrade it too to `v2.0.0`. Also, intelpy users must create a new valid Token to interact with IntelX. More details, [here](https://github.com/khulnasoft/intelpy#generate-api-key).
+- New Token authentication method using the django-rest-durin package. When upgrading IntelX to `v1.8.0`, pyintelx users must upgrade it too to `v2.0.0`. Also, pyintelx users must create a new valid Token to interact with IntelX. More details, [here](https://github.com/khulnasoft/pyintelx#generate-api-key).
 - Many analyzer variants for VirusTotal and Thug have been removed from `analyzer_config.json` file.
   Explanation at [#224](https://github.com/khulnasoft/IntelX/issues/224). With added docs on how to use custom analyzer configuration at runtime.
 - Other analyzers were renamed due to better clarity and format:
@@ -1016,7 +1016,7 @@ Please see [v1.6.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.6.0) fo
 
 - added new analyzer for [FireEye speakeasy](https://github.com/fireeye/speakeasy)
 - updated [FireEye Capa](https://github.com/fireeye/capa) to 1.1.0
-- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use intelpy" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
+- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use pyintelx" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
 
 ## [v1.5.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.5.1)
 

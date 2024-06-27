@@ -12,7 +12,7 @@ from rest_framework.reverse import reverse
 
 from authentication.oauth import oauth
 from certego_saas.apps.user.models import User as _UserModel
-from intelx import secrets
+from intel_x import secrets
 
 from . import CustomOAuthTestCase
 

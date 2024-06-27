@@ -20,7 +20,7 @@ from certego_saas.apps.user.serializers import (
 from certego_saas.ext.upload import Slack
 from certego_saas.models import User
 from certego_saas.settings import certego_apps_settings
-from intelx.consts import REGEX_PASSWORD
+from intel_x.consts import REGEX_PASSWORD
 
 from .models import UserProfile
 
