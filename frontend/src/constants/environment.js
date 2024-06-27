@@ -1,7 +1,6 @@
 /* eslint-disable prefer-destructuring */
 export const INTELX_DOCS_URL = "https://intelx.readthedocs.io/en/latest/";
-export const PYINTELX_GH_URL =
-  "https://github.com/khulnasoft/pyintelx";
+export const PYINTELX_GH_URL = "https://github.com/khulnasoft/pyintelx";
 export const INTELX_TWITTER_ACCOUNT = "intel_x";
 
 // env variables

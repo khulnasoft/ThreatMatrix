@@ -17,8 +17,8 @@ export function InviteOnlyAlert() {
         &nbsp;Sign up below to join the waitlist!
       </h5>
       <p>
-        Please note that IntelX is operated as an invite-only trust group.
-        Once you sign up, our team will reach out to you at the provided email
+        Please note that IntelX is operated as an invite-only trust group. Once
+        you sign up, our team will reach out to you at the provided email
         address.
         <br />
         <span className="font-italic text-accent">
