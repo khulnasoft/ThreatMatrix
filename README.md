@@ -1,4 +1,4 @@
-<img src="docs/static/intel_x_positive.png" width=547 height=150 alt="Intel Owl"/>
+<img src="docs/static/intel_x_positive.png" width=547 height=150 alt="intel X"/>
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/IntelX)](https://github.com/khulnasoft/IntelX/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/IntelX?style=social)](https://github.com/khulnasoft/IntelX/stargazers)
@@ -17,7 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/IntelX.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/IntelX/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
-# Intel Owl
+# intel X
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
