@@ -9,7 +9,7 @@ This page includes details about some advanced features that intel X provides wh
   - [Optional Analyzers](#optional-analyzers)
   - [Customize analyzer execution](#customize-analyzer-execution)
     - [from the GUI](#from-the-gui)
-    - [from Intelpy](#from-intelpy)
+    - [from Intelxpy](#from-intelxpy)
     - [CyberChef](#cyberchef)
     - [PhoneInfoga](#phoneinfoga)
   - [Analyzers with special configuration](#analyzers-with-special-configuration)
@@ -179,7 +179,7 @@ Example:
 }
 ```
 
-##### from [Intelpy](https://github.com/khulnasoft/intelpy)
+##### from [Intelxpy](https://github.com/khulnasoft/intelxpy)
 
 While using `send_observable_analysis_request` or `send_file_analysis_request` endpoints, you can pass the parameter `runtime_configuration` with the optional values.
 Example:
@@ -190,7 +190,7 @@ runtime_configuration = {
         "additional_passwords_to_check": ["passwd", "2020"]
     }
 }
-intelpy_client.send_file_analysis_request(..., runtime_configuration=runtime_configuration)
+intelxpy_client.send_file_analysis_request(..., runtime_configuration=runtime_configuration)
 ```
 #### PhoneInfoga
 PhoneInfoga provides several [Scanners](https://sundowndev.github.io/phoneinfoga/getting-started/scanners/) to extract as much information as possible from a given phone number. Those scanners may require authentication, so they're automatically skipped when no authentication credentials are found.

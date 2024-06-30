@@ -5,7 +5,7 @@ import useTitle from "react-use/lib/useTitle";
 import { ContentSection } from "@certego/certego-ui";
 
 import TokenAccess from "./TokenAccess";
-import { INTELPY_GH_URL } from "../../../constants/environment";
+import { INTELXPY_GH_URL } from "../../../constants/environment";
 
 export default function TokenPage() {
   console.debug("APIPage rendered!");
@@ -24,7 +24,7 @@ export default function TokenPage() {
             You can generate an API key to access IntelX&apos;s RESTful API.
             Take a look to the available Python and Go clients:
             <a
-              href={INTELPY_GH_URL}
+              href={INTELXPY_GH_URL}
               target="_blank"
               rel="noreferrer"
               className="link-primary"

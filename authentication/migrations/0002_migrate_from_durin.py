@@ -12,10 +12,10 @@ def move_token_from_durin(apps, schema_editor):
         Token = apps.get_model("authtoken", "Token")
 
         for durin_token in AuthToken.objects.all():
-            # export only CLI token (client name IntelPy)
+            # export only CLI token (client name IntelXPy)
             # only in case user didn't have a rest framework token
             if (
-                durin_token.client.name == "IntelPy"
+                durin_token.client.name == "IntelXPy"
                 and not Token.objects.filter(user_id=durin_token.user.id).exists()
             ):
                 Token.objects.create(key=durin_token.token, user_id=durin_token.user.pk)

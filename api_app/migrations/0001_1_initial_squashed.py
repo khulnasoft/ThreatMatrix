@@ -39,9 +39,9 @@ def create_default_clients(apps, schema_editor):
     # We can't import the Client model directly as it may be a newer
     # version than this migration expects. We use the historical version.
     Client = apps.get_model("durin", "Client")
-    # for intelpy, custom token_ttl
+    # for intelxpy, custom token_ttl
     Client.objects.update_or_create(
-        name="intelpy", token_ttl=datetime.timedelta(weeks=4 * 12 * 10)
+        name="intelxpy", token_ttl=datetime.timedelta(weeks=4 * 12 * 10)
     )
     # others, default token_ttl
     Client.objects.update_or_create(name="web-browser")
