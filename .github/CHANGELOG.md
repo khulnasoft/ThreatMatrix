@@ -620,7 +620,7 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 
 ## [v3.2.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.1)
 
-> Update PyIntelX to version [4.1.3](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#413).
+> Update IntelPy to version [4.1.3](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#413).
 
 **REST API changes**:
 
@@ -664,7 +664,7 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 
 **Notes:**
 
-- Update PyIntelX to version [4.1.0](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#410).
+- Update IntelPy to version [4.1.0](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#410).
 - Introducing IntelX Official [Parternship & Sponsorship Tiers](https://github.com/khulnasoft/IntelX/blob/master/.github/partnership_and_sponsors.md).
 - IntelX now has an official integration in [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx) templates.
 
@@ -702,7 +702,7 @@ This is a minor patch release.
 
 **Notes:**
 
-- Update PyIntelX to version [4.0.0](https://github.com/khulnasoft/pyintelx/blob/master/.github/CHANGELOG.md#400).
+- Update IntelPy to version [4.0.0](https://github.com/khulnasoft/intelpy/blob/master/.github/CHANGELOG.md#400).
 - If you modified your local `analyzer_config.json` file, then you will need to merge the changes manually because of the new format.
 
 **Features:**
@@ -833,15 +833,15 @@ Then a lot of maintenance and overall project stability issues solved:
 - Introduced the possibility to enable/disable SSL check while connecting to a MISP platform. Thanks to @raw-data.
 - Users can now request to kill a job whose status is `running`.
   - GUI: Button on job result page.
-  - PyIntelX: `IntelX.kill_running_job` function
-  - CLI: `$ pyintelx jobs kill <id>`
+  - IntelPy: `IntelX.kill_running_job` function
+  - CLI: `$ intelpy jobs kill <id>`
   - API: `PATCH /api/jobs/{id}/kill`
 - Users can now delete a job.
   - GUI: Button on job result page.
-  - PyIntelX: `IntelX.delete_job_by_id` function
-  - CLI: `$ pyintelx jobs rm <id>`
+  - IntelPy: `IntelX.delete_job_by_id` function
+  - CLI: `$ intelpy jobs rm <id>`
   - API: `DELETE /api/jobs/{id}`
-- Users can now delete a tag from the command line/pyintelx (Eg: `$ pyintelx tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
+- Users can now delete a tag from the command line/intelpy (Eg: `$ intelpy tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
 
 **Others:**
 
@@ -957,7 +957,7 @@ This version was released earlier to fix installation problems triggered by the 
 
 **BREAKING CHANGE:**
 
-- New Token authentication method using the django-rest-durin package. When upgrading IntelX to `v1.8.0`, pyintelx users must upgrade it too to `v2.0.0`. Also, pyintelx users must create a new valid Token to interact with IntelX. More details, [here](https://github.com/khulnasoft/pyintelx#generate-api-key).
+- New Token authentication method using the django-rest-durin package. When upgrading IntelX to `v1.8.0`, intelpy users must upgrade it too to `v2.0.0`. Also, intelpy users must create a new valid Token to interact with IntelX. More details, [here](https://github.com/khulnasoft/intelpy#generate-api-key).
 - Many analyzer variants for VirusTotal and Thug have been removed from `analyzer_config.json` file.
   Explanation at [#224](https://github.com/khulnasoft/IntelX/issues/224). With added docs on how to use custom analyzer configuration at runtime.
 - Other analyzers were renamed due to better clarity and format:
@@ -1016,7 +1016,7 @@ Please see [v1.6.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.6.0) fo
 
 - added new analyzer for [FireEye speakeasy](https://github.com/fireeye/speakeasy)
 - updated [FireEye Capa](https://github.com/fireeye/capa) to 1.1.0
-- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use pyintelx" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
+- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use intelpy" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
 
 ## [v1.5.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.5.1)
 

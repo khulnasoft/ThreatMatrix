@@ -4,7 +4,7 @@ There are a lot of different ways you could choose to contribute to the IntelX P
 
 - main repository: [IntelX](https://github.com/khulnasoft/IntelX)
 
-- official Python client:  [pyintelx](https://github.com/khulnasoft/pyintelx).
+- official Python client:  [intelpy](https://github.com/khulnasoft/intelpy).
 
 - official GO client: [go-intelx](https://github.com/khulnasoft/go-intelx).
 
