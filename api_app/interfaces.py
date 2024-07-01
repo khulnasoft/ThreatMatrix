@@ -67,9 +67,11 @@ class CreateJobsFromPlaybookInterface:
         from tests.mock_utils import MockUpRequest
 
         files = [
-            data
-            if isinstance(data, File)
-            else File(io.BytesIO(data), name=f"{self.name}.{i}")
+            (
+                data
+                if isinstance(data, File)
+                else File(io.BytesIO(data), name=f"{self.name}.{i}")
+            )
             for i, data in enumerate(values)
         ]
         query_dict = QueryDict(mutable=True)
