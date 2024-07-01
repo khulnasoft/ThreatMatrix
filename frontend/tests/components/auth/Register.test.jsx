@@ -55,8 +55,8 @@ describe("Registration component", () => {
     await user.type(lastNameInputElement, "lastname");
     await user.type(emailInputElement, "test@test.com");
     await user.type(usernameInputElement, "test_user");
-    await user.type(passwordInputElement, "intelxpassword");
-    await user.type(confirmPasswordInputElement, "intelxpassword");
+    await user.type(passwordInputElement, "threatmatrixpassword");
+    await user.type(confirmPasswordInputElement, "threatmatrixpassword");
     await user.type(companyNameInputElement, "companyname");
     await user.type(companyRoleInputElement, "companyrole");
     await user.click(submitButtonElement);
@@ -68,7 +68,7 @@ describe("Registration component", () => {
         last_name: "lastname",
         username: "test_user",
         email: "test@test.com",
-        password: "intelxpassword",
+        password: "threatmatrixpassword",
         recaptcha: "noKey",
         profile: {
           company_name: "companyname",

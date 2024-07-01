@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import base64
@@ -18,7 +18,7 @@ class Phishtank(ObservableAnalyzer):
     _api_key_name: str
 
     def run(self):
-        headers = {"User-Agent": "phishtank/IntelX"}
+        headers = {"User-Agent": "phishtank/ThreatMatrix"}
         observable_to_analyze = self.observable_name
         if self.observable_classification == self.ObservableTypes.DOMAIN:
             observable_to_analyze = "http://" + self.observable_name

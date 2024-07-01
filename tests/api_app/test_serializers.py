@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import datetime
 
@@ -63,7 +63,7 @@ class PluginConfigSerializerTestCase(CustomTestCase):
             type="str",
         ).first()
         pc = PluginConfig.objects.create(
-            value="https://intelx.com",
+            value="https://threatmatrix.com",
             owner=self.user,
             parameter=param,
             analyzer_config=AnalyzerConfig.objects.filter(
@@ -77,7 +77,7 @@ class PluginConfigSerializerTestCase(CustomTestCase):
         self.assertEqual(org.name, data["organization"])
         pc.delete()
         pc = PluginConfig.objects.create(
-            value="https://intelx.com",
+            value="https://threatmatrix.com",
             owner=self.user,
             parameter=param,
             analyzer_config=AnalyzerConfig.objects.filter(

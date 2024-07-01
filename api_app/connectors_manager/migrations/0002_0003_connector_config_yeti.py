@@ -11,7 +11,7 @@ plugin = {
         "module": "yeti.YETI",
         "base_path": "api_app.connectors_manager.connectors",
     },
-    "description": "find or create observable on YETI, linking the successful analysis on IntelX.",
+    "description": "find or create observable on YETI, linking the successful analysis on ThreatMatrix.",
     "disabled": False,
     "soft_time_limit": 30,
     "routing_key": "default",

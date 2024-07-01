@@ -55,7 +55,7 @@ export default function InvestigationResult() {
   }, [loading]);
 
   // page title
-  useTitle(`IntelX | Investigation (#${investigationId})`, {
+  useTitle(`ThreatMatrix | Investigation (#${investigationId})`, {
     restoreOnUnmount: true,
   });
 

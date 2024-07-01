@@ -78,7 +78,7 @@ export default function JobResult() {
 
   // page title
   useTitle(
-    `IntelX | Job (#${jobId}, ${
+    `ThreatMatrix | Job (#${jobId}, ${
       // eslint-disable-next-line no-nested-ternary
       job ? (job.is_sample ? job.file_name : job.observable_name) : ""
     })`,

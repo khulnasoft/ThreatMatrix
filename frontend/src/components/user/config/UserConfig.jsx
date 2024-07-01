@@ -7,7 +7,7 @@ import ConfigContainer from "./ConfigContainer";
 export default function UserConfig() {
   console.debug("UserConfigPage rendered!");
 
-  useTitle("IntelX | Config", {
+  useTitle("ThreatMatrix | Config", {
     restoreOnUnmount: true,
   });
 

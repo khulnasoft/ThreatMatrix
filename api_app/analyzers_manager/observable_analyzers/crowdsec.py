@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import requests
@@ -19,7 +19,7 @@ class Crowdsec(ObservableAnalyzer):
     def run(self):
         headers = {
             "x-api-key": self._api_key_name,
-            "User-Agent": f"crowdsec-intelx/{settings.VERSION}",
+            "User-Agent": f"crowdsec-threatmatrix/{settings.VERSION}",
         }
         url = f"{self.url}/v2/smoke/{self.observable_name}"
         response = requests.get(url, headers=headers)

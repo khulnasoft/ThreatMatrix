@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 # Configuration file for the Sphinx documentation builder.
@@ -24,7 +24,7 @@ directives.register_directive("code", CodeBlock)
 
 # -- Project information -----------------------------------------------------
 
-project = "IntelX"
+project = "ThreatMatrix"
 copyright = "2022, Matteo Lodi"
 author = "Matteo Lodi"
 

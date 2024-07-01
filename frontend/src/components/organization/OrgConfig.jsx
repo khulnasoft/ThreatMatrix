@@ -45,7 +45,7 @@ export default function OrgConfig() {
 
   // page title
   useTitle(
-    `IntelX | Organization ${
+    `ThreatMatrix | Organization ${
       organization?.name ? `(${organization?.name})` : ""
     } config`,
     { restoreOnUnmount: true },

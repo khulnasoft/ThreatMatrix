@@ -9,4 +9,4 @@ services:
     build:
       context: ../integrations/tor_analyzers
       dockerfile: Dockerfile
-    image: khulnasoft/intelx_tor_analyzers:test
+    image: khulnasoft/threatmatrix_tor_analyzers:test

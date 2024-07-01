@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 """Check if the domains is reported as malicious by WebRisk Cloud API"""

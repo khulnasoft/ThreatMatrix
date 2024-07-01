@@ -49,7 +49,7 @@ print_help () {
   echo "    --elastic                   This spins up Elasticsearch and Kibana on your"
   echo "                                machine (might need >=16GB of RAM)."
   echo "    --https                     This leverage the https.override.yml file that"
-  echo "                                can be used to host IntelX with HTTPS and your"
+  echo "                                can be used to host ThreatMatrix with HTTPS and your"
   echo "                                own certificate."
   echo "    --pycti-version <value>     The pycti version to choose. This must match the"
   echo "                                OpenCTI server version you are connecting to."
@@ -81,7 +81,7 @@ check_parameters () {
 }
 
 set_defaults_values () {
-  project_name="intel_x"
+  project_name="threat_matrix"
   version=$current_version
   export PYCTI_VERSION=$pycti_default_version
 }
@@ -97,7 +97,7 @@ fi
 check_parameters "$@" && shift 2
 
 load_env "docker/.env"
-current_version=${REACT_APP_INTELX_VERSION/"v"/""}
+current_version=${REACT_APP_THREATMATRIX_VERSION/"v"/""}
 
 docker_analyzers=("pcap_analyzers" "tor_analyzers" "malware_tools_analyzers" "cyberchef" "phoneinfoga")
 

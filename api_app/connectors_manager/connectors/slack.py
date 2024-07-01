@@ -23,7 +23,7 @@ class Slack(Connector):
 
     @property
     def title(self) -> str:
-        return "*IntelX analysis*"
+        return "*ThreatMatrix analysis*"
 
     @property
     def body(self) -> str:

@@ -29,7 +29,7 @@ export default function CommentResult() {
   }, [loading, job]);
 
   // page title
-  useTitle(`IntelX | Comments (#${jobId})`, { restoreOnUnmount: true });
+  useTitle(`ThreatMatrix | Comments (#${jobId})`, { restoreOnUnmount: true });
 
   return (
     <Loader

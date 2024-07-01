@@ -1,6 +1,6 @@
 ---
 name: New Connector
-about: A new connector to integrate with IntelX
+about: A new connector to integrate with ThreatMatrix
 title: "[Connector]"
 labels: new_connector
 assignees: ''

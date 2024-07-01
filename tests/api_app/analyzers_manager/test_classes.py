@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 
@@ -205,7 +205,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@intelx.com",
+            observable_name="test@threatmatrix.com",
             observable_classification="generic",
             status="reported_without_fails",
         )

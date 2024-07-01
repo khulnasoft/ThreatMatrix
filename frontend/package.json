@@ -1,5 +1,5 @@
 {
-  "name": "intelx",
+  "name": "threatmatrix",
   "version": "6.0.0",
   "private": true,
   "proxy": "http://localhost:80/",
@@ -9,7 +9,6 @@
     "axios": "^1.6.0",
     "axios-hooks": "^3.1.5",
     "bootstrap": "^5.3.2",
-    "caniuse-lite": "^1.0.30001639",
     "classnames": "^2.5.1",
     "flag-icons": "^7.1.0",
     "formik": "^2.4.5",

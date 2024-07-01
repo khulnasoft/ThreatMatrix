@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 """Django's command-line utility for administrative tasks."""
@@ -9,7 +9,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "intel_x.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "threat_matrix.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

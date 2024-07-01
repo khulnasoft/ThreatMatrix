@@ -59,7 +59,7 @@ export default function Login() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   // page title
-  useTitle("IntelX | Login", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Login", { restoreOnUnmount: true });
 
   // local state
   const [passwordShown, setPasswordShown] = React.useState(false);
@@ -108,7 +108,7 @@ export default function Login() {
         <div className="g-0 my-2 d-none d-md-flex">
           <img
             src={`${PUBLIC_URL}/logo-negative.png`}
-            alt="IntelX Logo"
+            alt="ThreatMatrix Logo"
             className="img-fluid w-75 mx-auto"
           />
         </div>

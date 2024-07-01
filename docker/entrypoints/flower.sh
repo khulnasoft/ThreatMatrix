@@ -1,6 +1,6 @@
 #!/bin/bash
 
-until cd /opt/deploy/intel_x
+until cd /opt/deploy/threat_matrix
 do
     echo "Waiting for server volume..."
 done
@@ -31,7 +31,7 @@ then
   FLOWER_PWD="flower"
 fi
 
-CMD="/usr/local/bin/celery -A intel_x.celery --broker ${BROKER_URL} flower --broker_api=${BROKER_URL_API} --max_tasks=1000 --max_workers=500"
+CMD="/usr/local/bin/celery -A threat_matrix.celery --broker ${BROKER_URL} flower --broker_api=${BROKER_URL_API} --max_tasks=1000 --max_workers=500"
 htpasswd -cb /opt/deploy/shared_htpasswd/.htpasswd ${FLOWER_USER} ${FLOWER_PWD}
 
 if [[ ${DEBUG} == "True" ]] && [[ ${DJANGO_TEST_SERVER} == "True" ]];

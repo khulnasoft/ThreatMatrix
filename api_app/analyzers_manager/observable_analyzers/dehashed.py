@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import base64
@@ -83,7 +83,7 @@ class DehashedSearch(ObservableAnalyzer):
             {
                 "Accept": "application/json",
                 "Authorization": f"Basic {auth_b64}",
-                "User-Agent": "IntelX",
+                "User-Agent": "ThreatMatrix",
             }
         )
         url = f"{self.url}search?query={value}&size={self.size}"

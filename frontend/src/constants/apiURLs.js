@@ -2,7 +2,7 @@
 // api/ auth
 export const API_BASE_URI = "/api";
 
-// intelx core
+// threatmatrix core
 export const JOB_BASE_URI = `${API_BASE_URI}/jobs`;
 export const INVESTIGATION_BASE_URI = `${API_BASE_URI}/investigation`;
 export const COMMENT_BASE_URI = `${API_BASE_URI}/comments`;

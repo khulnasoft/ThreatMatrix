@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -17,7 +17,7 @@ logger = logging.getLogger("flask_shell2http")
 # logger config
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 log_level = os.getenv("LOG_LEVEL", "20")
-log_path = os.getenv("LOG_PATH", "/var/log/intel_x/tor_analyzers")
+log_path = os.getenv("LOG_PATH", "/var/log/threat_matrix/tor_analyzers")
 # create new file handlers, files are created if doesn't already exists
 fh = logging.FileHandler(f"{log_path}/tor_analyzers.log")
 fh.setFormatter(formatter)

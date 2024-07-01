@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -20,7 +20,7 @@ from certego_saas.apps.user.serializers import (
 from certego_saas.ext.upload import Slack
 from certego_saas.models import User
 from certego_saas.settings import certego_apps_settings
-from intel_x.consts import REGEX_PASSWORD
+from threat_matrix.consts import REGEX_PASSWORD
 
 from .models import UserProfile
 

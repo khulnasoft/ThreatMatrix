@@ -1,8 +1,8 @@
 # Usage
 
-This page includes the most important things to know and understand when using IntelX.
+This page includes the most important things to know and understand when using ThreatMatrix.
 
-- [How to interact with IntelX](#how-to-interact-with-intelx)
+- [How to interact with ThreatMatrix](#how-to-interact-with-threatmatrix)
 - [Plugins Framework](#plugins-framework)
   - [Analyzers](#analyzers)
   - [Connectors](#connectors)
@@ -17,7 +17,7 @@ This page includes the most important things to know and understand when using I
 - [Investigations Framework](#investigations-framework)
   - [Create and populate an Investigation](#create-and-populate-an-investigation)
 
-## How to interact with IntelX
+## How to interact with ThreatMatrix
 
 Intel Owl main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.
 
@@ -27,21 +27,21 @@ There are multiple ways to interact with the Intel Owl APIs,
 
    - Built-in Web interface with dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, tags management and more features
    
-2. intelxPy (CLI/SDK)
+2. pyThreatMatrix (CLI/SDK)
 
-   - Official Python client that is available at: [IntelXPy](https://github.com/khulnasoft/intelxpy),
+   - Official Python client that is available at: [PyThreatMatrix](https://github.com/khulnasoft/pythreatmatrix),
    - Can be used as a library for your own python projects or...
    - directly via the command line interface.
 
-3. goIntelX (CLI/SDK)
-   - Official GO client that is available at: [go-intelx](https://github.com/khulnasoft/go-intelx)
+3. goThreatMatrix (CLI/SDK)
+   - Official GO client that is available at: [go-threatmatrix](https://github.com/khulnasoft/go-threatmatrix)
 
 <div class="admonition hint">
 <p class="admonition-title">Hint: Tokens Creation</p>
 The server authentication is managed by API tokens. So, if you want to interact with Intel Owl, you have two ways to do that:
 <ul>
 <li>If you are a normal user, you can go to the "API Access/Sessions" section of the GUI and create a Token there.</li>
-<li>If you are an administrator of IntelX, you can create one or more unprivileged users from the Django Admin Interface and then generate a token for those users.
+<li>If you are an administrator of ThreatMatrix, you can create one or more unprivileged users from the Django Admin Interface and then generate a token for those users.
 </li>
 </ul>
 Afterwards you can leverage the created tokens with the Intel Owl Client.
@@ -49,7 +49,7 @@ Afterwards you can leverage the created tokens with the Intel Owl Client.
 
 ## Plugins Framework
 
-Plugins are the core modular components of IntelX that can be easily added, changed and customized.
+Plugins are the core modular components of ThreatMatrix that can be easily added, changed and customized.
 There are several types of plugins:
 
 - [Analyzers](#analyzers)
@@ -61,14 +61,14 @@ There are several types of plugins:
 
 ### Analyzers
 
-Analyzers are the most important plugins in IntelX. They allow to perform data extraction on the observables and/or files that you would like to analyze.
+Analyzers are the most important plugins in ThreatMatrix. They allow to perform data extraction on the observables and/or files that you would like to analyze.
 
 #### Analyzers list
 
 The following is the list of the available analyzers you can run out-of-the-box. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelxpy](https://github.com/khulnasoft/intelxpy): `$ intelxpy get-analyzer-config`
+- [pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix): `$ pythreatmatrix get-analyzer-config`
 
 ##### File analyzers:
 
@@ -77,7 +77,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `BoxJS_Scan_Javascript`: [Box-JS](https://github.com/CapacitorSet/box-js) is a tool for studying JavaScript malware.
 * `Capa_Info`: [Capa](https://github.com/mandiant/capa) detects capabilities in executable files
 * `Capa_Info_Shellcode`: [Capa](https://github.com/mandiant/capa) detects capabilities in shellcode
-* `ClamAV`: scan a file via the [ClamAV AntiVirus Engine](https://www.clamav.net/). IntelX automatically keep ClamAV updated with official and [unofficial](https://github.com/rseichter/fangfrisch) open source signatures
+* `ClamAV`: scan a file via the [ClamAV AntiVirus Engine](https://www.clamav.net/). ThreatMatrix automatically keep ClamAV updated with official and [unofficial](https://github.com/rseichter/fangfrisch) open source signatures
 * `Doc_Info`: static document analysis with new features to analyze XLM macros, encrypted macros and more (combination of Oletools and XLMMacroDeobfuscator)
 * `ELF_Info`: static ELF analysis with [pyelftools](https://github.com/eliben/pyelftools) and [telfhash](https://github.com/trendmicro/telfhash)
 * `File_Info`: static generic File analysis (hashes, magic and [exiftool](https://exiftool.org/))
@@ -129,13 +129,13 @@ The following is the list of the available analyzers you can run out-of-the-box.
 
 - `CapeSandbox`: [CAPESandbox](https://capesandbox.com) automatically scans suspicious files using the CapeSandbox API. Analyzer works for private instances as well.
 - `Cymru_Hash_Registry_Get_File`: Check if a particular file is known to be malware by [Team Cymru](https://team-cymru.com/community-services/mhr/)
-- `Cuckoo_Scan`: scan a file on Cuckoo (this analyzer is disabled by default. You have to change that flag [in the config](https://github.com/khulnasoft/IntelX/blob/master/configuration/analyzer_config.json) to use it)
+- `Cuckoo_Scan`: scan a file on Cuckoo (this analyzer is disabled by default. You have to change that flag [in the config](https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/analyzer_config.json) to use it)
 - `DocGuard_Upload_File`: Analyze office files in seconds. [DocGuard](https://www.docguard.io).
-- `Dragonfly_Emulation`: Emulate malware against [Dragonfly](https://dragonfly.certego.net?utm_source=intelx) sandbox by [Certego S.R.L](https://certego.net?utm_source=intelx).
+- `Dragonfly_Emulation`: Emulate malware against [Dragonfly](https://dragonfly.certego.net?utm_source=threatmatrix) sandbox by [Certego S.R.L](https://certego.net?utm_source=threatmatrix).
 - `FileScan_Upload_File`: Upload your file to extract IoCs from executable files, documents and scripts via [FileScan.io API](https://www.filescan.io/api/docs).
 - `HashLookupServer_Get_File`: check if a md5 or sha1 is available in the database of [known file hosted by CIRCL](https://github.com/adulau/hashlookup-server)
 - `HybridAnalysis_Get_File`: check file hash on [HybridAnalysis](https://www.hybrid-analysis.com/) sandbox reports
-- `Intezer_Scan`: scan a file on [Intezer](https://analyze.intezer.com/?utm_source=IntelX). Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=IntelX). With TLP `CLEAR`, in case the hash is not found, you would send the file to the service.
+- `Intezer_Scan`: scan a file on [Intezer](https://analyze.intezer.com/?utm_source=ThreatMatrix). Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=ThreatMatrix). With TLP `CLEAR`, in case the hash is not found, you would send the file to the service.
 - `Malpedia_Scan`: scan a binary or a zip file (pwd:infected) against all the yara rules available in [Malpedia](https://malpedia.caad.fkie.fraunhofer.de/)
 - `MalwareBazaar_Get_File`: Check if a particular malware sample is known to [MalwareBazaar](https://bazaar.abuse.ch/)
 - `MISPFIRST_Check_Hash`: check a file hash on the [FIRST MISP](https://misp.first.org/) instance
@@ -185,7 +185,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `FileScan_Search`: Finds reports and uploaded files by various tokens, like hash, filename, verdict, IOCs etc via [FileScan.io  API](https://www.filescan.io/api/docs).
 * `FireHol_IPList`: check if an IP is in [FireHol's IPList](https://iplists.firehol.org/)
 * `GoogleSafebrowsing`: Scan an observable against GoogleSafeBrowsing DB
-* `GoogleWebRisk`: Scan an observable against WebRisk API (Commercial version of Google Safe Browsing). Check the [docs](https://intelx.readthedocs.io/en/develop/Advanced-Usage.html#analyzers-with-special-configuration) to enable this properly
+* `GoogleWebRisk`: Scan an observable against WebRisk API (Commercial version of Google Safe Browsing). Check the [docs](https://threatmatrix.readthedocs.io/en/develop/Advanced-Usage.html#analyzers-with-special-configuration) to enable this properly
 * `Google_DNS`: Retrieve current domain resolution with Google DoH (DNS over HTTPS)
 * `GreedyBear`: scan an IP or a domain against the [GreedyBear](https://greedybear.honeynet.org/) API (requires API key)
 * `GreyNoise`: scan an IP against the [Greynoise](https://www.greynoise.io/) API (requires API key)
@@ -205,7 +205,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `IPApi`: Get information about IPs using [batch-endpoint](https://ip-api.com/docs/api:batch) and DNS using [DNS-endpoint](https://ip-api.com/docs/dns).
 * `IPInfo`: Location Information about an IP
 * `Ip2location`: [API Docs](https://www.ip2location.io/ip2location-documentation) IP2Location.io allows users to check IP address location in real time. (Supports both with or without key)
-* `Intezer_Get`: check if an analysis related to a hash is available in [Intezer](https://analyze.intezer.com/?utm_source=IntelX). Register for a free community account [here](https://analyze.intezer.com/sign-in).
+* `Intezer_Get`: check if an analysis related to a hash is available in [Intezer](https://analyze.intezer.com/?utm_source=ThreatMatrix). Register for a free community account [here](https://analyze.intezer.com/sign-in).
 * `Koodous`: [koodous API](https://docs.koodous.com/api/) get information about android malware.
 * `MalwareBazaar_Get_Observable`: Check if a particular malware hash is known to [MalwareBazaar](https://bazaar.abuse.ch/)
 * `MalwareBazaar_Google_Observable`: Check if a particular IP, domain or url is known to MalwareBazaar using google search
@@ -230,7 +230,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `Shodan_Honeyscore`: scan an IP against [Shodan](https://www.shodan.io/) Honeyscore API
 * `Shodan_Search`: scan an IP against [Shodan](https://www.shodan.io/) Search API
 * `Spyse`: Scan domains, IPs, emails and CVEs using Spyse's API. Register [here](https://spyse.com/user/registration).
-* `SSAPINet`: get a screenshot of a web page using [screenshotapi.net](https://screenshotapi.net/) (external source); additional config options can be added to `extra_api_params` [in the config](https://github.com/khulnasoft/IntelX/blob/master/configuration/analyzer_config.json).
+* `SSAPINet`: get a screenshot of a web page using [screenshotapi.net](https://screenshotapi.net/) (external source); additional config options can be added to `extra_api_params` [in the config](https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/analyzer_config.json).
 * `Stalkphish`: Search [Stalkphish API](https://www.stalkphish.io/) to retrieve information about a potential phishing site (IP/URL/domain/Generic).
 * `Stratosphere_Blacklist`: Cross-reference an IP from blacklists maintained by [Stratosphere Labs](https://www.stratosphereips.org/attacker-ip-prioritization-blacklist)
 * `TalosReputation`: check an IP reputation from [Talos](https://talosintelligence.com/reputation_center/)
@@ -297,13 +297,13 @@ Connectors are designed to run after every successful analysis which makes them 
 The following is the list of the available connectors. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelxpy](https://github.com/khulnasoft/intelxpy): `$ intelxpy get-connector-config`
+- [pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix): `$ pythreatmatrix get-connector-config`
 
 ##### List of pre-built Connectors
 
-- `MISP`: automatically creates an event on your MISP instance, linking the successful analysis on IntelX.
-- `OpenCTI`: automatically creates an observable and a linked report on your OpenCTI instance, linking the the successful analysis on IntelX.
-- `YETI`: YETI = Your Everyday Threat Intelligence. find or create observable on YETI, linking the successful analysis on IntelX.
+- `MISP`: automatically creates an event on your MISP instance, linking the successful analysis on ThreatMatrix.
+- `OpenCTI`: automatically creates an observable and a linked report on your OpenCTI instance, linking the the successful analysis on ThreatMatrix.
+- `YETI`: YETI = Your Everyday Threat Intelligence. find or create observable on YETI, linking the successful analysis on ThreatMatrix.
 - `Slack`: Send the analysis link to a Slack channel (useful for external notifications)
 - `EmailSender`: Send a generic email.
 - `AbuseSubmitter`: Send an email to request to take down a malicious domain.
@@ -311,7 +311,7 @@ The following is the list of the available connectors. You can also navigate the
 
 ### Pivots
 
-With IntelX v5.2.0 we introduced the `Pivot` Plugin.
+With ThreatMatrix v5.2.0 we introduced the `Pivot` Plugin.
 
 Pivots are designed to create a job from another job. This plugin allows the user to set certain conditions that trigger the execution of one or more subsequent jobs, strictly connected to the first one.
 
@@ -321,7 +321,7 @@ This is a "SOAR" feature that allows the users to connect multiple analysis toge
 - `TakedownRequestToAbuseIp`: This Plugin leverages results from DNS resolver analyzers to extract a valid IP address to pivot to the Abusix analyzer.
 - `AbuseIpToSubmission`: This Plugin leverages results from the Abusix analyzer to extract the abuse contacts of an IP address to pivot to the AbuseSubmitter connector.
 
-You can build your own custom Pivot with your custom logic with just few lines of code. See the [Contribute](https://intelx.readthedocs.io/en/latest/Contribute.html#how-to-add-a-new-pivot) section for more info.
+You can build your own custom Pivot with your custom logic with just few lines of code. See the [Contribute](https://threatmatrix.readthedocs.io/en/latest/Contribute.html#how-to-add-a-new-pivot) section for more info.
 
 #### Creating Pivots from the GUI
 
@@ -345,7 +345,7 @@ In the following image you can find an example of an [Investigation](#investigat
 
 ### Visualizers
 
-With IntelX v5 we introduced a new plugin type called **Visualizers**.
+With ThreatMatrix v5 we introduced a new plugin type called **Visualizers**.
 You can leverage it as a framework to create _custom aggregated and simplified visualization of analyzer results_.
 
 Visualizers are designed to run after the analyzers and the connectors.
@@ -366,15 +366,15 @@ To simplify the process, take example from the pre-built visualizers listed belo
 
 ### Ingestors
 
-With IntelX v5.1.0 we introduced the `Ingestor` Plugin.
+With ThreatMatrix v5.1.0 we introduced the `Ingestor` Plugin.
 
-Ingestors allow to automatically insert IOC streams from outside sources to IntelX itself.
+Ingestors allow to automatically insert IOC streams from outside sources to ThreatMatrix itself.
 Each Ingestor must have a `Playbook` attached: this will allow to create a `Job` from every IOC retrieved.
 
 Ingestors are system-wide and **disabled** by default, meaning that only the administrator are able to configure them and enable them. 
 Ingestors can be _spammy_ so be careful about enabling them.
 
-A very powerful use is case is to **combine Ingestors with Connectors** to automatically extract data from external sources, analyze them with IntelX and push them externally to another platform (like MISP or a SIEM)
+A very powerful use is case is to **combine Ingestors with Connectors** to automatically extract data from external sources, analyze them with ThreatMatrix and push them externally to another platform (like MISP or a SIEM)
 
 #### List of pre-built Ingestors
 - `ThreatFox`: Retrieves daily ioc from `https://threatfox.abuse.ch/` and analyze them.
@@ -385,14 +385,14 @@ Playbooks are designed to be easy to share sequence of running Plugins (Analyzer
 
 If you want to avoid to re-select/re-configure a particular combination of analyzers and connectors together every time, you should create a playbook out of it and use it instead. This is time saver.
 
-This is a feature introduced since IntelX v4.1.0! Please provide feedback about it!
+This is a feature introduced since ThreatMatrix v4.1.0! Please provide feedback about it!
 
 #### Playbooks List
 
 The following is the list of the available pre-built playbooks. You can also navigate the same list via the
 
 - Graphical Interface: once your application is up and running, go to the "Plugins" section
-- [intelxpy](https://github.com/khulnasoft/intelxpy): `$ intelxpy get-playbook-config`
+- [pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix): `$ pythreatmatrix get-playbook-config`
 
 ##### List of pre-built playbooks
 
@@ -409,7 +409,7 @@ The following is the list of the available pre-built playbooks. You can also nav
 
 You can create new playbooks in different ways, based on the users you want to share them with:
 
-If you want to share them to every user in IntelX, create them via the Django Admin interface at `/admin/playbooks_manager/playbookconfig/`.
+If you want to share them to every user in ThreatMatrix, create them via the Django Admin interface at `/admin/playbooks_manager/playbookconfig/`.
 
 If you want share them to yourself or your organization only, you need to leverage the "Save as Playbook" button that you can find on the top right of the Job Result Page.
 In this way, after you have done an analysis, you can save the configuration of the Plugins you executed for re-use with a single click.
@@ -423,13 +423,13 @@ The created Playbook would be available to yourself only. If you want either to 
 
 ### Generic Plugin Creation, Configuration and Customization
 
-If you want to create completely new Plugins (not based on already existing python modules), please refer to the [Contribute](https://intelx.readthedocs.io/en/latest/Contribute.html#how-to-add-a-new-plugin) section. This is usually the case when you want to integrate IntelX with either a new tool or a new service.
+If you want to create completely new Plugins (not based on already existing python modules), please refer to the [Contribute](https://threatmatrix.readthedocs.io/en/latest/Contribute.html#how-to-add-a-new-plugin) section. This is usually the case when you want to integrate ThreatMatrix with either a new tool or a new service.
 
 On the contrary, if you would like to just customize the already existing plugins, this is the place.
 
 #### SuperUser customization
 
-If you are an IntelX superuser, you can create, modify, delete analyzers based on already existing modules by changing the configuration values inside the Django Admin interface at:
+If you are an ThreatMatrix superuser, you can create, modify, delete analyzers based on already existing modules by changing the configuration values inside the Django Admin interface at:
 - for analyzers: `/admin/analyzers_manager/analyzerconfig/`.
 - for connectors: `/admin/connectors_manager/connectorconfig/`.
 - ...and so on for all the Plugin types.
@@ -485,13 +485,13 @@ There are 2 types of Parameters:
 
 To see the list of these parameters:
 
-- You can view the "Plugin" Section in IntelX to have a complete and updated view of all the options available
+- You can view the "Plugin" Section in ThreatMatrix to have a complete and updated view of all the options available
 - You can view the parameters by exploring the Django Admin Interface:
   - `admin/api_app/parameter/`
   - or at the very end of each Plugin configuration like `/admin/analyzers_manager/analyzerconfig/`
 
 You can change the Plugin Parameters at 5 different levels:
-* if you are an IntelX superuser, you can go in the Django Admin Interface and change the default values of the parameters for every plugin you like. This option would change the default behavior for every user in the platform.
+* if you are an ThreatMatrix superuser, you can go in the Django Admin Interface and change the default values of the parameters for every plugin you like. This option would change the default behavior for every user in the platform.
 * if you are either Owner or Admin of an org, you can customize the default values of the parameters for every member of the organization by leveraging the GUI in the "Organization Config" section. This overrides the previous option. 
 * if you are a normal user, you can customize the default values of the parameters for your analysis only by leveraging the GUI in the "Plugin config" section. This overrides the previous option. 
 * You can choose to provide runtime configuration when requesting an analysis that will override the previous options. This override is done only for the specific analysis. See <a href="./Advanced-Usage.html#customize-analyzer-execution">Customize analyzer execution at time of request</a>
@@ -524,7 +524,7 @@ By default, each available plugin is configured as either disabled or not. The m
 
 Considering the impact that this change could have in the application, the GUI does not allow a normal user to enable/disable any plugin. On the contrary, users with specific privileges may change this configuration:
 * Org Administrators may leverage the feature documented [here](#disable-analyzers-at-org-level) to enable/disable plugins for their org. This can be helpful to control users' behavior.
-* IntelX Superusers (full admin) can go to the Django Admin Interface and enable/disable them from there. This operation does overwrite the Org administrators configuration. To find the plugin to change, they'll need to first choose the section of its type ("ANALYZERS_MANAGER", "CONNECTORS_MANAGER", etc), then select the chosen plugin, change the flag on that option and save the plugin by pressing the right button.
+* ThreatMatrix Superusers (full admin) can go to the Django Admin Interface and enable/disable them from there. This operation does overwrite the Org administrators configuration. To find the plugin to change, they'll need to first choose the section of its type ("ANALYZERS_MANAGER", "CONNECTORS_MANAGER", etc), then select the chosen plugin, change the flag on that option and save the plugin by pressing the right button.
 
 ![img.png](../static/disabled.png)
 
@@ -539,8 +539,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Stop a plugin whose status is `running`/`pending`:
 
   - GUI: Buttons on reports table on job result page.
-  - IntelXPy: `IntelX.kill_analyzer` and `IntelX.kill_connector` function.
-  - CLI: `$ intelxpy jobs kill-analyzer <job_id> <analyzer_name>` and `$ intelxpy jobs kill-connector <job_id> <connector_name>`
+  - PyThreatMatrix: `ThreatMatrix.kill_analyzer` and `ThreatMatrix.kill_connector` function.
+  - CLI: `$ pythreatmatrix jobs kill-analyzer <job_id> <analyzer_name>` and `$ pythreatmatrix jobs kill-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type/{plugin_name}/kill` and `PATCH /api/job/{job_id}/connector/{connector_name}/kill`
 
 - **retry:**
@@ -548,8 +548,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Retry a plugin whose status is `failed`/`killed`:
 
   - GUI: Buttons on reports table on job result page.
-  - IntelXPy: `IntelX.retry_analyzer` and `IntelX.retry_connector` function,
-  - CLI: `$ intelxpy jobs retry-analyzer <job_id> <analyzer_name>` and `$ intelxpy jobs retry-connector <job_id> <connector_name>`
+  - PyThreatMatrix: `ThreatMatrix.retry_analyzer` and `ThreatMatrix.retry_connector` function,
+  - CLI: `$ pythreatmatrix jobs retry-analyzer <job_id> <analyzer_name>` and `$ pythreatmatrix jobs retry-connector <job_id> <connector_name>`
   - API: `PATCH /api/job/{job_id}/{plugin_type}/{plugin_name}/retry`
 
 - **healthcheck:**
@@ -557,8 +557,8 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   Check if a plugin is able to connect to its provider:
 
   - GUI: Buttons on every plugin table.
-  - IntelXPy: `IntelX.analyzer_healthcheck` and `IntelX.connector_healthcheck` methods.
-  - CLI: `$ intelxpy analyzer-healthcheck <analyzer_name>` and `$ intelxpy connector-healthcheck <connector_name>`
+  - PyThreatMatrix: `ThreatMatrix.analyzer_healthcheck` and `ThreatMatrix.connector_healthcheck` methods.
+  - CLI: `$ pythreatmatrix analyzer-healthcheck <analyzer_name>` and `$ pythreatmatrix connector-healthcheck <connector_name>`
   - API: `GET /api/{plugin_type}/{plugin_name}/healthcheck`
   
 - **pull:**
@@ -572,12 +572,12 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
 ### TLP Support
 The **Traffic Light Protocol** ([TLP](https://www.first.org/tlp/)) is a standard that was created to facilitate greater sharing of potentially sensitive information and more effective collaboration. 
 
-IntelX is not a threat intel sharing platform, like the [MISP platform](https://www.misp-project.org/). However, IntelX is able to share analysis results to external platforms (via [Connectors](#connectors)) and to send possible privacy related information to external services (via [Analyzers](#analyzers)).
+ThreatMatrix is not a threat intel sharing platform, like the [MISP platform](https://www.misp-project.org/). However, ThreatMatrix is able to share analysis results to external platforms (via [Connectors](#connectors)) and to send possible privacy related information to external services (via [Analyzers](#analyzers)).
 
-This is why IntelX does support a customized version of the **Traffic Light Protocol** (TLP): to allow the user to have a better knowledge of how their data are being shared.
+This is why ThreatMatrix does support a customized version of the **Traffic Light Protocol** (TLP): to allow the user to have a better knowledge of how their data are being shared.
 
 Every [Analyzer](#analyzers) and [Connector](#connectors) can be configured with a `maximum_tlp` value.
-Based on that value, IntelX understands if the specific plugin is allowed or not to run (e.g. if `maximum_tlp` is `GREEN`, it would run for analysis with TLPs `WHITE` and `GREEN` only)
+Based on that value, ThreatMatrix understands if the specific plugin is allowed or not to run (e.g. if `maximum_tlp` is `GREEN`, it would run for analysis with TLPs `WHITE` and `GREEN` only)
 
 These is how every available TLP value behaves once selected for an analysis execution:
 1. `CLEAR`: no restriction (`WHITE` was replaced by `CLEAR` in TLP v2.0, but `WHITE` is supported for retrocompatibility)
@@ -599,12 +599,12 @@ A plugin can be run when all of the following requirements have been satisfied:
 
 ## Investigations Framework
 
-*Investigations* are a new framework introduced in IntelX v6 with the goal to allow the users to connect the analysis they do with each other.
+*Investigations* are a new framework introduced in ThreatMatrix v6 with the goal to allow the users to connect the analysis they do with each other.
 
-In this way the analysts can use IntelX as the starting point of their "Investigations", register their findings, correlate the information found, and collaborate...all in a single place.
+In this way the analysts can use ThreatMatrix as the starting point of their "Investigations", register their findings, correlate the information found, and collaborate...all in a single place.
 
 Things to know about the framework:
-* an *Investigation* is a superset of IntelX Jobs. It can have attached one or more existing IntelX Jobs
+* an *Investigation* is a superset of ThreatMatrix Jobs. It can have attached one or more existing ThreatMatrix Jobs
 * an *Investigation* contains a "description" section that can be changed and updated at anytime with new information from the analysts.
 * modification to the Investigation (description, jobs, etc) can be done by every member of the Organization where the creator of the Investigation belongs. However only they creator can delete an Investigation.
 

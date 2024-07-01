@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import abc
 import base64
@@ -260,7 +260,7 @@ class VirusTotalv3AnalyzerMixin(BaseAnalyzerMixin, metaclass=abc.ABCMeta):
                 binary = self._job.file.read()
             except Exception:
                 raise AnalyzerRunException(
-                    "IntelX error: couldn't retrieve the binary"
+                    "ThreatMatrix error: couldn't retrieve the binary"
                     f" to perform a scan (Job: {self.job_id}, {md5})"
                 )
             files = {"file": binary}

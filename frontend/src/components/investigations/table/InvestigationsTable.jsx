@@ -32,7 +32,7 @@ export default function InvestigationsTable() {
   console.debug("InvestigationsTable rendered!");
 
   // page title
-  useTitle("IntelX | Investigation History", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Investigation History", { restoreOnUnmount: true });
 
   // consume zustand store
   const { range, fromTimeIsoStr, onTimeIntervalChange } = useTimePickerStore();

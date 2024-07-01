@@ -15,12 +15,12 @@ export default function GuideWrapper() {
         <div id="guidebox">
           <h3>Guide</h3>
           <p>
-            Welcome to IntelXs Guide for First Time Visitors! For further
+            Welcome to ThreatMatrixs Guide for First Time Visitors! For further
             questions you could either check out our{" "}
-            <a href="https://intelx.readthedocs.io/en/latest/">docs</a> or
+            <a href="https://threatmatrix.readthedocs.io/en/latest/">docs</a> or
             reach us out on{" "}
             <a href="https://gsoc-slack.honeynet.org/">
-              the official IntelX slack channel
+              the official ThreatMatrix slack channel
             </a>
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function GuideWrapper() {
           <h3>Plugins</h3>
           <br />
           <p>
-            Plugins are the core modular components of IntelX that can be
+            Plugins are the core modular components of ThreatMatrix that can be
             easily added, changed and customized. The most important ones are
             the Analyzers that allow to perform data extraction on the
             observables and/or files that you would like to analyze.

@@ -159,7 +159,7 @@ export default function Register() {
   console.debug("Register rendered!");
 
   // page title
-  useTitle("IntelX | Sign up", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Sign up", { restoreOnUnmount: true });
 
   // local state
   const [showAfterRegistrationModal, setShowAfterRegistrationModal] =
@@ -231,11 +231,11 @@ export default function Register() {
         />
       )}
       <Container fluid className="col-12">
-        {/* IntelX Logo */}
+        {/* ThreatMatrix Logo */}
         <Row className="g-0 my-2 d-none d-md-flex">
           <img
             src={`${PUBLIC_URL}/logo-negative.png`}
-            alt="IntelX Logo"
+            alt="ThreatMatrix Logo"
             className="img-fluid w-25 mx-auto"
           />
         </Row>
@@ -426,7 +426,7 @@ export default function Register() {
                 </FormGroup>
                 <Col sm={12} md={12} className="text-center standout alert">
                   We ask you to provide the following information to better
-                  understand what you intend to use IntelX for
+                  understand what you intend to use ThreatMatrix for
                 </Col>
                 {/* Extra fields */}
                 <FormGroup row>
@@ -498,7 +498,7 @@ export default function Register() {
                         name="twitter_handle"
                         type="text"
                         className="form-control"
-                        placeholder="intelx"
+                        placeholder="threatmatrix"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.twitter_handle}
@@ -514,7 +514,7 @@ export default function Register() {
                       className="form-control-label required"
                       htmlFor="RegisterForm__discover_from"
                     >
-                      How did you discover IntelX ?
+                      How did you discover ThreatMatrix ?
                     </Label>
                     <Select
                       id="RegisterForm__discover_from"

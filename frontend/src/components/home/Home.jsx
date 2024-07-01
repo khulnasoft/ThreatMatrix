@@ -12,13 +12,13 @@ const versionText = VERSION;
 const logoBgImg = `url('${PUBLIC_URL}/logo-negative.png')`;
 const blogPosts = [
   {
-    title: "IntelX: Release v4.0.0",
+    title: "ThreatMatrix: Release v4.0.0",
     subText: "Certego Blog: v4.0.0 Announcement",
     date: "1st July 2022",
     link: "https://www.certego.net/en/news/intel-owl-release-v4-0-0/",
   },
   {
-    title: "IntelX: Release v3.0.0",
+    title: "ThreatMatrix: Release v3.0.0",
     subText: "Honeynet Blog: v3.0.0 Announcement",
     date: "13th September 2021",
     link: "https://www.honeynet.org/2021/09/13/intel-owl-release-v3-0-0/",
@@ -66,7 +66,7 @@ export default function Home() {
         </ContentSection>
         <br />
         {/* blogposts */}
-        <h5 className="text-gradient">IntelX News</h5>
+        <h5 className="text-gradient">ThreatMatrix News</h5>
         <ContentSection>
           {blogPosts.map(({ title, subText, date, link }) => (
             <ContentSection key={title} className="border-dark bg-body">

@@ -2,7 +2,7 @@
 branch = True
 source = 
     api_app
-    intel_x
+    threat_matrix
 concurrency = multiprocessing
 parallel = True
 

@@ -17,7 +17,7 @@ export function generateJobNotification(observableName, jobId) {
       // notification icon
       setNotificationFavicon(true);
 
-      const notification = new Notification("IntelX analysis terminated!", {
+      const notification = new Notification("ThreatMatrix analysis terminated!", {
         body: `Observable: ${observableName} (job ${jobId}) reported.\n Click here to view the result!`,
         icon: `${PUBLIC_URL}/logo-blue.png`,
       });
@@ -37,7 +37,7 @@ export function generateJobNotification(observableName, jobId) {
     } else {
       // eslint-disable-next-line no-console
       console.warn(
-        "Without the permission for the notifications IntelX cannot report when Jobs terminated",
+        "Without the permission for the notifications ThreatMatrix cannot report when Jobs terminated",
       );
     }
   });

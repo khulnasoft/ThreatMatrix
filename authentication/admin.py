@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 from typing import Optional
 
@@ -50,7 +50,7 @@ class UserAdminView(AbstractUserAdmin):
             email_utils.send_email(
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[user.email],
-                subject="IntelX - Your account request has been declined",
+                subject="ThreatMatrix - Your account request has been declined",
                 template_name="authentication/emails/account-declined",
                 context={
                     "full_name": user.get_full_name(),
@@ -86,7 +86,7 @@ class UserAdminView(AbstractUserAdmin):
             email_utils.send_email(
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[user.email],
-                subject="IntelX - Your account has been successfully activated!",
+                subject="ThreatMatrix - Your account has been successfully activated!",
                 template_name="authentication/emails/account-activated",
                 context={
                     "full_name": user.get_full_name(),

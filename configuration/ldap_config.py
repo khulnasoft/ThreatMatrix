@@ -1,8 +1,8 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 # Check the documentation for the details on how to configure LDAP
-# https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html#ldap
+# https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html#ldap
 
 import ldap
 from django_auth_ldap.config import GroupOfNamesType, LDAPSearch
@@ -18,7 +18,7 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch(
     "(uid=%(user)s)",
     # for Windows Active Directory it could make sense to change the previous line with the next one
     # "(sAMAccountName=%(user)s)",
-    # see also: https://github.com/khulnasoft/IntelX/issues/1433
+    # see also: https://github.com/khulnasoft/ThreatMatrix/issues/1433
 )
 # Or:
 # AUTH_LDAP_USER_DN_TEMPLATE = 'uid=%(user)s,ou=users,dc=example,dc=com'

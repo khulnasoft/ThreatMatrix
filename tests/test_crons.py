@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import os
 
@@ -19,7 +19,7 @@ from api_app.analyzers_manager.observable_analyzers import (
 )
 from api_app.choices import PythonModuleBasePaths
 from api_app.models import Job, Parameter, PluginConfig, PythonModule
-from intel_x.tasks import check_stuck_analysis, remove_old_jobs
+from threat_matrix.tasks import check_stuck_analysis, remove_old_jobs
 
 from . import CustomTestCase, get_logger
 from .mock_utils import MockUpResponse, if_mock_connections, patch, skip

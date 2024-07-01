@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import re
@@ -7,7 +7,7 @@ import requests
 
 from api_app.analyzers_manager import classes
 from api_app.analyzers_manager.exceptions import AnalyzerRunException
-from intel_x.consts import REGEX_CVE, REGEX_EMAIL
+from threat_matrix.consts import REGEX_CVE, REGEX_EMAIL
 from tests.mock_utils import MockUpResponse, if_mock_connections, patch
 
 

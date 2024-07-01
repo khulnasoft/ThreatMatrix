@@ -28,10 +28,10 @@ import { NavLink, AxiosLoadingBar } from "@certego/certego-ui";
 
 // constants
 import {
-  INTELX_DOCS_URL,
+  THREATMATRIX_DOCS_URL,
   PUBLIC_URL,
   VERSION,
-  INTELX_TWITTER_ACCOUNT,
+  THREATMATRIX_TWITTER_ACCOUNT,
 } from "../constants/environment";
 
 // local
@@ -117,7 +117,7 @@ function RightLinks({ handleClickStart, isAuthenticated }) {
       <NavItem>
         <a
           className="d-flex-start-center btn text-gray"
-          href={INTELX_DOCS_URL}
+          href={THREATMATRIX_DOCS_URL}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -144,13 +144,13 @@ function RightLinks({ handleClickStart, isAuthenticated }) {
         <div className="d-flex-center flex-column">
           <div className="d-flex my-1">
             <a
-              href={`https://twitter.com/${INTELX_TWITTER_ACCOUNT}`}
+              href={`https://twitter.com/${THREATMATRIX_TWITTER_ACCOUNT}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-social d-flex align-items-center"
             >
               <RiTwitterXFill className="text-info me-1" /> Follow @
-              {INTELX_TWITTER_ACCOUNT}
+              {THREATMATRIX_TWITTER_ACCOUNT}
             </a>
           </div>
           <div>
@@ -165,12 +165,12 @@ function RightLinks({ handleClickStart, isAuthenticated }) {
           </div>
           <div>
             <a
-              href="https://www.linkedin.com/company/intelx"
+              href="https://www.linkedin.com/company/threatmatrix"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-social my-1 d-flex align-items-center"
             >
-              <FaLinkedin className="me-1" /> IntelX on LinkedIn{" "}
+              <FaLinkedin className="me-1" /> ThreatMatrix on LinkedIn{" "}
             </a>
           </div>
           <div>
@@ -234,7 +234,7 @@ function AppHeader() {
           <img
             src={`${PUBLIC_URL}/logo-negative-reduced.png`}
             width="128"
-            alt="IntelX logo"
+            alt="ThreatMatrix logo"
           />
           <small className="text-accent" style={{ fontFamily: "Pacifico" }}>
             {VERSION}

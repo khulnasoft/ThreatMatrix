@@ -1,2 +1,2 @@
-docker exec intelx_uwsgi ls -al /var/log/intel_x/$1
-docker exec -ti intelx_uwsgi tail -f /var/log/intel_x/$1
+docker exec threatmatrix_uwsgi ls -al /var/log/threat_matrix/$1
+docker exec -ti threatmatrix_uwsgi tail -f /var/log/threat_matrix/$1

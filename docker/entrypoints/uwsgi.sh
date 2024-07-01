@@ -1,10 +1,10 @@
 #!/bin/bash
 
-until cd /opt/deploy/intel_x
+until cd /opt/deploy/threat_matrix
 do
     echo "Waiting for server volume..."
 done
-sudo su www-data -c "mkdir -p /var/log/intel_x/django /var/log/intel_x/uwsgi /var/log/intel_x/asgi /opt/deploy/intel_x/files_required/blint /opt/deploy/intel_x/files_required/yara"
+sudo su www-data -c "mkdir -p /var/log/threat_matrix/django /var/log/threat_matrix/uwsgi /var/log/threat_matrix/asgi /opt/deploy/threat_matrix/files_required/blint /opt/deploy/threat_matrix/files_required/yara"
 
 # Apply database migrations
 echo "Waiting for db to be ready..."
@@ -26,7 +26,7 @@ echo "------------------------------"
 echo "DEBUG: " $DEBUG
 echo "DJANGO_TEST_SERVER: " $DJANGO_TEST_SERVER
 echo "------------------------------"
-CHANGELOG_NOTIFICATION_COMMAND='python manage.py changelog_notification .github/CHANGELOG.md INTELX --number-of-releases 3'
+CHANGELOG_NOTIFICATION_COMMAND='python manage.py changelog_notification .github/CHANGELOG.md THREATMATRIX --number-of-releases 3'
 
 if [[ $DEBUG == "True" ]] && [[ $DJANGO_TEST_SERVER == "True" ]];
 then
@@ -34,5 +34,5 @@ then
     python manage.py runserver 0.0.0.0:8001
 else
     $CHANGELOG_NOTIFICATION_COMMAND
-    /usr/local/bin/uwsgi --ini /etc/uwsgi/sites/intel_x.ini --stats 127.0.0.1:1717 --stats-http
+    /usr/local/bin/uwsgi --ini /etc/uwsgi/sites/threat_matrix.ini --stats 127.0.0.1:1717 --stats-http
 fi

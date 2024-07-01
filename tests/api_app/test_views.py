@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import abc
 import datetime
@@ -101,7 +101,7 @@ class PluginConfigViewSetTestCase(CustomViewSetTestCase):
         # they should not find anything
         self.standard_user = User.objects.create_user(
             username="standard_user",
-            email="standard_user@intelx.com",
+            email="standard_user@threatmatrix.com",
             password="test",
         )
         self.standard_user.save()
@@ -178,7 +178,7 @@ class PluginConfigViewSetTestCase(CustomViewSetTestCase):
         org1 = Organization.objects.create(name="testorg1")
         another_owner = User.objects.create_user(
             username="another_owner",
-            email="another_owner@intelx.com",
+            email="another_owner@threatmatrix.com",
             password="test",
         )
         another_owner.save()

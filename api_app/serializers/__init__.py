@@ -10,7 +10,7 @@ from certego_saas.apps.organization.organization import Organization
 
 
 class AbstractBIInterface(ModelSerializer):
-    application = rfs.CharField(read_only=True, default="IntelX")
+    application = rfs.CharField(read_only=True, default="ThreatMatrix")
     environment = rfs.SerializerMethodField(method_name="get_environment")
     timestamp: Field
     username: Field

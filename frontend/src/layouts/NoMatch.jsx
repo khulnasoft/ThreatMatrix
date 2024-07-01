@@ -7,7 +7,7 @@ function NoMatch() {
   console.debug("NoMatch rendered!");
 
   // page title
-  useTitle("IntelX | 404: Not Found", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | 404: Not Found", { restoreOnUnmount: true });
 
   return (
     <Container className="d-flex flex-column center">

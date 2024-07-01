@@ -1,11 +1,11 @@
 /* eslint-disable prefer-destructuring */
-export const INTELX_DOCS_URL = "https://intelx.readthedocs.io/en/latest/";
-export const INTELXPY_GH_URL =
-  "https://github.com/khulnasoft/intelxpy";
-export const INTELX_TWITTER_ACCOUNT = "intel_x";
+export const THREATMATRIX_DOCS_URL = "https://threatmatrix.readthedocs.io/en/latest/";
+export const PYTHREATMATRIX_GH_URL =
+  "https://github.com/khulnasoft/pythreatmatrix";
+export const THREATMATRIX_TWITTER_ACCOUNT = "threat_matrix";
 
 // env variables
-export const VERSION = process.env.REACT_APP_INTELX_VERSION;
+export const VERSION = process.env.REACT_APP_THREATMATRIX_VERSION;
 export const PUBLIC_URL = process.env.PUBLIC_URL;
 
 // runtime env config

@@ -1,14 +1,14 @@
 # Changelog
 
-[**Upgrade Guide**](https://intelx.readthedocs.io/en/latest/Installation.md#update-to-the-most-recent-version)
+[**Upgrade Guide**](https://threatmatrix.readthedocs.io/en/latest/Installation.md#update-to-the-most-recent-version)
 
-## [v6.0.4](https://github.com/khulnasoft/IntelX/releases/tag/v6.0.4)
+## [v6.0.4](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.4)
 Mostly adjusts and fixes with few new analyzers: Vulners and AILTypoSquatting Library.
 
-## [v6.0.2](https://github.com/khulnasoft/IntelX/releases/tag/v6.0.2)
+## [v6.0.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.2)
 Major fixes and adjustments. We improved the documentation to help the transition to the new major version.
 
-We added **Pivot** buttons to enable manual Pivoting from an Observable/File analysis to another. See [Doc](https://intelx.readthedocs.io/en/latest/Usage.html#pivots) for more info
+We added **Pivot** buttons to enable manual Pivoting from an Observable/File analysis to another. See [Doc](https://threatmatrix.readthedocs.io/en/latest/Usage.html#pivots) for more info
 
 As usual, we add new plugins. This release brings the following new ones:
 * a complete **TakedownRequest** playbook to automate TakeDown requests for malicious domains
@@ -16,15 +16,15 @@ As usual, we add new plugins. This release brings the following new ones:
 * new Observable Analyzers for [CyCat](https://cycat.org/) and [Hudson Rock](https://cavalier.hudsonrock.com/docs)
 * improvement of the existing Maxmind analyzer: it now downloads the ASN database too.
 
-## [v6.0.1](https://github.com/khulnasoft/IntelX/releases/tag/v6.0.1)
+## [v6.0.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.1)
 Little fixes for the major.
 
-## [v6.0.0](https://github.com/khulnasoft/IntelX/releases/tag/v6.0.0)
-This major release is another important milestone for this project! We have been working hard to transform IntelX from a *Data Extraction Platform* to a complete *Investigation Platform*!
+## [v6.0.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.0)
+This major release is another important milestone for this project! We have been working hard to transform ThreatMatrix from a *Data Extraction Platform* to a complete *Investigation Platform*!
 
-One of the most noticeable feature is the addition of the [**Investigation** framework](https://intelx.readthedocs.io/en/latest/Usage.html#investigations-framework)!
+One of the most noticeable feature is the addition of the [**Investigation** framework](https://threatmatrix.readthedocs.io/en/latest/Usage.html#investigations-framework)!
  
-Thanks to the this new feature, analysts can leverage IntelX as the starting point of their "Investigations", register their findings, correlate the information found, and collaborate...all in a single place.
+Thanks to the this new feature, analysts can leverage ThreatMatrix as the starting point of their "Investigations", register their findings, correlate the information found, and collaborate...all in a single place.
 
 Come and join us at the [Honeynet Workshop](https://denmark2024.honeynet.org/) in the Denmark this May to learn more about this new Major version and to meet the maintainers. :)
 
@@ -34,7 +34,7 @@ You can also find us in [Fukuoka at the next FIRSTCON](https://www.first.org/con
 
 Many breaking changes have been introduced with this major release due to dependencies upgrades and architectural changes.
 
-You can find more details in the [Upgrade Guide](https://intelx.readthedocs.io/en/latest/Installation.html#updating-to-6-0-0-from-a-5-x-x-version). Please read it and follow it carefully before upgrading your IntelX instance to this Major version.
+You can find more details in the [Upgrade Guide](https://threatmatrix.readthedocs.io/en/latest/Installation.html#updating-to-6-0-0-from-a-5-x-x-version). Please read it and follow it carefully before upgrading your ThreatMatrix instance to this Major version.
 
 **New analyzers**
 
@@ -52,7 +52,7 @@ As usual, we add new analyzers. This release brings a lot of new ones:
 * [Tor Nodes DanMeUk](https://www.dan.me.uk/tornodes)
 
 
-## [v5.2.3](https://github.com/khulnasoft/IntelX/releases/tag/v5.2.3)
+## [v5.2.3](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.2.3)
 
 This release mainly contains bug fixing, dependencies upgrades and adjustments.
 
@@ -60,25 +60,25 @@ The support for Docker Compose v1 has been dropped. Please upgrade to Docker Com
 
 **IMPORTANT DEPRECATION NOTICE**:
 The python `start.py` script is being replaced with a more light Bash script called `script` at the next Major version.
-Thanks to this change the installation requirements are a lot less than before and it should be easier to install and execute IntelX.
+Thanks to this change the installation requirements are a lot less than before and it should be easier to install and execute ThreatMatrix.
 Please start to use the new `start` script from now to avoid future issues.
-For more information: [Installation docs](https://intelx.readthedocs.io/en/develop/Installation.html) 
+For more information: [Installation docs](https://threatmatrix.readthedocs.io/en/develop/Installation.html) 
 
-## [v5.2.2](https://github.com/khulnasoft/IntelX/releases/tag/v5.2.2)
+## [v5.2.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.2.2)
 
 This release has been done mainly to adjusts a broken database migration introduced in the previous release.
 
 **Main Improvements**
 * Added new analyzers for [DNS0](https://docs.dns0.eu/) PassiveDNS data
-* Added the chance to collect metrics ([Business Intelligence](https://intelx.readthedocs.io/en/develop/Advanced-Configuration.html#business-intelligence) regarding Plugins Usage and send it to an ElasticSearch instance.
-* Added new buttons to test ["Healthcheck" and "Pull" operations](https://intelx.readthedocs.io/en/latest/Usage.html#special-plugins-operations) for each Plugin (A feature introduced in the previous version)
+* Added the chance to collect metrics ([Business Intelligence](https://threatmatrix.readthedocs.io/en/develop/Advanced-Configuration.html#business-intelligence) regarding Plugins Usage and send it to an ElasticSearch instance.
+* Added new buttons to test ["Healthcheck" and "Pull" operations](https://threatmatrix.readthedocs.io/en/latest/Usage.html#special-plugins-operations) for each Plugin (A feature introduced in the previous version)
 
 **Other improvements**
 * Various generic fixes and adjustments in the GUI
 * dependencies upgrades
 * adjusted contribution guides
 
-## [v5.2.1](https://github.com/khulnasoft/IntelX/releases/tag/v5.2.1)
+## [v5.2.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.2.1)
 
 !!! This release has been found with a broken database migration !!! Please upgrade to v5.2.2 to fix the problem.
 
@@ -99,12 +99,12 @@ This release has been done mainly to adjusts a broken database migration introdu
 * better management of upload of big files
 * dependencies upgrades
 
-## [v5.2.0](https://github.com/khulnasoft/IntelX/releases/tag/v5.2.0)
+## [v5.2.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.2.0)
 
 This is mostly a stability and maintainance release.
 
 We are happy to announce that we received support from Digital Ocean to host infrastructure for the community. :)
-If you are interested in helping us setting up a public instance of IntelX, **free** for the community, with all the privacy policy and related required stuff, please contact us :)
+If you are interested in helping us setting up a public instance of ThreatMatrix, **free** for the community, with all the privacy policy and related required stuff, please contact us :)
 
 
 **Important usability changes**
@@ -116,10 +116,10 @@ If you are interested in helping us setting up a public instance of IntelX, **fr
 **General improvements**
 * Added First Visit Guide
 * Improved the documentation with the goal to help the users to understand better how all the available Plugins work.
-* For OpenCTI users having problems in integrating IntelX, now you can use a workaround: [doc](https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html#opencti)
-* A new organization role is available to better manage the org: `admin`. [Doc](https://intelx.readthedocs.io/en/latest/Usage.html#organizations-and-user-management)
+* For OpenCTI users having problems in integrating ThreatMatrix, now you can use a workaround: [doc](https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html#opencti)
+* A new organization role is available to better manage the org: `admin`. [Doc](https://threatmatrix.readthedocs.io/en/latest/Usage.html#organizations-and-user-management)
 * Improvements in the "Jobs History" table: now it shows executed Playbooks and file/observables types correctly.
-* We added a new "Pivot" section in the "Plugin" GUI for the new Plugin type introduced in the [v5.1.0](https://github.com/khulnasoft/IntelX/releases/tag/v5.1.0) release. We added a new dedicated visualizer which allows the user to see when a Pivot has been executed in the "Job Result" page. We are still working on it and planning to add more documentation and GUI usability soon.
+* We added a new "Pivot" section in the "Plugin" GUI for the new Plugin type introduced in the [v5.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.1.0) release. We added a new dedicated visualizer which allows the user to see when a Pivot has been executed in the "Job Result" page. We are still working on it and planning to add more documentation and GUI usability soon.
 * Improvements in the "Jobs Result" page: now playbooks are more relevant, warnings are shown next to errors, Raw JSON data has been moved next to the other raw data.
 * Changed JSON viewer library because the old one was deprecated
 
@@ -143,14 +143,14 @@ If you are interested in helping us setting up a public instance of IntelX, **fr
 * upgraded a lot of packages
 
 
-## [v5.1.0](https://github.com/khulnasoft/IntelX/releases/tag/v5.1.0)
+## [v5.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.1.0)
 With this release we announce our new official site created by [Abheek Tripathy](https://twitter.com/abheekblahblah)!
 Feel free to check it out! Official [blog post here](https://khulnasoft.github.io/blogs/official_site_revamped)!
 
 **Important changes**
-* We added a new type of Plugin called [Ingestor](https://intelx.readthedocs.io/en/latest/Usage.html#ingestors). **Ingestors** allow to automatically insert IOC streams from outside sources to IntelX itself.
+* We added a new type of Plugin called [Ingestor](https://threatmatrix.readthedocs.io/en/latest/Usage.html#ingestors). **Ingestors** allow to automatically insert IOC streams from outside sources to ThreatMatrix itself.
 * Visualizers are not connected anymore to Analyzers/Connectors. They are connected to a single Playbook instead. This allows the users to create and manage the Visualizers in an easier way.
-* We added the new **Pivot** framework in the backend which allows to connect jobs to each other and to _pivot_ from one indicator to another. This is the first step to give the chance to the users to create more broader and complex investigation in IntelX. The next step will be to add the Frontend changes that allows the user to fully leverage the framework 
+* We added the new **Pivot** framework in the backend which allows to connect jobs to each other and to _pivot_ from one indicator to another. This is the first step to give the chance to the users to create more broader and complex investigation in ThreatMatrix. The next step will be to add the Frontend changes that allows the user to fully leverage the framework 
 
 **New/Improved Plugins:**
 * Added new `DNS` playbook that collects the analyzers which performs DNS queries to various providers
@@ -165,7 +165,7 @@ Feel free to check it out! Official [blog post here](https://khulnasoft.github.i
 * updated installation instructions
 * upgraded a lot of packages
 
-## [v5.0.1](https://github.com/khulnasoft/IntelX/releases/tag/v5.0.1)
+## [v5.0.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.0.1)
 
 **Bug fixing for the v5.0.0 release**
 * The Scan Form button was not working. Now it works correctly.
@@ -178,34 +178,34 @@ A lot of database migrations needs to be applied during the upgrade. Just be pat
 **Minor changes**
 * Upgrade Mandiant's Floss version
 
-## [v5.0.0](https://github.com/khulnasoft/IntelX/releases/tag/v5.0.0)
-This major release is another big step forward for IntelX!! 🚀
+## [v5.0.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v5.0.0)
+This major release is another big step forward for ThreatMatrix!! 🚀
 
-Official blog post: [v.5.0.0 Announcement](https://www.certego.net/blog/intelx-v5-released)
+Official blog post: [v.5.0.0 Announcement](https://www.certego.net/blog/threatmatrix-v5-released)
 
-We heard your feedback! During the event at [Fosdem](https://fosdem.org/2023/schedule/event/security_intelx/) we announced that we were working in adding an _aggregated and simplified visualization of analyzer results_.
+We heard your feedback! During the event at [Fosdem](https://fosdem.org/2023/schedule/event/security_threatmatrix/) we announced that we were working in adding an _aggregated and simplified visualization of analyzer results_.
 We created it. Now, by leveraging a new plugin type called <b>Visualizers</b>, you will be able to create custom visualizations, based on your specific use cases!
 
 This framework is extremely powerful and allows every user to customize the GUI as they wish. But you know...with great power comes great responsability. To fully leverage this framework, you would need to put some effort in place. You would need to understand which data is useful for you and then write few code lines that would create your own GUI.
 
 That would speed the analysis of the results a lot if done correctly!
 
-To aid in this process we added a lot of [documentation and some very simple pre-built analyzers that you can use as example](https://intelx.readthedocs.io/en/latest/Usage.html#visualizers):
+To aid in this process we added a lot of [documentation and some very simple pre-built analyzers that you can use as example](https://threatmatrix.readthedocs.io/en/latest/Usage.html#visualizers):
 
-Moreover this release anticipates other important crucial steps for IntelX:
-* On June 10th [Matteo Lodi](https://twitter.com/matte_lodi) and [Simone Berni](https://twitter.com/0ssig3no) are presenting IntelX at one of the most important Cyber Security events in Italy: [HackinBo](https://www.hackinbo.it/programma.php)
-* On May 28th the [Google Summer of Code 2023](https://developers.google.com/open-source/gsoc/timeline) is starting and IntelX is participating again with 2 new students! Welcome to [Shivam Purohit](https://twitter.com/stay_away_plss) and [Abheek Tripathy](https://twitter.com/abheekblahblah)!
+Moreover this release anticipates other important crucial steps for ThreatMatrix:
+* On June 10th [Matteo Lodi](https://twitter.com/matte_lodi) and [Simone Berni](https://twitter.com/0ssig3no) are presenting ThreatMatrix at one of the most important Cyber Security events in Italy: [HackinBo](https://www.hackinbo.it/programma.php)
+* On May 28th the [Google Summer of Code 2023](https://developers.google.com/open-source/gsoc/timeline) is starting and ThreatMatrix is participating again with 2 new students! Welcome to [Shivam Purohit](https://twitter.com/stay_away_plss) and [Abheek Tripathy](https://twitter.com/abheekblahblah)!
 
 This release was possible thanks to the effort put in place by [Certego](https://www.certego.net) in supporting the maintainers.
 
 **Other important changes:**
 
-We have done some big refactor changes that could make your application do not work as expected after this major upgrade. Please follow the the [migration guide](https://intelx.readthedocs.io/en/latest/Installation.html#updating-to-5-0-0-from-a-4-x-x-version) before upgrading IntelX to the new major release.
+We have done some big refactor changes that could make your application do not work as expected after this major upgrade. Please follow the the [migration guide](https://threatmatrix.readthedocs.io/en/latest/Installation.html#updating-to-5-0-0-from-a-4-x-x-version) before upgrading ThreatMatrix to the new major release.
 
 * We moved away from the old big `analyzer_config.json` which was storing all the base configuration of the Analyzers to a database model (we did the same for all the other plugins types too). This allows us to manage plugins creation/modification/deletion in a more reliable manner and via the Django Admin Interface. If you have created custom plugins and changed those `<plugins>_config.json` file manually, you would need to re-create those custom plugins again from the Django Admin Interface.
 
 * We have REMOVED all the environment configuration that we deprecated with the v4.0.0 release and the script to migrate them.
-* We have REMOVED/RENAMED all the analyzers that we deprecated during the v4 releases cycle plus some more (see [migration guide](https://intelx.readthedocs.io/en/latest/Installation.html#updating-to-5-0-0-from-a-4-x-x-version)). You might need to change the analyzer names in your integrations.
+* We have REMOVED/RENAMED all the analyzers that we deprecated during the v4 releases cycle plus some more (see [migration guide](https://threatmatrix.readthedocs.io/en/latest/Installation.html#updating-to-5-0-0-from-a-4-x-x-version)). You might need to change the analyzer names in your integrations.
 * We did a lot of code refactors here and there to remove some spaghetti code that was generated by the high amount of different contributors that we had during the recent years. This should be transparent for the user
 
 **Other added minor features**
@@ -229,10 +229,10 @@ We have done some big refactor changes that could make your application do not w
 * a lot of dependencies upgrades
 
 
-## [v4.2.3](https://github.com/khulnasoft/IntelX/releases/tag/v4.2.3)
+## [v4.2.3](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.2.3)
 
 **New features**
-* Registration Page. Now you can configure your SMTP server (or AWS SES) to manage registration requests via email (user verification, password reset/change). This allows IntelX to be better suited for public deployments as a SaaS service.
+* Registration Page. Now you can configure your SMTP server (or AWS SES) to manage registration requests via email (user verification, password reset/change). This allows ThreatMatrix to be better suited for public deployments as a SaaS service.
 
 **New/Improved Analyzers:**
 * Refactored `Yara` analyzer again to avoid memory leaks and improve performance intensively
@@ -248,18 +248,18 @@ We have done some big refactor changes that could make your application do not w
 * now Observable name is copy pastable in the Job Result Page
 * a lot of dependencies upgrade (like Django from v3.2 to v4.1)
 
-**CARE!!!** After having upgraded IntelX, in case the application does not start and you get an error like this:
+**CARE!!!** After having upgraded ThreatMatrix, in case the application does not start and you get an error like this:
 ```commandline
-PermissionError: [Errno 13] Permission denied: '/var/log/intel_x/django/authentication.log
+PermissionError: [Errno 13] Permission denied: '/var/log/threat_matrix/django/authentication.log
 ```
 just run this:
 ```commandline
-sudo chown -R www-data:www-data /var/lib/docker/volumes/intel_x_generic_logs/_data/django
+sudo chown -R www-data:www-data /var/lib/docker/volumes/threat_matrix_generic_logs/_data/django
 ```
-and restart IntelX. It should solve the permissions problem.
+and restart ThreatMatrix. It should solve the permissions problem.
 
 
-## [v4.2.2](https://github.com/khulnasoft/IntelX/releases/tag/v4.2.2)
+## [v4.2.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.2.2)
 
 **New/Improved Analyzers:**
 * added [Crowdsec](https://www.crowdsec.net/) analyzer.
@@ -278,24 +278,24 @@ and restart IntelX. It should solve the permissions problem.
 * fix ID and User lookups in Jobs History table (#1552)
 * other minors
 
-## [v4.2.1](https://github.com/khulnasoft/IntelX/releases/tag/v4.2.1)
+## [v4.2.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.2.1)
 
 * Fixed Plugin bug which caused the inability to add new secrets.
 * Fixed Yara Analyzer and added new open source rules
 * Fixed Cape Sandbox analyzer not working
 * Deprecated `ThreatMiner`, `SecurityTrails` and `Robtex` various analyzers and substituted with new versions.
 * Refactoring and features in preparation to add support for cluster deployments.
-* Added a new advanced Documentation section [Advanced Configuration](https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html)
+* Added a new advanced Documentation section [Advanced Configuration](https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html)
   * Added more support for Cloud Deployments (in particular AWS)
 * Other minor adjustments and fixes
 
-## [v4.2.0](https://github.com/khulnasoft/IntelX/releases/tag/v4.2.0)
+## [v4.2.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.2.0)
 
-With this release we welcome new official maintainers of IntelX:
+With this release we welcome new official maintainers of ThreatMatrix:
 - [Simone Berni](https://twitter.com/0ssig3no): Key Contributor and Backend Maintainer
 - [Daniele Rosetti](https://github.com/drosetti): Key Contributor and Frontend Maintainer
 
-These awesome guys will help us maintaining the project and will bring IntelX to the next level! 🚀
+These awesome guys will help us maintaining the project and will bring ThreatMatrix to the next level! 🚀
 Be ready for new awesome features!
 
 **Improved Document analysis**
@@ -307,7 +307,7 @@ We added some improvements to handle recent Microsoft Office downloaders:
 
 **Deployments:**
 
-We are preparing to add more support for production deployments. We added some [documentation](https://intelx.readthedocs.io/en/latest/Installation.md) regarding:
+We are preparing to add more support for production deployments. We added some [documentation](https://threatmatrix.readthedocs.io/en/latest/Installation.md) regarding:
 * Logrotate Configuration
 * Crontab Configuration
 
@@ -336,8 +336,8 @@ If you want to still use their functionalities, you need to explicitly enable th
 - tons of fixes, refactors and stability contributions
 - a lot of dependencies upgrades
 
-## [v4.1.5](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.5)
-With this release we announce that IntelX Project will apply as a new Organization in the next [Google Summer of Code](https://summerofcode.withgoogle.com/)!
+## [v4.1.5](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.5)
+With this release we announce that ThreatMatrix Project will apply as a new Organization in the next [Google Summer of Code](https://summerofcode.withgoogle.com/)!
 
 We have created a dedicated repository with all the info an aspiring contributor would need to participate to the program.
 
@@ -345,28 +345,28 @@ All open source and cyber security fans! We are calling you! Be the next contrib
 
 (...and under the hood we did some fixes and updates here and there)
 
-## [v4.1.4](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.4)
-With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/intelx-project): [ThreatHunter.ai](https://threathunter.ai/?utm_source=intelx)! Thank you for your help!
+## [v4.1.4](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.4)
+With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/threatmatrix-project): [ThreatHunter.ai](https://threathunter.ai/?utm_source=threatmatrix)! Thank you for your help!
 
 Moreover this release solves a bug regarding the creation of organization-level secrets which was not possible before.
 
 And this is the last release of this year for us! We will see each other back in 2023!
 
-## [v4.1.3](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.3)
-With this version we officially announce that we have joined [Open Collective](https://opencollective.com/intelx-project) with the IntelX Project!
+## [v4.1.3](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.3)
+With this version we officially announce that we have joined [Open Collective](https://opencollective.com/threatmatrix-project) with the ThreatMatrix Project!
 
 If you love this project and you would like to help us, we would love to get your support there!
-<a href="https://opencollective.com/intelx-project/donate" target="_blank">
-  <img src="https://opencollective.com/intelx-project/donate/button@2x.png?color=blue" width=150 />
+<a href="https://opencollective.com/threatmatrix-project/donate" target="_blank">
+  <img src="https://opencollective.com/threatmatrix-project/donate/button@2x.png?color=blue" width=150 />
 </a>
 
 **New/Improved Analyzers:**
 * adjusted / fixed a lot of popular analyzers like Dehashed, MISP, VirusTotal, Alienvault OTX, PDF_Info and Unpacme
 * fixed --malware_tools_analyzers broken
 
-## [v4.1.2](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.2)
+## [v4.1.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.2)
 
-This version mainly adds quality improvements to the recently released ["Playbook" feature](https://intelx.readthedocs.io/en/latest/Usage.html#playbooks):
+This version mainly adds quality improvements to the recently released ["Playbook" feature](https://threatmatrix.readthedocs.io/en/latest/Usage.html#playbooks):
 * Now it is possible to create a new Playbook easily thanks to a proper button in the GUI. In this way you can save your own Playbooks and repeat them.
 * Now Playbooks support the check of already existing similar analysis like normal analysis already do. This saves computational and analysts' time.
 
@@ -380,9 +380,9 @@ Thanks to @0x0elliot for these new features.
 - various fixes and stability contributions
 - a lot of dependencies upgrades
 
-## [v4.1.1](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.1)
+## [v4.1.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.1)
 
-With the release we are happy to announce that we have finally deployed a public instance of IntelX, thanks to The Honeynet Project, available at https://intelx.honeynet.org.
+With the release we are happy to announce that we have finally deployed a public instance of ThreatMatrix, thanks to The Honeynet Project, available at https://threatmatrix.honeynet.org.
 
 The access is not open to prevent abuse. If you are interested in getting access, please contact a member of The Honeynet Project and explain the reasons behind your interest.
 
@@ -392,25 +392,25 @@ Then, this release fixes some important bugs regarding the integration with Open
 - Several documentation adjustments and updates
 - usual dependencies upgrades
 
-## [v4.1.0](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.0)
+## [v4.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.1.0)
 
 This release marks the end of the Google Summer of Code for this year (2022)!
-Each contributor wrote a blog post regarding his work for IntelX during this summer:
-  - [Aditya Narayan Sinha](https://twitter.com/0x0elliot): [Creating Playbooks for IntelX](https://www.honeynet.org/2022/10/06/gsoc-2022-project-summary-creating-playbooks-for-intelx/)
-  - [Aditya Pratap Singh](https://twitter.com/devmrfitz): [IntelX v4 improvements](https://www.honeynet.org/2022/09/26/gsoc-2022-project-summary-intelx-v4-improvements/)
-  - [Hussain Khan](https://twitter.com/Hussain41099635): [IntelX Go Client](https://www.honeynet.org/2022/09/06/gsoc-2022-project-summary-intelx-go-client-go-intelx/)
+Each contributor wrote a blog post regarding his work for ThreatMatrix during this summer:
+  - [Aditya Narayan Sinha](https://twitter.com/0x0elliot): [Creating Playbooks for ThreatMatrix](https://www.honeynet.org/2022/10/06/gsoc-2022-project-summary-creating-playbooks-for-threatmatrix/)
+  - [Aditya Pratap Singh](https://twitter.com/devmrfitz): [ThreatMatrix v4 improvements](https://www.honeynet.org/2022/09/26/gsoc-2022-project-summary-threatmatrix-v4-improvements/)
+  - [Hussain Khan](https://twitter.com/Hussain41099635): [ThreatMatrix Go Client](https://www.honeynet.org/2022/09/06/gsoc-2022-project-summary-threatmatrix-go-client-go-threatmatrix/)
 
 I would like to thank them and all the mentors (@sp35, @eshaan7, @0ssigeno, @drosetti) for the efforts put in the place during the last months!
 
 Looking forward for the Google Summer of Code 2023!
 
 **Time savers features**
-- New Plugin Type to allow to easily replicate the same type of analysis without having to select and/or configure groups of analyzers/connectors every time: **Playbooks** ([docs reference](https://intelx.readthedocs.io/en/latest/Usage.html#playbooks))
-- Default Plugins Parameters can be customized from the GUI and are defined at user/org level instead of globally ([docs reference](https://intelx.readthedocs.io/en/latest/Advanced-Usage.html#customize-analyzer-execution))
-- Plugins Secrets can now be managed from the GUI and are defined at user/org level instead of globally ([docs reference](https://intelx.readthedocs.io/en/latest/Installation.html#deprecated-environment-configuration))
-- Organization admins can enable/disable analyzers for all the org ([docs reference](https://intelx.readthedocs.io/en/latest/Usage.html#multi-tenancy))
-- Google Oauth authentication support ([docs reference](https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html#google-oauth2))
-- Added support for `extends` key to simplify Analyzer configuration and customization ([docs reference](https://intelx.readthedocs.io/en/latest/Usage.html#analyzers-customization))
+- New Plugin Type to allow to easily replicate the same type of analysis without having to select and/or configure groups of analyzers/connectors every time: **Playbooks** ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Usage.html#playbooks))
+- Default Plugins Parameters can be customized from the GUI and are defined at user/org level instead of globally ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Advanced-Usage.html#customize-analyzer-execution))
+- Plugins Secrets can now be managed from the GUI and are defined at user/org level instead of globally ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Installation.html#deprecated-environment-configuration))
+- Organization admins can enable/disable analyzers for all the org ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Usage.html#multi-tenancy))
+- Google Oauth authentication support ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html#google-oauth2))
+- Added support for `extends` key to simplify Analyzer configuration and customization ([docs reference](https://threatmatrix.readthedocs.io/en/latest/Usage.html#analyzers-customization))
 
 **Others**
 - Adjusted default time limits and configuration of some analyzers
@@ -419,10 +419,10 @@ Looking forward for the Google Summer of Code 2023!
 - other minor updates
 
 
-## [v4.0.1](https://github.com/khulnasoft/IntelX/releases/tag/v4.0.1)
+## [v4.0.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.0.1)
 
 **New/Improved Analyzers:**
-- added pre-defined `Yara_Scan_Custom_Signatures` analyzer to give the chance to the users to add their own rules directly in IntelX.
+- added pre-defined `Yara_Scan_Custom_Signatures` analyzer to give the chance to the users to add their own rules directly in ThreatMatrix.
 - added `ELF_Info` analyzer which parses ELF files.
 - added support for [TLSH](https://github.com/trendmicro/tlsh) hash in `File_Info` and telfhash in `ELF_Info`
 
@@ -432,28 +432,28 @@ Looking forward for the Google Summer of Code 2023!
 - a lot of dependencies upgrades
 - fixed to the docs
 
-## [v4.0.0](https://github.com/khulnasoft/IntelX/releases/tag/v4.0.0)
+## [v4.0.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v4.0.0)
 **Notes:**
 
-After months of work, we are finally ready to move forward and anticipate the new major 4.0.0 release for IntelX!
+After months of work, we are finally ready to move forward and anticipate the new major 4.0.0 release for ThreatMatrix!
 
-The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/eshaan7_), in ReactJS, and the code included in the main IntelX repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
+The GUI was completely rewritten by one of our maintainer, [Eshaan Bansal](https://twitter.com/eshaan7_), in ReactJS, and the code included in the main ThreatMatrix repository. This was possible thanks to the effort put in place by [Certego](https://www.certego.net/) in supporting the maintainers.
 
-The overall user feeling should be drastically improved. We hope you'll enjoy the new appearance of IntelX! Please try it out and provide us feedback!
+The overall user feeling should be drastically improved. We hope you'll enjoy the new appearance of ThreatMatrix! Please try it out and provide us feedback!
 
 **NEW FEATURES**
 
 While developing the new GUI, our main goal was to at least provide the same features that were available before. Anyway, we had the chance to add some important features:
 
-- A new way to manage users and their permissions: the "Organization" feature. Please refer to the [docs here](https://intelx.readthedocs.io/en/latest/Usage.md#organizations-and-user-management).
-- A notification mechanism was added. Please refer to the [docs here](https://intelx.readthedocs.io/en/latest/Usage.md#notifications).
+- A new way to manage users and their permissions: the "Organization" feature. Please refer to the [docs here](https://threatmatrix.readthedocs.io/en/latest/Usage.md#organizations-and-user-management).
+- A notification mechanism was added. Please refer to the [docs here](https://threatmatrix.readthedocs.io/en/latest/Usage.md#notifications).
 - Now it is possible to do more advanced lookups through the Jobs History and have an overall better way to filter them.
 - A new "API Access/Sessions" section was added to facilitate the management of API tokens and User sessions.
 - Now it is possible to submit multiple observables / files at the same time.
 
 **RETROCOMPATIBILITY INFO AND HOW TO UPDATE**
 
-Please refer to the [**Upgrade Guide**](https://intelx.readthedocs.io/en/latest/Installation.html#update-and-re-build)
+Please refer to the [**Upgrade Guide**](https://threatmatrix.readthedocs.io/en/latest/Installation.html#update-and-re-build)
 
 **New/Improved Analyzers:**
 - Added an analyzer which supports the new service provided for free by [The Honeynet Project](https://www.honeynet.org/2021/12/27/new-project-available-greedybear/): [GreedyBear](https://github.com/honeynet/GreedyBear) 
@@ -462,23 +462,23 @@ Please refer to the [**Upgrade Guide**](https://intelx.readthedocs.io/en/latest/
 
 **Other:**
 
-- improved and updated the overall documentation (in particular the [Contribute](https://intelx.readthedocs.io/en/latest/Contribute.md) section) to help the developers to start to work on the project
+- improved and updated the overall documentation (in particular the [Contribute](https://threatmatrix.readthedocs.io/en/latest/Contribute.md) section) to help the developers to start to work on the project
 - added DOCKER BUILDKIT, `--debug-build` and Watchman dependency to speed up development
 - now the Backend and the Frontend are respectively highly dependant from 2 new open source projects created by [Certego](https://www.certego.net/), [certego-saas](https://github.com/certego/certego-saas) and [certego-ui](https://github.com/certego/certego-ui).
 - a lot of dependencies upgrade, in particular in the new ReactJS Frontend.
 
-## [v3.4.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.4.1)
+## [v3.4.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.4.1)
 **Notes:**
 
 We are proud to announce that we have selected 3 contributors for the upcoming [Google Summer of Code](https://summerofcode.withgoogle.com/)!
 
 KhulnaSoft will run their projects under the umbrella of [The Honeynet Project](https://www.honeynet.org/), like the previous years.
 
-The contributors are going to have 3 intense months of work: with the help of the IntelX maintainers, they'll bring new functionalities to the project!
+The contributors are going to have 3 intense months of work: with the help of the ThreatMatrix maintainers, they'll bring new functionalities to the project!
 
-- [Aditya Narayan Sinha](https://twitter.com/0x0elliot): "Creating Playbooks for IntelX"
-- [Aditya Pratap Singh](https://twitter.com/devmrfitz): "IntelX v4 improvements"
-- [Hussain Khan](https://twitter.com/Hussain41099635): "IntelX Go Client"
+- [Aditya Narayan Sinha](https://twitter.com/0x0elliot): "Creating Playbooks for ThreatMatrix"
+- [Aditya Pratap Singh](https://twitter.com/devmrfitz): "ThreatMatrix v4 improvements"
+- [Hussain Khan](https://twitter.com/Hussain41099635): "ThreatMatrix Go Client"
 
 We are also moving forward to release the next major version (v4). We just need to work on some update scripts.
 
@@ -489,7 +489,7 @@ We are also moving forward to release the next major version (v4). We just need 
 * usual dependencies upgrades
 
 
-## [v3.4.0](https://github.com/khulnasoft/IntelX/releases/tag/v3.4.0)
+## [v3.4.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.4.0)
 **New/Improved Analyzers:**
 - Improved MISP analyzer: more options and fixed a bug (#979, #1000)
 - Improved VT3 analyzers: now it is possible to extract relationships data + the analyzers are optimized to reduce the number of queries and save quota (#988)
@@ -505,28 +505,28 @@ We are also moving forward to release the next major version (v4). We just need 
 - a lot of dependencies upgrades
 - renamed `Yara_Scan_McAfee` analyzer to `Yara_Scan_Trellix` and `Virushee_UploadFile` to `Virushee_Upload_File`
 
-## [v3.3.2](https://github.com/khulnasoft/IntelX/releases/tag/v3.3.2)
+## [v3.3.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.3.2)
 **Notes:**
 
 We are proud to announce two new sponsorships today!
-   - [Milton Security](https://www.miltonsecurity.com?utm_source=intelx)
-   - [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=intelx&utm_medium=banner)
+   - [Milton Security](https://www.miltonsecurity.com?utm_source=threatmatrix)
+   - [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=threatmatrix&utm_medium=banner)
 
-If you are interested in helping the project through a donation, read [here](https://github.com/khulnasoft/IntelX/blob/master/.github/partnership_and_sponsors.md) how you can do it!
+If you are interested in helping the project through a donation, read [here](https://github.com/khulnasoft/ThreatMatrix/blob/master/.github/partnership_and_sponsors.md) how you can do it!
 
 **New/Improved Analyzers:**
-- New [CyberChef](https://gchq.githuba.io/CyberChef/) Analyzer! Run your own recipes in IntelX! Check the [docs](https://intelx.readthedocs.io/en/develop/Advanced-Usage.html#cyberchef)!
+- New [CyberChef](https://gchq.githuba.io/CyberChef/) Analyzer! Run your own recipes in ThreatMatrix! Check the [docs](https://threatmatrix.readthedocs.io/en/develop/Advanced-Usage.html#cyberchef)!
 
 **Other:**
-- fixes: [#931](https://github.com/khulnasoft/IntelX/issues/931)
+- fixes: [#931](https://github.com/khulnasoft/ThreatMatrix/issues/931)
 - several dependencies upgrades
 
 
-## [v3.3.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.3.1)
+## [v3.3.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.3.1)
 
 **Notes:**
 - BREAKING CHANGE:
-  - We merged some additional Docker Analyzers (`thug`, `static_analyzers`, `apk_analyzers`, `box-js` and `qiling`) into a single container called `malware_tools_analyzers`. In this way, the IntelX configuration with all those Malware Analyzers is a lot lighter than before. Just run `--malware_tools_analyzers` as a single option to leverage all those additional analyzers.
+  - We merged some additional Docker Analyzers (`thug`, `static_analyzers`, `apk_analyzers`, `box-js` and `qiling`) into a single container called `malware_tools_analyzers`. In this way, the ThreatMatrix configuration with all those Malware Analyzers is a lot lighter than before. Just run `--malware_tools_analyzers` as a single option to leverage all those additional analyzers.
 - fixed `--all_analyzers` and `--tor_analyzers` options not working.
 
 **New/Improved Analyzers:**
@@ -539,26 +539,26 @@ If you are interested in helping the project through a donation, read [here](htt
 - Added Issue Templates
 - Renewed PR automation to better detect possible bugs in deployments and to improve performance
 
-## [v3.3.0](https://github.com/khulnasoft/IntelX/releases/tag/v3.3.0)
+## [v3.3.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.3.0)
 
 **Notes:**
-- Added helper script that checks and installs [initial requirements](https://intelx.readthedocs.io/en/develop/Installation.html#requirements). (`initialize.sh`)
-- Added [RADIUS authentication support](https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html#radius-authentication)
+- Added helper script that checks and installs [initial requirements](https://threatmatrix.readthedocs.io/en/develop/Installation.html#requirements). (`initialize.sh`)
+- Added [RADIUS authentication support](https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html#radius-authentication)
 
 **New/Improved Analyzers:**
-- Added a new optional [Docker Analyzer](https://intelx.readthedocs.io/en/develop/Advanced-Usage.html#optional-analyzers) running [Onionscan](https://github.com/s-rah/onionscan)
+- Added a new optional [Docker Analyzer](https://threatmatrix.readthedocs.io/en/develop/Advanced-Usage.html#optional-analyzers) running [Onionscan](https://github.com/s-rah/onionscan)
 - Added [CAPE Sandbox](https://capesandbox.com/) file analyzer
 - `Doc_Info` analyzer now runs [msodde](https://github.com/decalage2/oletools/wiki/msodde) together with `olevba` and `XMLMacroDeobfuscator`
 - `PE_Info` analyzer now calculates [impfuzzy](https://github.com/JPCERTCC/impfuzzy) and [dashicon](https://github.com/fr0gger/SuperPeHasher) hashes too.
 
 **Other:**
-- Added option to run ElasticSearch/Kibana together with IntelX with option `--elastic`. Check the [doc here](https://intelx.readthedocs.io/en/latest/Advanced-Configuration.html#example-configuration)
+- Added option to run ElasticSearch/Kibana together with ThreatMatrix with option `--elastic`. Check the [doc here](https://threatmatrix.readthedocs.io/en/latest/Advanced-Configuration.html#example-configuration)
 - Security: Patched Django Critical Bug + Added Brute Force protection to the Admin page
 - Generic bug fixing and other maintenance work
 - Bump some python dependencies
 
 
-## [v3.2.4](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.4)
+## [v3.2.4](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.2.4)
 
 **Notes:**
 
@@ -577,7 +577,7 @@ If you are interested in helping the project through a donation, read [here](htt
 - Bump `pydragonfly` dependency for `Dragonfly_Emulation` analyzer.
 - Bump some python dependencies.
 
-## [v3.2.3](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.3)
+## [v3.2.3](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.2.3)
 
 **New Analyzers:**
 
@@ -595,11 +595,11 @@ If you are interested in helping the project through a donation, read [here](htt
 - updated `dnstwist`, `XLMMacroDeobfuscator` and other dependencies upgrades
 - adjustments in the PR template
 
-**For IntelX Contributors**
+**For ThreatMatrix Contributors**
 
-We updated the documentation on how to [Contribute](https://intelx.readthedocs.io/en/latest/Contribute.html#rules). Please read through them if interested in contributing in the project.
+We updated the documentation on how to [Contribute](https://threatmatrix.readthedocs.io/en/latest/Contribute.html#rules). Please read through them if interested in contributing in the project.
 
-## [v3.2.2](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.2)
+## [v3.2.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.2.2)
 
 **Notes:**
 
@@ -618,9 +618,9 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 - Populate `not_supported_filetypes` field in `HashLookupServer_Get_File` analyzer.
 - Use `force_unique_key` parameter in all docker based analyzers to prevent trivial errors.
 
-## [v3.2.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.1)
+## [v3.2.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.2.1)
 
-> Update IntelXPy to version [4.1.3](https://github.com/khulnasoft/intelxpy/blob/master/.github/CHANGELOG.md#413).
+> Update PyThreatMatrix to version [4.1.3](https://github.com/khulnasoft/pythreatmatrix/blob/master/.github/CHANGELOG.md#413).
 
 **REST API changes**:
 
@@ -639,17 +639,17 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 - Uniform docker-compose version in all docker-compose files.
 - Use isort to sort import statements.
 
-## [v3.2.0](https://github.com/khulnasoft/IntelX/releases/tag/v3.2.0)
+## [v3.2.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.2.0)
 
 **New Analyzers:**
 
 - `CryptoScamDB_CheckAPI`: Scan a cryptocurrency address, IP address, domain or ENS name against the [CryptoScamDB](https://cryptoscamdb.org/) API.
-- `Dragonfly_Emulation`: Emulate and analyze malware in a customizable manner with [Dragonfly](https://dragonfly.certego.net/?utm_source=intelx) sandbox.
-  > Dragonfly is a new public service by [Certego](https://certego.net?utm_source=intelx) developed by the same team behind IntelX. [Sign up](https://dragonfly.certego.net/register?utm_source=intelx) today on Dragonfly for free access!
+- `Dragonfly_Emulation`: Emulate and analyze malware in a customizable manner with [Dragonfly](https://dragonfly.certego.net/?utm_source=threatmatrix) sandbox.
+  > Dragonfly is a new public service by [Certego](https://certego.net?utm_source=threatmatrix) developed by the same team behind ThreatMatrix. [Sign up](https://dragonfly.certego.net/register?utm_source=threatmatrix) today on Dragonfly for free access!
 
 **Bug Fixes:**
 
-- Fixed [743](https://github.com/khulnasoft/IntelX/issues/743): File mime_type identification error. Thanks to @OG-Sadpanda for the report.
+- Fixed [743](https://github.com/khulnasoft/ThreatMatrix/issues/743): File mime_type identification error. Thanks to @OG-Sadpanda for the report.
 
 **Other:**
 
@@ -658,15 +658,15 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 - Bump docker-compose file versions to 3.8
 - Bump some python dependencies
 
-## [v3.1.0](https://github.com/khulnasoft/IntelX/releases/tag/v3.1.0)
+## [v3.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.1.0)
 
-> 🎉 We are glad to welcome [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx) as a new sponsor for IntelX. Read everything about this partnership [in the Tines' blog](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl).
+> 🎉 We are glad to welcome [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix) as a new sponsor for ThreatMatrix. Read everything about this partnership [in the Tines' blog](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl).
 
 **Notes:**
 
-- Update IntelXPy to version [4.1.0](https://github.com/khulnasoft/intelxpy/blob/master/.github/CHANGELOG.md#410).
-- Introducing IntelX Official [Parternship & Sponsorship Tiers](https://github.com/khulnasoft/IntelX/blob/master/.github/partnership_and_sponsors.md).
-- IntelX now has an official integration in [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=intelx) templates.
+- Update PyThreatMatrix to version [4.1.0](https://github.com/khulnasoft/pythreatmatrix/blob/master/.github/CHANGELOG.md#410).
+- Introducing ThreatMatrix Official [Parternship & Sponsorship Tiers](https://github.com/khulnasoft/ThreatMatrix/blob/master/.github/partnership_and_sponsors.md).
+- ThreatMatrix now has an official integration in [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix) templates.
 
 **REST API changes:**
 
@@ -683,37 +683,37 @@ We updated the documentation on how to [Contribute](https://intelx.readthedocs.i
 - Fixes in documentation.
 - Bump some dependencies.
 
-## [v3.0.1](https://github.com/khulnasoft/IntelX/releases/tag/v3.0.1)
+## [v3.0.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.0.1)
 
 This is a minor patch release.
 
-- Bug Fix: Add `required` boolean attribute to `secrets` dict of configuration files. (Issue [#702](https://github.com/khulnasoft/IntelX/issues/702)).
+- Bug Fix: Add `required` boolean attribute to `secrets` dict of configuration files. (Issue [#702](https://github.com/khulnasoft/ThreatMatrix/issues/702)).
 - Bug Fix: Some fixes and adjusts in documentation.
 - Analyzer adjusts: DNSdb, cuckoo, maxmind, greynoise analyzers.
 - Deps: Bump some requirements.
 
-## [v3.0.0](https://github.com/khulnasoft/IntelX/releases/tag/v3.0.0)
+## [v3.0.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.0.0)
 
 > Note: This is a major release with MANY breaking changes.
 >
 > ✒️ [Link](https://www.honeynet.org/2021/09/13/intel-owl-release-v3-0-0/) to the blogpost announcing the release and summary of top new features.
 >
-> 💻 GUI changes can be seen in action on the [demo](https://intelxclient.firebaseapp.com/pages/connectors).
+> 💻 GUI changes can be seen in action on the [demo](https://threatmatrixclient.firebaseapp.com/pages/connectors).
 
 **Notes:**
 
-- Update IntelXPy to version [4.0.0](https://github.com/khulnasoft/intelxpy/blob/master/.github/CHANGELOG.md#400).
+- Update PyThreatMatrix to version [4.0.0](https://github.com/khulnasoft/pythreatmatrix/blob/master/.github/CHANGELOG.md#400).
 - If you modified your local `analyzer_config.json` file, then you will need to merge the changes manually because of the new format.
 
 **Features:**
 
 - Plugins (analyzers/connectors) that are not properly configured will not run even if requested. They will be marked as disabled from the dropdown on the analysis form and as a bonus you can also see if and why a plugin is not configured on the GUI tables.
-- Added `kill`, `retry` and `healthcheck` features to analyzers and connectors. See [Managing Analyzers and Connectors](https://intelx.readthedocs.io/en/master/Usage.html#special-plugins-operations).
-- Standardized threat-sharing using Traffic Light Protocol or `TLP`, thereby deprecating the use of booleans `force_privacy`, `disable_external_analyzers` and `private`. See [TLP Support](https://intelx.readthedocs.io/en/master/Usage.html#tlp-support). This makes the analysis form much more easier to use than before.
+- Added `kill`, `retry` and `healthcheck` features to analyzers and connectors. See [Managing Analyzers and Connectors](https://threatmatrix.readthedocs.io/en/master/Usage.html#special-plugins-operations).
+- Standardized threat-sharing using Traffic Light Protocol or `TLP`, thereby deprecating the use of booleans `force_privacy`, `disable_external_analyzers` and `private`. See [TLP Support](https://threatmatrix.readthedocs.io/en/master/Usage.html#tlp-support). This makes the analysis form much more easier to use than before.
 
 **New class of plugins called _Connectors_:**
 
-- Connectors are designed to run after every successful analysis which makes them suitable for automated threat-sharing. Built to support integration with other SIEM/SOAR projects specifically aimed at Threat Sharing Platforms. See [Available Connectors](https://intelx.readthedocs.io/en/master/Usage.html#available-connectors).
+- Connectors are designed to run after every successful analysis which makes them suitable for automated threat-sharing. Built to support integration with other SIEM/SOAR projects specifically aimed at Threat Sharing Platforms. See [Available Connectors](https://threatmatrix.readthedocs.io/en/master/Usage.html#available-connectors).
 - Newly added connectors for threat-sharing:
   - `MISP`: automatically creates an event on your MISP instance.
   - `OpenCTI`: automatically creates an observable and a linked report on your OpenCTI instance.
@@ -724,21 +724,21 @@ This is a minor patch release.
 
 - The `additional_config_params` attribute was split into the following 3 individual attributes.
   - `config`: Includes common parameters - `queue` and `soft_time_limit`.
-  - `params`: Includes default value, datatype and description for each [Analyzer](https://intelx.readthedocs.io/en/master/Usage.html#analyzers-customization) or [Connector](https://intelx.readthedocs.io/en/master/Usage.html#connectors-customization) specific parameters that modify runtime behaviour.
+  - `params`: Includes default value, datatype and description for each [Analyzer](https://threatmatrix.readthedocs.io/en/master/Usage.html#analyzers-customization) or [Connector](https://threatmatrix.readthedocs.io/en/master/Usage.html#connectors-customization) specific parameters that modify runtime behaviour.
   - `secrets`: Includes analyzer or connector specific secrets (e.g. API Key) name along with the secret's description. All secrets are required.
 
 **New inbuilt analyzers/fixes to existing:**
 
 - New `Spyse` analyzer: Scan domains, IPs, emails and CVEs using Spyse's API. Register [here](https://spyse.com/user/registration).
 - New `OpenCTI` analyzer: scan an observable on an OpenCTI instance.
-- New `Intezer_Get` analyzer: check Managing Analyzers and Connectors if an analysis related to a hash is available in [Intezer](https://analyze.intezer.com/?utm_source=IntelX)
+- New `Intezer_Get` analyzer: check Managing Analyzers and Connectors if an analysis related to a hash is available in [Intezer](https://analyze.intezer.com/?utm_source=ThreatMatrix)
 - New `MWDB_Get` analyzer: [mwdblib](https://mwdb.readthedocs.io/en/latest/) Retrieve malware file analysis by hash from repository maintained by CERT Polska MWDB.
 - New `YETI` analyzer (YETI = Your Everyday Threat Intelligence): scan an observable on a YETI instance.
 - New `HashLookupServer_Get_Observable` and `HashLookupServer_Get_File` analyzers: check if a md5 or sha1 is available in the database of [known file hosted by CIRCL](https://github.com/adulau/hashlookup-server)
 - New `ClamAV` analyzer: scan files for viruses/malwares/trojans using [ClamAV antivirus engine](https://docs.clamav.net/).
 - Fixed `Tranco` Analyzer pointing to the wrong `python_module`
 - Removed `CirclePDNS` default value in `env_file_app_template`
-- VirusTotal v3: New configuration options: `include_behaviour_summary` for behavioral analysis and `include_sigma_analyses` for sigma analysis report of the file. See [Customize Analyzers](https://intelx.readthedocs.io/en/master/Advanced-Usage.html#customize-analyzer-execution).
+- VirusTotal v3: New configuration options: `include_behaviour_summary` for behavioral analysis and `include_sigma_analyses` for sigma analysis report of the file. See [Customize Analyzers](https://threatmatrix.readthedocs.io/en/master/Advanced-Usage.html#customize-analyzer-execution).
 
 **REST API changes:**
 
@@ -748,9 +748,9 @@ This is a minor patch release.
 
 **Misc:**
 
-- Updated the elasticsearch mapping for `Job` model along with updated [Saved Object](https://github.com/khulnasoft/IntelX/blob/master/configuration/Kibana-Saved-Conf.ndjson) for Kibana.
+- Updated the elasticsearch mapping for `Job` model along with updated [Saved Object](https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/Kibana-Saved-Conf.ndjson) for Kibana.
 
-## [v2.5.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.5.0)
+## [v2.5.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.5.0)
 
 **New Inbuilt Analyzers:**
 
@@ -759,7 +759,7 @@ This is a minor patch release.
 **Analyzer Improvements & Fixes:**
 
 - Improvements in the `cuckoo_scan.py`, `file_info.py`, `abuseipdb.py`, and `otx.py`.
-- Fix: Exiftool download link was broken (Issue [#507](https://github.com/khulnasoft/IntelX/issues/507))
+- Fix: Exiftool download link was broken (Issue [#507](https://github.com/khulnasoft/ThreatMatrix/issues/507))
 
 **Other:**
 
@@ -767,31 +767,31 @@ This is a minor patch release.
 
 **Important Notes:**
 
-- This is the last stable release in the v2.x pipeline. The next release of IntelX, v3.0, will bring exciting new features and breaking changes. Some things that we have in the works:
+- This is the last stable release in the v2.x pipeline. The next release of ThreatMatrix, v3.0, will bring exciting new features and breaking changes. Some things that we have in the works:
   - A new class of plugins called _Connectors_ to allow integration with other SIEM/SOAR projects specifically aimed at Threat Sharing Platforms.
   - Support for MISP and Open-CTI.
   - automatically disabling of unconfigured analyzers
   - ...and much more
-- IntelX joined the official [Docker Open Source Program](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/). :tada:
+- ThreatMatrix joined the official [Docker Open Source Program](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/). :tada:
 
-## [v2.4.2](https://github.com/khulnasoft/IntelX/releases/tag/v2.4.2)
+## [v2.4.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.4.2)
 
 - darksearch.io search API analyzer
 - improved abuseipdb analyzer to show matched categories in a human readable form too
 - improved HoneyDB analyzer
 - as always: fixes, tweaks and dependencies upgrades.
 
-## [v2.4.1](https://github.com/khulnasoft/IntelX/releases/tag/v2.4.1)
+## [v2.4.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.4.1)
 
 A lot of different fixes, tweaks and dependencies upgrades. Also the documentation was updated
 
-## [v2.4.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.4.0)
+## [v2.4.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.4.0)
 
 We welcome new GSoC students ([Sarthak Khattar](https://twitter.com/Mr_Momo07) and [Shubham Pandey](https://twitter.com/imshubham31)) in the Organization!
 
 Main updates:
 
-- new release of the official GUI [IntelX-Ng](https://github.com/khulnasoft/IntelX-ng/releases/tag/v2.1.0)
+- new release of the official GUI [ThreatMatrix-Ng](https://github.com/khulnasoft/ThreatMatrix-ng/releases/tag/v2.1.0)
 - added [Malpedia](https://malpedia.caad.fkie.fraunhofer.de) analyzer
 
 Then a lot of maintenance and overall project stability issues solved:
@@ -800,13 +800,13 @@ Then a lot of maintenance and overall project stability issues solved:
 - bumped new versions of a lot of dependencies
 - Improved "Installation" and "Contribute" documentation
 - added new badges to the README
-- added `--django-server` [option](https://intelx.readthedocs.io/en/latest/Contribute.html#how-to-start) to speed up development
+- added `--django-server` [option](https://threatmatrix.readthedocs.io/en/latest/Contribute.html#how-to-start) to speed up development
 - analyzed files are now correctly deleted with the periodic cronjob
 - other little refactors and fixes
 
-## [v2.3.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.3.0)
+## [v2.3.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.3.0)
 
-- Added [API documentation](https://intelx.readthedocs.io) with both [Redoc](https://github.com/Redocly/redoc) and [OpenAPI](https://github.com/OAI/OpenAPI-Specification) Format
+- Added [API documentation](https://threatmatrix.readthedocs.io) with both [Redoc](https://github.com/Redocly/redoc) and [OpenAPI](https://github.com/OAI/OpenAPI-Specification) Format
 
 **NEW INBUILT ANALYZERS:**
 
@@ -824,38 +824,38 @@ Then a lot of maintenance and overall project stability issues solved:
 - refactor to some APIs + added tests for untested APIs
 - adjustments to MISP, OTX and Cymru analyzers
 
-## [v2.2.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.2.0)
+## [v2.2.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.2.0)
 
-- IntelX has **brand new project logos**. Thanks to @Certego.
+- ThreatMatrix has **brand new project logos**. Thanks to @Certego.
 
 **New Features:**
 
 - Introduced the possibility to enable/disable SSL check while connecting to a MISP platform. Thanks to @raw-data.
 - Users can now request to kill a job whose status is `running`.
   - GUI: Button on job result page.
-  - IntelXPy: `IntelX.kill_running_job` function
-  - CLI: `$ intelxpy jobs kill <id>`
+  - PyThreatMatrix: `ThreatMatrix.kill_running_job` function
+  - CLI: `$ pythreatmatrix jobs kill <id>`
   - API: `PATCH /api/jobs/{id}/kill`
 - Users can now delete a job.
   - GUI: Button on job result page.
-  - IntelXPy: `IntelX.delete_job_by_id` function
-  - CLI: `$ intelxpy jobs rm <id>`
+  - PyThreatMatrix: `ThreatMatrix.delete_job_by_id` function
+  - CLI: `$ pythreatmatrix jobs rm <id>`
   - API: `DELETE /api/jobs/{id}`
-- Users can now delete a tag from the command line/intelxpy (Eg: `$ intelxpy tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
+- Users can now delete a tag from the command line/pythreatmatrix (Eg: `$ pythreatmatrix tags rm <id>`). (Before, it was only possible from the web GUI or direct HTTP call.)
 
 **Others:**
 
 - Deprecate `ask_analysis_result` API.
 - Update permission section of docs
 
-## [v2.1.1](https://github.com/khulnasoft/IntelX/releases/tag/v2.1.1)
+## [v2.1.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.1.1)
 
 **FIXES/IMPROVEMENTS/Dependency upgrades**
 
 - now `start.py` works with the most recent 1.28.2 version of docker-compose
 - updated Django, Yara and Speakeasy to most recent versions
 
-## [v2.1.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.1.0)
+## [v2.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.1.0)
 
 **IMPORTANT FIX**
 We changed `docker-compose` file names for optional analyzers. In the `v.2.0.0` this broke Docker Hub builds, causing them to fail. Please upgrade to this version to be able to use the optional analyzers again.
@@ -873,31 +873,31 @@ We changed `docker-compose` file names for optional analyzers. In the `v.2.0.0` 
 - re-enabled `APKiD_Scan_APK_DEX_JAR` analyzer for Android samples
 - adjusts to auto-build, PR template and documentation
 
-## [v2.0.0](https://github.com/khulnasoft/IntelX/releases/tag/v2.0.0)
+## [v2.0.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v2.0.0)
 
 **BREAKING CHANGES:**
 
 - moved docker and docker-compose files under `docker/` folder.
 - users upgrading from previous versions need to manually move `env_file_app`, `env_file_postgres` and `env_file_integrations` files under `docker/`.
-- users are to use the new [start.py](https://intelx.readthedocs.io/en/stable/Installation.html#run) method to build or start IntelX containers
+- users are to use the new [start.py](https://threatmatrix.readthedocs.io/en/stable/Installation.html#run) method to build or start ThreatMatrix containers
 - moved the following analyzers together in a specific optional docker container named `static_analyzers`.
   - [`Capa`](https://github.com/fireeye/capa)
   - [`PeFrame`](https://github.com/guelfoweb/peframe)
   - `Strings_Info_Classic` (based on [flarestrings](https://github.com/fireeye/stringsifter))
   - `Strings_Info_ML` (based on [stringsifter](https://github.com/fireeye/stringsifter))
 
-Please see [docs](https://intelx.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to enable these optional analyzers
+Please see [docs](https://threatmatrix.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to enable these optional analyzers
 
 **NEW INBUILT ANALYZERS:**
 
-- added [Qiling](https://github.com/qilingframework/qiling) file analyzer. This is an optional analyzer (see [docs](https://intelx.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to activate it).
+- added [Qiling](https://github.com/qilingframework/qiling) file analyzer. This is an optional analyzer (see [docs](https://threatmatrix.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to activate it).
 - added [Stratosphere blacklists](https://www.stratosphereips.org/attacker-ip-prioritization-blacklist) analyzer
 - added [FireEye Red Team Tool Countermeasures](https://github.com/fireeye/red_team_tool_countermeasures) Yara rules analyzer
 - added [emailrep.io](https://emailrep.io/) analyzer
 - added [Triage](https://tria.ge) analyzer for observables (`search` API)
 - added [InQuest](https://labs.inquest.net) analyzer
 - added [WiGLE](api.wigle.net) analyzer
-- new analyzers were added to the `static_analyzers` optional docker container (see [docs](https://intelx.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to activate it).
+- new analyzers were added to the `static_analyzers` optional docker container (see [docs](https://threatmatrix.readthedocs.io/en/stable/Advanced-Usage.html#optional-analyzers) to understand how to activate it).
   - [`FireEye Floss`](https://github.com/fireeye/flare-floss) strings analysis.
   - [`Manalyze`](https://github.com/JusticeRage/Manalyze) file analyzer
 
@@ -905,8 +905,8 @@ Please see [docs](https://intelx.readthedocs.io/en/stable/Advanced-Usage.html#op
 
 - upgraded main Dockerfile to python 3.8
 - added support for the `generic` observable type. In this way it is possible to build analyzers that can analyze everything and not only IPs, domains, URLs or hashes
-- added [Multi-queue](https://intelx.readthedocs.io/en/stable/Advanced-Configuration.html#multi-queue) option to optimize usage of Celery queues. This is intended for advanced users.
-- updated GUI to new [IntelX-ng](https://github.com/khulnasoft/IntelX-ng/releases/tag/v1.7.0) version
+- added [Multi-queue](https://threatmatrix.readthedocs.io/en/stable/Advanced-Configuration.html#multi-queue) option to optimize usage of Celery queues. This is intended for advanced users.
+- updated GUI to new [ThreatMatrix-ng](https://github.com/khulnasoft/ThreatMatrix-ng/releases/tag/v1.7.0) version
 - upgraded [Speakeasy](https://github.com/fireeye/speakeasy), [Quark-Engine](https://github.com/quark-engine/quark-engine) and [Dnstwist](https://github.com/elceef/dnstwist) analyzers to last versions
 - moved from Travis CI to Github CI
 - added [CodeCov](https://about.codecov.io/) coverage support (_so we will be improving the test coverage shortly_)
@@ -914,7 +914,7 @@ Please see [docs](https://intelx.readthedocs.io/en/stable/Advanced-Usage.html#op
 - fix to log directiories that could result in some optional analyzers to break
 - added milliseconds to logs
 
-## [v1.9.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.9.1)
+## [v1.9.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.9.1)
 
 This version was released earlier to fix installation problems triggered by the new version of `pip` (`peepdf`package was incompatible and had to be changed).
 
@@ -930,11 +930,11 @@ This version was released earlier to fix installation problems triggered by the 
 - adjustments to documentation
 - upgraded `quark-engine` to v20.11
 - fixes to `UnpacMe_EXE_Unpacker` and `PE_Info` analyzers
-- managed RAM utilization by celery to avoid issues when using IntelX for a lot of analysis.
+- managed RAM utilization by celery to avoid issues when using ThreatMatrix for a lot of analysis.
 - added PR template
 - removed nginx banner
 
-## [v1.9.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.9.0)
+## [v1.9.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.9.0)
 
 **NEW INBUILT ANALYZERS:**
 
@@ -953,13 +953,13 @@ This version was released earlier to fix installation problems triggered by the 
 - upgraded Yara to v4.0.2
 - added Yara rule location to the analyzer output
 
-## [v1.8.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.8.0)
+## [v1.8.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.8.0)
 
 **BREAKING CHANGE:**
 
-- New Token authentication method using the django-rest-durin package. When upgrading IntelX to `v1.8.0`, intelxpy users must upgrade it too to `v2.0.0`. Also, intelxpy users must create a new valid Token to interact with IntelX. More details, [here](https://github.com/khulnasoft/intelxpy#generate-api-key).
+- New Token authentication method using the django-rest-durin package. When upgrading ThreatMatrix to `v1.8.0`, pythreatmatrix users must upgrade it too to `v2.0.0`. Also, pythreatmatrix users must create a new valid Token to interact with ThreatMatrix. More details, [here](https://github.com/khulnasoft/pythreatmatrix#generate-api-key).
 - Many analyzer variants for VirusTotal and Thug have been removed from `analyzer_config.json` file.
-  Explanation at [#224](https://github.com/khulnasoft/IntelX/issues/224). With added docs on how to use custom analyzer configuration at runtime.
+  Explanation at [#224](https://github.com/khulnasoft/ThreatMatrix/issues/224). With added docs on how to use custom analyzer configuration at runtime.
 - Other analyzers were renamed due to better clarity and format:
   - `ActiveDNS_Classic` -> `Classic_DNS`
   - `ActiveDNS_CloudFlare` -> `CloudFlare_DNS`
@@ -980,13 +980,13 @@ This version was released earlier to fix installation problems triggered by the 
 
 - Changed Oletools pointer to main repository version (0.56).
 - Changed docs style to use the `Sphinx` theme.
-- Fix for issue [#138](https://github.com/khulnasoft/IntelX/issues/138).
+- Fix for issue [#138](https://github.com/khulnasoft/ThreatMatrix/issues/138).
 - Update Django and Django-Rest-Framework versions.
 - Updates to recent versions of postgres, nginx and rabbit-mq docker images.
 - Loads of internal changes and code optimizations.
 - Added more info in contributing section of docs.
 
-## [v1.7.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.7.1)
+## [v1.7.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.7.1)
 
 Improvements to recent malicious document analysis:
 
@@ -997,34 +997,34 @@ Other:
 
 - updated black to 20.8b1 and little fix in the docs
 
-## [v1.7.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.7.0)
+## [v1.7.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.7.0)
 
 - 3 new analyzers which can be used out of the box:
   - `UnpacMe_EXE_Unpacker`: [UnpacMe](https://www.unpac.me/) is an automated malware unpacking service. (Thanks to @0ssigeno)
   - `CheckDMARC`: [checdmarc](https://github.com/domainaware/checkdmarc) provides SPF and DMARC DNS records validator for domains. (Thanks to @goodlandsecurity)
   - `Whoisxmlapi`: Fetch WHOIS record data, of a domain name, an IP address, or an email address. (Thanks to @tamthaitu)
 - Some fixes to Cymru Malware and VT2 analyzers.
-- Now you or your organization can get paid support/extra features/custom integrations for IntelX via xscode platform. [Details](https://xscode.com/khulnasoft/IntelX).
+- Now you or your organization can get paid support/extra features/custom integrations for ThreatMatrix via xscode platform. [Details](https://xscode.com/khulnasoft/ThreatMatrix).
 
-## [v1.6.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.6.1)
+## [v1.6.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.6.1)
 
-This patch allows to download the most recent docker image of IntelX. Previous version was downloading the old (`v1.5.1`) docker image.
+This patch allows to download the most recent docker image of ThreatMatrix. Previous version was downloading the old (`v1.5.1`) docker image.
 
-Please see [v1.6.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.6.0) for release details.
+Please see [v1.6.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.6.0) for release details.
 
-## [v1.6.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.6.0)
+## [v1.6.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.6.0)
 
 - added new analyzer for [FireEye speakeasy](https://github.com/fireeye/speakeasy)
 - updated [FireEye Capa](https://github.com/fireeye/capa) to 1.1.0
-- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use intelxpy" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
+- updated docs, including instructions for [Remnux](https://docs.remnux.org) users and a new ["How to use pythreatmatrix" video](https://www.youtube.com/watch?v=fpd6Kt9EZdI).
 
-## [v1.5.1](https://github.com/khulnasoft/IntelX/releases/tag/v1.5.1)
+## [v1.5.1](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.5.1)
 
 Patch after **v1.5.0**.
 
 - Fixed `runtime_configuration` JSON serialization bug when requesting file scan.
 
-## [v1.5.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.5.0)
+## [v1.5.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.5.0)
 
 > This release contains a bug that was fixed in v1.5.1. We recommend cloning the `master` branch.
 
@@ -1032,18 +1032,18 @@ Patch after **v1.5.0**.
 
 - Ability to pass a JSON field `runtime_configuration` for dynamic configuration per scan request. [Demo GIF](https://imgur.com/5sxp9JP).
 - IntelligenceX's phonebook API for observables.
-- Increased JWT token lifetime for webapp. ([Ref.](https://github.com/khulnasoft/IntelX/issues/163#issuecomment-678223186)).
+- Increased JWT token lifetime for webapp. ([Ref.](https://github.com/khulnasoft/ThreatMatrix/issues/163#issuecomment-678223186)).
 
 **Breaking Changes:**
 
-- Moved `ldap_config.py` under `configuration/` directory. If you were using LDAP before this release, please refer the [updated docs](https://intelx.readthedocs.io/en/develop/Advanced-Configuration.html#ldap).
+- Moved `ldap_config.py` under `configuration/` directory. If you were using LDAP before this release, please refer the [updated docs](https://threatmatrix.readthedocs.io/en/develop/Advanced-Configuration.html#ldap).
 
 **Fixes:**
 
 - Updates and fixes to: `Doc_info`, `PE_Info`, `VirusTotal` v3 and `Shodan_Honeyscore` analyzers.
 - Added migration files for DB.
 
-## [v1.4.0](https://github.com/khulnasoft/IntelX/releases/tag/v1.4.0)
+## [v1.4.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.4.0)
 
 - Inbuilt Integration for [Pulsedive](pulsedive.com/) analyzer for IP, URL, Domain and Hash observables. Works without API key with rate limit of 30 requests/minute.
 - Inbuilt integration for Integrated [Quark-engine](https://github.com/quark-engine/quark-engine) for APKs - _An Obfuscation-Neglect Android Malware Scoring System_.

@@ -70,7 +70,7 @@ export default function PluginWrapper({
   });
 
   // page title
-  useTitle(`IntelX | ${heading}`, { restoreOnUnmount: true });
+  useTitle(`ThreatMatrix | ${heading}`, { restoreOnUnmount: true });
 
   return (
     <Container fluid className="px-0">
@@ -84,7 +84,7 @@ export default function PluginWrapper({
           <span className="text-muted">
             {description} Fore more info check the{" "}
             <Link
-              to="https://intelx.readthedocs.io/en/latest/Usage.html#plugins-framework"
+              to="https://threatmatrix.readthedocs.io/en/latest/Usage.html#plugins-framework"
               target="_blank"
             >
               official doc

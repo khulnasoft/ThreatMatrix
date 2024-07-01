@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from typing import List
@@ -11,7 +11,7 @@ from api_app.analyzers_manager.constants import ObservableTypes
 from api_app.connectors_manager.classes import Connector
 from tests.mock_utils import if_mock_connections, patch
 
-INTELX_MISP_TYPE_MAP = {
+THREATMATRIX_MISP_TYPE_MAP = {
     ObservableTypes.IP: "ip-src",
     ObservableTypes.DOMAIN: "domain",
     ObservableTypes.URL: "url",
@@ -39,23 +39,23 @@ class MISP(Connector):
     @property
     def _event_obj(self) -> pymisp.MISPEvent:
         obj = pymisp.MISPEvent()
-        obj.info = f"Intelx Job-{self.job_id}"
+        obj.info = f"Threatmatrix Job-{self.job_id}"
         obj.distribution = 0  # your_organisation_only
         obj.threat_level_id = 4  # undefined
         obj.analysis = 2  # completed
-        obj.add_tag("source:intelx")
+        obj.add_tag("source:threatmatrix")
         obj.add_tag(f"tlp:{self.tlp}")  # tlp tag for sharing
 
         # Add tags from Job
         for tag in self._job.tags.all():
-            obj.add_tag(f"intelx-tag:{tag.label}")
+            obj.add_tag(f"threatmatrix-tag:{tag.label}")
 
         return obj
 
     @property
     def _base_attr_obj(self) -> pymisp.MISPAttribute:
         if self._job.is_sample:
-            _type = INTELX_MISP_TYPE_MAP["file"]
+            _type = THREATMATRIX_MISP_TYPE_MAP["file"]
             value = f"{self._job.file_name}|{self._job.md5}"
         else:
             _type = self._job.observable_classification
@@ -65,7 +65,7 @@ class MISP(Connector):
                 matched_type.replace("-", "")  # convert sha-x to shax
                 _type = matched_type if matched_type is not None else "text"
             else:
-                _type = INTELX_MISP_TYPE_MAP[_type]
+                _type = THREATMATRIX_MISP_TYPE_MAP[_type]
 
         obj = create_misp_attribute(_type, value)
         analyzers_names = self._job.analyzers_to_execute.all().values_list(
@@ -85,12 +85,12 @@ class MISP(Connector):
     @property
     def _link_attr_obj(self) -> pymisp.MISPAttribute:
         """
-        Returns attribute linking analysis on IntelX instance
+        Returns attribute linking analysis on ThreatMatrix instance
         """
         obj = pymisp.MISPAttribute()
         obj.type = "link"
         obj.value = f"{settings.WEB_CLIENT_URL}/jobs/{self.job_id}"
-        obj.comment = "View Analysis on IntelX"
+        obj.comment = "View Analysis on ThreatMatrix"
         obj.disable_correlation = True
 
         return obj

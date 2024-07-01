@@ -39,7 +39,7 @@ const validateForm = (values) => {
 // Component
 export default function ChangePassword() {
   // page title
-  useTitle("IntelX | Change Password", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Change Password", { restoreOnUnmount: true });
 
   // auth store
   const changePassword = useAuthStore(

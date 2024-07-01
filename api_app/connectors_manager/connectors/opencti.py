@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from typing import Dict
@@ -12,7 +12,7 @@ from api_app.analyzers_manager.constants import ObservableTypes
 from api_app.connectors_manager import classes
 from tests.mock_utils import if_mock_connections, patch
 
-INTELX_OPENCTI_TYPE_MAP = {
+THREATMATRIX_OPENCTI_TYPE_MAP = {
     ObservableTypes.IP: {
         "v4": "ipv4-addr",
         "v6": "ipv6-addr",
@@ -35,7 +35,7 @@ class OpenCTI(classes.Connector):
 
     def get_observable_type(self) -> str:
         if self._job.is_sample:
-            obs_type = INTELX_OPENCTI_TYPE_MAP["file"]
+            obs_type = THREATMATRIX_OPENCTI_TYPE_MAP["file"]
         elif self._job.observable_classification == ObservableTypes.HASH:
             matched_hash_type = helpers.get_hash_type(self._job.observable_name)
             if matched_hash_type in [
@@ -43,19 +43,19 @@ class OpenCTI(classes.Connector):
                 "sha-1",
                 "sha-256",
             ]:  # sha-512 not supported
-                obs_type = INTELX_OPENCTI_TYPE_MAP["file"]
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP["file"]
             else:
-                obs_type = INTELX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
         elif self._job.observable_classification == ObservableTypes.IP:
             ip_version = helpers.get_ip_version(self._job.observable_name)
             if ip_version in [4, 6]:
-                obs_type = INTELX_OPENCTI_TYPE_MAP[ObservableTypes.IP][
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[ObservableTypes.IP][
                     f"v{ip_version}"
                 ]  # v4/v6
             else:
-                obs_type = INTELX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
         else:
-            obs_type = INTELX_OPENCTI_TYPE_MAP[self._job.observable_classification]
+            obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[self._job.observable_classification]
 
         return obs_type
 
@@ -85,12 +85,12 @@ class OpenCTI(classes.Connector):
         # Create author (if not exists); else update
         org = pycti.Identity(self.opencti_instance).create(
             type="Organization",
-            name="IntelX",
+            name="ThreatMatrix",
             description=(
                 "Intel Owl is an Open Source Intelligence, or OSINT solution"
                 " to get threat intelligence data about a specific file, an IP or a"
                 " domain from a single API at scale. [Visit the project on GitHub]"
-                "(https://github.com/khulnasoft/IntelX/)"
+                "(https://github.com/khulnasoft/ThreatMatrix/)"
             ),
             update=True,  # just in case the description is updated in future
         )
@@ -137,16 +137,16 @@ class OpenCTI(classes.Connector):
         label_ids = []
         for tag in self._job.tags.all():
             label = pycti.Label(self.opencti_instance).create(
-                value=f"intelx-tag:{tag.label}",
+                value=f"threatmatrix-tag:{tag.label}",
                 color=tag.color,
             )
             label_ids.append(label["id"])
 
         # Create the report
         report = pycti.Report(self.opencti_instance).create(
-            name=f"IntelX Job-{self.job_id}",
+            name=f"ThreatMatrix Job-{self.job_id}",
             description=(
-                f"This is IntelX's analysis report for Job: {self.job_id}."
+                f"This is ThreatMatrix's analysis report for Job: {self.job_id}."
                 # comma separate analyzers executed
                 " Analyzers Executed:"
                 f" {', '.join(list(self._job.analyzers_to_execute.all().values_list('name', flat=True)))}"  # noqa
@@ -162,8 +162,8 @@ class OpenCTI(classes.Connector):
         external_reference = pycti.ExternalReference(
             self.opencti_instance, None
         ).create(
-            source_name="IntelX Analysis",
-            description="View analysis report on the IntelX instance",
+            source_name="ThreatMatrix Analysis",
+            description="View analysis report on the ThreatMatrix instance",
             url=f"{settings.WEB_CLIENT_URL}/jobs/{self.job_id}",
         )
         # Add the external reference to the report

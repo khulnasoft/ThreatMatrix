@@ -1,6 +1,6 @@
 ---
 name: New Visualizer
-about: A new visualizer to integrate with IntelX
+about: A new visualizer to integrate with ThreatMatrix
 title: "[Visualizer]"
 labels: new_visualizer
 assignees: ''

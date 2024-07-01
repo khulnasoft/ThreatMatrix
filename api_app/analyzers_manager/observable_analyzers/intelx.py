@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -46,7 +46,7 @@ class IntelX(ObservableAnalyzer):
     @cached_property
     def _session(self):
         session = requests.Session()
-        session.headers.update({"x-key": self._api_key_name, "User-Agent": "IntelX"})
+        session.headers.update({"x-key": self._api_key_name, "User-Agent": "ThreatMatrix"})
         return session
 
     def _poll_for_results(self, search_id):

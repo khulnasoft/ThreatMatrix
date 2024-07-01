@@ -1,14 +1,14 @@
 # Contribute
 
-There are a lot of different ways you could choose to contribute to the IntelX Project:
+There are a lot of different ways you could choose to contribute to the ThreatMatrix Project:
 
-- main repository: [IntelX](https://github.com/khulnasoft/IntelX)
+- main repository: [ThreatMatrix](https://github.com/khulnasoft/ThreatMatrix)
 
-- official Python client:  [intelxpy](https://github.com/khulnasoft/intelxpy).
+- official Python client:  [pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix).
 
-- official GO client: [go-intelx](https://github.com/khulnasoft/go-intelx).
+- official GO client: [go-threatmatrix](https://github.com/khulnasoft/go-threatmatrix).
 
-- official IntelX Site: [khulnasoft.github.io](https://github.com/khulnasoft/khulnasoft.github.io).
+- official ThreatMatrix Site: [khulnasoft.github.io](https://github.com/khulnasoft/khulnasoft.github.io).
 
 - honeypots project: [Greedybear](https://github.com/khulnasoft/GreedyBear)
 
@@ -18,7 +18,7 @@ Intel Owl welcomes contributors from anywhere and from any kind of education or 
 
 For this reason it is important to follow some easy rules based on a simple but important concept: **Respect**.
 
-- Before asking any questions regarding how the project works, please read _through all the documentation_ and [install](https://intelx.readthedocs.io/en/latest/Installation.html) the project on your own local machine to try it and understand how it basically works. This is a form of respect to the maintainers.
+- Before asking any questions regarding how the project works, please read _through all the documentation_ and [install](https://threatmatrix.readthedocs.io/en/latest/Installation.html) the project on your own local machine to try it and understand how it basically works. This is a form of respect to the maintainers.
 
 - DO NOT contact the maintainers with direct messages unless it is an urgent request. We don't have much time and cannot just answer to all the questions that we receive like "Guide me please! Help me understand how the project work". There is plenty of documentation and a lot of people in the community that can help you and would benefit from your questions. Share your problems and your knowledge. Please ask your questions in open channels (Github and Slack). This is a form of respect to the maintainers and to the community.
 
@@ -37,7 +37,7 @@ Keeping to a consistent code style throughout the project makes it easier to con
 
 ## How to start (Setup project and development instance)
 
-This guide assumes that you have already performed the steps required to install the project. If not, please do it ([Installation Guide](https://intelx.readthedocs.io/en/latest/Installation.html)).
+This guide assumes that you have already performed the steps required to install the project. If not, please do it ([Installation Guide](https://threatmatrix.readthedocs.io/en/latest/Installation.html)).
 
 Create a personal fork of the project on Github.
 Then, please create a new branch based on the **develop** branch that contains the most recent changes. This is mandatory.
@@ -64,7 +64,7 @@ sed -i "s/STAGE=\"production\"/STAGE=\"local\"/g" docker/env_file_app
 
 ### Backend
 
-Now, you can execute IntelX in development mode by selecting the mode `test` while launching the startup script:
+Now, you can execute ThreatMatrix in development mode by selecting the mode `test` while launching the startup script:
 
 ```bash
 ./start test up
@@ -91,7 +91,7 @@ Every time you perform a change, you should perform an operation to reflect the 
 If you made any changes to an existing model/serializer/view, please run the following command to generate a new version of the API schema and docs:
 
 ```bash
-docker exec -it intelx_uwsgi python manage.py spectacular --file docs/source/schema.yml && make html
+docker exec -it threatmatrix_uwsgi python manage.py spectacular --file docs/source/schema.yml && make html
 ```
 
 ### Frontend
@@ -118,20 +118,20 @@ Most of the time you would need to test the changes you made together with the b
 <ul>
 <li>Running <code>prod</code> would be faster because you would leverage the official images and you won't need to build the backend locally. In case you would need to test backend changes too at the same time, please use <code>test</code> and refer to the previous section of the documentation.</li>
 <li>This works thanks to the directive <code>proxy</code> in the <code>frontend/package.json</code> configuration</li>
-<li>It may happen that the backend build does not work due to incompatibility between the frontend version you are testing with the current complete IntelX version you are running. In those cases, considering that you don't need to build the frontend together with the backend because you are already testing it separately, we suggest to remove the first build step (the frontend part) from the main Dockerfile temporarily and build IntelX with only the backend. In this way there won't be conflict issues.</li>
+<li>It may happen that the backend build does not work due to incompatibility between the frontend version you are testing with the current complete ThreatMatrix version you are running. In those cases, considering that you don't need to build the frontend together with the backend because you are already testing it separately, we suggest to remove the first build step (the frontend part) from the main Dockerfile temporarily and build ThreatMatrix with only the backend. In this way there won't be conflict issues.</li>
 </ul>
 </div>
 
 #### Certego-UI
 
-The IntelX Frontend is tightly linked to the [`certego-ui`](https://github.com/certego/certego-ui) library. Most of the React components are imported from there. Because of this, it may happen that, during development, you would need to work on that library too.
-To install the `certego-ui` library, please take a look to [npm link](https://docs.npmjs.com/cli/v8/commands/npm-link) and remember to start certego-ui without installing peer dependencies (to avoid conflicts with IntelX dependencies):
+The ThreatMatrix Frontend is tightly linked to the [`certego-ui`](https://github.com/certego/certego-ui) library. Most of the React components are imported from there. Because of this, it may happen that, during development, you would need to work on that library too.
+To install the `certego-ui` library, please take a look to [npm link](https://docs.npmjs.com/cli/v8/commands/npm-link) and remember to start certego-ui without installing peer dependencies (to avoid conflicts with ThreatMatrix dependencies):
 
 ```bash
 git clone https://github.com/certego/certego-ui.git
 # change directory to the folder where you have the cloned the library
 cd certego-ui/
-# install, without peer deps (to use packages of IntelX)
+# install, without peer deps (to use packages of ThreatMatrix)
 npm i --legacy-peer-deps
 # create link to the project (this will globally install this package)
 sudo npm link
@@ -150,7 +150,7 @@ This trick will allow you to see reflected every changes you make in the `certeg
 
 ##### Example application
 
-The `certego-ui` application comes with an example project that showcases the components that you can re-use and import to other projects, like IntelX:
+The `certego-ui` application comes with an example project that showcases the components that you can re-use and import to other projects, like ThreatMatrix:
 
 ```bash
 # To have the Example application working correctly, be sure to have installed `certego-ui` *without* the `--legacy-peer-deps` option and having it started in another command line
@@ -166,7 +166,7 @@ npm start
 
 ## How to add a new Plugin
 
-IntelX was designed to ease the addition of new plugins. With a simple python script you can integrate your own engine or integrate an external service in a short time.
+ThreatMatrix was designed to ease the addition of new plugins. With a simple python script you can integrate your own engine or integrate an external service in a short time.
 
 There are two possible cases:
 1. You are creating an entirely new Plugin, meaning that you actually wrote python code
@@ -203,9 +203,9 @@ At this point, you can follow the specific guide for each plugin
 
 You may want to look at a few existing examples to start to build a new one, such as:
 
-- [shodan.py](https://github.com/khulnasoft/IntelX/blob/develop/api_app/analyzers_manager/observable_analyzers/shodan.py), if you are creating an observable analyzer
-- [malpedia_scan.py](https://github.com/khulnasoft/IntelX/blob/develop/api_app/analyzers_manager/file_analyzers/malpedia_scan.py), if you are creating a file analyzer
-- [peframe.py](https://github.com/khulnasoft/IntelX/blob/develop/api_app/analyzers_manager/file_analyzers/peframe.py), if you are creating a [docker based analyzer](#integrating-a-docker-based-analyzer)
+- [shodan.py](https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/observable_analyzers/shodan.py), if you are creating an observable analyzer
+- [malpedia_scan.py](https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/file_analyzers/malpedia_scan.py), if you are creating a file analyzer
+- [peframe.py](https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/file_analyzers/peframe.py), if you are creating a [docker based analyzer](#integrating-a-docker-based-analyzer)
 - **Please note:** If the new analyzer that you are adding is free for the user to use, please add it in the `FREE_TO_USE_ANALYZERS` playbook. To do this you have to make a migration file; you can use `0026_add_mmdb_analyzer_free_to_use` as a template.
 
 After having written the new python module, you have to remember to:
@@ -233,7 +233,7 @@ After having written the new python module, you have to remember to:
 If the analyzer you wish to integrate doesn't exist as a public API or python package, it should be integrated with its own docker image
 which can be queried from the main Django app.
 
-- It should follow the same design principle as the [other such existing integrations](https://github.com/khulnasoft/IntelX/tree/develop/integrations), unless there's very good reason not to.
+- It should follow the same design principle as the [other such existing integrations](https://github.com/khulnasoft/ThreatMatrix/tree/develop/integrations), unless there's very good reason not to.
 - The dockerfile should be placed at `./integrations/<analyzer_name>/Dockerfile`.
 - Two docker-compose files `compose.yml` for production and `compose-tests.yml` for testing should be placed under `./integrations/<analyzer_name>`.
 - If your docker-image uses any environment variables, add them in the `docker/env_file_integrations_template`.
@@ -243,8 +243,8 @@ which can be queried from the main Django app.
 
 You may want to look at a few existing examples to start to build a new one:
 
-- [misp.py](https://github.com/khulnasoft/IntelX/blob/master/api_app/connectors_manager/connectors/misp.py)
-- [opencti.py](https://github.com/khulnasoft/IntelX/blob/master/api_app/connectors_manager/connectors/opencti.py)
+- [misp.py](https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/connectors_manager/connectors/misp.py)
+- [opencti.py](https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/connectors_manager/connectors/opencti.py)
 
 After having written the new python module, you have to remember to:
 
@@ -333,7 +333,7 @@ To do so, some utility classes have been made:
   <tr>
     <td class="tg-7n4c">VisualizablePage</td>
     <td class="tg-0pky">A single page of the final report, made of different <span style="font-weight:bold">levels</span>. Each page added is represented as a new tab in frontend.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Page example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizablePage_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Page example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizablePage_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableLevel</td>
@@ -342,32 +342,32 @@ To do so, some utility classes have been made:
       <span class="tg-zh46">VisualizableHorizontalList</span>.
       The dimension of the level can be customized with the size parameter (1 is the biggest, 6 is the smallest). 
     </td>
-    <td class="tg-c3ow"><img alt="Visualizable Level example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableLevel_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Level example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableLevel_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableHorizontalList</td>
     <td class="tg-0pky">An horizontal list of visualizable elements. In the example there is an horizontal list of vertical lists.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Horizontal List Example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableHlist_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Horizontal List Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableHlist_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableVerticalList</td>
     <td class="tg-0pky">A vertical list made of a name, a title, and the list of elements.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Vertical List Example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableVlist_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Vertical List Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableVlist_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableTable</td>
     <td class="tg-0pky">A table of visualizable elements. In the example there is a table of base and vertical lists.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Table Example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableTable_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Table Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableTable_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableBool</td>
     <td class="tg-0pky">The representation of a boolean value. It can be enabled or disabled with colors.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Bool example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableBool_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Bool example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableBool_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableTitle</td>
     <td class="tg-0pky">The representation of a tuple, composed of a title and a value.</td>
-    <td class="tg-c3ow"><img alt="Visualizable Title example" src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/visualizableTitle_example.png"></td>
+    <td class="tg-c3ow"><img alt="Visualizable Title example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableTitle_example.png"></td>
   </tr>
   <tr>
     <td class="tg-7n4c">VisualizableBase</td>
@@ -391,8 +391,8 @@ instead of the syntax of other decorators that doesn't need the function call.
 
 You may want to look at a few existing examples to start to build a new one:
 
-- [dns.py](https://github.com/khulnasoft/IntelX/blob/master/api_app/visualizers_manager/visualizers/dns.py)
-- [yara.py](https://github.com/khulnasoft/IntelX/blob/master/api_app/visualizers_manager/visualizers/yara.py)
+- [dns.py](https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/visualizers_manager/visualizers/dns.py)
+- [yara.py](https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/visualizers_manager/visualizers/yara.py)
 
 ### How to share your plugin with the community
 To allow other people to use your configuration, that is now stored in your local database, you have to export it and create a data migration
@@ -402,7 +402,7 @@ To allow other people to use your configuration, that is now stored in your loca
       3. Parameter
       4. PluginConfig
       
-   2. Example: `docker exec -ti intelx_uwsgi python3 manage.py dumpplugin AnalyzerConfig <new_analyzer_name>`
+   2. Example: `docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin AnalyzerConfig <new_analyzer_name>`
     
 Add the new analyzer in the lists in the docs: [Usage](./Usage.md). Also, if the analyzer provides additional optional configuration, add the available options here: [Advanced-Usage](./Advanced-Usage.html#analyzers-with-special-configuration)
 
@@ -421,13 +421,13 @@ In the Pull Request remember to provide some real world examples (screenshots an
 To allow other people to use your configuration, that is now stored in your local database, you have to export it and create a data migration
 You can use the django management command `dumpplugin` to automatically create the migration file for your new analyzer (you will find it under `api_app/playbook_manager/migrations`).
 
-Example: `docker exec -ti intelx_uwsgi python3 manage.py dumpplugin PlaybookConfig <new_analyzer_name>`
+Example: `docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin PlaybookConfig <new_analyzer_name>`
 
 ## How to modify a plugin
 
 If the changes that you have to make should stay local, you can just change the configuration inside the `Django admin` page.
 
-But if, instead, you want your changes to be usable by every IntelX user, you have to create a new migration.  
+But if, instead, you want your changes to be usable by every ThreatMatrix user, you have to create a new migration.  
 
 To do so, you can use the following snippets as an example:
 1. You have to create a new migration file
@@ -499,25 +499,25 @@ def migrate(apps, schema_editor):
 
 ## Modifying functionalities of the Certego packages
 
-Since v4, IntelX leverages some packages from Certego:
+Since v4, ThreatMatrix leverages some packages from Certego:
 
 - [certego-saas](https://github.com/certego/certego-saas) that integrates some common reusable Django applications and tools that can be used for generic services.
 - [certego-ui](https://github.com/certego/certego-ui) that contains reusable React components for the UI.
 
-If you need to modify the behavior or add feature to those packages, please follow the same rules for IntelX and request a Pull Request there. The same maintainers of IntelX will answer to you.
+If you need to modify the behavior or add feature to those packages, please follow the same rules for ThreatMatrix and request a Pull Request there. The same maintainers of ThreatMatrix will answer to you.
 
-Follow these guides to understand how to start to contribute to them while developing for IntelX:
+Follow these guides to understand how to start to contribute to them while developing for ThreatMatrix:
 
-- _certego-saas_: create a fork, commit your changes in your local repo, then change the commit hash to the last one you made in the [requirements file](https://github.com/khulnasoft/IntelX/blob/master/requirements/certego-requirements.txt). Ultimately re-build the project
+- _certego-saas_: create a fork, commit your changes in your local repo, then change the commit hash to the last one you made in the [requirements file](https://github.com/khulnasoft/ThreatMatrix/blob/master/requirements/certego-requirements.txt). Ultimately re-build the project
 - _certego-ui_: [Frontend doc](./Contribute.md#certego-ui)
 
 ## How to test the application
 
-IntelX makes use of the django testing framework and the `unittest` library for unit testing of the API endpoints and End-to-End testing of the analyzers and connectors.
+ThreatMatrix makes use of the django testing framework and the `unittest` library for unit testing of the API endpoints and End-to-End testing of the analyzers and connectors.
 
 ### Configuration
 
-- In the encrypted folder `tests/test_files.zip` (password: "intelx") there are some files that you can use for testing purposes.
+- In the encrypted folder `tests/test_files.zip` (password: "threatmatrix") there are some files that you can use for testing purposes.
 
 - With the following environment variables you can customize your tests:
 
@@ -554,14 +554,14 @@ Now that the containers are up, we can launch the test suite.
 Examples:
 
 ```bash
-$ docker exec intelx_uwsgi python3 manage.py test
+$ docker exec threatmatrix_uwsgi python3 manage.py test
 ```
 
 ##### Run tests for a particular plugin
 
-To test a plugin in real environment, i.e. without mocked data, we suggest that you use the GUI of IntelX directly.
+To test a plugin in real environment, i.e. without mocked data, we suggest that you use the GUI of ThreatMatrix directly.
 Meaning that you have your plugin configured, you have selected a correct observable/file to analyze,
-and the final report shown in the GUI of IntelX is exactly what you wanted. 
+and the final report shown in the GUI of ThreatMatrix is exactly what you wanted. 
 
 
 ##### Run tests available in a particular file
@@ -569,7 +569,7 @@ and the final report shown in the GUI of IntelX is exactly what you wanted.
 Examples:
 
 ```bash
-$ docker exec intelx_uwsgi python3 manage.py test tests.api_app tests.test_crons # dotted paths
+$ docker exec threatmatrix_uwsgi python3 manage.py test tests.api_app tests.test_crons # dotted paths
 ```
 
 #### Frontend
@@ -638,11 +638,11 @@ $ ./start ci up
 3. Here, we simulate the GitHub CI tests locally by running the following 3 tests:
 
 ```bash
-$ docker exec -ti intelx_uwsgi unzip -P intelx tests/test_files.zip -d test_files
-$ docker exec -ti intelx_uwsgi python manage.py test tests
+$ docker exec -ti threatmatrix_uwsgi unzip -P threatmatrix tests/test_files.zip -d test_files
+$ docker exec -ti threatmatrix_uwsgi python manage.py test tests
 ```
 
-> Note: IntelX has dynamic testing suite. This means that no explicit analyzers/connector tests are required after the addition of a new analyzer or connector.
+> Note: ThreatMatrix has dynamic testing suite. This means that no explicit analyzers/connector tests are required after the addition of a new analyzer or connector.
 
 If everything is working, before submitting your pull request, please squash your commits into a single one!
 
@@ -663,8 +663,8 @@ Keep in mind that, if any errors arise during development, you would need to che
 
 This is the reason why it is important to add tons of logs in the application...if they are not available in time of needs you would cry really a lot.
 
-Where are IntelX logs?
-With a default installation of IntelX, you would be able to get the application data from the following paths in your OS:
-* `/var/lib/docker/volumes/intel_x_generic_logs/_data/django`: Django Application logs
-* `/var/lib/docker/volumes/intel_x_generic_logs/_data/uwsgi`: Uwsgi application server logs
-* `/var/lib/docker/volumes/intel_x_nginx_logs/_data/`: Nginx Web Server Logs
+Where are ThreatMatrix logs?
+With a default installation of ThreatMatrix, you would be able to get the application data from the following paths in your OS:
+* `/var/lib/docker/volumes/threat_matrix_generic_logs/_data/django`: Django Application logs
+* `/var/lib/docker/volumes/threat_matrix_generic_logs/_data/uwsgi`: Uwsgi application server logs
+* `/var/lib/docker/volumes/threat_matrix_nginx_logs/_data/`: Nginx Web Server Logs

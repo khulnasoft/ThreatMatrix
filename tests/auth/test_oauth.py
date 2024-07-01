@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from unittest.mock import Mock, patch
@@ -12,7 +12,7 @@ from rest_framework.reverse import reverse
 
 from authentication.oauth import oauth
 from certego_saas.apps.user.models import User as _UserModel
-from intel_x import secrets
+from threat_matrix import secrets
 
 from . import CustomOAuthTestCase
 

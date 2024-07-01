@@ -2,7 +2,7 @@
 FROM jasonish/suricata:7.0
 
 ENV PROJECT_PATH /opt/deploy
-ENV LOG_PATH /var/log/intel_x/pcap_analyzers
+ENV LOG_PATH /var/log/threat_matrix/pcap_analyzers
 ENV USER pcap_analyzers-user
 RUN dnf -y install python3-pip && dnf clean all && useradd -ms /bin/bash ${USER}
 

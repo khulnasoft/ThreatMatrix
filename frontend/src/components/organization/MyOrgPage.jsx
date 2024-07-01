@@ -43,7 +43,7 @@ export default function MyOrgPage() {
 
   // page title
   useTitle(
-    `IntelX | Organization ${
+    `ThreatMatrix | Organization ${
       organization?.name ? `(${organization?.name})` : ""
     } `,
     { restoreOnUnmount: true },

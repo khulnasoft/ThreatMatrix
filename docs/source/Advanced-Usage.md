@@ -9,7 +9,7 @@ This page includes details about some advanced features that Intel Owl provides 
   - [Optional Analyzers](#optional-analyzers)
   - [Customize analyzer execution](#customize-analyzer-execution)
     - [from the GUI](#from-the-gui)
-    - [from Intelxpy](#from-intelxpy)
+    - [from Pythreatmatrix](#from-pythreatmatrix)
     - [CyberChef](#cyberchef)
     - [PhoneInfoga](#phoneinfoga)
   - [Analyzers with special configuration](#analyzers-with-special-configuration)
@@ -18,11 +18,11 @@ This page includes details about some advanced features that Intel Owl provides 
 
 ## Organizations and User management
 
-Starting from IntelX v4, a new "Organization" section is available on the GUI. This section substitute the previous permission management via Django Admin and aims to provide an easier way to manage users and visibility.
+Starting from ThreatMatrix v4, a new "Organization" section is available on the GUI. This section substitute the previous permission management via Django Admin and aims to provide an easier way to manage users and visibility.
 
 ### Multi Tenancy
 
-Thanks to the "Organization" feature, IntelX can be used by multiple SOCs, companies, etc...very easily.
+Thanks to the "Organization" feature, ThreatMatrix can be used by multiple SOCs, companies, etc...very easily.
 Right now it works very simply: only users in the same organization can see analysis of one another. An user can belong to an organization only.
 
 #### Manage organizations
@@ -41,7 +41,7 @@ Once an invite has sent, the invited user has to login, go to the "Organization"
 
 #### Plugins Params and Secrets
 
-From IntelX v4.1.0, Plugin Parameters and Secrets can be defined at the organization level, in the dedicated section.
+From ThreatMatrix v4.1.0, Plugin Parameters and Secrets can be defined at the organization level, in the dedicated section.
 This allows to share configurations between users of the same org while allowing complete multi-tenancy of the application.
 Only Owners and Admins of the organization can set, change and delete them.
 
@@ -53,21 +53,21 @@ To do that, Org Admins needs to go in the "Plugins" section and click the button
 ![img.png](../static/disable_org.png)
 
 ### Registration
-Since IntelX v4.2.0 we added a Registration Page that can be used to manage Registration requests when providing IntelX as a Service.
+Since ThreatMatrix v4.2.0 we added a Registration Page that can be used to manage Registration requests when providing ThreatMatrix as a Service.
 
 After a user registration has been made, an email is sent to the user to verify their email address. If necessary, there are buttons on the login page to resend the verification email and to reset the password.
 
-Once the user has verified their email, they would be manually vetted before being allowed to use the IntelX platform. The registration requests would be handled in the Django Admin page by admins.
-If you have IntelX deployed on an AWS instance with an IAM role you can use the [SES](/Advanced-Usage.md#ses) service.
+Once the user has verified their email, they would be manually vetted before being allowed to use the ThreatMatrix platform. The registration requests would be handled in the Django Admin page by admins.
+If you have ThreatMatrix deployed on an AWS instance with an IAM role you can use the [SES](/Advanced-Usage.md#ses) service.
 
-To have the "Registration" page to work correctly, you must configure some variables before starting IntelX. See [Optional Environment Configuration](https://intelx.readthedocs.io/en/latest/Installation.html#other-optional-configuration-to-enable-specific-services-features)
+To have the "Registration" page to work correctly, you must configure some variables before starting ThreatMatrix. See [Optional Environment Configuration](https://threatmatrix.readthedocs.io/en/latest/Installation.html#other-optional-configuration-to-enable-specific-services-features)
 
 In a development environment the emails that would be sent are written to the standard output.
 
 #### Recaptcha configuration
 The Registration Page contains a Recaptcha form from Google. By default, that Recaptcha is not configured and is not shown.
 
-If your intention is to publish IntelX as a Service you should first remember to comply to the [AGPL License](https://github.com/khulnasoft/IntelX/blob/master/LICENSE).
+If your intention is to publish ThreatMatrix as a Service you should first remember to comply to the [AGPL License](https://github.com/khulnasoft/ThreatMatrix/blob/master/LICENSE).
 
 Then you need to add the generated Recaptcha Secret in the `RECAPTCHA_SECRET_KEY` value in the `env_file_app` file.
 
@@ -179,7 +179,7 @@ Example:
 }
 ```
 
-##### from [Intelxpy](https://github.com/khulnasoft/intelxpy)
+##### from [Pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix)
 
 While using `send_observable_analysis_request` or `send_file_analysis_request` endpoints, you can pass the parameter `runtime_configuration` with the optional values.
 Example:
@@ -190,7 +190,7 @@ runtime_configuration = {
         "additional_passwords_to_check": ["passwd", "2020"]
     }
 }
-intelxpy_client.send_file_analysis_request(..., runtime_configuration=runtime_configuration)
+pythreatmatrix_client.send_file_analysis_request(..., runtime_configuration=runtime_configuration)
 ```
 #### PhoneInfoga
 PhoneInfoga provides several [Scanners](https://sundowndev.github.io/phoneinfoga/getting-started/scanners/) to extract as much information as possible from a given phone number. Those scanners may require authentication, so they're automatically skipped when no authentication credentials are found.
@@ -226,29 +226,29 @@ Some analyzers could require a special configuration:
 
 - `Suricata`: you can customize the behavior of Suricata:
 
-  - `/integrations/pcap_analyzers/config/suricata/rules`: here there are Suricata rules. You can change the `custom.rules` files to add your own rules at any time. Once you made this change, you need to either restart IntelX or (this is faster) run a new analysis with the Suricata analyzer and set the parameter `reload_rules` to `true`.
-  - `/integrations/pcap_analyzers/config/suricata/etc`: here there are Suricata configuration files. Change it based on your wish. Restart IntelX to see the changes applied.
+  - `/integrations/pcap_analyzers/config/suricata/rules`: here there are Suricata rules. You can change the `custom.rules` files to add your own rules at any time. Once you made this change, you need to either restart ThreatMatrix or (this is faster) run a new analysis with the Suricata analyzer and set the parameter `reload_rules` to `true`.
+  - `/integrations/pcap_analyzers/config/suricata/etc`: here there are Suricata configuration files. Change it based on your wish. Restart ThreatMatrix to see the changes applied.
 
 - `Yara`: 
-  - You can customize both the `repositories` parameter and `private_repositories` secret to download and use different rules from the default that IntelX currently support.
+  - You can customize both the `repositories` parameter and `private_repositories` secret to download and use different rules from the default that ThreatMatrix currently support.
     - The `repositories` values is what will be used to actually run the analysis: if you have added private repositories, remember to add the url in `repositories` too! 
   - You can add local rules inside the directory at `/opt/deploy/files_required/yara/YOUR_USERNAME/custom_rules/`. Please remember that these rules are not synced in a cluster deploy: for this reason is advised to upload them on GitHub and use the `repositories` or `private_repositories` attributes.
 
 ## Notifications
 
-Since v4, IntelX integrated the notification system from the `certego_saas` package, allowing the admins to create notification that every user will be able to see.
+Since v4, ThreatMatrix integrated the notification system from the `certego_saas` package, allowing the admins to create notification that every user will be able to see.
 
 The user would find the Notifications button on the top right of the page:
 
-<img style="border: 0.2px solid black" width=220 height=210 src="https://raw.githubusercontent.com/khulnasoft/IntelX/master/docs/static/notifications.png">
+<img style="border: 0.2px solid black" width=220 height=210 src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/notifications.png">
 
-There the user can read notifications provided by either the administrators or the IntelX Maintainers.
+There the user can read notifications provided by either the administrators or the ThreatMatrix Maintainers.
 
 As an Admin, if you want to add a notification to have it sent to all the users, you have to login to the Django Admin interface, go to the "Notifications" section and add it there.
 While adding a new notification, in the `body` section it is possible to even use HTML syntax, allowing to embed images, links, etc;
-in the `app_name field`, please remember to use `intelx` as the app name.
+in the `app_name field`, please remember to use `threatmatrix` as the app name.
 
 Everytime a new release is installed, once the backend goes up it will automatically create a new notification,
-having as content the latest changes described in the [CHANGELOG.md](https://github.com/khulnasoft/IntelX/blob/master/.github/CHANGELOG.md),
-allowing the users to keep track of the changes inside intelx itself.
+having as content the latest changes described in the [CHANGELOG.md](https://github.com/khulnasoft/ThreatMatrix/blob/master/.github/CHANGELOG.md),
+allowing the users to keep track of the changes inside threatmatrix itself.
 

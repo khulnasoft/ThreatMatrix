@@ -1,6 +1,6 @@
 ---
 name: New Playbook
-about: A new playbook configured inside IntelX
+about: A new playbook configured inside ThreatMatrix
 title: "[Playbook]"
 labels: new_playbook
 assignees: ''

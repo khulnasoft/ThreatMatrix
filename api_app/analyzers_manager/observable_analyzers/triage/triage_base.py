@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -47,7 +47,7 @@ class TriageMixin(BaseAnalyzerMixin, metaclass=ABCMeta):
             session = requests.Session()
             session.headers = {
                 "Authorization": f"Bearer {self._api_key_name}",
-                "User-Agent": "IntelX",
+                "User-Agent": "ThreatMatrix",
             }
             self._session = session
         return self._session

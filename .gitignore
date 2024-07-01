@@ -10,7 +10,7 @@ docker/env_file_postgres
 docker/env_file_integrations
 docker/custom.override.yml
 venv/
-intel_x_test_env/
+threat_matrix_test_env/
 compose-elk.yml
 
 .python_history

@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -26,7 +26,7 @@ class UrlScan(ObservableAnalyzer):
         pass
 
     def run(self):
-        headers = {"Content-Type": "application/json", "User-Agent": "IntelX/v1.x"}
+        headers = {"Content-Type": "application/json", "User-Agent": "ThreatMatrix/v1.x"}
         if not hasattr(self, "_api_key_name") and self.urlscan_analysis == "search":
             logger.warning(f"{self.__repr__()} -> Continuing w/o API key..")
         else:
