@@ -87,7 +87,7 @@ class OpenCTI(classes.Connector):
             type="Organization",
             name="ThreatMatrix",
             description=(
-                "Intel Owl is an Open Source Intelligence, or OSINT solution"
+                "Threat Matrix is an Open Source Intelligence, or OSINT solution"
                 " to get threat intelligence data about a specific file, an IP or a"
                 " domain from a single API at scale. [Visit the project on GitHub]"
                 "(https://github.com/khulnasoft/ThreatMatrix/)"
