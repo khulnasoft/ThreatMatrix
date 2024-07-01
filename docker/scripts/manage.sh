@@ -1,1 +1,1 @@
-docker exec -ti intelx_uwsgi python3 manage.py $@
+docker exec -ti threatmatrix_uwsgi python3 manage.py $@

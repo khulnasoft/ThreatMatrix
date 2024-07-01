@@ -13,7 +13,7 @@ import api_app.validators
 
 
 def migrate_bi(apps, schema_editor):
-    from intel_x.celery import get_queue_name
+    from threat_matrix.celery import get_queue_name
 
     CrontabSchedule = apps.get_model("django_celery_beat", "CrontabSchedule")
     PeriodicTask = apps.get_model("django_celery_beat", "PeriodicTask")
@@ -23,7 +23,7 @@ def migrate_bi(apps, schema_editor):
     c1 = CrontabSchedule.objects.get_or_create(minute=12)[0]
     PeriodicTask.objects.create(
         name="send_elastic_bi",
-        task="intel_x.tasks.send_bi_to_elastic",
+        task="threat_matrix.tasks.send_bi_to_elastic",
         crontab=c1,
         enabled=settings.ELASTICSEARCH_BI_ENABLED,
         queue=get_queue_name("default"),
@@ -39,9 +39,9 @@ def create_default_clients(apps, schema_editor):
     # We can't import the Client model directly as it may be a newer
     # version than this migration expects. We use the historical version.
     Client = apps.get_model("durin", "Client")
-    # for intelxpy, custom token_ttl
+    # for pythreatmatrix, custom token_ttl
     Client.objects.update_or_create(
-        name="intelxpy", token_ttl=datetime.timedelta(weeks=4 * 12 * 10)
+        name="pythreatmatrix", token_ttl=datetime.timedelta(weeks=4 * 12 * 10)
     )
     # others, default token_ttl
     Client.objects.update_or_create(name="web-browser")

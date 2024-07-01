@@ -9,9 +9,9 @@ services:
         REPO_DOWNLOADER_ENABLED: ${REPO_DOWNLOADER_ENABLED}
         WATCHMAN: true
         PYCTI_VERSION: ${PYCTI_VERSION:-5.10.0}
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
     environment:
       - DEBUG=True
       - DJANGO_TEST_SERVER=True
@@ -19,22 +19,22 @@ services:
       - WATCHMAN=True
 
   daphne:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
 
   nginx:
     build:
       context: ..
       dockerfile: docker/Dockerfile_nginx
-    image: khulnasoft/intelx_nginx:test
+    image: khulnasoft/threatmatrix_nginx:test
     volumes:
       - ../configuration/nginx/django_server.conf:/etc/nginx/conf.d/default.conf
 
   celery_beat:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
     environment:
       - DEBUG=True
       - DJANGO_TEST_SERVER=True
@@ -42,9 +42,9 @@ services:
       - WATCHMAN=True
 
   celery_worker_default:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
     environment:
       - DEBUG=True
       - DJANGO_TEST_SERVER=True

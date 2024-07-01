@@ -12,8 +12,8 @@ from api_app.analyzers_manager.constants import ObservableTypes, TypeChoices
 from api_app.analyzers_manager.models import AnalyzerConfig
 from api_app.choices import ParamTypes
 from api_app.models import Job, Parameter, PluginConfig, PythonModule
-from intel_x.asgi import application
-from intel_x.tasks import job_set_final_status, run_plugin
+from threat_matrix.asgi import application
+from threat_matrix.tasks import job_set_final_status, run_plugin
 
 User = get_user_model()
 

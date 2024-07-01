@@ -5,16 +5,16 @@ DB_HOST=postgres
 DB_PORT=5432
 DB_USER=user
 DB_PASSWORD=password
-DB_NAME=intel_x_db
+DB_NAME=threat_matrix_db
 
 # Config variables
 OLD_JOBS_RETENTION_DAYS=2
-INTELX_WEB_CLIENT_DOMAIN=localhost
+THREATMATRIX_WEB_CLIENT_DOMAIN=localhost
 # Storage
 LOCAL_STORAGE=True
 
 # OAuth2
-GOOGLE_CLIENT_ID=test_intelx.apps.googleusercontent.com
+GOOGLE_CLIENT_ID=test_threatmatrix.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=the_supreme_secret
 
 # AWS
@@ -35,7 +35,7 @@ ELASTICSEARCH_DSL_NO_OF_REPLICAS=0
 
 ELASTICSEARCH_BI_ENABLED=False
 ELASTICSEARCH_BI_HOST=
-ELASTICSEARCH_BI_INDEX=intelx-bi
+ELASTICSEARCH_BI_INDEX=threatmatrix-bi
 
 
 # Test tokens
@@ -52,7 +52,7 @@ DEBUG=True
 DISABLE_LOGGING_TEST=True
 MOCK_CONNECTIONS=True
 HTTPS_ENABLED=not_enabled
-DJANGO_SETTINGS_MODULE=intel_x.settings
+DJANGO_SETTINGS_MODULE=threat_matrix.settings
 COVERAGE_PROCESS_START=.coveragerc
 
 # broker configuration

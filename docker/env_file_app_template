@@ -5,13 +5,13 @@ DB_PORT=5432
 DB_USER=user
 DB_PASSWORD=password
 DB_SSL=False
-DB_NAME=intel_x_db
+DB_NAME=threat_matrix_db
 
 # Additional Config variables
 # jobs older than this would be flushed from the database periodically. Default: 14 days
 OLD_JOBS_RETENTION_DAYS=14
 # used for generating links to web client e.g. job results page; Default: localhost
-INTELX_WEB_CLIENT_DOMAIN=localhost
+THREATMATRIX_WEB_CLIENT_DOMAIN=localhost
 # used for automated correspondence from the site manager
 DEFAULT_FROM_EMAIL=
 # used for correspondence with users
@@ -61,7 +61,7 @@ ELASTICSEARCH_DSL_NO_OF_REPLICAS=0
 
 ELASTICSEARCH_BI_ENABLED=False
 ELASTICSEARCH_BI_HOST=
-ELASTICSEARCH_BI_INDEX=intelx-bi
+ELASTICSEARCH_BI_INDEX=threatmatrix-bi
 
 # Test tokens
 TEST_IP=8.8.8.8

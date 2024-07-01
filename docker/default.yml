@@ -6,14 +6,14 @@ x-no-healthcheck: &no-healthcheck
 
 services:
   uwsgi:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_uwsgi
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_uwsgi
     volumes:
-      - ../configuration/intel_x.ini:/etc/uwsgi/sites/intel_x.ini # uwsgi configuration file
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration/threat_matrix.ini:/etc/uwsgi/sites/threat_matrix.ini # uwsgi configuration file
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - ../frontend/public/env.js:/var/www/reactapp/env.js # this is needed because we have to mount the file from the server to the image BEFORE staticfiles
-      - static_content:/opt/deploy/intel_x/static
+      - static_content:/opt/deploy/threat_matrix/static
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/uwsgi.sh
@@ -30,11 +30,11 @@ services:
       retries: 2
 
   daphne:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_daphne
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_daphne
     restart: unless-stopped
     volumes:
-      - generic_logs:/var/log/intel_x
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/daphne.sh
@@ -53,8 +53,8 @@ services:
         condition: service_healthy
 
   nginx:
-    image: khulnasoft/intelx_nginx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_nginx
+    image: khulnasoft/threatmatrix_nginx:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_nginx
     restart: unless-stopped
     volumes:
       - ../configuration/nginx/websocket.conf:/etc/nginx/websocket.conf
@@ -72,12 +72,12 @@ services:
         condition: service_healthy
 
   celery_beat:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_celery_beat
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_celery_beat
     restart: unless-stopped
     volumes:
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_beat.sh
@@ -90,13 +90,13 @@ services:
 
 
   celery_worker_default:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_celery_worker_default
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_celery_worker_default
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_default.sh

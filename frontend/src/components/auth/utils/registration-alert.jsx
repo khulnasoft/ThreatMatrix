@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Modal, ModalHeader, ModalBody, Alert } from "reactstrap";
 import { MdInfoOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { INTELX_DOCS_URL } from "../../../constants/environment";
+import { THREATMATRIX_DOCS_URL } from "../../../constants/environment";
 
 export function InviteOnlyAlert() {
   return (
@@ -17,7 +17,7 @@ export function InviteOnlyAlert() {
         &nbsp;Sign up below to join the waitlist!
       </h5>
       <p>
-        Please note that IntelX is operated as an invite-only trust group.
+        Please note that ThreatMatrix is operated as an invite-only trust group.
         Once you sign up, our team will reach out to you at the provided email
         address.
         <br />
@@ -57,7 +57,7 @@ export function AfterRegistrationModalAlert(props) {
         <>
           <section>
             <Alert color="success" className="text-center">
-              <h3>Thank you for signing up on IntelX! 🤝</h3>
+              <h3>Thank you for signing up on ThreatMatrix! 🤝</h3>
             </Alert>
           </section>
           <section className="mt-4">
@@ -113,7 +113,7 @@ export function ConfigurationModalAlert(props) {
           <section className="mt-4">
             <p>
               If you are an admin please check the{" "}
-              <a href={INTELX_DOCS_URL} target="_blank" rel="noreferrer">
+              <a href={THREATMATRIX_DOCS_URL} target="_blank" rel="noreferrer">
                 documentation
               </a>{" "}
               and correctly configure all the required variables.

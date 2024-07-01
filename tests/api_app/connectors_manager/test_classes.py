@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from unittest.mock import patch
@@ -38,7 +38,7 @@ class ConnectorTestCase(CustomTestCase):
         with self.assertRaises(NotImplementedError):
             MockUpConnector(cc).health_check(self.user)
         pc = PluginConfig.objects.create(
-            value="https://intelx.com",
+            value="https://threatmatrix.com",
             owner=self.user,
             parameter=Parameter.objects.get(name="url_key_name", python_module=pm),
             connector_config=cc,

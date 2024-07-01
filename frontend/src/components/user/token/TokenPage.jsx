@@ -5,13 +5,13 @@ import useTitle from "react-use/lib/useTitle";
 import { ContentSection } from "@certego/certego-ui";
 
 import TokenAccess from "./TokenAccess";
-import { INTELXPY_GH_URL } from "../../../constants/environment";
+import { PYTHREATMATRIX_GH_URL } from "../../../constants/environment";
 
 export default function TokenPage() {
   console.debug("APIPage rendered!");
 
   // page title
-  useTitle("IntelX | API", {
+  useTitle("ThreatMatrix | API", {
     restoreOnUnmount: true,
   });
 
@@ -21,10 +21,10 @@ export default function TokenPage() {
       <Row className="my-4">
         <Alert color="secondary" className="mx-3 mx-md-auto text-center">
           <span>
-            You can generate an API key to access IntelX&apos;s RESTful API.
+            You can generate an API key to access ThreatMatrix&apos;s RESTful API.
             Take a look to the available Python and Go clients:
             <a
-              href={INTELXPY_GH_URL}
+              href={PYTHREATMATRIX_GH_URL}
               target="_blank"
               rel="noreferrer"
               className="link-primary"

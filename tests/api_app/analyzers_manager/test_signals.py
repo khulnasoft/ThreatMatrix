@@ -21,7 +21,7 @@ class AnalyzerConfigSignalsTestCase(CustomTestCase):
         pm.save()
         self.assertIsNotNone(pm.update_task)
         self.assertEqual(pm.update_task.name, pm.python_complete_path + "Update")
-        self.assertEqual(pm.update_task.task, "intel_x.tasks.update")
+        self.assertEqual(pm.update_task.task, "threat_matrix.tasks.update")
         # this is false because in the tests we have
         # REPO_DOWNLOADER_ENABLED set to False
         self.assertFalse(pm.update_task.enabled)

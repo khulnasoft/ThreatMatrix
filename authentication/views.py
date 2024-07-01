@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -24,7 +24,7 @@ from rest_framework.views import APIView
 
 from certego_saas.ext.mixins import RecaptchaV2Mixin
 from certego_saas.ext.throttling import POSTUserRateThrottle
-from intel_x.settings import AUTH_USER_MODEL
+from threat_matrix.settings import AUTH_USER_MODEL
 
 from .oauth import oauth
 from .serializers import (

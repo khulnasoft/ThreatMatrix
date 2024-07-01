@@ -10,7 +10,7 @@
 ## Reporting a Vulnerability
 
 Please contact privately via Twitter one of the current maintainers.
-Current list of maintainers is available here: https://github.com/khulnasoft/IntelX#about-the-author-and-maintainers
+Current list of maintainers is available here: https://github.com/khulnasoft/ThreatMatrix#about-the-author-and-maintainers
 
 Then we would:
 * verify the vulnerability

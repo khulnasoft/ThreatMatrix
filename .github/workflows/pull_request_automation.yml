@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout IntelX
+      - name: Checkout ThreatMatrix
         uses: actions/checkout@v4.1.0
 
       - name: Set up Python
@@ -68,12 +68,12 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      - name: Checkout IntelX
+      - name: Checkout ThreatMatrix
         uses: actions/checkout@v4.1.0
 
       - name: Prepare Launch
         run: |
-          unzip -P intelx tests/test_files.zip -d test_files
+          unzip -P threatmatrix tests/test_files.zip -d test_files
           cp docker/env_file_app_template docker/env_file_app
           cp docker/env_file_postgres_template docker/env_file_postgres
 
@@ -104,16 +104,16 @@ jobs:
         if: always()
         run: |
           docker ps -a
-          docker logs intelx_uwsgi
-          docker logs intelx_daphne
+          docker logs threatmatrix_uwsgi
+          docker logs threatmatrix_daphne
 
       - name: Setup coverage
         run: |
-          docker exec intelx_uwsgi pip3 install coverage
+          docker exec threatmatrix_uwsgi pip3 install coverage
 
       - name: Run test
         run: |
-          docker exec intelx_uwsgi coverage run manage.py test --keepdb tests
+          docker exec threatmatrix_uwsgi coverage run manage.py test --keepdb tests
 
   frontend-tests:
     runs-on: ubuntu-latest

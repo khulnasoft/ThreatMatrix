@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import datetime
 import logging
@@ -30,8 +30,8 @@ from certego_saas.apps.organization.permissions import (
 from certego_saas.ext.helpers import cache_action_response, parse_humanized_range
 from certego_saas.ext.mixins import SerializerActionMixin
 from certego_saas.ext.viewsets import ReadAndDeleteOnlyViewSet
-from intel_x import tasks
-from intel_x.celery import app as celery_app
+from threat_matrix import tasks
+from threat_matrix.celery import app as celery_app
 
 from .analyzers_manager.constants import ObservableTypes
 from .choices import ObservableClassification

@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from django.contrib.auth import get_user_model
@@ -34,7 +34,7 @@ class TestUserAuth(CustomOAuthTestCase):
             "password": "testregisteruser",
             "profile": {
                 "company_name": "companytest",
-                "company_role": "intelx test",
+                "company_role": "threatmatrix test",
                 "twitter_handle": "@fake",
                 "discover_from": "other",
             },
@@ -174,7 +174,7 @@ class TestUserAuth(CustomOAuthTestCase):
         # email assertions
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(
-            mail.outbox[0].subject, "IntelX - Please Verify Your Email Address"
+            mail.outbox[0].subject, "ThreatMatrix - Please Verify Your Email Address"
         )
         self.assertEqual(mail.outbox[0].to[0], "testregisteruser@test.com")
 
@@ -206,11 +206,11 @@ class TestUserAuth(CustomOAuthTestCase):
         # email assertions
         self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(
-            mail.outbox[0].subject, "IntelX - Please Verify Your Email Address"
+            mail.outbox[0].subject, "ThreatMatrix - Please Verify Your Email Address"
         )
         self.assertEqual(mail.outbox[0].to[0], "testregisteruser@test.com")
         self.assertEqual(
-            mail.outbox[1].subject, "IntelX - Please Verify Your Email Address"
+            mail.outbox[1].subject, "ThreatMatrix - Please Verify Your Email Address"
         )
         self.assertEqual(mail.outbox[1].to[0], "testregisteruser@test.com")
 
@@ -268,7 +268,7 @@ class TestUserAuth(CustomOAuthTestCase):
             "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "intelx",
+            "password": "threatmatrix",
             "recaptcha": "blahblah",
         }
 
@@ -297,7 +297,7 @@ class TestUserAuth(CustomOAuthTestCase):
             "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "intelxintelx$",
+            "password": "threatmatrixthreatmatrix$",
             "recaptcha": "blahblah",
         }
 

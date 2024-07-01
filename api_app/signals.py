@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import logging
 from typing import Type
@@ -66,7 +66,7 @@ def post_migrate_api_app(
         return
     from django_celery_beat.models import PeriodicTask
 
-    from intel_x.tasks import update
+    from threat_matrix.tasks import update
 
     for module in PythonModule.objects.filter(health_check_schedule__isnull=False):
         for config in module.configs.filter(health_check_task__isnull=True):

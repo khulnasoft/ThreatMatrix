@@ -61,7 +61,7 @@ export default function ResetPassword() {
   console.debug("ResetPassword rendered!");
 
   // page title
-  useTitle("IntelX | Reset Password", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Reset Password", { restoreOnUnmount: true });
 
   const [passwordShown, setPasswordShown] = React.useState(false);
 

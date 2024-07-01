@@ -1,6 +1,6 @@
 {
-  "short_name": "IntelX",
-  "name": "IntelX",
+  "short_name": "ThreatMatrix",
+  "name": "ThreatMatrix",
   "description": "Analyze files, domains, IPs in multiple ways from a single API at scale.",
   "theme_color": "#0b2b38",
   "background_color": "#00161f",

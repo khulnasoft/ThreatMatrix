@@ -32,7 +32,7 @@ from api_app.serializers.report import AbstractReportSerializerInterface
 from api_app.visualizers_manager.models import VisualizerConfig
 from certego_saas.apps.organization.permissions import IsObjectOwnerOrSameOrgPermission
 from certego_saas.apps.user.models import User
-from intel_x.celery import get_queue_name
+from threat_matrix.celery import get_queue_name
 
 logger = logging.getLogger(__name__)
 
@@ -359,7 +359,7 @@ class _AbstractJobCreateSerializer(rfs.ModelSerializer):
                 starting_job=validated_data["parent"], ending_job=job, pivot_config=None
             )
         if send_task:
-            from intel_x.tasks import job_pipeline
+            from threat_matrix.tasks import job_pipeline
 
             logger.info(f"Sending task for job {job.pk}")
             job_pipeline.apply_async(
@@ -847,7 +847,7 @@ class ObservableAnalysisSerializer(_AbstractJobCreateSerializer):
             ObservableTypes.DOMAIN,
         ]:
             # force lowercase in ``observable_name``.
-            # Ref: https://github.com/khulnasoft/IntelX/issues/658
+            # Ref: https://github.com/khulnasoft/ThreatMatrix/issues/658
             attrs["observable_name"] = attrs["observable_name"].lower()
 
         if attrs["observable_classification"] == ObservableTypes.IP.value:

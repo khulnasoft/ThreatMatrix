@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import requests
@@ -19,7 +19,7 @@ class Stalkphish(classes.ObservableAnalyzer):
 
     def run(self):
         headers = {
-            "User-Agent": "Stalkphish/IntelX",
+            "User-Agent": "Stalkphish/ThreatMatrix",
             "Authorization": f"Token {self._api_key_name}",
         }
         obs_clsfn = self.observable_classification

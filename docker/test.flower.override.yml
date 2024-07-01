@@ -2,6 +2,6 @@ version: '3.8'
 
 services:
   flower:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix

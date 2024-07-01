@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import json
@@ -275,7 +275,7 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
             if not param_value:
                 raise AnalyzerRunException(
                     "Unexpected Error. "
-                    f"Please check log files under /var/log/intel_x/{name.lower()}/"
+                    f"Please check log files under /var/log/threat_matrix/{name.lower()}/"
                 )
         # just in case couldn't catch the error manually
         resp.raise_for_status()
@@ -295,7 +295,7 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
             raise AnalyzerRunException(e)
         if status_code == 404:
             # This happens when they key does not exist.
-            # This is possible in case IntelX is deployed as a Swarm.
+            # This is possible in case ThreatMatrix is deployed as a Swarm.
             # The previous POST request that created the analysis ...
             # ...could have been sent to a different container in another machine.
             # so we need to try again and find the server with the key

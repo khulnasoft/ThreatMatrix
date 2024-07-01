@@ -11,7 +11,7 @@ assignees: ''
 
 ## Environment
 1. OS:
-2. IntelX version:
+2. ThreatMatrix version:
 
 ##  What did you expect to happen
 

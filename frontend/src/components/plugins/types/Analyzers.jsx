@@ -20,7 +20,7 @@ export default function Analyzers() {
   return (
     <PluginWrapper
       heading="Analyzers"
-      description="Analyzers are the most important plugins in IntelX. They allow to perform data extraction on the observables and/or files that you would like to analyze."
+      description="Analyzers are the most important plugins in ThreatMatrix. They allow to perform data extraction on the observables and/or files that you would like to analyze."
       stateSelector={stateSelector}
       columns={analyzersTableColumns}
       type={PluginsTypes.ANALYZER}

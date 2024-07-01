@@ -38,7 +38,7 @@ export default function JobsTable() {
   console.debug("JobsTable rendered!");
 
   // page title
-  useTitle("IntelX | Jobs History", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Jobs History", { restoreOnUnmount: true });
 
   // consume zustand store
   const { range, fromTimeIsoStr, onTimeIntervalChange } = useTimePickerStore();

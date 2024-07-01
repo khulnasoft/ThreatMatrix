@@ -6,15 +6,15 @@ version: "3.8"
 
 services:
   pcap_analyzers:
-    image: khulnasoft/intelx_pcap_analyzers:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_pcap_analyzers
+    image: khulnasoft/threatmatrix_pcap_analyzers:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_pcap_analyzers
     restart: unless-stopped
     expose:
       - "4004"
     env_file:
       - env_file_integrations
     volumes:
-      - generic_logs:/var/log/intel_x
+      - generic_logs:/var/log/threat_matrix
       - ../integrations/pcap_analyzers/config/suricata/etc:/etc/suricata:ro
       - ../integrations/pcap_analyzers/config/suricata/rules:/var/lib/suricata/rules/
     depends_on:

@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from datetime import timedelta
@@ -25,7 +25,7 @@ class IntezerGet(ObservableAnalyzer):
         self.poll_interval = 3
         # read secret and set API key
         intezer_api.set_global_api(api_key=self._api_key_name)
-        intezer_sdk.consts.USER_AGENT = "IntelX"
+        intezer_sdk.consts.USER_AGENT = "ThreatMatrix"
 
     def run(self):
         result = {}

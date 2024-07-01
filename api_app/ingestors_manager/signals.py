@@ -10,14 +10,14 @@ from django_celery_beat.models import PeriodicTask
 from api_app.ingestors_manager.models import IngestorConfig
 from api_app.signals import migrate_finished
 from certego_saas.apps.user.models import User
-from intel_x.celery import get_queue_name
+from threat_matrix.celery import get_queue_name
 
 logger = logging.getLogger(__name__)
 
 
 @receiver(pre_save, sender=IngestorConfig)
 def pre_save_ingestor_config(sender, instance: IngestorConfig, *args, **kwargs):
-    from intel_x.tasks import execute_ingestor
+    from threat_matrix.tasks import execute_ingestor
 
     user = User.objects.get_or_create(username=f"{instance.name.title()}Ingestor")[0]
     user.profile.task_priority = 7
@@ -57,7 +57,7 @@ def post_migrate_ingestors_manager(
     logger.info(f"Post migrate {args} {kwargs}")
     if check_unapplied:
         return
-    from intel_x.tasks import refresh_cache
+    from threat_matrix.tasks import refresh_cache
 
     refresh_cache.apply_async(
         queue=get_queue_name(settings.CONFIG_QUEUE),

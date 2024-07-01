@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from datetime import timedelta
@@ -35,7 +35,7 @@ class IntezerScan(FileAnalyzer):
         result = {}
 
         try:
-            intezer_sdk.consts.USER_AGENT = "IntelX"
+            intezer_sdk.consts.USER_AGENT = "ThreatMatrix"
             # run analysis by hash
             hash_result = self.__intezer_analysis(file_hash=self.md5)
             result.update(hash_result, hash_found=True)

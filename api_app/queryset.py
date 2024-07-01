@@ -50,7 +50,7 @@ class SendToBiQuerySet(models.QuerySet):
     @staticmethod
     def _create_index_template():
         with open(
-            settings.CONFIG_ROOT / "elastic_search_mappings" / "intel_x_bi.json"
+            settings.CONFIG_ROOT / "elastic_search_mappings" / "threat_matrix_bi.json"
         ) as f:
             body = json.load(f)
             body["index_patterns"] = [f"{settings.ELASTICSEARCH_BI_INDEX}-*"]
@@ -332,7 +332,7 @@ class ParameterQuerySet(CleanOnCreateQuerySet):
             test_value=Case(
                 When(
                     name__icontains="url",
-                    then=Value("https://intelx.com", output_field=JSONField()),
+                    then=Value("https://threatmatrix.com", output_field=JSONField()),
                 ),
                 When(
                     name="pdns_credentials",
@@ -545,7 +545,7 @@ class PythonConfigQuerySet(AbstractConfigQuerySet):
 
     def get_signatures(self, job) -> Generator[Signature, None, None]:
         from api_app.models import AbstractReport, Job, PythonConfig
-        from intel_x import tasks
+        from threat_matrix import tasks
 
         job: Job
         for config in self:

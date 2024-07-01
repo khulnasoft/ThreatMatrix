@@ -18,11 +18,11 @@ services:
 
   redis:
     image: library/redis:6.2.7-alpine
-    container_name: intelx_redis
+    container_name: threatmatrix_redis
     hostname: redis
     restart: unless-stopped
     volumes:
-      - generic_logs:/var/log/intel_x
+      - generic_logs:/var/log/threat_matrix
     expose:
       - "6379"
     healthcheck:

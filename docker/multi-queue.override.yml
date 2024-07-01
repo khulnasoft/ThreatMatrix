@@ -10,14 +10,14 @@ services:
       - CELERY_QUEUES=default,local,long
 
   celery_worker_local:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_celery_worker_local
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_celery_worker_local
     restart: unless-stopped
     hostname: celery_worker_local
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_local.sh
@@ -29,14 +29,14 @@ services:
     <<: *no-healthcheck
 
   celery_worker_long:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_celery_worker_long
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_celery_worker_long
     hostname: celery_worker_long
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_long.sh
@@ -48,14 +48,14 @@ services:
     <<: *no-healthcheck
 
   celery_worker_ingestor:
-    image: khulnasoft/intelx:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_celery_worker_ingestor
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_celery_worker_ingestor
     hostname: celery_worker_ingestor
     restart: unless-stopped
     stop_grace_period: 3m
     volumes:
-      - ../configuration:/opt/deploy/intel_x/configuration
-      - generic_logs:/var/log/intel_x
+      - ../configuration:/opt/deploy/threat_matrix/configuration
+      - generic_logs:/var/log/threat_matrix
       - shared_files:/opt/deploy/files_required
     entrypoint:
       - ./docker/entrypoints/celery_ingestor.sh

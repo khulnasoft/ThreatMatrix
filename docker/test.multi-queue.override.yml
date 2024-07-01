@@ -2,16 +2,16 @@ version: '3.8'
 
 services:
   celery_worker_local:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
 
   celery_worker_long:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix
 
   celery_worker_ingestor:
-    image: khulnasoft/intelx:test
+    image: khulnasoft/threatmatrix:test
     volumes:
-      - ../:/opt/deploy/intel_x
+      - ../:/opt/deploy/threat_matrix

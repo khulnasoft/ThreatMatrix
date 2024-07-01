@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import requests
@@ -25,11 +25,11 @@ class YETI(classes.Connector):
 
         # create context
         context = {
-            "source": "IntelX",
+            "source": "ThreatMatrix",
             "report": f"{settings.WEB_CLIENT_URL}/jobs/{self.job_id}",
             "status": "analyzed",
             "date": str(self._job.finished_analysis_time),
-            "description": "IntelX's analysis report for Job: "
+            "description": "ThreatMatrix's analysis report for Job: "
             f"{self.job_id} | {obs_value} | {obs_type}",
             "analyzers executed": ", ".join(
                 list(
@@ -44,7 +44,7 @@ class YETI(classes.Connector):
         # request payload
         payload = {
             "value": obs_value,
-            "source": "IntelX",
+            "source": "ThreatMatrix",
             "tags": tags,
             "context": context,
         }

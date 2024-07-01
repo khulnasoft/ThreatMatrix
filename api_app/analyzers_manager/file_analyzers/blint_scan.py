@@ -6,7 +6,7 @@ from blint.analysis import AnalysisRunner
 from django.conf import settings
 
 from api_app.analyzers_manager.classes import FileAnalyzer
-from intel_x.settings._util import set_permissions
+from threat_matrix.settings._util import set_permissions
 
 logger = logging.getLogger(__name__)
 

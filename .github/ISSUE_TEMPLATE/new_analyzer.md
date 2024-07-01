@@ -1,6 +1,6 @@
 ---
 name: New Analyzer
-about: A new analyzer to integrate with IntelX
+about: A new analyzer to integrate with ThreatMatrix
 title: "[Analyzer]"
 labels: new_analyzer
 assignees: ''

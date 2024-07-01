@@ -33,31 +33,31 @@ class CustomTestCase(TestCase):
             cls.guest = User.objects.get(is_superuser=False, username="guest")
         except User.DoesNotExist:
             cls.guest = User.objects.create(
-                username="guest", email="guest@intelx.com", password="test"
+                username="guest", email="guest@threatmatrix.com", password="test"
             )
 
         try:
             cls.user = User.objects.get(is_superuser=False, username="user")
         except User.DoesNotExist:
             cls.user = User.objects.create(
-                username="user", email="user@intelx.com", password="test"
+                username="user", email="user@threatmatrix.com", password="test"
             )
 
         try:
             cls.admin = User.objects.get(is_superuser=False, username="admin")
         except User.DoesNotExist:
             cls.admin = User.objects.create(
-                username="admin", email="admin@intelx.com", password="test"
+                username="admin", email="admin@threatmatrix.com", password="test"
             )
 
         try:
             cls.superuser = User.objects.get(
-                is_superuser=True, username="superuser@intelx.org"
+                is_superuser=True, username="superuser@threatmatrix.org"
             )
         except User.DoesNotExist:
             cls.superuser = User.objects.create_superuser(
-                username="superuser@intelx.org",
-                email="test@intelx.com",
+                username="superuser@threatmatrix.org",
+                email="test@threatmatrix.com",
                 password="test",
             )
 
@@ -137,7 +137,7 @@ class PluginActionViewsetTestCase(metaclass=ABCMeta):
         pcs = []
         for param in _report.config.parameters.filter(required=True):
             if "url" in param.name:
-                value = "https://intelx"
+                value = "https://threatmatrix"
             else:
                 value = "test"
             pcs.append(

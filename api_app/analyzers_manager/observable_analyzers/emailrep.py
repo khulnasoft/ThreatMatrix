@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import requests
@@ -25,7 +25,7 @@ class EmailRep(classes.ObservableAnalyzer):
         """
 
         headers = {
-            "User-Agent": "IntelX",
+            "User-Agent": "ThreatMatrix",
             "Key": self._api_key_name,
             "Accept": "application/json",
         }

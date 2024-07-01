@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 import dataclasses
 import io
@@ -18,7 +18,7 @@ from django.utils.functional import cached_property
 from api_app.analyzers_manager.classes import FileAnalyzer
 from api_app.analyzers_manager.exceptions import AnalyzerRunException
 from api_app.models import Parameter, PluginConfig
-from intel_x.settings._util import set_permissions
+from threat_matrix.settings._util import set_permissions
 
 logger = logging.getLogger(__name__)
 
@@ -162,7 +162,7 @@ class YaraRepo:
 
     @property
     def compiled_file_name(self):
-        return "intel_x_compiled.yas"
+        return "threat_matrix_compiled.yas"
 
     @cached_property
     def first_level_directories(self) -> List[PosixPath]:

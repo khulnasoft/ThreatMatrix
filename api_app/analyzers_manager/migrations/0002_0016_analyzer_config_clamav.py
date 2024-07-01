@@ -11,7 +11,7 @@ plugin = {
         "module": "clamav.ClamAV",
         "base_path": "api_app.analyzers_manager.file_analyzers",
     },
-    "description": "scan files using [ClamAV AntiVirus Engine](https://www.clamav.net/). IntelX automatically keep ClamAV updated with official and [unofficial](https://github.com/rseichter/fangfrisch) open source signatures",
+    "description": "scan files using [ClamAV AntiVirus Engine](https://www.clamav.net/). ThreatMatrix automatically keep ClamAV updated with official and [unofficial](https://github.com/rseichter/fangfrisch) open source signatures",
     "disabled": False,
     "soft_time_limit": 70,
     "routing_key": "local",

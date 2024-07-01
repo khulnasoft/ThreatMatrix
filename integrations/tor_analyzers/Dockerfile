@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
 ENV PROJECT_PATH /opt/deploy
-ENV LOG_PATH /var/log/intel_x/tor_analyzers
+ENV LOG_PATH /var/log/threat_matrix/tor_analyzers
 ENV USER tor-user
 
 # Add a new low-privileged user

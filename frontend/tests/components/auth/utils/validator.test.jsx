@@ -15,13 +15,13 @@ jest.mock("../../../../src/constants/environment", () => ({
 
 describe("Compare Password", () => {
   test("Password do match", () => {
-    const password = "intelxpassword";
-    const confirmPassword = "intelxpassword";
+    const password = "threatmatrixpassword";
+    const confirmPassword = "threatmatrixpassword";
     expect(ComparePassword(password, confirmPassword)).toEqual({});
   });
   test("Password do not match", () => {
-    const password = "intelxpassword";
-    const confirmPassword = "IntelxPassword";
+    const password = "threatmatrixpassword";
+    const confirmPassword = "ThreatmatrixPassword";
     expect(ComparePassword(password, confirmPassword)).toEqual({
       password: "Passwords do not match.",
       confirmPassword: "Passwords do not match.",
@@ -31,7 +31,7 @@ describe("Compare Password", () => {
 
 describe("Password", () => {
   test("Valid password", () => {
-    const password = "intelxpassword";
+    const password = "threatmatrixpassword";
     expect(PasswordValidator(password)).toEqual({});
   });
   test("Required password", () => {
@@ -50,7 +50,7 @@ describe("Password", () => {
       password:
         "The password is entirely numeric or contains special characters",
     });
-    const password = "intelxpassword$";
+    const password = "threatmatrixpassword$";
     expect(PasswordValidator(password)).toEqual({
       password:
         "The password is entirely numeric or contains special characters",

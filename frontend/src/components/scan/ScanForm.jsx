@@ -232,7 +232,7 @@ export default function ScanForm() {
     React.useState(false);
 
   // page title
-  useTitle("IntelX | Scan", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Scan", { restoreOnUnmount: true });
 
   // router navigation
   const navigate = useNavigate();
@@ -916,12 +916,12 @@ export default function ScanForm() {
                     innerClassName="p-2 text-start text-nowrap md-fit-content"
                   >
                     <span>
-                      IntelX supports a customized version of the Traffic
+                      ThreatMatrix supports a customized version of the Traffic
                       Light Protocol (TLP).
                       <br />
                       For more info check the{" "}
                       <Link
-                        to="https://intelx.readthedocs.io/en/latest/Usage.html#tlp-support"
+                        to="https://threatmatrix.readthedocs.io/en/latest/Usage.html#tlp-support"
                         target="_blank"
                       >
                         official doc.

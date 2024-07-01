@@ -6,14 +6,14 @@ version: '3.8'
 
 services:
   tor_analyzers:
-    image: khulnasoft/intelx_tor_analyzers:${REACT_APP_INTELX_VERSION}
-    container_name: intelx_tor_analyzers
+    image: khulnasoft/threatmatrix_tor_analyzers:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_tor_analyzers
     restart: unless-stopped
     expose:
       - "4001"
     env_file:
       - env_file_integrations
     volumes:
-      - generic_logs:/var/log/intel_x
+      - generic_logs:/var/log/threat_matrix
     depends_on:
       - uwsgi

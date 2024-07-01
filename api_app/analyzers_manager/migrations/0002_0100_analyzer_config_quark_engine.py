@@ -25,7 +25,7 @@ plugin = {
                 "month_of_year": "*",
             },
             "name": "api_app.analyzers_manager.file_analyzers.quark_engine.QuarkEngineUpdate",
-            "task": "intel_x.tasks.update",
+            "task": "threat_matrix.tasks.update",
             "kwargs": '{"python_module_pk": 82}',
             "queue": "long",
             "enabled": True,

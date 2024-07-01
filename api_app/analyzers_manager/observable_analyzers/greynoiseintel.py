@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 import logging
@@ -26,9 +26,9 @@ class GreyNoiseAnalyzer(classes.ObservableAnalyzer):
     @property
     def integration_name(self):
         if self.greynoise_api_version == "v2":
-            return "greynoise-intelx-v1.0"
+            return "greynoise-threatmatrix-v1.0"
         elif self.greynoise_api_version == "v3":
-            return "greynoise-community-intelx-v1.0"
+            return "greynoise-community-threatmatrix-v1.0"
         raise RuntimeError(f"Version {self.greynoise_api_version} not configured")
 
     def run(self):

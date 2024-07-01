@@ -16,7 +16,7 @@ import {
   acceptInvitation,
   declineInvitation,
 } from "./orgApi";
-import { INTELX_DOCS_URL } from "../../constants/environment";
+import { THREATMATRIX_DOCS_URL } from "../../constants/environment";
 
 export default function InvitationsList() {
   console.debug("InvitationsList rendered!");
@@ -34,7 +34,7 @@ export default function InvitationsList() {
   );
 
   // page title
-  useTitle(`IntelX | Invitations (${invitations?.length || 0}) `, {
+  useTitle(`ThreatMatrix | Invitations (${invitations?.length || 0}) `, {
     restoreOnUnmount: true,
   });
 
@@ -65,7 +65,7 @@ export default function InvitationsList() {
           <span>
             Being part of an organization has many perks.&nbsp;
             <a
-              href={`${INTELX_DOCS_URL}Advanced-Usage.html#organizations-and-user-management`}
+              href={`${THREATMATRIX_DOCS_URL}Advanced-Usage.html#organizations-and-user-management`}
               target="_blank"
               rel="noreferrer"
               className="link-primary"

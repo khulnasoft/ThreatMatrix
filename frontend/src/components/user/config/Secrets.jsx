@@ -10,7 +10,7 @@ export default function Secrets({
   filterFunction,
   editable,
 }) {
-  useTitle("IntelX | Config", {
+  useTitle("ThreatMatrix | Config", {
     restoreOnUnmount: true,
   });
 

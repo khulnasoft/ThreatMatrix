@@ -1,4 +1,4 @@
-# This file is a part of IntelX https://github.com/khulnasoft/IntelX
+# This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
 
 from django.conf import settings
@@ -12,10 +12,10 @@ def move_token_from_durin(apps, schema_editor):
         Token = apps.get_model("authtoken", "Token")
 
         for durin_token in AuthToken.objects.all():
-            # export only CLI token (client name IntelXPy)
+            # export only CLI token (client name PyThreatMatrix)
             # only in case user didn't have a rest framework token
             if (
-                durin_token.client.name == "IntelXPy"
+                durin_token.client.name == "PyThreatMatrix"
                 and not Token.objects.filter(user_id=durin_token.user.id).exists()
             ):
                 Token.objects.create(key=durin_token.token, user_id=durin_token.user.pk)

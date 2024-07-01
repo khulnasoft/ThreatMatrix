@@ -1,11 +1,11 @@
-# IntelX - frontend
+# ThreatMatrix - frontend
 
 Built with [@certego/certego-ui](https://github.com/certego/certego-ui).
 
 ## Design thesis
 
 - Re-usable components/hooks/stores that other projects can also benefit from should be added to [certego-ui](https://github.com/certego/certego-ui) package.
-- IntelX specific:
+- ThreatMatrix specific:
   - components should be added to `src/components/common`.
   - general hooks should be added to `src/hooks`.
   - zustand stores hooks should be added to `src/stores`.
@@ -36,7 +36,7 @@ src/                                      source code
 |- constants/                             constant values
 |  |- api.js                              API URLs
 |  |- environment.js                      environment variables
-|  |- index.js                            intelx specific constants
+|  |- index.js                            threatmatrix specific constants
 |- hooks/                                 react hooks
 |- layouts/                               header, main, footer containers
 |- stores/                                zustand stores hooks
@@ -52,7 +52,7 @@ src/                                      source code
 The frontend inside the docker containers does not hot-reload, so
 you need to use `CRA dev server` on your host machine to serve pages when doing development on the frontend, using docker nginx only as API source.
 
-- Start IntelX containers (see [docs](https://intelx.readthedocs.io/en/latest/Installation.html)). Original dockerized app is accessible on `http://localhost:80`
+- Start ThreatMatrix containers (see [docs](https://threatmatrix.readthedocs.io/en/latest/Installation.html)). Original dockerized app is accessible on `http://localhost:80`
 
 - If you have not `node-js` installed, you have to do that. Follow the guide [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04). We tested this with NodeJS >=16.6
 
@@ -72,7 +72,7 @@ npm start
 
 - JS app main configs are available in `package.json`.
 
-- (optional) Use local build of `certego-ui` package so it can also hot-reload. This is useful when you want to make changes in certego-ui and rapidly test them with IntelX. Refer [here](https://github.com/certego/certego-ui#use-local-build-of-certego-ui-with-hot-reload-for-faster-development) for setup instructions.
+- (optional) Use local build of `certego-ui` package so it can also hot-reload. This is useful when you want to make changes in certego-ui and rapidly test them with ThreatMatrix. Refer [here](https://github.com/certego/certego-ui#use-local-build-of-certego-ui-with-hot-reload-for-faster-development) for setup instructions.
 
 ## Miscellaneous
 

@@ -14,7 +14,7 @@
             fi \
     endscript
     postrotate
-            container_id=$(docker ps -f name=intelx_nginx --quiet)
+            container_id=$(docker ps -f name=threatmatrix_nginx --quiet)
             docker exec $container_id killall -USR1 nginx
     endscript
 }

@@ -11,7 +11,7 @@ plugin = {
         "module": "intezer_get.IntezerGet",
         "base_path": "api_app.analyzers_manager.observable_analyzers",
     },
-    "description": "check if an hash was analyzed on Intezer. Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=IntelX).",
+    "description": "check if an hash was analyzed on Intezer. Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=ThreatMatrix).",
     "disabled": False,
     "soft_time_limit": 100,
     "routing_key": "default",

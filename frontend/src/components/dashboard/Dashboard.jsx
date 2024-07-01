@@ -58,7 +58,7 @@ export default function Dashboard() {
   const { range, onTimeIntervalChange } = useTimePickerStore();
 
   // page title
-  useTitle("IntelX | Dashboard", { restoreOnUnmount: true });
+  useTitle("ThreatMatrix | Dashboard", { restoreOnUnmount: true });
 
   const { organization } = useOrganizationStore(
     React.useCallback(

@@ -11,7 +11,7 @@ plugin = {
         "module": "intezer_scan.IntezerScan",
         "base_path": "api_app.analyzers_manager.file_analyzers",
     },
-    "description": "Scan a file hash on Intezer. Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=IntelX). With TLP `CLEAR`, in case the hash is not found, you would send the file to the service.",
+    "description": "Scan a file hash on Intezer. Register for a free community account [here](https://analyze.intezer.com/sign-in?utm_source=ThreatMatrix). With TLP `CLEAR`, in case the hash is not found, you would send the file to the service.",
     "disabled": False,
     "soft_time_limit": 300,
     "routing_key": "long",
