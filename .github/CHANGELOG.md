@@ -346,18 +346,18 @@ All open source and cyber security fans! We are calling you! Be the next contrib
 (...and under the hood we did some fixes and updates here and there)
 
 ## [v4.1.4](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.4)
-With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/intelx): [ThreatHunter.ai](https://threathunter.ai/?utm_source=intelx)! Thank you for your help!
+With this release we welcome our first sponsor in [Open Collective](https://opencollective.com/intelx-project): [ThreatHunter.ai](https://threathunter.ai/?utm_source=intelx)! Thank you for your help!
 
 Moreover this release solves a bug regarding the creation of organization-level secrets which was not possible before.
 
 And this is the last release of this year for us! We will see each other back in 2023!
 
 ## [v4.1.3](https://github.com/khulnasoft/IntelX/releases/tag/v4.1.3)
-With this version we officially announce that we have joined [Open Collective](https://opencollective.com/intelx) with the IntelX Project!
+With this version we officially announce that we have joined [Open Collective](https://opencollective.com/intelx-project) with the IntelX Project!
 
 If you love this project and you would like to help us, we would love to get your support there!
-<a href="https://opencollective.com/intelx/donate" target="_blank">
-  <img src="https://opencollective.com/intelx/donate/button@2x.png?color=blue" width=150 />
+<a href="https://opencollective.com/intelx-project/donate" target="_blank">
+  <img src="https://opencollective.com/intelx-project/donate/button@2x.png?color=blue" width=150 />
 </a>
 
 **New/Improved Analyzers:**

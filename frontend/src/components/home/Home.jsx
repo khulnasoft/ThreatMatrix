@@ -25,13 +25,13 @@ const blogPosts = [
   },
   {
     title:
-      "intel X – OSINT tool automates the intel-gathering process using a single API",
+      "Intel Owl – OSINT tool automates the intel-gathering process using a single API",
     subText: "Daily Swig: Interview with Matteo Lodi and Eshaan Bansal",
     date: "18th August 2020",
     link: "https://portswigger.net/daily-swig/intel-owl-osint-tool-automates-the-intel-gathering-process-using-a-single-api",
   },
   {
-    title: "New year, new tool: intel X",
+    title: "New year, new tool: Intel Owl",
     subText: "Certego Blog: First announcement",
     date: "2nd January 2020",
     link: "https://www.certego.net/en/news/new-year-new-tool-intel-owl/",
@@ -57,7 +57,7 @@ export default function Home() {
       {/* Content */}
       <Container id="home__content" className="mt-2">
         <ContentSection className="bg-body shadow lead">
-          intel X is an Open Source Intelligence, or OSINT solution to get
+          Intel Owl is an Open Source Intelligence, or OSINT solution to get
           threat intelligence data about a specific file, an IP or a domain from
           a single API at scale. It integrates a number of analyzers available
           online and a lot of cutting-edge malware analysis tools. It is for

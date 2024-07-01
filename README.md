@@ -1,4 +1,4 @@
-<img src="docs/static/intel_x_positive.png" width=547 height=150 alt="intel X"/>
+<img src="docs/static/intel_x_positive.png" width=547 height=150 alt="Intel Owl"/>
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/IntelX)](https://github.com/khulnasoft/IntelX/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/IntelX?style=social)](https://github.com/khulnasoft/IntelX/stargazers)
@@ -17,7 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/IntelX.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/IntelX/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/IntelX)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
-# intel X
+# Intel Owl
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
@@ -63,10 +63,10 @@ You can see the full list of all available analyzers in the [documentation](http
 
 As open source project maintainers, we strongly rely on external support to get the resources and time to work on keeping the project alive, with a constant release of new features, bug fixes and general improvements.
 
-Because of this, we joined [Open Collective](https://opencollective.com/intelx) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support IntelX and all the community by choosing a plan (BRONZE, SILVER, etc).
+Because of this, we joined [Open Collective](https://opencollective.com/intelx-project) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support IntelX and all the community by choosing a plan (BRONZE, SILVER, etc).
 
-<a href="https://opencollective.com/intelx/donate" target="_blank">
-  <img src="https://opencollective.com/intelx/donate/button@2x.png?color=blue" width=200 />
+<a href="https://opencollective.com/intelx-project/donate" target="_blank">
+  <img src="https://opencollective.com/intelx-project/donate/button@2x.png?color=blue" width=200 />
 </a>
 
 ### 🥇 GOLD

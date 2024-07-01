@@ -1,6 +1,6 @@
 # Advanced Usage
 
-This page includes details about some advanced features that intel X provides which can be **optionally** enabled. Namely,
+This page includes details about some advanced features that Intel Owl provides which can be **optionally** enabled. Namely,
 
 - [Advanced Usage](#advanced-usage)
   - [Organizations and User Management](#organizations-and-user-management)

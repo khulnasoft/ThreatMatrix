@@ -15,10 +15,9 @@ def migrate(apps, schema_editor):
             )
         else:
             profile = user.profile
-            with transaction.atomic():
-                profile.task_priority = 7 if is_robot else 10
-                profile.is_robot = is_robot
-                profile.save()
+            profile.task_priority=7 if is_robot else 10
+            profile.is_robot=is_robot
+        profile.save()
 
 
 def reverse_migrate(apps, schema_editor):

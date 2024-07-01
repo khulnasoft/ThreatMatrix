@@ -916,8 +916,8 @@ export default function ScanForm() {
                     innerClassName="p-2 text-start text-nowrap md-fit-content"
                   >
                     <span>
-                      IntelX supports a customized version of the Traffic Light
-                      Protocol (TLP).
+                      IntelX supports a customized version of the Traffic
+                      Light Protocol (TLP).
                       <br />
                       For more info check the{" "}
                       <Link
