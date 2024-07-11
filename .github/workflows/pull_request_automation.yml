@@ -1,5 +1,5 @@
 permissions: read-all
-name: Build & Tests
+name: 🔨 Build & Tests
 
 on:
   pull_request:
