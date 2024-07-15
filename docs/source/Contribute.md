@@ -14,7 +14,7 @@ There are a lot of different ways you could choose to contribute to the ThreatMa
 
 ## Rules
 
-Threat Matrix welcomes contributors from anywhere and from any kind of education or skill level. We strive to create a community of developers that is welcoming, friendly and right.
+Intel Owl welcomes contributors from anywhere and from any kind of education or skill level. We strive to create a community of developers that is welcoming, friendly and right.
 
 For this reason it is important to follow some easy rules based on a simple but important concept: **Respect**.
 
