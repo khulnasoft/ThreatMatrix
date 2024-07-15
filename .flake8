@@ -6,6 +6,7 @@ ignore =
     W605,
     E701,
     E704,
+    E701
 exclude =
     Dockerfile,
     docker-compose*,
