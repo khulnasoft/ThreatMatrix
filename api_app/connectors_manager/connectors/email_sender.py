@@ -1,8 +1,8 @@
 from django.core.mail import EmailMessage
 
 from api_app.connectors_manager.classes import Connector
-from tests.mock_utils import if_mock_connections, patch
 from threat_matrix.settings import DEFAULT_FROM_EMAIL
+from tests.mock_utils import if_mock_connections, patch
 
 
 class EmailSender(Connector):
