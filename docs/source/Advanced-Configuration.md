@@ -246,7 +246,7 @@ Right now there is no official support for Kubernetes deployments.
 
 But we have an active community. Please refer to the following blog post for an example on how to deploy ThreatMatrix on Google Kubernetes Engine:
 
-[Deploying Intel-Owl on GKE](https://mostwanted002.cf/post/intel-owl-gke/) by [Mayank Malik](https://twitter.com/_mostwanted002_).
+[Deploying Intel-Owl on GKE](https://mostwanted002.cf/post/threat-matrix-gke/) by [Mayank Malik](https://twitter.com/_mostwanted002_).
 
 ## Queues
 

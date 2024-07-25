@@ -1,14 +1,9 @@
 [flake8]
-max-line-length = 91
+max-line-length = 88
 ignore =
     W503,
     E231,
     W605,
-    E701,
-    E704,
-    E701,
-    E225,
-    E226
 exclude =
     Dockerfile,
     docker-compose*,

@@ -472,7 +472,7 @@ Please refer to the [**Upgrade Guide**](https://threatmatrix.readthedocs.io/en/l
 
 We are proud to announce that we have selected 3 contributors for the upcoming [Google Summer of Code](https://summerofcode.withgoogle.com/)!
 
-KhulnaSoft will run their projects under the umbrella of [The Honeynet Project](https://www.honeynet.org/), like the previous years.
+ThreatMatrixProject will run their projects under the umbrella of [The Honeynet Project](https://www.honeynet.org/), like the previous years.
 
 The contributors are going to have 3 intense months of work: with the help of the ThreatMatrix maintainers, they'll bring new functionalities to the project!
 
@@ -510,7 +510,7 @@ We are also moving forward to release the next major version (v4). We just need 
 
 We are proud to announce two new sponsorships today!
    - [Milton Security](https://www.miltonsecurity.com?utm_source=threatmatrix)
-   - [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=threatmatrix&utm_medium=banner)
+   - [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-threat-matrix/?utm_source=threatmatrix&utm_medium=banner)
 
 If you are interested in helping the project through a donation, read [here](https://github.com/khulnasoft/ThreatMatrix/blob/master/.github/partnership_and_sponsors.md) how you can do it!
 
@@ -660,7 +660,7 @@ We updated the documentation on how to [Contribute](https://threatmatrix.readthe
 
 ## [v3.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v3.1.0)
 
-> 🎉 We are glad to welcome [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix) as a new sponsor for ThreatMatrix. Read everything about this partnership [in the Tines' blog](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl).
+> 🎉 We are glad to welcome [Tines](https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix) as a new sponsor for ThreatMatrix. Read everything about this partnership [in the Tines' blog](https://www.tines.com/blog/announcing-our-sponsorship-of-threat-matrix).
 
 **Notes:**
 
@@ -696,7 +696,7 @@ This is a minor patch release.
 
 > Note: This is a major release with MANY breaking changes.
 >
-> ✒️ [Link](https://www.honeynet.org/2021/09/13/intel-owl-release-v3-0-0/) to the blogpost announcing the release and summary of top new features.
+> ✒️ [Link](https://www.honeynet.org/2021/09/13/threat-matrix-release-v3-0-0/) to the blogpost announcing the release and summary of top new features.
 >
 > 💻 GUI changes can be seen in action on the [demo](https://threatmatrixclient.firebaseapp.com/pages/connectors).
 

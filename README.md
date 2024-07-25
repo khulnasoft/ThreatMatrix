@@ -115,8 +115,8 @@ In 2022 ThreatMatrix joined the official [DigitalOcean Open Source Program](http
 
 
 ### Other collaborations
- * [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-intel-owl/?utm_source=threatmatrix&utm_medium=banner)
- * [Tines](https://www.tines.com/blog/announcing-our-sponsorship-of-intel-owl?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix)
+ * [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-threat-matrix/?utm_source=threatmatrix&utm_medium=banner)
+ * [Tines](https://www.tines.com/blog/announcing-our-sponsorship-of-threat-matrix?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix)
 
 
 ## About the author and maintainers
