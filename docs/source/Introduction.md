@@ -30,6 +30,6 @@ To know more about the project and its growth over time, you may be interested i
 - [Certego Blog: First announcement](https://www.certego.net/en/news/new-year-new-tool-threat-matrix/)
 
 Feel free to ask everything it comes to your mind about the project to the author:
-Matteo Lodi ([Twitter](https://twitter.com/matte_lodi)).
+KhulnaSoft DevSec  ([Twitter](https://twitter.com/khulnasoft)).
 
 We also have a dedicated twitter account for the project: [@threat_matrix](https://twitter.com/threat_matrix).
