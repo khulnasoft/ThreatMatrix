@@ -17,6 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
+[![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
 # Threat Matrix
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
@@ -42,7 +43,7 @@ It provides:
   - *playbooks* that are meant to make analysis easily repeatable
 
 
-### Documentation [![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
+### Documentation
 We try hard to keep our documentation well written, easy to understand and always updated.
 All info about installation, usage, configuration and contribution can be found [here](https://threatmatrix.readthedocs.io/)
 
