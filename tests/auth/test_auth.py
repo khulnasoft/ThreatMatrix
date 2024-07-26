@@ -258,35 +258,42 @@ class TestUserAuth(CustomOAuthTestCase):
         user.refresh_from_db()
         self.assertTrue(user.check_password(new_password), msg=msg)
 
-    def test_min_password_lenght_400(self):
+    def test_min_password_length_400(self):
         current_users = User.objects.count()
 
-        # register new user with invalid password
+        # Register new user with invalid password
         body = {
             **self.creds,
             "email": self.testregisteruser["email"],
             "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "threatmatrix",
+            "password": "threatmatrix",  # Assuming this password is too short
             "recaptcha": "blahblah",
         }
 
         response = self.client.post(register_uri, body)
         content = response.json()
 
-        # response assertions
+        # Response assertions
         self.assertEqual(400, response.status_code)
-        self.assertIn("errors", content, "Response does not content 'errors'key.")
+        self.assertIn("errors", content, "Response does not contain 'errors' key.")
 
         errors = content["errors"]
-        self.assertIn(
-            "Invalid password",
-            errors["password"],
-            f"Expected 'Invalid password' error but got: {errors['password']}",
-        )
+        password_errors = errors.get("password")
 
-        # db assertions
+        if password_errors is not None:
+            self.assertIn(
+                "Invalid password",
+                password_errors,
+                f"Expected 'Invalid password' error but got: {password_errors}",
+            )
+        else:
+            self.fail(
+                "Expected 'password' key in errors dictionary but it was not found."
+            )
+
+        # DB assertions
         self.assertEqual(
             User.objects.count(), current_users, msg="no new user was created"
         )
@@ -294,28 +301,39 @@ class TestUserAuth(CustomOAuthTestCase):
     def test_special_characters_password_400(self):
         current_users = User.objects.count()
 
-        # register new user with invalid password
+        # Register new user with invalid password
         body = {
             **self.creds,
             "email": self.testregisteruser["email"],
             "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "threatmatrixthreatmatrix$",
+            "password": "threatmatrixthreatmatrix$",  # Assuming this password is invalid due to special characters
             "recaptcha": "blahblah",
         }
 
         response = self.client.post(register_uri, body)
         content = response.json()
 
-        # response assertions
+        # Response assertions
         self.assertEqual(400, response.status_code)
-        self.assertIn(
-            "Invalid password",
-            content["errors"]["password"],
-        )
+        self.assertIn("errors", content, "Response does not contain 'errors' key.")
 
-        # db assertions
+        errors = content["errors"]
+        password_errors = errors.get("password")
+
+        if password_errors is not None:
+            self.assertIn(
+                "Invalid password",
+                password_errors,
+                f"Expected 'Invalid password' error but got: {password_errors}",
+            )
+        else:
+            self.fail(
+                "Expected 'password' key in errors dictionary but it was not found."
+            )
+
+        # DB assertions
         self.assertEqual(
             User.objects.count(), current_users, msg="no new user was created"
         )
