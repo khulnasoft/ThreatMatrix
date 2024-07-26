@@ -280,6 +280,10 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertIn("errors", content, "Response does not contain 'errors' key.")
 
         errors = content["errors"]
+
+        # Log the entire content for debugging
+        print(f"Full response content: {content}")
+
         password_errors = errors.get("password")
 
         if password_errors is not None:
@@ -320,6 +324,10 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertIn("errors", content, "Response does not contain 'errors' key.")
 
         errors = content["errors"]
+
+        # Log the entire content for debugging
+        print(f"Full response content: {content}")
+
         password_errors = errors.get("password")
 
         if password_errors is not None:
@@ -337,7 +345,6 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertEqual(
             User.objects.count(), current_users, msg="no new user was created"
         )
-
     # utils
     def __register_user(self, body: dict):
         # In CI, recaptcha protection is disabled so we can pass any value
