@@ -1,5 +1,5 @@
 [flake8]
-max-line-length = 133
+max-line-length = 91
 ignore =
     W503,
     E231,
