@@ -259,44 +259,44 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertTrue(user.check_password(new_password), msg=msg)
 
     def test_min_password_lenght_400(self):
-    current_users = User.objects.count()
+        current_users = User.objects.count()
 
-    # Register new user with invalid password
-    body = {
-        **self.creds,
-        "email": self.testregisteruser["email"],
-        "username": "blahblah",
-        "first_name": "blahblah",
-        "last_name": "blahblah",
-        "password": "short",  # Use a deliberately short password for the test
-        "recaptcha": "blahblah",
-    }
-
-    response = self.client.post(register_uri, body)
-    content = response.json()
-
-    # Print the content to debug the structure
-    print(content)
-
-    # Response assertions
-    self.assertEqual(400, response.status_code)
+        # Register new user with invalid password
+        body = {
+            **self.creds,
+            "email": self.testregisteruser["email"],
+            "username": "blahblah",
+            "first_name": "blahblah",
+            "last_name": "blahblah",
+            "password": "short",  # Use a deliberately short password for the test
+            "recaptcha": "blahblah",
+        }
     
-    # Check if 'errors' key exists in the content
-    self.assertIn("errors", content, msg="Response should contain 'errors' key")
+        response = self.client.post(register_uri, body)
+        content = response.json()
     
-    # Check if 'password' key exists in the 'errors' dictionary
-    self.assertIn("password", content["errors"], msg="Errors should contain 'password' key")
+        # Print the content to debug the structure
+        print(content)
     
-    # Assert the expected error message
-    self.assertIn(
-        "Ensure this field has at least 8 characters.",
-        content["errors"]["password"],
-    )
-
-    # DB assertions
-    self.assertEqual(
-        User.objects.count(), current_users, msg="No new user was created"
-    )
+        # Response assertions
+        self.assertEqual(400, response.status_code)
+        
+        # Check if 'errors' key exists in the content
+        self.assertIn("errors", content, msg="Response should contain 'errors' key")
+        
+        # Check if 'password' key exists in the 'errors' dictionary
+        self.assertIn("password", content["errors"], msg="Errors should contain 'password' key")
+        
+        # Assert the expected error message
+        self.assertIn(
+            "Ensure this field has at least 8 characters.",
+            content["errors"]["password"],
+        )
+    
+        # DB assertions
+        self.assertEqual(
+            User.objects.count(), current_users, msg="No new user was created"
+        )
 
     # utils
     def __register_user(self, body: dict):
