@@ -345,6 +345,7 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertEqual(
             User.objects.count(), current_users, msg="no new user was created"
         )
+
     # utils
     def __register_user(self, body: dict):
         # In CI, recaptcha protection is disabled so we can pass any value
