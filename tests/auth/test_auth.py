@@ -258,9 +258,9 @@ class TestUserAuth(CustomOAuthTestCase):
         user.refresh_from_db()
         self.assertTrue(user.check_password(new_password), msg=msg)
 
-    def test_min_password_lenght_400(self):
+    def test_min_password_length_400(self):
         current_users = User.objects.count()
-
+    
         # Register new user with invalid password
         body = {
             **self.creds,
@@ -280,13 +280,13 @@ class TestUserAuth(CustomOAuthTestCase):
     
         # Response assertions
         self.assertEqual(400, response.status_code)
-        
+    
         # Check if 'errors' key exists in the content
         self.assertIn("errors", content, msg="Response should contain 'errors' key")
-        
+    
         # Check if 'password' key exists in the 'errors' dictionary
         self.assertIn("password", content["errors"], msg="Errors should contain 'password' key")
-        
+    
         # Assert the expected error message
         self.assertIn(
             "Ensure this field has at least 8 characters.",
@@ -297,6 +297,7 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertEqual(
             User.objects.count(), current_users, msg="No new user was created"
         )
+
 
     # utils
     def __register_user(self, body: dict):
