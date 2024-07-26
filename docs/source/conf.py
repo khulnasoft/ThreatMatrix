@@ -25,8 +25,8 @@ directives.register_directive("code", CodeBlock)
 # -- Project information -----------------------------------------------------
 
 project = "ThreatMatrix"
-copyright = "2022, Matteo Lodi"
-author = "Matteo Lodi"
+copyright = "2022, KhulnaSoft DevSec "
+author = "KhulnaSoft DevSec "
 
 
 # -- General configuration ---------------------------------------------------

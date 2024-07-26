@@ -2,6 +2,7 @@ permissions: read-all
 name: Build & Tests
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [master, develop]
     paths-ignore:

@@ -21,8 +21,8 @@ export default function TokenPage() {
       <Row className="my-4">
         <Alert color="secondary" className="mx-3 mx-md-auto text-center">
           <span>
-            You can generate an API key to access ThreatMatrix&apos;s RESTful API.
-            Take a look to the available Python and Go clients:
+            You can generate an API key to access ThreatMatrix&apos;s RESTful
+            API. Take a look to the available Python and Go clients:
             <a
               href={PYTHREATMATRIX_GH_URL}
               target="_blank"

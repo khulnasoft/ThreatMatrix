@@ -26,7 +26,7 @@ const blogPosts = [
   {
     title:
       "Threat Matrix – OSINT tool automates the intel-gathering process using a single API",
-    subText: "Daily Swig: Interview with Matteo Lodi and Eshaan Bansal",
+    subText: "Daily Swig: Interview with KhulnaSoft DevSec  and KhulnaSoft BOT",
     date: "18th August 2020",
     link: "https://portswigger.net/daily-swig/threat-matrix-osint-tool-automates-the-intel-gathering-process-using-a-single-api",
   },

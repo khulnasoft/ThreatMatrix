@@ -1,4 +1,4 @@
-<img src="docs/static/threat_matrix_positive.png" width=547 height=150 alt="Threat Matrix"/>
+# Threat Matrix
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix)](https://github.com/khulnasoft/ThreatMatrix/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social)](https://github.com/khulnasoft/ThreatMatrix/stargazers)
@@ -17,7 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
-# Threat Matrix
+[![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
@@ -42,7 +42,7 @@ It provides:
   - *playbooks* that are meant to make analysis easily repeatable
 
 
-### Documentation [![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
+### Documentation
 We try hard to keep our documentation well written, easy to understand and always updated.
 All info about installation, usage, configuration and contribution can be found [here](https://threatmatrix.readthedocs.io/)
 
@@ -63,10 +63,10 @@ You can see the full list of all available analyzers in the [documentation](http
 
 As open source project maintainers, we strongly rely on external support to get the resources and time to work on keeping the project alive, with a constant release of new features, bug fixes and general improvements.
 
-Because of this, we joined [Open Collective](https://opencollective.com/threatmatrix-project) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support ThreatMatrix and all the community by choosing a plan (BRONZE, SILVER, etc).
+Because of this, we joined [Open Collective](https://opencollective.com/khulnasoft) to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support ThreatMatrix and all the community by choosing a plan (BRONZE, SILVER, etc).
 
-<a href="https://opencollective.com/threatmatrix-project/donate" target="_blank">
-  <img src="https://opencollective.com/threatmatrix-project/donate/button@2x.png?color=blue" width=200 />
+<a href="https://opencollective.com/khulnasoft/donate" target="_blank">
+  <img src="https://opencollective.com/khulnasoft/donate/button@2x.png?color=blue" width=200 />
 </a>
 
 ### 🥇 GOLD
@@ -103,27 +103,16 @@ If you are interested in participating in the next Google Summer of Code, check 
 
 [ThreatHunter.ai®](https://threathunter.ai?utm_source=threatmatrix), is a 100% Service-Disabled Veteran-Owned Small Business started in 2007 under the name Milton Security Group. ThreatHunter.ai is the global leader in Dynamic Threat Hunting. Operating a true 24x7x365 Security Operation Center with AI/ML-enhanced human Threat Hunters, ThreatHunter.ai has changed the industry in how threats are found, and mitigated in real time. For over 15 years, our teams of Threat Hunters have stopped hundreds of thousands of threats and assisted organizations in defending against threat actors around the clock.
 
-### 🥉 BRONZE
-
 #### Docker
 
 In 2021 ThreatMatrix joined the official [Docker Open Source Program](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/). This allows ThreatMatrix developers to easily manage Docker images and focus on writing the code. You may find the official ThreatMatrix Docker images [here](https://hub.docker.com/search?q=khulnasoft).
-
-#### DigitalOcean
-
-In 2022 ThreatMatrix joined the official [DigitalOcean Open Source Program](https://www.digitalocean.com/open-source?utm_medium=opensource&utm_source=ThreatMatrix).
-
-
-### Other collaborations
- * [LimaCharlie](https://limacharlie.io/blog/limacharlie-sponsors-threat-matrix/?utm_source=threatmatrix&utm_medium=banner)
- * [Tines](https://www.tines.com/blog/announcing-our-sponsorship-of-threat-matrix?utm_source=oss&utm_medium=sponsorship&utm_campaign=threatmatrix)
 
 
 ## About the author and maintainers
 
 Feel free to contact the main developers at any time on Twitter:
 
-- [Matteo Lodi](https://twitter.com/matte_lodi): Author and principal maintainer
-- [Simone Berni](https://twitter.com/0ssig3no): Backend Maintainer
-- [Daniele Rosetti](https://github.com/drosetti): Frontend Maintainer
-- [Eshaan Bansal](https://twitter.com/eshaan7_): Key Contributor
+- [KhulnaSoft DevSec](https://twitter.com/khulnasoft): Author and principal maintainer
+- [Nx PKG](https://github.com/nxpkg): Backend Maintainer
+- [KhulnaSoft Lab](https://github.com/khulnasoft-lab): Frontend Maintainer
+- [KhulnaSoft BOT](https://github.com/khulnasoft-bot): Key Contributor

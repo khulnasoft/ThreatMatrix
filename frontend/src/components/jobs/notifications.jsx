@@ -17,10 +17,13 @@ export function generateJobNotification(observableName, jobId) {
       // notification icon
       setNotificationFavicon(true);
 
-      const notification = new Notification("ThreatMatrix analysis terminated!", {
-        body: `Observable: ${observableName} (job ${jobId}) reported.\n Click here to view the result!`,
-        icon: `${PUBLIC_URL}/logo-blue.png`,
-      });
+      const notification = new Notification(
+        "ThreatMatrix analysis terminated!",
+        {
+          body: `Observable: ${observableName} (job ${jobId}) reported.\n Click here to view the result!`,
+          icon: `${PUBLIC_URL}/logo-blue.png`,
+        },
+      );
 
       // close the notification after 5 seconds
       setTimeout(() => {
