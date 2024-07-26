@@ -1,4 +1,4 @@
-## ThreatMatrix
+# Threat Matrix
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix)](https://github.com/khulnasoft/ThreatMatrix/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social)](https://github.com/khulnasoft/ThreatMatrix/stargazers)
@@ -18,7 +18,6 @@
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
 [![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
-# Threat Matrix
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
