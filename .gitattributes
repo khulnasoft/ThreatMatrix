@@ -1,2 +1,0 @@
-integrations/malware_tools_analyzers/clamav/sigs/daily.cvd filter=lfs diff=lfs merge=lfs -text
-integrations/malware_tools_analyzers/clamav/sigs/main.cvd filter=lfs diff=lfs merge=lfs -text
