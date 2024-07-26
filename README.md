@@ -1,4 +1,4 @@
-<img src="docs/static/threat_matrix_positive.png" width=547 height=150 alt="Threat Matrix"/>
+## ThreatMatrix
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix)](https://github.com/khulnasoft/ThreatMatrix/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social)](https://github.com/khulnasoft/ThreatMatrix/stargazers)
