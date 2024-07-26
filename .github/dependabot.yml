@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "develop"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -19,6 +21,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -31,6 +35,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -43,6 +49,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -55,15 +63,19 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "develop"
     reviewers:
-      - khulnasoft-lab
+      - khulnasoft-bot
 
   - package-ecosystem: "docker"
     directory: "/docker"
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "develop"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -76,6 +88,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -88,6 +102,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -100,6 +116,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
+    commit-message:
+      prefix: ⬆
     target-branch: "dependabot-validation"
     ignore:
       # ignore all patch updates since we are using ~=
@@ -113,6 +131,8 @@ updates:
       interval: "weekly"
       day: "tuesday"
     target-branch: "dependabot-validation"
+    commit-message:
+      prefix: ⬆
     ignore:
       # ignore all patch updates since we are using ~=
       # this does not work for security updates
@@ -125,6 +145,8 @@ updates:
       interval: "weekly"
       day: "tuesday"
     target-branch: "develop"
+    commit-message:
+      prefix: ⬆
     ignore:
       # ignore all patch updates since we are using ~=
       # this does not work for security updates
