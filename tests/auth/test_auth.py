@@ -279,11 +279,11 @@ class TestUserAuth(CustomOAuthTestCase):
         self.assertEqual(400, response.status_code)
         self.assertIn("errors", content, "Response does not content 'errors'key.")
 
-        errors = content['errors']
+        errors = content["errors"]
         self.assertIn(
             "Invalid password",
             errors["password"],
-            f"Expected 'Invalid password' error but got: {errors['password']}"
+            f"Expected 'Invalid password' error but got: {errors['password']}",
         )
 
         # db assertions
