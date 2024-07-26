@@ -3,7 +3,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix)](https://github.com/khulnasoft/ThreatMatrix/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social)](https://github.com/khulnasoft/ThreatMatrix/stargazers)
 [![Docker](https://img.shields.io/docker/pulls/khulnasoft/threatmatrix)](https://hub.docker.com/repository/docker/khulnasoft/threatmatrix)
-[![Twitter Follow](https://img.shields.io/twitter/follow/threat_matrix?style=social)](https://twitter.com/threat_matrix)
+[![Twitter Follow](https://img.shields.io/twitter/follow/khulnasoft?style=social)](https://twitter.com/khulnasoft)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/threatmatrix/)
 [![Official Site](https://img.shields.io/badge/official-site-blue)](https://khulnasoft.github.io)
 [![Live Instance](https://img.shields.io/badge/live-demo-blue)](https://threatmatrix.honeynet.org)
