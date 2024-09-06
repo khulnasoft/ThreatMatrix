@@ -34,10 +34,12 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
         )
 
     class CustomValueField(rfs.JSONField):
-        def to_internal_value(self, data):
+        @staticmethod
+        def to_internal_value(data):
             if not data:
                 raise ValidationError({"detail": "Empty insertion"})
             logger.info(f"verifying that value {data} ({type(data)}) is JSON compliant")
+        # existing implementation
             try:
                 return json.loads(data)
             except json.JSONDecodeError:
