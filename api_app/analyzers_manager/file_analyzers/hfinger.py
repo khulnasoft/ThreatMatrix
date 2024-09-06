@@ -15,18 +15,20 @@ class Hfinger(FileAnalyzer):
 
     fingerprint_report_mode: int = 2
 
-    def run(self):
-        reports = dict()
-        reports["extraction"] = hfinger_analyze(
+   def run(self):
+    reports = {
+        "extraction": hfinger_analyze(
             self.filepath, self.fingerprint_report_mode
         )
-        fingerprints = set()
-        for report in reports["extraction"]:
-            fingerprint = report.get("fingerprint", "")
-            if fingerprint:
-                fingerprints.add(fingerprint)
-        reports["fingerprints_summary"] = list(fingerprints)
-        return reports
+    }
+    fingerprints = set()
+    for report in reports["extraction"]:
+        fingerprint = report.get("fingerprint", "")
+        if fingerprint:
+            fingerprints.add(fingerprint)
+    reports["fingerprints_summary"] = list(fingerprints)
+    return reports
+
 
     @classmethod
     def update(cls) -> bool:
