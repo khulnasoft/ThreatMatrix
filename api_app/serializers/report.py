@@ -12,11 +12,12 @@ class AbstractReportSerializerInterface(rfs.ModelSerializer):
         fields = ["name", "process_time", "status", "end_time", "parameters", "type"]
         list_serializer_class = rfs.ListSerializer
 
-    def get_type(self, instance: AbstractReport):
+    @staticmethod
+    def get_type(instance: AbstractReport):
         return instance.__class__.__name__.replace("Report", "").lower()
 
     def to_internal_value(self, data):
-        raise NotImplementedError()
+        # existing implementation
 
 
 class AbstractReportBISerializer(AbstractBIInterface):
