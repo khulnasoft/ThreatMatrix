@@ -32,7 +32,7 @@ class Quad9MaliciousDetector(classes.ObservableAnalyzer):
     GOOGLE_URL = "https://dns.google.com/resolve"
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         observable = self.observable_name

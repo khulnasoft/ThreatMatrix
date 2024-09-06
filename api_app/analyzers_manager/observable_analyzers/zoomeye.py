@@ -23,7 +23,7 @@ class ZoomEye(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def __build_zoomeye_url(self):
         if self.observable_classification == self.ObservableTypes.IP:

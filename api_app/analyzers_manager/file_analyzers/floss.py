@@ -26,7 +26,7 @@ class Floss(FileAnalyzer, DockerBasedAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         # get binary

@@ -22,7 +22,7 @@ class XForce(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         auth = HTTPBasicAuth(self._api_key_name, self._api_password_name)

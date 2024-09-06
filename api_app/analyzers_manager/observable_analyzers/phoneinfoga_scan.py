@@ -28,7 +28,7 @@ class Phoneinfoga(classes.ObservableAnalyzer, classes.DockerBasedAnalyzer):
     """
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     observable_name: str
     scanners: List[str]

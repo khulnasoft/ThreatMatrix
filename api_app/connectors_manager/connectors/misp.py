@@ -157,7 +157,7 @@ class MockPyMISP:
     """
 
     def __init__(self, *args, **kwargs) -> None:
-        pass
+        raise NotImplementedError()
 
     @staticmethod
     def add_event(*args, **kwargs) -> MockUpMISPElement:
