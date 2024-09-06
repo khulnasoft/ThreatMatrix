@@ -39,7 +39,7 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
             if not data:
                 raise ValidationError({"detail": "Empty insertion"})
             logger.info(f"verifying that value {data} ({type(data)}) is JSON compliant")
-        # existing implementation
+            # existing implementation
             try:
                 return json.loads(data)
             except json.JSONDecodeError:
