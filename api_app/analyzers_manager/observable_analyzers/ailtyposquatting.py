@@ -18,7 +18,7 @@ class AilTypoSquatting(classes.ObservableAnalyzer):
     dns_resolving: bool = False
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         response = {}

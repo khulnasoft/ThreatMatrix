@@ -49,7 +49,7 @@ class Vulners(classes.ObservableAnalyzer):
 
     # this is a framework implication
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     @classmethod
     def _monkeypatch(cls):

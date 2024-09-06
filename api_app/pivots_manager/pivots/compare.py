@@ -8,7 +8,7 @@ class Compare(Pivot):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def _get_value(self, field: str) -> Any:
         report = self.related_reports.filter(

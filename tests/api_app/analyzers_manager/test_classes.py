@@ -17,7 +17,7 @@ class MockUpObservableAnalyzer(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
 
 class FileAnalyzerTestCase(CustomTestCase):

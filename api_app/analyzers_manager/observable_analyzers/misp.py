@@ -31,7 +31,7 @@ class MISP(classes.ObservableAnalyzer):
     metadata: bool
 
     def update(self):
-        pass
+        raise NotImplementedError()
 
     def run(self):
         # this allows self-signed certificates to be used

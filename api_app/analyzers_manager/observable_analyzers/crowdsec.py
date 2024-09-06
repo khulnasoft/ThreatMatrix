@@ -14,7 +14,7 @@ class Crowdsec(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         headers = {
