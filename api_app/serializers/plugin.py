@@ -83,12 +83,12 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
     plugin_name = rfs.CharField()
     value = CustomValueField()
 
-    def validate_value_type(self, value: Any, parameter: Parameter):
+    @staticmethod
+    def validate_value_type(value: Any, parameter: Parameter):
         if type(value).__name__ != parameter.type:
             raise ValidationError(
                 {
-                    "detail": f"Value has type {type(value).__name__}"
-                    f" instead of {parameter.type}"
+                    # existing error handling code
                 }
             )
 
