@@ -4,37 +4,38 @@ ENV PROJECT_PATH /opt/deploy
 ENV LOG_PATH /var/log/threat_matrix/tor_analyzers
 ENV USER tor-user
 
-# Add a new low-privileged user
-RUN useradd -r -s /sbin/nologin ${USER}
+# Add a new low-privileged user and update & install packages
+RUN useradd -r -s /sbin/nologin ${USER} \
+    && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+    && apt-get install --no-install-recommends -y \
+        git \
+        build-essential \
+        gcc \
+        pandoc \
+        curl \
+        tor \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p ${PROJECT_PATH}/input \
+    && chown -R ${USER}:${USER} ${PROJECT_PATH}/input
 
-# update and install packages
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
-    && apt-get install --no-install-recommends -y git build-essential gcc pandoc curl tor \
-    && rm -rf /var/lib/apt/lists/*
-
-# Place to bind a mount point to for scratch pad work
-WORKDIR ${PROJECT_PATH}
-RUN mkdir input/ \
-    && chown -R ${USER}:${USER} input/
-
-# Cleanup
+# Cleanup unnecessary packages and files
 RUN apt-get remove --purge -y git gcc \
     && apt-get clean \
     && apt-get autoclean \
     && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /usr/share/doc/* /usr/share/man/* > /dev/null 2>&1
+    && rm -rf /var/lib/apt/lists/* /tmp/* /usr/share/doc/* /usr/share/man/*
 
-# 2. Build Flask REST API
+# Set working directory for Flask app
 WORKDIR ${PROJECT_PATH}/tor-flask
 COPY app.py requirements.txt entrypoint.sh ./
 
-RUN pip3 install -r requirements.txt --no-cache-dir \
+RUN pip install -r requirements.txt --no-cache-dir \
     && chown -R ${USER}:${USER} . \
     && chmod +x entrypoint.sh
 
-# 3. Copy Bundled tools
+# Copy and set permissions for bundled tools
 COPY bundled bundled
-RUN chmod 755 -R bundled
+RUN chmod -R 755 bundled
 
 # Serve Flask application using gunicorn
 EXPOSE 4001
