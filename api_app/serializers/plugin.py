@@ -156,7 +156,8 @@ class ParameterSerializer(rfs.ModelSerializer):
         fields = ["name", "type", "description", "required", "value", "is_secret"]
         list_serializer_class = ParamListSerializer
 
-    def get_value(self, param: Parameter):
+    @staticmethod
+    def get_value(param: Parameter):
         if hasattr(param, "value") and hasattr(param, "is_from_org"):
             if param.is_secret and param.is_from_org:
                 return "redacted"
