@@ -77,7 +77,7 @@ class PluginConfigInlineForPythonConfig(admin.TabularInline):
                     },
                     owner=None,
                     for_organization=False,
-                    parameter__is_secret=False
+                    parameter__is_secret=False,
                 ).count()
             )
         return 0
