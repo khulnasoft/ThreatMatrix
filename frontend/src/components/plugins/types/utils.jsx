@@ -194,7 +194,7 @@ export function PluginInfoCard({ pluginInfo }) {
                   {pluginInfo.scan_mode.toString() ===
                   ScanModesNumeric.FORCE_NEW_ANALYSIS
                     ? "force new analysis"
-                    : `a new scan is not performed if there is a similar one finished in the last 
+                    : `a new scan is not performed if there is a similar one finished in the last
                 ${parseScanCheckTime(pluginInfo?.scan_check_time)} hours`}
                 </li>
               )}

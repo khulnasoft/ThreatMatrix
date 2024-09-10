@@ -68,9 +68,9 @@ To activate this feature, it is necessary to set `ELASTICSEARCH_BI_ENABLED` to `
 `ELASTICSEARCH_BI_HOST` to `elasticsearch:9200`
 or your elasticsearch server.
 
-An [index template](https://github.com/khulnasoft/ThreatMatrix/configuration/elastic_search_mappings/threat_matrix_bi.json) is created after the first bulk submission of reports. 
+An [index template](https://github.com/khulnasoft/ThreatMatrix/configuration/elastic_search_mappings/threat_matrix_bi.json) is created after the first bulk submission of reports.
 If you want to use kibana to visualize your data/make dashboard, you must create an index pattern:
-Go to Kibana -> Discover -> Stack Management -> Index Patterns -> search for your index and use as time field `timestamp` 
+Go to Kibana -> Discover -> Stack Management -> Index Patterns -> search for your index and use as time field `timestamp`
 
 ## Authentication options
 
@@ -188,7 +188,7 @@ Only FIFO queues are supported.
 
 If you want to use a remote message broker (like an `ElasticCache` or `AmazonMQ` instance), you must populate the `BROKER_URL` environment variable.
 
-It is possible to use [task priority](https://docs.celeryq.dev/en/stable/userguide/routing.html#special-routing-options) inside ThreatMatrix: each User has default priority of 10, and robots users (like the Ingestors) have a priority of 7.    
+It is possible to use [task priority](https://docs.celeryq.dev/en/stable/userguide/routing.html#special-routing-options) inside ThreatMatrix: each User has default priority of 10, and robots users (like the Ingestors) have a priority of 7.
 You can customize these priorities inside Django Admin, in the `Authentication.User Profiles` section.
 
 #### Websockets
@@ -206,7 +206,7 @@ This is the default behaviour.
 - With a remote `Redis` instance.
 
 You must use the option `--use-external-redis` when launching ThreatMatrix with the `.start` script.
-Moreover, you need to populate the `WEBSOCKETS_URL` environment variable. If you are using `Redis` as a message broker too, remember to populate the `BROKER_URL` environment variable 
+Moreover, you need to populate the `WEBSOCKETS_URL` environment variable. If you are using `Redis` as a message broker too, remember to populate the `BROKER_URL` environment variable
 
 #### RDS
 
@@ -291,13 +291,13 @@ or change the `.htpasswd` file that is created in the `docker` directory in the 
 
 ## Manual Usage
 The `./start` script essentially acts as a wrapper over Docker Compose, performing additional checks.
-ThreatMatrix can still be started by using the standard `docker compose` command, but all the dependencies have to be manually installed by the user. 
+ThreatMatrix can still be started by using the standard `docker compose` command, but all the dependencies have to be manually installed by the user.
 
 ### Options
 The `--project-directory` and `-p` options are required to run the project.
 Default values set by `./start` script are "docker" and "threat_matrix", respectively.
 
-The startup is based on [chaining](https://docs.docker.com/compose/multiple-compose-files/merge/) various Docker Compose YAML files using `-f` option. 
+The startup is based on [chaining](https://docs.docker.com/compose/multiple-compose-files/merge/) various Docker Compose YAML files using `-f` option.
 All Docker Compose files are stored in `docker/` directory of the project.
 The default compose file, named `default.yml`, requires configuration for an external database and message broker.
 In their absence, the `postgres.override.yml` and `rabbitmq.override.yml` files should be chained to the default one.
@@ -307,7 +307,7 @@ The command composed, considering what is said above (using `sudo`), is
 sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -p threat_matrix up
 ```
 
-The other most common compose file that can be used is for the testing environment. 
+The other most common compose file that can be used is for the testing environment.
 The equivalent of running `./start test up` is adding the `test.override.yml` file, resulting in:
 ```bash
 sudo docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/rabbitmq.override.yml -f docker/test.override.yml -p threat_matrix up
@@ -318,5 +318,5 @@ All other options available in the `./start` script (`./start -h` to view them) 
 ### Optional Analyzer
 ThreatMatrix includes integrations with [some analyzer](https://threatmatrix.readthedocs.io/en/latest/Advanced-Usage.html#optional-analyzers) that are not enabled by default.
 These analyzers, stored under the `integrations/` directory, are packed within Docker Compose files.
-The `compose.yml` file has to be chained to include the analyzer. 
+The `compose.yml` file has to be chained to include the analyzer.
 The additional `compose-test.yml` file has to be chained for testing environment.

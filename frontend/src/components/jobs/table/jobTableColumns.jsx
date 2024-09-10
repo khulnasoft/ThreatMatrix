@@ -111,7 +111,7 @@ export const jobTableColumns = [
                   for the field is_sample that requires a bool.
                 */
         if (dropdownSelector.target.value) {
-          /* even if the backend requires a bool, we need to cast it to string or 
+          /* even if the backend requires a bool, we need to cast it to string or
                   the library won't send the request for the false case (observable filter)
                 */
           setFilter(

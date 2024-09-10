@@ -39,7 +39,7 @@ describe("ScanForm adavanced use", () => {
   /* EXTREMELY IMPORTART! These tests need to be execute sequentially or they will fail!
      Maintain them in the same describe.
 
-     Note: each test has a different job_id because the toasts are saved and shown for 10 seconds, 
+     Note: each test has a different job_id because the toasts are saved and shown for 10 seconds,
      so during the second test the first toast will still be shown.
   */
   test.each([

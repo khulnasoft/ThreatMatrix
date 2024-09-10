@@ -124,7 +124,7 @@ table, th, td {
       <li>Qiling is a tool for emulating the execution of a binary file or a shellcode.
      It requires the configuration of its rootfs, and the optional configuration of profiles.
      The rootfs can be copied from the <a href="https://github.com/qilingframework/qiling/tree/master/examples/rootfs"> Qiling project</a>: please remember that Windows dll <b> must</b> be manually added for license reasons.
-     Qiling provides a <a href="https://github.com/qilingframework/qiling/blob/master/examples/scripts/dllscollector.bat"> DllCollector</a> to retrieve dlls from your licensed Windows. 
+     Qiling provides a <a href="https://github.com/qilingframework/qiling/blob/master/examples/scripts/dllscollector.bat"> DllCollector</a> to retrieve dlls from your licensed Windows.
      <a href="https://docs.qiling.io/en/latest/profile/"> Profiles </a> must be placed in the <code>profiles</code> subfolder
      </li>
       </ul>
@@ -222,16 +222,16 @@ Some analyzers could require a special configuration:
   You should follow the [official guide](https://cloud.google.com/web-risk/docs/quickstart) for creating the key.
   Then you can populate the secret `service_account_json` for that analyzer with the JSON of the service account file.
 
-- `ClamAV`: this Docker-based analyzer uses `clamd` daemon as its scanner and is communicating with `clamdscan` utility to scan files. The daemon requires 2 different configuration files: `clamd.conf`(daemon's config) and `freshclam.conf` (virus database updater's config). These files are mounted as docker volumes in `/integrations/malware_tools_analyzers/clamav` and hence, can be edited by the user as per needs, without restarting the application. Moreover ClamAV is integrated with unofficial open source signatures extracted with [Fangfrisch](https://github.com/rseichter/fangfrisch). The configuration file `fangfrisch.conf` is mounted in the same directory and can be customized on your wish. For instance, you should change it if you want to integrate open source signatures from [SecuriteInfo](https://www.securiteinfo.com/) 
+- `ClamAV`: this Docker-based analyzer uses `clamd` daemon as its scanner and is communicating with `clamdscan` utility to scan files. The daemon requires 2 different configuration files: `clamd.conf`(daemon's config) and `freshclam.conf` (virus database updater's config). These files are mounted as docker volumes in `/integrations/malware_tools_analyzers/clamav` and hence, can be edited by the user as per needs, without restarting the application. Moreover ClamAV is integrated with unofficial open source signatures extracted with [Fangfrisch](https://github.com/rseichter/fangfrisch). The configuration file `fangfrisch.conf` is mounted in the same directory and can be customized on your wish. For instance, you should change it if you want to integrate open source signatures from [SecuriteInfo](https://www.securiteinfo.com/)
 
 - `Suricata`: you can customize the behavior of Suricata:
 
   - `/integrations/pcap_analyzers/config/suricata/rules`: here there are Suricata rules. You can change the `custom.rules` files to add your own rules at any time. Once you made this change, you need to either restart ThreatMatrix or (this is faster) run a new analysis with the Suricata analyzer and set the parameter `reload_rules` to `true`.
   - `/integrations/pcap_analyzers/config/suricata/etc`: here there are Suricata configuration files. Change it based on your wish. Restart ThreatMatrix to see the changes applied.
 
-- `Yara`: 
+- `Yara`:
   - You can customize both the `repositories` parameter and `private_repositories` secret to download and use different rules from the default that ThreatMatrix currently support.
-    - The `repositories` values is what will be used to actually run the analysis: if you have added private repositories, remember to add the url in `repositories` too! 
+    - The `repositories` values is what will be used to actually run the analysis: if you have added private repositories, remember to add the url in `repositories` too!
   - You can add local rules inside the directory at `/opt/deploy/files_required/yara/YOUR_USERNAME/custom_rules/`. Please remember that these rules are not synced in a cluster deploy: for this reason is advised to upload them on GitHub and use the `repositories` or `private_repositories` attributes.
 
 ## Notifications
@@ -251,4 +251,3 @@ in the `app_name field`, please remember to use `threatmatrix` as the app name.
 Everytime a new release is installed, once the backend goes up it will automatically create a new notification,
 having as content the latest changes described in the [CHANGELOG.md](https://github.com/khulnasoft/ThreatMatrix/blob/master/.github/CHANGELOG.md),
 allowing the users to keep track of the changes inside threatmatrix itself.
-

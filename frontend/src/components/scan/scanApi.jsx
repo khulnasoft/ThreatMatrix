@@ -174,7 +174,7 @@ export async function createJob(
       `create job with: analyzables: ${analyzables}, classification: ${classification}, playbook: ${playbook},
       analyzers: ${analyzers}, connectors: ${connectors}, runtimeConfig: ${JSON.stringify(
         runtimeConfig,
-      )}, 
+      )},
       tags: ${tags}, tlp: ${tlp}, ScanModesNumeric: ${_scanMode}, scanCheckTime: ${scanCheckTime}`,
     );
     const isSample = classification === JobTypes.FILE;

@@ -26,7 +26,7 @@ There are multiple ways to interact with the Threat Matrix APIs,
 1. Web Interface
 
    - Built-in Web interface with dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, tags management and more features
-   
+
 2. pyThreatMatrix (CLI/SDK)
 
    - Official Python client that is available at: [PyThreatMatrix](https://github.com/khulnasoft/pythreatmatrix),
@@ -104,7 +104,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
   * [ATM malware yara rules](https://github.com/fboldewin/YARA-rules)
   * [bartblaze yara rules](https://github.com/bartblaze/Yara-rules)
   * [community yara rules](https://github.com/Yara-Rules/rules)
-  * [StrangerealIntel](https://github.com/StrangerealIntel) 
+  * [StrangerealIntel](https://github.com/StrangerealIntel)
   * [Neo23x0 yara rules](https://github.com/Neo23x0/signature-base)
   * [Intezer yara rules](https://github.com/intezer/yara-rules)
   * [Inquest yara rules](https://github.com/InQuest/yara-rules)
@@ -164,7 +164,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `AbuseIPDB`: check if an ip was reported on [AbuseIPDB](https://www.abuseipdb.com/)
 * `Abusix`: get abuse contacts of an IP address from [Abusix](https://abusix.com/contact-db/)
 * `BGP Ranking`: [BGP-Ranking](https://github.com/D4-project/BGP-Ranking) provides a way to collect such malicious activities, aggregate the information per ASN and provide a ranking model to rank the ASN from the most malicious to the less malicious ASN.
-* `Anomali_Threatstream_PassiveDNS`: Return information from passive dns of Anomali. On [Anomali Threatstream](https://www.anomali.com/products/threatstream) PassiveDNS Api. 
+* `Anomali_Threatstream_PassiveDNS`: Return information from passive dns of Anomali. On [Anomali Threatstream](https://www.anomali.com/products/threatstream) PassiveDNS Api.
 * `Auth0`: scan an IP against the Auth0 API
 * `BinaryEdge`: Details about an Host. List of recent events for the specified host, including details of exposed ports and services using [IP query](https://docs.binaryedge.io/api-v2/#v2queryiptarget) and return list of subdomains known from the target domains using [domain query](https://docs.binaryedge.io/api-v2/#v2querydomainssubdomaintarget)
 * `BitcoinAbuse` : Check a BTC address against bitcoinabuse.com, a public database of BTC addresses used by hackers and criminals.
@@ -212,7 +212,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `MaxMindGeoIP`: extract GeoIP info for an observable
 * `MISP`: scan an observable on a MISP instance
 * `MISPFIRST`: scan an observable on the FIRST MISP instance
-* `Mmdb_server`: [Mmdb_server](https://github.com/adulau/mmdb-server) mmdb-server is an open source fast API server to lookup IP addresses for their geographic location, AS number. 
+* `Mmdb_server`: [Mmdb_server](https://github.com/adulau/mmdb-server) mmdb-server is an open source fast API server to lookup IP addresses for their geographic location, AS number.
 * `Mnemonic_PassiveDNS` : Look up a domain or IP using the [Mnemonic PassiveDNS public API](https://docs.mnemonic.no/display/public/API/Passive+DNS+Overview).
 * `MWDB_Get`: [mwdblib](https://mwdb.readthedocs.io/en/latest/) Retrieve malware file analysis by hash from repository maintained by CERT Polska MWDB.
 * `Netlas`: search an IP against [Netlas](https://netlas.io/api)
@@ -254,7 +254,7 @@ The following is the list of the available analyzers you can run out-of-the-box.
 * `Validin`:[Validin](https://app.validin.com/) investigates historic and current data describing the structure and composition of the internet.
 * `TweetFeed`: [TweetFeed](https://tweetfeed.live/) collects Indicators of Compromise (IOCs) shared by the infosec community at Twitter.\r\nHere you will find malicious URLs, domains, IPs, and SHA256/MD5 hashes.
 * `HudsonRock`: [Hudson Rock](https://cavalier.hudsonrock.com/docs) provides its clients the ability to query a database of over 27,541,128 computers which were compromised through global info-stealer campaigns performed by threat actors.
-* `CyCat`: [CyCat](https://cycat.org/) or the CYbersecurity Resource CATalogue aims at mapping and documenting, in a single formalism and catalogue available cybersecurity tools, rules, playbooks, processes and controls. 
+* `CyCat`: [CyCat](https://cycat.org/) or the CYbersecurity Resource CATalogue aims at mapping and documenting, in a single formalism and catalogue available cybersecurity tools, rules, playbooks, processes and controls.
 * `Vulners`: [Vulners](vulners.com) is the most complete and the only fully correlated security intelligence database, which goes through constant updates and links 200+ data sources in a unified machine-readable format. It contains 8 mln+ entries, including CVEs, advisories, exploits, and IoCs — everything you need to stay abreast on the latest security threats.
 * `AILTypoSquatting`:[AILTypoSquatting](https://github.com/typosquatter/ail-typo-squatting) is a Python library to generate list of potential typo squatting domains with domain name permutation engine to feed AIL and other systems.
 
@@ -280,7 +280,7 @@ Some analyzers require details other than just IP, URL, Domain, etc. We classifi
 * `VirusTotal_v3_Intelligence_Search`: Perform advanced queries with [VirusTotal Intelligence](https://developers.virustotal.com/reference/intelligence-search) (requires paid plan)
 * `WiGLE`: Maps and database of 802.11 wireless networks, with statistics, submitted by wardrivers, netstumblers, and net huggers.
 * `YARAify_Generics`: lookup a YARA rule (default), ClamAV rule, imphash, TLSH, telfhash or icon_dash in [YARAify](https://yaraify.abuse.ch/)
-* `PhoneInfoga` : [PhoneInfoga](https://sundowndev.github.io/phoneinfoga/) is one of the most advanced tools to scan international phone numbers. 
+* `PhoneInfoga` : [PhoneInfoga](https://sundowndev.github.io/phoneinfoga/) is one of the most advanced tools to scan international phone numbers.
 * `HudsonRock`: [Hudson Rock](https://cavalier.hudsonrock.com/docs) provides its clients the ability to query a database of over 27,541,128 computers which were compromised through global info-stealer campaigns performed by threat actors.
 
 ##### Optional analyzers
@@ -371,7 +371,7 @@ With ThreatMatrix v5.1.0 we introduced the `Ingestor` Plugin.
 Ingestors allow to automatically insert IOC streams from outside sources to ThreatMatrix itself.
 Each Ingestor must have a `Playbook` attached: this will allow to create a `Job` from every IOC retrieved.
 
-Ingestors are system-wide and **disabled** by default, meaning that only the administrator are able to configure them and enable them. 
+Ingestors are system-wide and **disabled** by default, meaning that only the administrator are able to configure them and enable them.
 Ingestors can be _spammy_ so be careful about enabling them.
 
 A very powerful use is case is to **combine Ingestors with Connectors** to automatically extract data from external sources, analyze them with ThreatMatrix and push them externally to another platform (like MISP or a SIEM)
@@ -492,8 +492,8 @@ To see the list of these parameters:
 
 You can change the Plugin Parameters at 5 different levels:
 * if you are an ThreatMatrix superuser, you can go in the Django Admin Interface and change the default values of the parameters for every plugin you like. This option would change the default behavior for every user in the platform.
-* if you are either Owner or Admin of an org, you can customize the default values of the parameters for every member of the organization by leveraging the GUI in the "Organization Config" section. This overrides the previous option. 
-* if you are a normal user, you can customize the default values of the parameters for your analysis only by leveraging the GUI in the "Plugin config" section. This overrides the previous option. 
+* if you are either Owner or Admin of an org, you can customize the default values of the parameters for every member of the organization by leveraging the GUI in the "Organization Config" section. This overrides the previous option.
+* if you are a normal user, you can customize the default values of the parameters for your analysis only by leveraging the GUI in the "Plugin config" section. This overrides the previous option.
 * You can choose to provide runtime configuration when requesting an analysis that will override the previous options. This override is done only for the specific analysis. See <a href="./Advanced-Usage.html#customize-analyzer-execution">Customize analyzer execution at time of request</a>
 
 <div class="admonition note">
@@ -560,17 +560,17 @@ All plugins, i.e. analyzers and connectors, have `kill` and `retry` actions. In 
   - PyThreatMatrix: `ThreatMatrix.analyzer_healthcheck` and `ThreatMatrix.connector_healthcheck` methods.
   - CLI: `$ pythreatmatrix analyzer-healthcheck <analyzer_name>` and `$ pythreatmatrix connector-healthcheck <connector_name>`
   - API: `GET /api/{plugin_type}/{plugin_name}/healthcheck`
-  
+
 - **pull:**
 
   Update a plugin with the newest rules/database:
 
   - GUI: Buttons on every plugin table.
   - API: `POST /api/{plugin_type}/{plugin_name}/pull`
-  
+
 
 ### TLP Support
-The **Traffic Light Protocol** ([TLP](https://www.first.org/tlp/)) is a standard that was created to facilitate greater sharing of potentially sensitive information and more effective collaboration. 
+The **Traffic Light Protocol** ([TLP](https://www.first.org/tlp/)) is a standard that was created to facilitate greater sharing of potentially sensitive information and more effective collaboration.
 
 ThreatMatrix is not a threat intel sharing platform, like the [MISP platform](https://www.misp-project.org/). However, ThreatMatrix is able to share analysis results to external platforms (via [Connectors](#connectors)) and to send possible privacy related information to external services (via [Analyzers](#analyzers)).
 
@@ -633,5 +633,3 @@ If you want to remove a Job, you can click on the Job block and click "Remove br
 ### Example output of a complex investigation
 
 ![investigation_screen.png](../static/investigation_screen.png)
-
-

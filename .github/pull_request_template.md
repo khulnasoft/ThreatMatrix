@@ -25,7 +25,7 @@ Please delete options that are not relevant.
     - [ ] If you created a new analyzer and it is free (does not require any API key), please add it in the `FREE_TO_USE_ANALYZERS` playbook by following [this guide](https://threatmatrix.readthedocs.io/en/latest/Contribute.html#how-to-modify-a-plugin).
     - [ ] Check if it could make sense to add that analyzer/connector to other [freely available playbooks](https://threatmatrix.readthedocs.io/en/develop/Usage.html#list-of-pre-built-playbooks).
     - [ ] I have provided the resulting raw JSON of a finished analysis and a screenshot of the results.
-    - [ ] If the plugin interacts with an external service, I have created an attribute called precisely `url` that contains this information. This is required for Health Checks. 
+    - [ ] If the plugin interacts with an external service, I have created an attribute called precisely `url` that contains this information. This is required for Health Checks.
     - [ ] If the plugin requires mocked testing, `_monkeypatch()` was used in its class to apply the necessary decorators.
     - [ ] I have added that raw JSON sample to the `MockUpResponse` of the `_monkeypatch()` method. This serves us to provide a valid sample for testing.
 - [ ] If external libraries/packages with restrictive licenses were used, they were added in the [Legal Notice](https://github.com/certego/ThreatMatrix/blob/master/.github/legal_notice.md) section.

@@ -80,4 +80,3 @@ COPY --from=frontend-build /build /var/www/reactapp
 # Path(HOME_DIR).mkdir(parents=True, exist_ok=True)
 # so we have to set the home env variable to allow to create its directory
 ENV HOME ${PYTHONPATH}
-

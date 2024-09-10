@@ -22,13 +22,13 @@ In some systems you could find pre-installed older versions. Please check this a
 <p class="admonition-title">Warning</p>
 The <code>start</code> script requires a `bash` version > 4 to run.
 
-Note that macOS is shipped with an older version of <code>bash</code>. Please ensure to upgrade before running the script. 
+Note that macOS is shipped with an older version of <code>bash</code>. Please ensure to upgrade before running the script.
 </div>
 
 ## TL;DR
 Obviously we strongly suggest reading through all the page to configure ThreatMatrix in the most appropriate way.
 
-However, if you feel lazy, you could just install and test ThreatMatrix with the following steps. 
+However, if you feel lazy, you could just install and test ThreatMatrix with the following steps.
 `docker` will be run with `sudo` if permissions/roles have not been set.
 
 ```bash
@@ -43,7 +43,7 @@ cd ThreatMatrix/
 ./start prod up
 # now the application is running on http://localhost:80
 
-# create a super user 
+# create a super user
 sudo docker exec -ti threatmatrix_uwsgi python3 manage.py createsuperuser
 
 # now you can login with the created user from http://localhost:80/login
@@ -126,7 +126,7 @@ Configuration required to have InteOwl sending Emails (registration requests, ma
 * `EMAIL_HOST_USER`: username to use for the SMTP server defined in EMAIL_HOST
 * `EMAIL_HOST_PASSWORD`: password to use for the SMTP server defined in EMAIL_HOST. This setting is used in conjunction with EMAIL_HOST_USER when authenticating to the SMTP server.
 * `EMAIL_PORT`: port to use for the SMTP server defined in EMAIL_HOST.
-* `EMAIL_USE_TLS`: whether to use an explicit TLS (secure) connection when talking to the SMTP server, generally used on port 587. 
+* `EMAIL_USE_TLS`: whether to use an explicit TLS (secure) connection when talking to the SMTP server, generally used on port 587.
 * `EMAIL_USE_SSL`: whether to use an implicit TLS (secure) connection when talking to the SMTP server, generally used on port 465.
 
 ### Database configuration (required if running PostgreSQL locally)
@@ -178,7 +178,7 @@ There are 3 options to execute the web server:
     You should change `ssl_certificate`, `ssl_certificate_key` and `server_name` in that file and put those required files in the specified locations.
 
     Then you should call the `./start` script with the parameter `--https` to leverage the right Docker Compose file for HTTPS.
-  
+
     Plus, if you use [Flower](Advanced-Configuration.html#queue-customization), you should change in the `docker/flower.override.yml` the `flower_http.conf` with `flower_https.conf`.
 
 - **HTTPS with Let's Encrypt**
@@ -186,7 +186,7 @@ There are 3 options to execute the web server:
     We provide a specific docker-compose file that leverages [Traefik](https://docs.traefik.io/) to allow fast deployments of public-faced and HTTPS-enabled applications.
 
     Before using it, you should configure the configuration file `docker/traefik.override.yml` by changing the email address and the hostname where the application is served. For a detailed explanation follow the official documentation: [Traefix doc](https://docs.traefik.io/user-guides/docker-compose/acme-http/).
-    
+
     After the configuration is done, you can add the option `--traefik` while executing [`./start`](#run)
 
 ## Run
@@ -201,7 +201,7 @@ You may invoke <code>$ ./start --help</code> to get help and usage info.
 The CLI provides the primitives to correctly build, run or stop the containers for ThreatMatrix. Therefore,
 <ul>
 <li>It is possible to attach every optional docker container that ThreatMatrix has:
-<a href="Advanced-Configuration.html#multi-queue"><em>multi_queue</em></a> with <em>traefik</em> enabled while every <a href="Advanced-Usage.html#optional-analyzers">optional docker analyzer</a> is active.</li> 
+<a href="Advanced-Configuration.html#multi-queue"><em>multi_queue</em></a> with <em>traefik</em> enabled while every <a href="Advanced-Usage.html#optional-analyzers">optional docker analyzer</a> is active.</li>
 <li>It is possible to insert an optional docker argument that the CLI will pass to <code>docker-compose</code></li>
 </ul>
 </div>
@@ -212,7 +212,7 @@ Now that you have completed different configurations, starting the containers is
 $ ./start prod up
 ```
 
-You can add the `docker` options `-d` to run the application in the background. 
+You can add the `docker` options `-d` to run the application in the background.
 <div class="admonition note">
 <p class="admonition-title">Important Info</p>
 All <code>docker</code> and <code>docker compose</code> specific options must be passed at the end of the script, after a <code>--</code> token.
@@ -233,7 +233,7 @@ This  can be helpful to keep using old versions in case of retrocompatibility is
 
 ### Stop
 To stop the application you have to:
-* if executed without `-d` parameter: press `CTRL+C` 
+* if executed without `-d` parameter: press `CTRL+C`
 * if executed with `-d` parameter: `./start prod down`
 
 ### Cleanup of database and application
@@ -263,7 +263,7 @@ To update the project with the most recent available code you have to follow the
 ```bash
 $ cd <your_threat_matrix_directory> # go into the project directory
 $ git pull # pull new changes
-$ ./start prod down # kill and destroy the currently running ThreatMatrix containers 
+$ ./start prod down # kill and destroy the currently running ThreatMatrix containers
 $ ./start prod up # restart the ThreatMatrix application
 ```
 
@@ -303,7 +303,7 @@ Before upgrading, some important things should be checked by the administrator:
 * The default message broker is now Redis. We have replaced Rabbit-MQ for Redis to allow support for Websockets in the application:
   * This change is transparent if you use our `start` script to run ThreatMatrix. That would spawn a Redis instance instead of a Rabbit-MQ one locally.
   * If you were using an external broker like AWS SQS or a managed Rabbit-MQ, they are still supported but we suggest to move to a Redis supported service to simplify the architecture (because Redis is now mandatory for Websockets)
-* Support for multiple jobs with multiple playbooks has been removed. Every Observable or File in the request will be processed by a single playbook. 
+* Support for multiple jobs with multiple playbooks has been removed. Every Observable or File in the request will be processed by a single playbook.
 * We upgraded the base PostgreSQL image from version 12 to version 16. You have 2 choice:
   * remove your actual database and start from scratch with a new one
   * maintain your database and do not update Postgres. This could break the application at anytime because we do not support it anymore.
@@ -311,9 +311,9 @@ Before upgrading, some important things should be checked by the administrator:
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-CARE! We are providing this database migration procedure to help the users to migrate to a new PostgreSQL version. 
+CARE! We are providing this database migration procedure to help the users to migrate to a new PostgreSQL version.
 
-Upgrading PostgreSQL is outside the scope of the ThreatMatrix project so we do not guarantee that everything will work as intended. 
+Upgrading PostgreSQL is outside the scope of the ThreatMatrix project so we do not guarantee that everything will work as intended.
 
 In case of doubt, please check the official PostgreSQL documentation.
 

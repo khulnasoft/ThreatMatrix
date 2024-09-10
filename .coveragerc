@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = 
+source =
     api_app
     threat_matrix
 concurrency = multiprocessing

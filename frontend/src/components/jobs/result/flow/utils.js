@@ -77,9 +77,9 @@ export function getNodes(job, getInitalNodes = false) {
   );
 
   /* Check if analyzers/connectors/visualizers are completed
-    The analyzers are completed from the "analyzers_completed" status (index=3) to the last status 
-    The connectors are completed from the "connectors_completed" status (index=5) to the last status 
-    The visualizers are completed from the "visualizers_completed" status (index=7) to the last status 
+    The analyzers are completed from the "analyzers_completed" status (index=3) to the last status
+    The connectors are completed from the "connectors_completed" status (index=5) to the last status
+    The visualizers are completed from the "visualizers_completed" status (index=7) to the last status
   */
   const analyzersCompleted = Object.values(JobStatuses)
     .slice(3)

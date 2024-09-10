@@ -139,10 +139,10 @@ def _create_object(Model, data):
         return False
     return True
 """  # noqa
-            + """    
+            + """
 def migrate(apps, schema_editor):
     Parameter = apps.get_model("api_app", "Parameter")
-    PluginConfig = apps.get_model("api_app", "PluginConfig")    
+    PluginConfig = apps.get_model("api_app", "PluginConfig")
     python_path = plugin.pop("model")
     Model = apps.get_model(*python_path.split("."))
     if not Model.objects.filter(name=plugin["name"]).exists():

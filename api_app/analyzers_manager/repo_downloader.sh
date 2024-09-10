@@ -31,5 +31,3 @@ wget "https://exiftool.org/Image-ExifTool-$version.tar.gz"
 gzip -dc "Image-ExifTool-$version.tar.gz" | tar -xf -
 cd "Image-ExifTool-$version"
 chown -R www-data:www-data /opt/deploy/exiftool_download
-
-

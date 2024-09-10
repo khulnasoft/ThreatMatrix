@@ -9,7 +9,7 @@ services:
         limits:
           cpus: '1'
           memory: 2000M
-          
+
   uwsgi:
     build:
       context: ..
@@ -20,7 +20,7 @@ services:
     env_file:
       - env_file_app_ci
 
-  
+
   daphne:
     image: khulnasoft/threatmatrix:ci
     env_file:

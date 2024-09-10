@@ -33,4 +33,3 @@ services:
       - "traefik.http.routers.nginx.tls.certresolver=myresolver"
     ports:
       - "443:443"
-

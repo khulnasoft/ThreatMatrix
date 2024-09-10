@@ -186,7 +186,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   /* node_modules can need to be transformated in this case we have to exclude them from the regex
-    Simply add node_modules name to the list 
+    Simply add node_modules name to the list
   */
   transformIgnorePatterns: [
     `/node_modules/(?!(${[

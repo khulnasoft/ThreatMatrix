@@ -94,7 +94,7 @@ export default function ScanForm() {
     ),
   );
 
-  /* Recent Scans states - inputValue is used to save the user typing (this state changes for each character that is typed), 
+  /* Recent Scans states - inputValue is used to save the user typing (this state changes for each character that is typed),
   recentScansInput is used for rendering RecentScans component only once per second
   */
   const [inputValue, setInputValue] = React.useState("");
@@ -540,7 +540,7 @@ export default function ScanForm() {
   /* With the setFieldValue the validation and rerender don't work properly: the last update seems to not trigger the validation
   and leaves the UI with values not valid, for this reason the scan button is disabled, but if the user set focus on the UI the last
   validation trigger and start scan is enabled. To avoid this we use this hook that force the validation when the form values change.
-  
+
   This hook is the reason why we can disable the validation in the setFieldValue method (3rd params).
   */
   React.useEffect(() => {

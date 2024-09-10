@@ -54,7 +54,7 @@ source venv/bin/activate
 pip install pre-commit
 pre-commit install
 
-# create .env file for controlling repo_downloader.sh 
+# create .env file for controlling repo_downloader.sh
 # (to speed up image builds during development: it avoid downloading some repos)
 cp docker/.env.start.test.template docker/.env.start.test
 
@@ -175,7 +175,7 @@ There are two possible cases:
 If you are doing the step number `2`, you can skip this paragraph.
 
 First, you need to create the python code that will be actually executed. You can easily take other plugins as example to write this.
-Then, you have to create a `Python Module` model. You can do this in the `Django Admin` page: 
+Then, you have to create a `Python Module` model. You can do this in the `Django Admin` page:
 You have to specify which type of Plugin you wrote, and its python module. Again, you can use as an example an already configured `Python Module`.
 
 Some `Python Module` requires to update some part of its code in a **schedule way**: for example `Yara` requires to update the rule repositories, `QuarkEngine` to update its database and so on.
@@ -190,14 +190,14 @@ If the `Python Module` that you define need this type of behaviour, you have to 
 - In the model class, you have to add the `health_check_schedule` (crontab syntax) that define when the health check should be executed.
 
 
-Press `Save and continue editing` to, at the moment, manually ad the `Parameters` that the python code requires (the class attributes that you needed): 
+Press `Save and continue editing` to, at the moment, manually ad the `Parameters` that the python code requires (the class attributes that you needed):
   1. *name: Name of the parameter that will be dynamically added to the python class (if is a secret, in the python code a `_` wil be prepended to the name)
   2. *type: data type, `string`, `list`, `dict`, `integer`, `boolean`, `float`
   3. *description
   4. *required: `true` or `false`, meaning that a value is necessary to allow the run of the analyzer
   5. *is_secret: `true` or `false`
 
-At this point, you can follow the specific guide for each plugin 
+At this point, you can follow the specific guide for each plugin
 
 ### How to add a new Analyzer
 
@@ -338,9 +338,9 @@ To do so, some utility classes have been made:
   <tr>
     <td class="tg-7n4c">VisualizableLevel</td>
     <td class="tg-0pky">
-      Each level corresponds to a line in the final frontend visualizations. Every level is made of a 
+      Each level corresponds to a line in the final frontend visualizations. Every level is made of a
       <span class="tg-zh46">VisualizableHorizontalList</span>.
-      The dimension of the level can be customized with the size parameter (1 is the biggest, 6 is the smallest). 
+      The dimension of the level can be customized with the size parameter (1 is the biggest, 6 is the smallest).
     </td>
     <td class="tg-c3ow"><img alt="Visualizable Level example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableLevel_example.png"></td>
   </tr>
@@ -401,9 +401,9 @@ To allow other people to use your configuration, that is now stored in your loca
       2. AnalyzerConfig
       3. Parameter
       4. PluginConfig
-      
+
    2. Example: `docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin AnalyzerConfig <new_analyzer_name>`
-    
+
 Add the new analyzer in the lists in the docs: [Usage](./Usage.md). Also, if the analyzer provides additional optional configuration, add the available options here: [Advanced-Usage](./Advanced-Usage.html#analyzers-with-special-configuration)
 
 In the Pull Request remember to provide some real world examples (screenshots and raw JSON results) of some successful executions of the analyzer to let us understand how it would work.
@@ -427,12 +427,12 @@ Example: `docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin Playbo
 
 If the changes that you have to make should stay local, you can just change the configuration inside the `Django admin` page.
 
-But if, instead, you want your changes to be usable by every ThreatMatrix user, you have to create a new migration.  
+But if, instead, you want your changes to be usable by every ThreatMatrix user, you have to create a new migration.
 
 To do so, you can use the following snippets as an example:
 1. You have to create a new migration file
 2. Add as dependency the previous last migration of the package
-3. You have to create a [forward and a reverse function](https://docs.djangoproject.com/en/4.2/ref/migration-operations/#django.db.migrations.operations.RunPython) 
+3. You have to create a [forward and a reverse function](https://docs.djangoproject.com/en/4.2/ref/migration-operations/#django.db.migrations.operations.RunPython)
 4. You have to make the proper changes of the configuration inside these functions (change parameters, secrets, or even delete the configuration)
    1. If changes are made, you have to validate the instance calling `.full_clean()` and then you can save the instance with `.save()`
 
@@ -467,7 +467,7 @@ def migrate(apps, schema_editor):
    p = Parameter(name="mynewsecret", type="str", description="Test field", is_secret=True, required=True, python_module=pm)
    p.full_clean()
    p.save()
-   
+
 ```
 
 ### Example: how to delete a parameter
@@ -561,7 +561,7 @@ $ docker exec threatmatrix_uwsgi python3 manage.py test
 
 To test a plugin in real environment, i.e. without mocked data, we suggest that you use the GUI of ThreatMatrix directly.
 Meaning that you have your plugin configured, you have selected a correct observable/file to analyze,
-and the final report shown in the GUI of ThreatMatrix is exactly what you wanted. 
+and the final report shown in the GUI of ThreatMatrix is exactly what you wanted.
 
 
 ##### Run tests available in a particular file

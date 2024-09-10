@@ -42,7 +42,7 @@ license terms.
 [JPCERTCC Yara rules](https://github.com/JPCERTCC/jpcert-yara),
 [HuntressLab Yara rules](https://github.com/embee-research/Yara),
 [elceef Yara Rules](https://github.com/elceef/yara-rulz),
-[Elastic Yara Rules](https://github.com/elastic/protections-artifacts), 
+[Elastic Yara Rules](https://github.com/elastic/protections-artifacts),
 [SIFalcon Yara Rules](https://github.com/SIFalcon/Detection/),
 [LOLDrivers Yara Rules](https://github.com/magicsword-io/LOLDrivers),
 [APKiD](https://github.com/rednaga/APKiD/blob/master/LICENSE.COMMERCIAL),
@@ -73,8 +73,3 @@ license terms.
 [Cloudflare icon](https://www.cloudflare.com/),
 [Quad9 icon](https://icon-icons.com/pt/icone/quad9-logo/170815),
 [URLhaus icon](https://urlhaus.abuse.ch/favicon.ico),
-
-
-
-
-
