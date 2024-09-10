@@ -23,10 +23,7 @@ class PhishingArmy(classes.ObservableAnalyzer):
 
     def run(self):
         result = {"found": False}
-        if (
-            not os.path.isfile(database_location)
-            and not self.update()
-        ):
+        if not os.path.isfile(database_location) and not self.update():
             raise AnalyzerRunException("Failed extraction of Phishing Army db")
 
         if not os.path.exists(database_location):
