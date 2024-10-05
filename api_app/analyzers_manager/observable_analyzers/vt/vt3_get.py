@@ -6,7 +6,6 @@ from api_app.mixins import VirusTotalv3AnalyzerMixin
 from tests.mock_utils import MockUpResponse, if_mock_connections, patch
 
 
-
 class VirusTotalv3(ObservableAnalyzer, VirusTotalv3AnalyzerMixin):
     @classmethod
     def update(cls) -> bool:
