@@ -1,0 +1,1284 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A centralized documentation for all the projects under ThreatMatrix." name="description"/>
+<meta content="ThreatMatrix Project" name="author"/>
+<link href="../installation/" rel="prev"/>
+<link href="../usage/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<title>Advanced Configuration - ThreatMatrix Project Documentation</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../assests/css/SwaggerDark.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DB4K9LZPDZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DB4K9LZPDZ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DB4K9LZPDZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="DARKUI" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#advanced-configuration">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ThreatMatrix Project Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ThreatMatrix Project Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Advanced Configuration
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../introduction/">
+          
+  
+  ThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GreedyBear/Introduction.md">
+          
+  
+  GreedyBear
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pythreatmatrix/">
+          
+  
+  PyThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GoThreatMatrix/">
+          
+  
+  GoThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Guide-documentation/">
+          
+  
+  Guides
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ThreatMatrix Project Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+    ThreatMatrix Project Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    ThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elasticsearch">
+<span class="md-ellipsis">
+      ElasticSearch
+    </span>
+</a>
+<nav aria-label="ElasticSearch" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dsl">
+<span class="md-ellipsis">
+      DSL
+    </span>
+</a>
+<nav aria-label="DSL" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kibana">
+<span class="md-ellipsis">
+      Kibana
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-configuration">
+<span class="md-ellipsis">
+      Example Configuration
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#business-intelligence">
+<span class="md-ellipsis">
+      Business Intelligence
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authentication-options">
+<span class="md-ellipsis">
+      Authentication options
+    </span>
+</a>
+<nav aria-label="Authentication options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-oauth2">
+<span class="md-ellipsis">
+      Google OAuth2
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ldap">
+<span class="md-ellipsis">
+      LDAP
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#radius-authentication">
+<span class="md-ellipsis">
+      RADIUS Authentication
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opencti">
+<span class="md-ellipsis">
+      OpenCTI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-support">
+<span class="md-ellipsis">
+      Cloud Support
+    </span>
+</a>
+<nav aria-label="Cloud Support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aws-support">
+<span class="md-ellipsis">
+      AWS support
+    </span>
+</a>
+<nav aria-label="AWS support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3">
+<span class="md-ellipsis">
+      S3
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#message-broker">
+<span class="md-ellipsis">
+      Message Broker
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#websockets">
+<span class="md-ellipsis">
+      Websockets
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rds">
+<span class="md-ellipsis">
+      RDS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ses">
+<span class="md-ellipsis">
+      SES
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secrets">
+<span class="md-ellipsis">
+      Secrets
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nfs">
+<span class="md-ellipsis">
+      NFS
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-kubernetes-engine">
+<span class="md-ellipsis">
+      Google Kubernetes Engine
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queues">
+<span class="md-ellipsis">
+      Queues
+    </span>
+</a>
+<nav aria-label="Queues" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-queue">
+<span class="md-ellipsis">
+      Multi Queue
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queue-customization">
+<span class="md-ellipsis">
+      Queue Customization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queue-monitoring">
+<span class="md-ellipsis">
+      Queue monitoring
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual-usage">
+<span class="md-ellipsis">
+      Manual Usage
+    </span>
+</a>
+<nav aria-label="Manual Usage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#options">
+<span class="md-ellipsis">
+      Options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-analyzer">
+<span class="md-ellipsis">
+      Optional Analyzer
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usage/">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_usage/">
+<span class="md-ellipsis">
+    Advanced Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contribute/">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api_docs/">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    GreedyBear
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            GreedyBear
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Introduction.md">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Installation.md">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Usage.md">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Contribute.md">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Api-docs.md">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    PyThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            PyThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClass/">
+<span class="md-ellipsis">
+    ThreatMatrixClass
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClientException/">
+<span class="md-ellipsis">
+    ThreatMatrixClientException
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Development
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/Tests/">
+<span class="md-ellipsis">
+    Tests
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    GoThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            GoThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GoThreatMatrix/">
+<span class="md-ellipsis">
+    index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-documentation/">
+<span class="md-ellipsis">
+    Documentation guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-docstrings/">
+<span class="md-ellipsis">
+    Docstrings guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Submodules/">
+<span class="md-ellipsis">
+    Submodules
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elasticsearch">
+<span class="md-ellipsis">
+      ElasticSearch
+    </span>
+</a>
+<nav aria-label="ElasticSearch" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dsl">
+<span class="md-ellipsis">
+      DSL
+    </span>
+</a>
+<nav aria-label="DSL" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kibana">
+<span class="md-ellipsis">
+      Kibana
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-configuration">
+<span class="md-ellipsis">
+      Example Configuration
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#business-intelligence">
+<span class="md-ellipsis">
+      Business Intelligence
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authentication-options">
+<span class="md-ellipsis">
+      Authentication options
+    </span>
+</a>
+<nav aria-label="Authentication options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-oauth2">
+<span class="md-ellipsis">
+      Google OAuth2
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ldap">
+<span class="md-ellipsis">
+      LDAP
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#radius-authentication">
+<span class="md-ellipsis">
+      RADIUS Authentication
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opencti">
+<span class="md-ellipsis">
+      OpenCTI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-support">
+<span class="md-ellipsis">
+      Cloud Support
+    </span>
+</a>
+<nav aria-label="Cloud Support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aws-support">
+<span class="md-ellipsis">
+      AWS support
+    </span>
+</a>
+<nav aria-label="AWS support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#s3">
+<span class="md-ellipsis">
+      S3
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#message-broker">
+<span class="md-ellipsis">
+      Message Broker
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#websockets">
+<span class="md-ellipsis">
+      Websockets
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rds">
+<span class="md-ellipsis">
+      RDS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ses">
+<span class="md-ellipsis">
+      SES
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secrets">
+<span class="md-ellipsis">
+      Secrets
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nfs">
+<span class="md-ellipsis">
+      NFS
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-kubernetes-engine">
+<span class="md-ellipsis">
+      Google Kubernetes Engine
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queues">
+<span class="md-ellipsis">
+      Queues
+    </span>
+</a>
+<nav aria-label="Queues" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-queue">
+<span class="md-ellipsis">
+      Multi Queue
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queue-customization">
+<span class="md-ellipsis">
+      Queue Customization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#queue-monitoring">
+<span class="md-ellipsis">
+      Queue monitoring
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual-usage">
+<span class="md-ellipsis">
+      Manual Usage
+    </span>
+</a>
+<nav aria-label="Manual Usage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#options">
+<span class="md-ellipsis">
+      Options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-analyzer">
+<span class="md-ellipsis">
+      Optional Analyzer
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/edit/master/docs/ThreatMatrix/advanced_configuration.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/raw/master/docs/ThreatMatrix/advanced_configuration.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="advanced-configuration">Advanced Configuration</h1>
+<p>This page includes details about some advanced features that Intel Owl provides which can be <strong>optionally</strong> configured by the administrator.</p>
+<h2 id="elasticsearch">ElasticSearch</h2>
+<p>Right now only ElasticSearch v8 is supported.</p>
+<h3 id="dsl">DSL</h3>
+<p>ThreatMatrix makes use of <a href="https://django-elasticsearch-dsl.readthedocs.io/en/latest/about.html">django-elasticsearch-dsl</a> to index Job results into elasticsearch. The <code>save</code> and <code>delete</code> operations are auto-synced so you always have the latest data in ES.</p>
+<p>In the <code>env_file_app_template</code>, you'd see various elasticsearch related environment variables. The user should spin their own Elastic Search instance and configure these variables.</p>
+<h4 id="kibana">Kibana</h4>
+<p>Intel Owl provides a Kibana's "Saved Object" configuration (with example dashboard and visualizations). It can be downloaded from <a href="https://github.com/khulnasoft/ThreatMatrix/blob/develop/configuration/Kibana-Saved-Conf.ndjson">here</a> and can be imported into Kibana by going to the "Saved Objects" panel (http://localhost:5601/app/management/kibana/objects).</p>
+<h4 id="example-configuration">Example Configuration</h4>
+<ol>
+<li>Setup <a href="https://hub.docker.com/r/nshou/elasticsearch-kibana/">Elastic Search and Kibana</a> and say it is running in a docker service with name <code>elasticsearch</code> on port <code>9200</code> which is exposed to the shared docker network.
+   (Alternatively, you can spin up a local Elastic Search instance, by appending <code>--elastic</code> to the <code>./start</code> command. Note that the local Elastic Search instance consumes large amount of memory, and hence having &gt;=16GB is recommended.))</li>
+<li>In the <code>env_file_app</code>, we set <code>ELASTICSEARCH_DSL_ENABLED</code> to <code>True</code> and <code>ELASTICSEARCH_DSL_HOST</code> to <code>elasticsearch:9200</code>.</li>
+<li>Now start the docker containers and execute</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>search_index<span class="w"> </span>--rebuild
+</span></code></pre></div>
+<p>This will build and populate all existing job objects into the <code>jobs</code> index.</p>
+<h3 id="business-intelligence">Business Intelligence</h3>
+<p>ThreatMatrix makes use of <a href="https://elasticsearch-py.readthedocs.io/en/8.x/index.html">elasticsearch-py</a> to store data that can be used for Business Intelligence purpose.
+Since plugin reports are deleted periodically, this feature allows to save indefinitely small amount of data to keep track of how analyzers perform and user usage.
+At the moment, the following information are sent to elastic:</p>
+<ul>
+<li>application name</li>
+<li>timestamp</li>
+<li>username</li>
+<li>configuration used</li>
+<li>process_time</li>
+<li>status</li>
+<li>end_time</li>
+<li>parameters</li>
+</ul>
+<p>Documents are saved in the <code>ELEASTICSEARCH_BI_INDEX-%YEAR-%MONTH</code>, allowing to manage the retention accordingly.
+To activate this feature, it is necessary to set <code>ELASTICSEARCH_BI_ENABLED</code> to <code>True</code> in the <code>env_file_app</code> and
+<code>ELASTICSEARCH_BI_HOST</code> to <code>elasticsearch:9200</code>
+or your elasticsearch server.</p>
+<p>An <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/elastic_search_mappings/threat_matrix_bi.json">index template</a> is created after the first bulk submission of reports.
+If you want to use kibana to visualize your data/make dashboard, you must create an index pattern:
+Go to Kibana -&gt; Discover -&gt; Stack Management -&gt; Index Patterns -&gt; search for your index and use as time field <code>timestamp</code></p>
+<h2 id="authentication-options">Authentication options</h2>
+<p>ThreatMatrix provides support for some of the most common authentication methods:</p>
+<ul>
+<li><a href="#google-oauth2">Google Oauth2</a></li>
+<li><a href="#ldap">LDAP</a></li>
+<li><a href="#radius-authentication">RADIUS</a></li>
+</ul>
+<h4 id="google-oauth2">Google OAuth2</h4>
+<p>The first step is to create a <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">Google Cloud Platform</a> project, and then <a href="https://developers.google.com/workspace/guides/create-credentials#oauth-client-id">create OAuth credentials for it</a>.</p>
+<p>It is important to add the correct callback in the "Authorized redirect URIs" section to allow the application to redirect properly after the successful login. Add this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>http://&lt;localhost|yourowndomain&gt;/api/auth/google-callback
+</span></code></pre></div>
+<p>After that, specify the client ID and secret as <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> environment variables and restart ThreatMatrix to see the applied changes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+While configuring Google Auth2 you can choose either to enable access to the all users with a Google Account ("External" mode) or to enable access to only the users of your organization ("Internal" mode).
+<a href="https://support.google.com/cloud/answer/10311615#user-type&amp;zippy=%2Cinternal%2Cexternal" target="_blank">Reference</a>
+</div>
+<h4 id="ldap">LDAP</h4>
+<p>ThreatMatrix leverages <a href="https://github.com/django-auth-ldap/django-auth-ldap">Django-auth-ldap</a> to perform authentication via LDAP.</p>
+<p>How to configure and enable LDAP on Intel Owl?</p>
+<ol>
+<li>Change the values with your LDAP configuration inside <code>configuration/ldap_config.py</code>. This file is mounted as a docker volume, so you won't need to rebuild the image.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+For more details on how to configure this file, check the <a href="https://django-auth-ldap.readthedocs.io/en/latest/" target="_blank">official documentation</a> of the django-auth-ldap library.
+</div>
+<ol>
+<li>Once you have done that, you have to set the environment variable <code>LDAP_ENABLED</code> as <code>True</code> in the environment configuration file <code>env_file_app</code>.
+   Finally, you can restart the application with <code>docker-compose up</code></li>
+</ol>
+<h4 id="radius-authentication">RADIUS Authentication</h4>
+<p>ThreatMatrix leverages <a href="https://github.com/robgolding/django-radius">Django-radius</a> to perform authentication
+via RADIUS server.</p>
+<p>How to configure and enable RADIUS authentication on Intel Owl?</p>
+<ol>
+<li>Change the values with your RADIUS auth configuration inside <code>configuration/radius_config.py</code>. This file is mounted as a
+   docker volume, so you won't need to rebuild the image.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+For more details on how to configure this file, check the <a href="https://github.com/robgolding/django-radius" target="_blank">official documentation</a> of the django-radius library.
+</div>
+<ol>
+<li>Once you have done that, you have to set the environment variable <code>RADIUS_AUTH_ENABLED</code> as <code>True</code> in the environment
+   configuration file <code>env_file_app</code>. Finally, you can restart the application with <code>docker-compose up</code></li>
+</ol>
+<h2 id="opencti">OpenCTI</h2>
+<p>Like many other integrations that we have, we have an <a href="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#analyzers">Analyzer</a> and a <a href="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#connectors">Connector</a> for the <a href="[OpenCTI](https://github.com/OpenCTI-Platform/opencti)">OpenCTI</a> platform.</p>
+<p>This allows the users to leverage these 2 popular open source projects and frameworks together.</p>
+<p>So why we have a section here? This is because there are various compatibility problems with the <a href="https://github.com/OpenCTI-Platform/client-python/">official PyCTI library</a>.</p>
+<p>We found out (see issues in <a href="https://github.com/khulnasoft/ThreatMatrix/issues/1730">ThreatMatrix</a> and <a href="https://github.com/OpenCTI-Platform/client-python/issues/287">PyCTI</a>) that, most of the times, it is required that the OpenCTI version of the server you are using and the pycti version installed in ThreatMatrix <strong>must</strong> match perfectly.</p>
+<p>Because of that, we decided to provide to the users the chance to customize the version of PyCTI installed in ThreatMatrix based on the OpenCTI version that they are using.</p>
+<p>To do that, you would need to leverage the option <code>--pycti-version</code> provided by the <code>./start</code> helper:</p>
+<ul>
+<li>check the default version that would be installed by checking the description of the option <code>--pycti-version</code> with <code>./start -h</code></li>
+<li>if the default version is different from your OpenCTI server version, you need to rebuild the ThreatMatrix Image with <code>./start test build --pycti-version &lt;your_version&gt;</code></li>
+<li>then restart the project <code>./start test up -- --build</code></li>
+<li>enjoy</li>
+</ul>
+<h2 id="cloud-support">Cloud Support</h2>
+<h3 id="aws-support">AWS support</h3>
+<p>We have support for several AWS services.</p>
+<p>You can customize the AWS Region location of you services by changing the environment variable <code>AWS_REGION</code>. Default is <code>eu-central-1</code></p>
+<p>You have to add some credentials for AWS: if you have ThreatMatrix deployed on the AWS infrastructure, you can use IAM credentials:
+to allow that just set <code>AWS_IAM_ACCESS</code> to <code>True</code>. If that is not the case, you have to set both <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code></p>
+<h4 id="s3">S3</h4>
+<p>If you prefer to use S3 to store the analyzed samples, instead of the local storage, you can do it.</p>
+<p>First, you need to configure the environment variable <code>LOCAL_STORAGE</code> to <code>False</code> to enable it and set <code>AWS_STORAGE_BUCKET_NAME</code> to the AWS bucket you want to use.</p>
+<p>Then you need to configure permission access to the chosen S3 bucket.</p>
+<h4 id="message-broker">Message Broker</h4>
+<p>ThreatMatrix at the moment supports 3 different message brokers:</p>
+<ul>
+<li>Redis (default)</li>
+<li>RabbitMQ</li>
+<li>Aws SQS</li>
+</ul>
+<p>The default broker, if nothing is specified, is <code>Redis</code>.</p>
+<p>To use <code>RabbitMQ</code>, you must use the option <code>--rabbitmq</code> when launching ThreatMatrix with the <code>./start</code> script.</p>
+<p>To use <code>Aws SQS</code>, you must use the option <code>--sqs</code> when launching ThreatMatrix with the <code>.start</code> script.
+In that case, you should create new SQS queues in AWS called <code>threatmatrix-&lt;environment&gt;-&lt;queue_name&gt;</code> and give your instances on AWS the proper permissions to access it.
+Moreover, you must populate the <code>AWS_USER_NUMBER</code>. This is required to connect in the right way to the selected SQS queues.
+Only FIFO queues are supported.</p>
+<p>If you want to use a remote message broker (like an <code>ElasticCache</code> or <code>AmazonMQ</code> instance), you must populate the <code>BROKER_URL</code> environment variable.</p>
+<p>It is possible to use <a href="https://docs.celeryq.dev/en/stable/userguide/routing.html#special-routing-options">task priority</a> inside ThreatMatrix: each User has default priority of 10, and robots users (like the Ingestors) have a priority of 7.<br/>
+You can customize these priorities inside Django Admin, in the <code>Authentication.User Profiles</code> section.</p>
+<h4 id="websockets">Websockets</h4>
+<p><code>Redis</code> is used for two different functions:</p>
+<ul>
+<li>message broker</li>
+<li>websockets</li>
+</ul>
+<p>For this reason, a <code>Redis</code> instance is <strong>mandatory</strong>.
+You can personalize ThreatMatrix in two different way:</p>
+<ul>
+<li>with a local <code>Redis</code> instance.</li>
+</ul>
+<p>This is the default behaviour.</p>
+<ul>
+<li>With a remote <code>Redis</code> instance.</li>
+</ul>
+<p>You must use the option <code>--use-external-redis</code> when launching ThreatMatrix with the <code>.start</code> script.
+Moreover, you need to populate the <code>WEBSOCKETS_URL</code> environment variable. If you are using <code>Redis</code> as a message broker too, remember to populate the <code>BROKER_URL</code> environment variable</p>
+<h4 id="rds">RDS</h4>
+<p>If you like, you could use AWS RDS instead of PostgreSQL for your database. In that case, you should change the database required options accordingly: <code>DB_HOST</code>, <code>DB_PORT</code>, <code>DB_USER</code>, <code>DB_PASSWORD</code> and setup your machine to access the service.</p>
+<p>If you have ThreatMatrix deployed on the AWS infrastructure, you can use IAM credentials to access the Postgres DB.
+To allow that just set <code>AWS_RDS_IAM_ROLE</code> to <code>True</code>. In this case <code>DB_PASSWORD</code> is not required anymore.</p>
+<p>Moreover, to avoid to run PostgreSQL locally, you would need to use the option <code>--use-external-database</code> when launching ThreatMatrix with the <code>./start</code> script.</p>
+<h4 id="ses">SES</h4>
+<p>If you like, you could use Amazon SES for sending automated emails (password resets / registration requests, etc).</p>
+<p>You need to configure the environment variable <code>AWS_SES</code> to <code>True</code> to enable it.</p>
+<h4 id="secrets">Secrets</h4>
+<p>You can use the "Secrets Manager" to store your credentials. In this way your secrets would be better protected.</p>
+<p>Instead of adding the variables to the environment file, you should just add them with the same name on the AWS Secrets Manager and Intel Owl will fetch them transparently.</p>
+<p>Obviously, you should have created and managed the permissions in AWS in advance and accordingly to your infrastructure requirements.</p>
+<p>Also, you need to set the environment variable <code>AWS_SECRETS</code> to <code>True</code> to enable this mode.</p>
+<h4 id="nfs">NFS</h4>
+<p>You can use a <code>Network File System</code> for the shared_files that are downloaded runtime by ThreatMatrix (for example Yara rules).</p>
+<p>To use this feature, you would need to add the address of the remote file system inside the <code>.env</code> file,
+and you would need to use the option <code>--nfs</code> when launching ThreatMatrix with the <code>./start</code> script.</p>
+<h3 id="google-kubernetes-engine">Google Kubernetes Engine</h3>
+<p>Right now there is no official support for Kubernetes deployments.</p>
+<p>But we have an active community. Please refer to the following blog post for an example on how to deploy ThreatMatrix on Google Kubernetes Engine:</p>
+<p><a href="https://mostwanted002.cf/post/intel-owl-gke/">Deploying Intel-Owl on GKE</a> by <a href="https://twitter.com/_mostwanted002_">Mayank Malik</a>.</p>
+<h2 id="queues">Queues</h2>
+<h4 id="multi-queue">Multi Queue</h4>
+<p>ThreatMatrix provides an additional <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/docker/multi-queue.override.yml">multi-queue.override.yml</a> compose file allowing ThreatMatrix users to better scale with the performance of their own architecture.</p>
+<p>If you want to leverage it, you should add the option <code>--multi-queue</code> when starting the project. Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./start<span class="w"> </span>prod<span class="w"> </span>up<span class="w"> </span>--multi-queue
+</span></code></pre></div>
+<p>This functionality is not enabled by default because this deployment would start 2 more containers so the resource consumption is higher. We suggest to use this option only when leveraging ThreatMatrix massively.</p>
+<h4 id="queue-customization">Queue Customization</h4>
+<p>It is possible to define new celery workers: each requires the addition of a new container in the docker-compose file, as shown in the <code>multi-queue.override.yml</code>.</p>
+<p>Moreover ThreatMatrix requires that the name of the workers are provided in the <code>docker-compose</code> file. This is done through the environment variable <code>CELERY_QUEUES</code> inside the <code>uwsgi</code> container. Each queue must be separated using the character <code>,</code>, as shown in the <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/docker/multi-queue.override.yml#L6">example</a>.</p>
+<p>One can customize what analyzer should use what queue by specifying so in the analyzer entry in the <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/analyzer_config.json">analyzer_config.json</a> configuration file. If no queue(s) are provided, the <code>default</code> queue will be selected.</p>
+<h4 id="queue-monitoring">Queue monitoring</h4>
+<p>ThreatMatrix provides an additional <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/docker/flower.override.yml">flower.override.yml</a> compose file allowing ThreatMatrix users to use <a href="https://flower.readthedocs.io/">Flower</a> features to monitor and manage queues and tasks</p>
+<p>If you want to leverage it, you should add the option <code>--flower</code> when starting the project. Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>./start<span class="w"> </span>prod<span class="w"> </span>up<span class="w"> </span>--flower
+</span></code></pre></div>
+<p>The flower interface is available at port 5555: to set the credentials for its access, update the environment variables</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>FLOWER_USER
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>FLOWER_PWD
+</span></code></pre></div>
+<p>or change the <code>.htpasswd</code> file that is created in the <code>docker</code> directory in the <code>threatmatrix_flower</code> container.</p>
+<h2 id="manual-usage">Manual Usage</h2>
+<p>The <code>./start</code> script essentially acts as a wrapper over Docker Compose, performing additional checks.
+ThreatMatrix can still be started by using the standard <code>docker compose</code> command, but all the dependencies have to be manually installed by the user.</p>
+<h3 id="options">Options</h3>
+<p>The <code>--project-directory</code> and <code>-p</code> options are required to run the project.
+Default values set by <code>./start</code> script are "docker" and "threat_matrix", respectively.</p>
+<p>The startup is based on <a href="https://docs.docker.com/compose/multiple-compose-files/merge/">chaining</a> various Docker Compose YAML files using <code>-f</code> option.
+All Docker Compose files are stored in <code>docker/</code> directory of the project.
+The default compose file, named <code>default.yml</code>, requires configuration for an external database and message broker.
+In their absence, the <code>postgres.override.yml</code> and <code>rabbitmq.override.yml</code> files should be chained to the default one.</p>
+<p>The command composed, considering what is said above (using <code>sudo</code>), is</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>--project-directory<span class="w"> </span>docker<span class="w"> </span>-f<span class="w"> </span>docker/default.yml<span class="w"> </span>-f<span class="w"> </span>docker/postgres.override.yml<span class="w"> </span>-f<span class="w"> </span>docker/rabbitmq.override.yml<span class="w"> </span>-p<span class="w"> </span>threat_matrix<span class="w"> </span>up
+</span></code></pre></div>
+<p>The other most common compose file that can be used is for the testing environment.
+The equivalent of running <code>./start test up</code> is adding the <code>test.override.yml</code> file, resulting in:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>--project-directory<span class="w"> </span>docker<span class="w"> </span>-f<span class="w"> </span>docker/default.yml<span class="w"> </span>-f<span class="w"> </span>docker/postgres.override.yml<span class="w"> </span>-f<span class="w"> </span>docker/rabbitmq.override.yml<span class="w"> </span>-f<span class="w"> </span>docker/test.override.yml<span class="w"> </span>-p<span class="w"> </span>threat_matrix<span class="w"> </span>up
+</span></code></pre></div>
+<p>All other options available in the <code>./start</code> script (<code>./start -h</code> to view them) essentially chain other compose file to <code>docker compose</code> command with corresponding filenames.</p>
+<h3 id="optional-analyzer">Optional Analyzer</h3>
+<p>ThreatMatrix includes integrations with <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#optional-analyzers">some analyzer</a> that are not enabled by default.
+These analyzers, stored under the <code>integrations/</code> directory, are packed within Docker Compose files.
+The <code>compose.yml</code> file has to be chained to include the analyzer.
+The additional <code>compose-test.yml</code> file has to be chained for testing environment.</p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Installation" class="md-footer__link md-footer__link--prev" href="../installation/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Installation
+              </div>
+</div>
+</a>
+<a aria-label="Next: Usage" class="md-footer__link md-footer__link--next" href="../usage/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Usage
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © ThreatMatrix Project
+
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/khulnasoft" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://honeynetpublic.slack.com/archives/C01KVGMAKL6" rel="noopener" target="_blank" title="honeynetpublic.slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/threatmatrix" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/threat_matrix" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.footer", "navigation.expand", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>

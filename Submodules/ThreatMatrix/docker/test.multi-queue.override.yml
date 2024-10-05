@@ -1,0 +1,15 @@
+services:
+  celery_worker_local:
+    image: khulnasoft/threatmatrix:test
+    volumes:
+      - ../:/opt/deploy/threat_matrix
+
+  celery_worker_long:
+    image: khulnasoft/threatmatrix:test
+    volumes:
+      - ../:/opt/deploy/threat_matrix
+
+  celery_worker_ingestor:
+    image: khulnasoft/threatmatrix:test
+    volumes:
+      - ../:/opt/deploy/threat_matrix

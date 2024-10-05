@@ -1,0 +1,1 @@
+0 2 * * 0  root /opt/deploy/threat_matrix/start test down --all_analyzers && /opt/deploy/threat_matrix/start test up --all_analyzers -- -d

@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A centralized documentation for all the projects under ThreatMatrix." name="description"/>
+<meta content="ThreatMatrix Project" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<title>Threat Matrix - ThreatMatrix Project Documentation</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../assests/css/SwaggerDark.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DB4K9LZPDZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DB4K9LZPDZ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DB4K9LZPDZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="DARKUI" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#threat-matrix">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ThreatMatrix Project Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ThreatMatrix Project Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Threat Matrix
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../ThreatMatrix/introduction/">
+          
+  
+  ThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GreedyBear/Introduction.md">
+          
+  
+  GreedyBear
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pythreatmatrix/">
+          
+  
+  PyThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GoThreatMatrix/">
+          
+  
+  GoThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Guide-documentation/">
+          
+  
+  Guides
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ThreatMatrix Project Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+    ThreatMatrix Project Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    ThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/installation/">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/advanced_configuration/">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/usage/">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/advanced_usage/">
+<span class="md-ellipsis">
+    Advanced Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/contribute/">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ThreatMatrix/api_docs/">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    GreedyBear
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            GreedyBear
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Introduction.md">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Installation.md">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Usage.md">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Contribute.md">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Api-docs.md">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    PyThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            PyThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClass/">
+<span class="md-ellipsis">
+    ThreatMatrixClass
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClientException/">
+<span class="md-ellipsis">
+    ThreatMatrixClientException
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Development
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/Tests/">
+<span class="md-ellipsis">
+    Tests
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    GoThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            GoThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GoThreatMatrix/">
+<span class="md-ellipsis">
+    index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-documentation/">
+<span class="md-ellipsis">
+    Documentation guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-docstrings/">
+<span class="md-ellipsis">
+    Docstrings guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Submodules
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+<span class="md-ellipsis">
+      Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#documentation">
+<span class="md-ellipsis">
+      Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#publications-and-media">
+<span class="md-ellipsis">
+      Publications and Media
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#available-services-or-analyzers">
+<span class="md-ellipsis">
+      Available services or analyzers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partnerships-and-sponsors">
+<span class="md-ellipsis">
+      Partnerships and sponsors
+    </span>
+</a>
+<nav aria-label="Partnerships and sponsors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gold">
+<span class="md-ellipsis">
+      🥇 GOLD
+    </span>
+</a>
+<nav aria-label="🥇 GOLD" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#certego">
+<span class="md-ellipsis">
+      Certego
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-honeynet-project">
+<span class="md-ellipsis">
+      The Honeynet Project
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-summer-of-code">
+<span class="md-ellipsis">
+      Google Summer of Code
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#silver">
+<span class="md-ellipsis">
+      🥈 SILVER
+    </span>
+</a>
+<nav aria-label="🥈 SILVER" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#threathunterai">
+<span class="md-ellipsis">
+      ThreatHunter.ai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker">
+<span class="md-ellipsis">
+      Docker
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#about-the-author-and-maintainers">
+<span class="md-ellipsis">
+      About the author and maintainers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/edit/master/docs/Submodules/ThreatMatrix/README.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/raw/master/docs/Submodules/ThreatMatrix/README.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="threat-matrix">Threat Matrix</h1>
+<p><a href="https://github.com/khulnasoft/ThreatMatrix/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix"/></a>
+<a href="https://github.com/khulnasoft/ThreatMatrix/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social"/></a>
+<a href="https://hub.docker.com/repository/docker/khulnasoft/threatmatrix"><img alt="Docker" src="https://img.shields.io/docker/pulls/khulnasoft/threatmatrix"/></a>
+<a href="https://twitter.com/threat_matrix"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/threat_matrix?style=social"/></a>
+<a href="https://www.linkedin.com/company/threatmatrix/"><img alt="Linkedin" src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&amp;logo=linkedin&amp;logoColor=white"/></a>
+<a href="https://khulnasoft.github.io"><img alt="Official Site" src="https://img.shields.io/badge/official-site-blue"/></a>
+<a href="https://threatmatrix.honeynet.org"><img alt="Live Instance" src="https://img.shields.io/badge/live-demo-blue"/></a></p>
+<p><a href="https://www.codefactor.io/repository/github/khulnasoft/threatmatrix"><img alt="CodeFactor" src="https://www.codefactor.io/repository/github/khulnasoft/threatmatrix/badge"/></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"/></a>
+<a href="https://pycqa.github.io/isort/"><img alt="Imports: isort" src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&amp;labelColor=ef8336"/></a>
+<a href="https://github.com/khulnasoft/ThreatMatrix/actions/workflows/codeql-analysis.yml"><img alt="CodeQL" src="https://github.com/khulnasoft/ThreatMatrix/actions/workflows/codeql-analysis.yml/badge.svg"/></a>
+<a href="https://github.com/khulnasoft/ThreatMatrix/actions/workflows/dependency_review.yml"><img alt="Dependency Review" src="https://github.com/khulnasoft/ThreatMatrix/actions/workflows/dependency_review.yml/badge.svg"/></a>
+<a href="https://github.com/khulnasoft/ThreatMatrix/actions"><img alt="Build &amp; Tests" src="https://github.com/khulnasoft/ThreatMatrix/workflows/Build%20&amp;%20Tests/badge.svg"/></a>
+<a href="https://app.deepsource.com/gh/khulnasoft/ThreatMatrix/?ref=repository-badge"><img alt="DeepSource" src="https://app.deepsource.com/gh/khulnasoft/ThreatMatrix.svg/?label=resolved+issues&amp;token=BSvKHrnk875Y0Bykb79GNo8w"/></a>
+<a href="https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix"><img alt="OpenSSF Scorecard" src="https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix/badge"/></a>
+<a href="https://bestpractices.coreinfrastructure.org/projects/7120"><img alt="OpenSSF Best Practices" src="https://bestpractices.coreinfrastructure.org/projects/7120/badge"/></a>
+<a href="https://threatmatrix.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/threatmatrix/badge/?version=latest"/></a></p>
+<p>Do you want to get <strong>threat intelligence data</strong> about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using <strong>a single API request</strong>?</p>
+<p>You are in the right place!</p>
+<p>ThreatMatrix is an Open Source solution for management of Threat Intelligence at scale. It integrates a number of analyzers available online and a lot of cutting-edge malware analysis tools.</p>
+<h3 id="features">Features</h3>
+<p>This application is built to <strong>scale out</strong> and to <strong>speed up the retrieval of threat info</strong>.</p>
+<p>It provides:</p>
+<ul>
+<li><strong>Enrichment of Threat Intel</strong> for files as well as observables (IP, Domain, URL, hash, etc).</li>
+<li>A Fully-fledged REST APIs written in Django and Python.</li>
+<li>An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries <a href="https://github.com/khulnasoft/pythreatmatrix">pythreatmatrix</a> and <a href="https://github.com/khulnasoft/go-threatmatrix">go-threatmatrix</a>)</li>
+<li>A <strong>built-in GUI</strong>: provides features such as dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, etc.</li>
+<li>A <strong>framework</strong> composed of modular components called <strong>Plugins</strong>:<ul>
+<li><em>analyzers</em> that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)</li>
+<li><em>connectors</em> that can be run to export data to external platforms (like MISP or OpenCTI)</li>
+<li><em>pivots</em> that are designed to trigger the execution of a chain of analysis and connect them to each other</li>
+<li><em>visualizers</em> that are designed to create custom visualizations of analyzers results</li>
+<li><em>ingestors</em> that allows to automatically ingest stream of observables or files to ThreatMatrix itself</li>
+<li><em>playbooks</em> that are meant to make analysis easily repeatable</li>
+</ul>
+</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<p>We try hard to keep our documentation well written, easy to understand and always updated.
+All info about installation, usage, configuration and contribution can be found <a href="https://threatmatrix.readthedocs.io/">here</a></p>
+<h3 id="publications-and-media">Publications and Media</h3>
+<p>To know more about the project and its growth over time, you may be interested in reading <a href="https://threatmatrix.readthedocs.io/en/latest/Introduction.html#publications-and-media">the official blog posts and/or videos about the project by clicking on this link</a></p>
+<h3 id="available-services-or-analyzers">Available services or analyzers</h3>
+<p>You can see the full list of all available analyzers in the <a href="https://threatmatrix.readthedocs.io/en/latest/Usage.html#available-analyzers">documentation</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Analyzers Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inbuilt modules</td>
+<td>- Static Office Document, RTF, PDF, PE File Analysis and metadata extraction<br/> - Strings Deobfuscation and analysis (<a href="https://github.com/mandiant/flare-floss">FLOSS</a>, <a href="https://github.com/mandiant/stringsifter">Stringsifter</a>, ...)<br/> - PE Emulation with <a href="https://github.com/qilingframework/qiling">Qiling</a> and <a href="https://github.com/mandiant/speakeasy">Speakeasy</a><br/> - PE Signature verification<br/> - PE Capabilities Extraction (<a href="https://github.com/mandiant/capa">CAPA</a>)<br/> - Javascript Emulation (<a href="https://github.com/CapacitorSet/box-js">Box-js</a>)<br/> - Android Malware Analysis (<a href="https://github.com/quark-engine/quark-engine">Quark-Engine</a>, ...)<br/> - SPF and DMARC Validator<br/> - Yara (a lot of public rules are available. You can also add your own rules)<br/> - more...</td>
+</tr>
+<tr>
+<td>External services</td>
+<td>- Abuse.ch <a href="https://bazaar.abuse.ch/about/" target="_blank">MalwareBazaar</a>/<a href="https://urlhaus.abuse.ch/" target="_blank">URLhaus</a>/<a href="https://threatfox.abuse.ch/about/" target="_blank">Threatfox</a>/<a href="https://yaraify.abuse.ch/about/" target="_blank">YARAify</a> - <a href="https://docs.greynoise.io/docs/3rd-party-integrations" target="_blank"> GreyNoise v2</a><br/> - <a href="https://analyze.intezer.com/?utm_source=ThreatMatrix" target="_blank"> Intezer</a><br/> - VirusTotal v3<br/> - <a href="https://doc.crowdsec.net/docs/next/cti_api/integration_threatmatrix/?utm_source=ThreatMatrix" target="_blank"> Crowdsec</a><br/> - <a href="https://urlscan.io/docs/integrations/" target="_blank">URLscan</a><br/> - Shodan<br/> - AlienVault OTX<br/> - <a href="https://intelx.io/integrations" target="_blank">Intelligence_X</a><br/> - <a href="https://www.misp-project.org/" target="_blank">MISP</a><br/> - many more..</td>
+</tr>
+</tbody>
+</table>
+<h2 id="partnerships-and-sponsors">Partnerships and sponsors</h2>
+<p>As open source project maintainers, we strongly rely on external support to get the resources and time to work on keeping the project alive, with a constant release of new features, bug fixes and general improvements.</p>
+<p>Because of this, we joined <a href="https://opencollective.com/khulnasoft">Open Collective</a> to obtain non-profit equal level status which allows the organization to receive and manage donations transparently. Please support ThreatMatrix and all the community by choosing a plan (BRONZE, SILVER, etc).</p>
+<p><a href="https://opencollective.com/khulnasoft/donate" target="_blank">
+<img src="https://opencollective.com/khulnasoft/donate/button@2x.png?color=blue" width="200"/>
+</a></p>
+<h3 id="gold">🥇 GOLD</h3>
+<h4 id="certego">Certego</h4>
+<p><a href="https://certego.net/?utm_source=threatmatrix"> <img alt="Certego Logo" height="71" src="docs/static/Certego.png" style="margin-right: 2px" width="250"/></a></p>
+<p><a href="https://certego.net/?utm_source=threatmatrix">Certego</a> is a MDR (Managed Detection and Response) and Threat Intelligence Provider based in Italy.</p>
+<p>ThreatMatrix was born out of Certego's Threat intelligence R&amp;D division and is constantly maintained and updated thanks to them.</p>
+<h4 id="the-honeynet-project">The Honeynet Project</h4>
+<p><a href="https://www.honeynet.org"> <img alt="Honeynet.org logo" height="125" src="docs/static/honeynet_logo.png" style="border: 0.2px solid black" width="125"/> </a></p>
+<p><a href="https://www.honeynet.org">The Honeynet Project</a> is a non-profit organization working on creating open source cyber security tools and sharing knowledge about cyber threats.</p>
+<p>Thanks to Honeynet, we are hosting a public demo of the application <a href="https://threatmatrix.honeynet.org">here</a>. If you are interested, please contact a member of Honeynet to get access to the public service.</p>
+<h4 id="google-summer-of-code">Google Summer of Code</h4>
+<p><a href="https://summerofcode.withgoogle.com/"> <img alt="GSoC logo" height="89" src="docs/static/gsoc_logo.png" style="border: 0.2px solid black" width="150"/> </a></p>
+<p>Since its birth this project has been participating in the <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> (GSoC)!</p>
+<p>If you are interested in participating in the next Google Summer of Code, check all the info available in the <a href="https://github.com/khulnasoft/gsoc">dedicated repository</a>!</p>
+<h3 id="silver">🥈 SILVER</h3>
+<h4 id="threathunterai">ThreatHunter.ai</h4>
+<p><a href="https://threathunter.ai?utm_source=threatmatrix"> <img alt="ThreatHunter.ai logo" height="80" src="docs/static/threathunter_logo.png" style="border: 0.2px solid black" width="194"/> </a></p>
+<p><a href="https://threathunter.ai?utm_source=threatmatrix">ThreatHunter.ai®</a>, is a 100% Service-Disabled Veteran-Owned Small Business started in 2007 under the name Milton Security Group. ThreatHunter.ai is the global leader in Dynamic Threat Hunting. Operating a true 24x7x365 Security Operation Center with AI/ML-enhanced human Threat Hunters, ThreatHunter.ai has changed the industry in how threats are found, and mitigated in real time. For over 15 years, our teams of Threat Hunters have stopped hundreds of thousands of threats and assisted organizations in defending against threat actors around the clock.</p>
+<h4 id="docker">Docker</h4>
+<p>In 2021 ThreatMatrix joined the official <a href="https://www.docker.com/blog/expanded-support-for-open-source-software-projects/">Docker Open Source Program</a>. This allows ThreatMatrix developers to easily manage Docker images and focus on writing the code. You may find the official ThreatMatrix Docker images <a href="https://hub.docker.com/search?q=khulnasoft">here</a>.</p>
+<h2 id="about-the-author-and-maintainers">About the author and maintainers</h2>
+<p>Feel free to contact the main developers at any time on Twitter:</p>
+<ul>
+<li><a href="https://twitter.com/khulnasoft">KhulnaSoft DevSec</a>: Author and principal maintainer</li>
+<li><a href="https://github.com/nxpkg">Nx PKG</a>: Backend Maintainer</li>
+<li><a href="https://github.com/khulnasoft-lab">KhulnaSoft Lab</a>: Frontend Maintainer</li>
+<li><a href="https://github.com/khulnasoft-bot">KhulnaSoft BOT</a>: Key Contributor</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © ThreatMatrix Project
+
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/khulnasoft" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://honeynetpublic.slack.com/archives/C01KVGMAKL6" rel="noopener" target="_blank" title="honeynetpublic.slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/threatmatrix" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/threat_matrix" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.footer", "navigation.expand", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>

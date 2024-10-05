@@ -1,0 +1,5 @@
+services:
+  flower:
+    image: khulnasoft/threatmatrix:test
+    volumes:
+      - ../:/opt/deploy/threat_matrix

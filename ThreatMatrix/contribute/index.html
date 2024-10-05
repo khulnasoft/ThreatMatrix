@@ -1,0 +1,1943 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A centralized documentation for all the projects under ThreatMatrix." name="description"/>
+<meta content="ThreatMatrix Project" name="author"/>
+<link href="../advanced_usage/" rel="prev"/>
+<link href="../api_docs/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<title>Contribute - ThreatMatrix Project Documentation</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../assests/css/SwaggerDark.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DB4K9LZPDZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DB4K9LZPDZ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DB4K9LZPDZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="DARKUI" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#contribute">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ThreatMatrix Project Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ThreatMatrix Project Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Contribute
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../introduction/">
+          
+  
+  ThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GreedyBear/Introduction.md">
+          
+  
+  GreedyBear
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pythreatmatrix/">
+          
+  
+  PyThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GoThreatMatrix/">
+          
+  
+  GoThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Guide-documentation/">
+          
+  
+  Guides
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ThreatMatrix Project Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+    ThreatMatrix Project Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    ThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_configuration/">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usage/">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_usage/">
+<span class="md-ellipsis">
+    Advanced Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rules">
+<span class="md-ellipsis">
+      Rules
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-style">
+<span class="md-ellipsis">
+      Code Style
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-start-setup-project-and-development-instance">
+<span class="md-ellipsis">
+      How to start (Setup project and development instance)
+    </span>
+</a>
+<nav aria-label="How to start (Setup project and development instance)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backend">
+<span class="md-ellipsis">
+      Backend
+    </span>
+</a>
+<nav aria-label="Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#note-about-documentation">
+<span class="md-ellipsis">
+      NOTE about documentation:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend">
+<span class="md-ellipsis">
+      Frontend
+    </span>
+</a>
+<nav aria-label="Frontend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#certego-ui">
+<span class="md-ellipsis">
+      Certego-UI
+    </span>
+</a>
+<nav aria-label="Certego-UI" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-application">
+<span class="md-ellipsis">
+      Example application
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-plugin">
+<span class="md-ellipsis">
+      How to add a new Plugin
+    </span>
+</a>
+<nav aria-label="How to add a new Plugin" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-analyzer">
+<span class="md-ellipsis">
+      How to add a new Analyzer
+    </span>
+</a>
+<nav aria-label="How to add a new Analyzer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrating-a-docker-based-analyzer">
+<span class="md-ellipsis">
+      Integrating a docker based analyzer
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-connector">
+<span class="md-ellipsis">
+      How to add a new Connector
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-ingestor">
+<span class="md-ellipsis">
+      How to add a new Ingestor
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-pivot">
+<span class="md-ellipsis">
+      How to add a new Pivot
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-visualizer">
+<span class="md-ellipsis">
+      How to add a new Visualizer
+    </span>
+</a>
+<nav aria-label="How to add a new Visualizer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python-class">
+<span class="md-ellipsis">
+      Python class
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-share-your-plugin-with-the-community">
+<span class="md-ellipsis">
+      How to share your plugin with the community
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-playbook">
+<span class="md-ellipsis">
+      How to add a new Playbook
+    </span>
+</a>
+<nav aria-label="How to add a new Playbook" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-share-your-playbook-with-the-community">
+<span class="md-ellipsis">
+      How to share your playbook with the community
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-modify-a-plugin">
+<span class="md-ellipsis">
+      How to modify a plugin
+    </span>
+</a>
+<nav aria-label="How to modify a plugin" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-add-a-new-parameter-in-the-configuration-with-a-default-value">
+<span class="md-ellipsis">
+      Example: how to add a new parameter in the configuration with a default value
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-add-a-new-secret-in-the-configuration">
+<span class="md-ellipsis">
+      Example: how to add a new secret in the configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-delete-a-parameter">
+<span class="md-ellipsis">
+      Example: how to delete a parameter
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-change-the-default-value-of-a-parameter">
+<span class="md-ellipsis">
+      Example: how to change the default value of a parameter
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modifying-functionalities-of-the-certego-packages">
+<span class="md-ellipsis">
+      Modifying functionalities of the Certego packages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-test-the-application">
+<span class="md-ellipsis">
+      How to test the application
+    </span>
+</a>
+<nav aria-label="How to test the application" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration_1">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-containers">
+<span class="md-ellipsis">
+      Setup containers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launch-tests">
+<span class="md-ellipsis">
+      Launch tests
+    </span>
+</a>
+<nav aria-label="Launch tests" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backend_1">
+<span class="md-ellipsis">
+      Backend
+    </span>
+</a>
+<nav aria-label="Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-all-tests">
+<span class="md-ellipsis">
+      Run all tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-tests-for-a-particular-plugin">
+<span class="md-ellipsis">
+      Run tests for a particular plugin
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-tests-available-in-a-particular-file">
+<span class="md-ellipsis">
+      Run tests available in a particular file
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend_1">
+<span class="md-ellipsis">
+      Frontend
+    </span>
+</a>
+<nav aria-label="Frontend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-all-tests_1">
+<span class="md-ellipsis">
+      Run all tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-specific-component-tests">
+<span class="md-ellipsis">
+      Run a specific component tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-specific-test">
+<span class="md-ellipsis">
+      Run a specific test
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-pull-request">
+<span class="md-ellipsis">
+      Create a pull request
+    </span>
+</a>
+<nav aria-label="Create a pull request" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remember">
+<span class="md-ellipsis">
+      Remember!!!
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-testing-requirements">
+<span class="md-ellipsis">
+      Install testing requirements
+    </span>
+</a>
+<nav aria-label="Install testing requirements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-linting-and-tests">
+<span class="md-ellipsis">
+      Pass linting and tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-squash-commits-to-a-single-one">
+<span class="md-ellipsis">
+      How to squash commits to a single one
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#debug-application-problems">
+<span class="md-ellipsis">
+      Debug application problems
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api_docs/">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    GreedyBear
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            GreedyBear
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Introduction.md">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Installation.md">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Usage.md">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Contribute.md">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Api-docs.md">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    PyThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            PyThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClass/">
+<span class="md-ellipsis">
+    ThreatMatrixClass
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClientException/">
+<span class="md-ellipsis">
+    ThreatMatrixClientException
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Development
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/Tests/">
+<span class="md-ellipsis">
+    Tests
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    GoThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            GoThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GoThreatMatrix/">
+<span class="md-ellipsis">
+    index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-documentation/">
+<span class="md-ellipsis">
+    Documentation guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-docstrings/">
+<span class="md-ellipsis">
+    Docstrings guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Submodules/">
+<span class="md-ellipsis">
+    Submodules
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rules">
+<span class="md-ellipsis">
+      Rules
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-style">
+<span class="md-ellipsis">
+      Code Style
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-start-setup-project-and-development-instance">
+<span class="md-ellipsis">
+      How to start (Setup project and development instance)
+    </span>
+</a>
+<nav aria-label="How to start (Setup project and development instance)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backend">
+<span class="md-ellipsis">
+      Backend
+    </span>
+</a>
+<nav aria-label="Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#note-about-documentation">
+<span class="md-ellipsis">
+      NOTE about documentation:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend">
+<span class="md-ellipsis">
+      Frontend
+    </span>
+</a>
+<nav aria-label="Frontend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#certego-ui">
+<span class="md-ellipsis">
+      Certego-UI
+    </span>
+</a>
+<nav aria-label="Certego-UI" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-application">
+<span class="md-ellipsis">
+      Example application
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-plugin">
+<span class="md-ellipsis">
+      How to add a new Plugin
+    </span>
+</a>
+<nav aria-label="How to add a new Plugin" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-analyzer">
+<span class="md-ellipsis">
+      How to add a new Analyzer
+    </span>
+</a>
+<nav aria-label="How to add a new Analyzer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrating-a-docker-based-analyzer">
+<span class="md-ellipsis">
+      Integrating a docker based analyzer
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-connector">
+<span class="md-ellipsis">
+      How to add a new Connector
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-ingestor">
+<span class="md-ellipsis">
+      How to add a new Ingestor
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-pivot">
+<span class="md-ellipsis">
+      How to add a new Pivot
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-visualizer">
+<span class="md-ellipsis">
+      How to add a new Visualizer
+    </span>
+</a>
+<nav aria-label="How to add a new Visualizer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python-class">
+<span class="md-ellipsis">
+      Python class
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-share-your-plugin-with-the-community">
+<span class="md-ellipsis">
+      How to share your plugin with the community
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-add-a-new-playbook">
+<span class="md-ellipsis">
+      How to add a new Playbook
+    </span>
+</a>
+<nav aria-label="How to add a new Playbook" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-share-your-playbook-with-the-community">
+<span class="md-ellipsis">
+      How to share your playbook with the community
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-modify-a-plugin">
+<span class="md-ellipsis">
+      How to modify a plugin
+    </span>
+</a>
+<nav aria-label="How to modify a plugin" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-add-a-new-parameter-in-the-configuration-with-a-default-value">
+<span class="md-ellipsis">
+      Example: how to add a new parameter in the configuration with a default value
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-add-a-new-secret-in-the-configuration">
+<span class="md-ellipsis">
+      Example: how to add a new secret in the configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-delete-a-parameter">
+<span class="md-ellipsis">
+      Example: how to delete a parameter
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-how-to-change-the-default-value-of-a-parameter">
+<span class="md-ellipsis">
+      Example: how to change the default value of a parameter
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modifying-functionalities-of-the-certego-packages">
+<span class="md-ellipsis">
+      Modifying functionalities of the Certego packages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-test-the-application">
+<span class="md-ellipsis">
+      How to test the application
+    </span>
+</a>
+<nav aria-label="How to test the application" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration_1">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-containers">
+<span class="md-ellipsis">
+      Setup containers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launch-tests">
+<span class="md-ellipsis">
+      Launch tests
+    </span>
+</a>
+<nav aria-label="Launch tests" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backend_1">
+<span class="md-ellipsis">
+      Backend
+    </span>
+</a>
+<nav aria-label="Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-all-tests">
+<span class="md-ellipsis">
+      Run all tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-tests-for-a-particular-plugin">
+<span class="md-ellipsis">
+      Run tests for a particular plugin
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-tests-available-in-a-particular-file">
+<span class="md-ellipsis">
+      Run tests available in a particular file
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend_1">
+<span class="md-ellipsis">
+      Frontend
+    </span>
+</a>
+<nav aria-label="Frontend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-all-tests_1">
+<span class="md-ellipsis">
+      Run all tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-specific-component-tests">
+<span class="md-ellipsis">
+      Run a specific component tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-specific-test">
+<span class="md-ellipsis">
+      Run a specific test
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-pull-request">
+<span class="md-ellipsis">
+      Create a pull request
+    </span>
+</a>
+<nav aria-label="Create a pull request" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remember">
+<span class="md-ellipsis">
+      Remember!!!
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-testing-requirements">
+<span class="md-ellipsis">
+      Install testing requirements
+    </span>
+</a>
+<nav aria-label="Install testing requirements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-linting-and-tests">
+<span class="md-ellipsis">
+      Pass linting and tests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-squash-commits-to-a-single-one">
+<span class="md-ellipsis">
+      How to squash commits to a single one
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#debug-application-problems">
+<span class="md-ellipsis">
+      Debug application problems
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/edit/master/docs/ThreatMatrix/contribute.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/raw/master/docs/ThreatMatrix/contribute.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="contribute">Contribute</h1>
+<p>There are a lot of different ways you could choose to contribute to the ThreatMatrix Project:</p>
+<ul>
+<li>main repository: <a href="https://github.com/khulnasoft/ThreatMatrix">ThreatMatrix</a></li>
+</ul>
+<ul>
+<li>official Python client: <a href="https://github.com/khulnasoft/pythreatmatrix">pythreatmatrix</a>.</li>
+</ul>
+<ul>
+<li>official GO client: <a href="https://github.com/khulnasoft/go-threatmatrix">go-threatmatrix</a>.</li>
+</ul>
+<ul>
+<li>official ThreatMatrix Site: <a href="https://github.com/khulnasoft/khulnasoft.github.io">khulnasoft.github.io</a>.</li>
+</ul>
+<ul>
+<li>honeypots project: <a href="https://github.com/khulnasoft/GreedyBear">Greedybear</a></li>
+</ul>
+<h2 id="rules">Rules</h2>
+<p>Intel Owl welcomes contributors from anywhere and from any kind of education or skill level. We strive to create a community of developers that is welcoming, friendly and right.</p>
+<p>For this reason it is important to follow some easy rules based on a simple but important concept: <strong>Respect</strong>.</p>
+<ul>
+<li>Before asking any questions regarding how the project works, please read <em>through all the documentation</em> and <a href="https://khulnasoft.github.io/docs/ThreatMatrix/installation">install</a> the project on your own local machine to try it and understand how it basically works. This is a form of respect to the maintainers.</li>
+</ul>
+<ul>
+<li>DO NOT contact the maintainers with direct messages unless it is an urgent request. We don't have much time and cannot just answer to all the questions that we receive like "Guide me please! Help me understand how the project work". There is plenty of documentation and a lot of people in the community that can help you and would benefit from your questions. Share your problems and your knowledge. Please ask your questions in open channels (Github and Slack). This is a form of respect to the maintainers and to the community.</li>
+</ul>
+<ul>
+<li>Before starting to work on an issue, you need to get the approval of one of the maintainers. Therefore please ask to be assigned to an issue. If you do not that but you still raise a PR for that issue, your PR can be rejected. This is a form of respect for both the maintainers and the other contributors who could have already started to work on the same problem.</li>
+</ul>
+<ul>
+<li>When you ask to be assigned to an issue, it means that you are ready to work on it. When you get assigned, take the lock and then you disappear, you are not respecting the maintainers and the other contributors who could be able to work on that. So, after having been assigned, you have a week of time to deliver your first <em>draft</em> PR. After that time has passed without any notice, you will be unassigned.</li>
+</ul>
+<ul>
+<li>Once you started working on an issue and you have some work to share and discuss with us, please raise a draft PR early with incomplete changes. This way you can continue working on the same and we can track your progress and actively review and help. This is a form of respect to you and to the maintainers.</li>
+</ul>
+<ul>
+<li>When creating a PR, please read through the sections that you will find in the PR template and compile it appropriately. If you do not, your PR can be rejected. This is a form of respect to the maintainers.</li>
+</ul>
+<h2 id="code-style">Code Style</h2>
+<p>Keeping to a consistent code style throughout the project makes it easier to contribute and collaborate. We make use of <a href="https://github.com/psf/black"><code>psf/black</code></a> and <a href="https://pycqa.github.io/isort/">isort</a> for code formatting and <a href="https://flake8.pycqa.org"><code>flake8</code></a> for style guides.</p>
+<h2 id="how-to-start-setup-project-and-development-instance">How to start (Setup project and development instance)</h2>
+<p>This guide assumes that you have already performed the steps required to install the project. If not, please do it (<a href="https://khulnasoft.github.io/docs/ThreatMatrix/installation">Installation Guide</a>).</p>
+<p>Create a personal fork of the project on Github.
+Then, please create a new branch based on the <strong>develop</strong> branch that contains the most recent changes. This is mandatory.</p>
+<p><code>git checkout -b myfeature develop</code></p>
+<p>Then we strongly suggest to configure <a href="https://github.com/pre-commit/pre-commit">pre-commit</a> to force linters on every commits you perform</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># From the project directory</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># from the project base directory</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>pre-commit<span class="w"> </span>install
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># create .env file for controlling repo_downloader.sh</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># (to speed up image builds during development: it avoid downloading some repos)</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>cp<span class="w"> </span>docker/.env.start.test.template<span class="w"> </span>docker/.env.start.test
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># set STAGE env variable to "local"</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/STAGE=\"production\"/STAGE=\"local\"/g"</span><span class="w"> </span>docker/env_file_app
+</span></code></pre></div>
+<h3 id="backend">Backend</h3>
+<p>Now, you can execute ThreatMatrix in development mode by selecting the mode <code>test</code> while launching the startup script:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>up
+</span></code></pre></div>
+<p>Every time you perform a change, you should perform an operation to reflect the changes into the application:</p>
+<ul>
+<li>if you changed the python requirements, restart the application and re-build the images. This is the slowest process. You can always choose this way but it would waste a lot of time.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>up<span class="w"> </span>--<span class="w"> </span>--build
+</span></code></pre></div>
+<ul>
+<li>if you changed either analyzers, connectors, playbooks or anything that is executed asynchronously by the "celery" containers, you just need to restart the application because we leverage Docker bind volumes that will reflect the changes to the containers. This saves the time of the build</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>up
+</span></code></pre></div>
+<ul>
+<li>if you made changes to either the API or anything that is executed only by the application server, changes will be instantly reflected and you don't need to do anything. This is thanks to the Django Development server that is executed instead of <code>uwsgi</code> while using the <code>test</code> mode</li>
+</ul>
+<h4 id="note-about-documentation">NOTE about documentation:</h4>
+<p>If you made any changes to an existing model/serializer/view, please run the following command to generate a new version of the API schema and docs:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>spectacular<span class="w"> </span>--file<span class="w"> </span>docs/source/schema.yml<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>html
+</span></code></pre></div>
+<h3 id="frontend">Frontend</h3>
+<p>To start the frontend in "develop" mode, you can execute the startup npm script within the folder <code>frontend</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>frontend/
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1"># Install</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>npm<span class="w"> </span>i
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Start</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="nv">DANGEROUSLY_DISABLE_HOST_CHECK</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>npm<span class="w"> </span>start
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># See https://create-react-app.dev/docs/proxying-api-requests-in-development/#invalid-host-header-errors-after-configuring-proxy for why we use that flag in development mode</span>
+</span></code></pre></div>
+<p>Most of the time you would need to test the changes you made together with the backend. In that case, you would need to run the backend locally too:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>./start<span class="w"> </span>prod<span class="w"> </span>up
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Running <code>prod</code> would be faster because you would leverage the official images and you won't need to build the backend locally. In case you would need to test backend changes too at the same time, please use <code>test</code> and refer to the previous section of the documentation.</li>
+<li>This works thanks to the directive <code>proxy</code> in the <code>frontend/package.json</code> configuration</li>
+<li>It may happen that the backend build does not work due to incompatibility between the frontend version you are testing with the current complete ThreatMatrix version you are running. In those cases, considering that you don't need to build the frontend together with the backend because you are already testing it separately, we suggest to remove the first build step (the frontend part) from the main Dockerfile temporarily and build ThreatMatrix with only the backend. In this way there won't be conflict issues.</li>
+</ul>
+</div>
+<h4 id="certego-ui">Certego-UI</h4>
+<p>The ThreatMatrix Frontend is tightly linked to the <a href="https://github.com/certego/certego-ui"><code>certego-ui</code></a> library. Most of the React components are imported from there. Because of this, it may happen that, during development, you would need to work on that library too.
+To install the <code>certego-ui</code> library, please take a look to <a href="https://docs.npmjs.com/cli/v8/commands/npm-link">npm link</a> and remember to start certego-ui without installing peer dependencies (to avoid conflicts with ThreatMatrix dependencies):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/certego/certego-ui.git
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1"># change directory to the folder where you have the cloned the library</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>certego-ui/
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># install, without peer deps (to use packages of ThreatMatrix)</span>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>npm<span class="w"> </span>i<span class="w"> </span>--legacy-peer-deps
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="c1"># create link to the project (this will globally install this package)</span>
+</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>sudo<span class="w"> </span>npm<span class="w"> </span>link
+</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="c1"># compile the library</span>
+</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>npm<span class="w"> </span>start
+</span></code></pre></div>
+<p>Then, open another command line tab, create a link in the <code>frontend</code> to the <code>certego-ui</code> and re-install and re-start the frontend application (see previous section):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>frontend/
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>npm<span class="w"> </span>link<span class="w"> </span>@certego/certego-ui
+</span></code></pre></div>
+<p>This trick will allow you to see reflected every changes you make in the <code>certego-ui</code> directly in the running <code>frontend</code> application.</p>
+<h5 id="example-application">Example application</h5>
+<p>The <code>certego-ui</code> application comes with an example project that showcases the components that you can re-use and import to other projects, like ThreatMatrix:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># To have the Example application working correctly, be sure to have installed `certego-ui` *without* the `--legacy-peer-deps` option and having it started in another command line</span>
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>certego-ui/
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>npm<span class="w"> </span>i
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>npm<span class="w"> </span>start
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># go to another tab</span>
+</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">cd</span><span class="w"> </span>certego-ui/example/
+</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>npm<span class="w"> </span>i
+</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>npm<span class="w"> </span>start
+</span></code></pre></div>
+<h2 id="how-to-add-a-new-plugin">How to add a new Plugin</h2>
+<p>ThreatMatrix was designed to ease the addition of new plugins. With a simple python script you can integrate your own engine or integrate an external service in a short time.</p>
+<p>There are two possible cases:</p>
+<ol>
+<li>You are creating an entirely new Plugin, meaning that you actually wrote python code</li>
+<li>You are creating a new Configuration for some code that already exists.</li>
+</ol>
+<p>If you are doing the step number <code>2</code>, you can skip this paragraph.</p>
+<p>First, you need to create the python code that will be actually executed. You can easily take other plugins as example to write this.
+Then, you have to create a <code>Python Module</code> model. You can do this in the <code>Django Admin</code> page:
+You have to specify which type of Plugin you wrote, and its python module. Again, you can use as an example an already configured <code>Python Module</code>.</p>
+<p>Some <code>Python Module</code> requires to update some part of its code in a <strong>schedule way</strong>: for example <code>Yara</code> requires to update the rule repositories, <code>QuarkEngine</code> to update its database and so on.
+If the <code>Python Module</code> that you define need this type of behaviour, you have to configure two things:</p>
+<ul>
+<li>In the python code, you have to override a method called <code>update</code> and put the updating logic (see other plugins for examples) there.</li>
+<li>In the model class, you have to add the <code>update_schedule</code> (crontab syntax) that define when the update should be executed.</li>
+</ul>
+<p>Some <code>Python Module</code> requires further check to see if the service provider is able to answer requests; for example if you have done too many requests, or the website is currently down for maintenance and so on.
+If the <code>Python Module</code> that you define need this type of behaviour, you have to configure two things:</p>
+<ul>
+<li>In the python code, you can override a method called <code>health_check</code> and put there the custom health check logic. As default, plugins will try to make an HTTP <code>HEAD</code> request to the configured url (the Plugin must have a <code>url</code> attribute).</li>
+<li>In the model class, you have to add the <code>health_check_schedule</code> (crontab syntax) that define when the health check should be executed.</li>
+</ul>
+<p>Press <code>Save and continue editing</code> to, at the moment, manually ad the <code>Parameters</code> that the python code requires (the class attributes that you needed):</p>
+<ol>
+<li>*name: Name of the parameter that will be dynamically added to the python class (if is a secret, in the python code a <code>_</code> wil be prepended to the name)</li>
+<li>*type: data type, <code>string</code>, <code>list</code>, <code>dict</code>, <code>integer</code>, <code>boolean</code>, <code>float</code></li>
+<li>*description</li>
+<li>*required: <code>true</code> or <code>false</code>, meaning that a value is necessary to allow the run of the analyzer</li>
+<li>*is_secret: <code>true</code> or <code>false</code></li>
+</ol>
+<p>At this point, you can follow the specific guide for each plugin</p>
+<h3 id="how-to-add-a-new-analyzer">How to add a new Analyzer</h3>
+<p>You may want to look at a few existing examples to start to build a new one, such as:</p>
+<ul>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/observable_analyzers/shodan.py">shodan.py</a>, if you are creating an observable analyzer</li>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/file_analyzers/malpedia_scan.py">malpedia_scan.py</a>, if you are creating a file analyzer</li>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/develop/api_app/analyzers_manager/file_analyzers/peframe.py">peframe.py</a>, if you are creating a <a href="#integrating-a-docker-based-analyzer">docker based analyzer</a></li>
+<li><strong>Please note:</strong> If the new analyzer that you are adding is free for the user to use, please add it in the <code>FREE_TO_USE_ANALYZERS</code> playbook. To do this you have to make a migration file; you can use <code>0026_add_mmdb_analyzer_free_to_use</code> as a template.</li>
+</ul>
+<p>After having written the new python module, you have to remember to:</p>
+<ol>
+<li>Put the module in the <code>file_analyzers</code> or <code>observable_analyzers</code> directory based on what it can analyze</li>
+<li>Remember to use <code>_monkeypatch()</code> in its class to create automated tests for the new analyzer. This is a trick to have tests in the same class of its analyzer.</li>
+<li>Create the configuration inside django admin in <code>Analyzers_manager/AnalyzerConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Python module: <module_name>.<class_name></class_name></module_name></li>
+<li>*Description: description of the configuration</li>
+<li>*Routing key: celery queue that will be used</li>
+<li>*Soft_time_limit: maximum time for the task execution</li>
+<li>*Type: <code>observable</code> or <code>file</code></li>
+<li>*Docker based: if the analyzer run through a docker instance</li>
+<li>*Maximum tlp: maximum tlp to allow the run on the connector</li>
+<li>~Observable supported: required if <code>type</code> is <code>observable</code></li>
+<li>~Supported filetypes: required if <code>type</code> is <code>file</code> and <code>not supported filetypes</code> is empty</li>
+<li>Run hash: if the analyzer supports hash as inputs</li>
+<li>~Run hash type: required if <code>run hash</code> is <code>True</code></li>
+<li>~Not supported filetypes: required if <code>type</code> is <code>file</code> and <code>supported filetypes</code> is empty</li>
+</ol>
+</li>
+</ol>
+<h4 id="integrating-a-docker-based-analyzer">Integrating a docker based analyzer</h4>
+<p>If the analyzer you wish to integrate doesn't exist as a public API or python package, it should be integrated with its own docker image
+which can be queried from the main Django app.</p>
+<ul>
+<li>It should follow the same design principle as the <a href="https://github.com/khulnasoft/ThreatMatrix/tree/develop/integrations">other such existing integrations</a>, unless there's very good reason not to.</li>
+<li>The dockerfile should be placed at <code>./integrations/&lt;analyzer_name&gt;/Dockerfile</code>.</li>
+<li>Two docker-compose files <code>compose.yml</code> for production and <code>compose-tests.yml</code> for testing should be placed under <code>./integrations/&lt;analyzer_name&gt;</code>.</li>
+<li>If your docker-image uses any environment variables, add them in the <code>docker/env_file_integrations_template</code>.</li>
+<li>Rest of the steps remain same as given under "How to add a new analyzer".</li>
+</ul>
+<h3 id="how-to-add-a-new-connector">How to add a new Connector</h3>
+<p>You may want to look at a few existing examples to start to build a new one:</p>
+<ul>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/connectors_manager/connectors/misp.py">misp.py</a></li>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/connectors_manager/connectors/opencti.py">opencti.py</a></li>
+</ul>
+<p>After having written the new python module, you have to remember to:</p>
+<ol>
+<li>Put the module in the <code>connectors</code> directory</li>
+<li>Remember to use <code>_monkeypatch()</code> in its class to create automated tests for the new connector. This is a trick to have tests in the same class of its connector.</li>
+<li>Create the configuration inside django admin in <code>Connectors_manager/ConnectorConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Python module: <module_name>.<class_name></class_name></module_name></li>
+<li>*Description: description of the configuration</li>
+<li>*Routing key: celery queue that will be used</li>
+<li>*Soft_time_limit: maximum time for the task execution</li>
+<li>*Maximum tlp: maximum tlp to allow the run on the connector</li>
+<li>*Run on failure: if the connector should be run even if the job fails</li>
+</ol>
+</li>
+</ol>
+<h3 id="how-to-add-a-new-ingestor">How to add a new Ingestor</h3>
+<ol>
+<li>Put the module in the <code>ingestors</code> directory</li>
+<li>Remember to use <code>_monkeypatch()</code> in its class to create automated tests for the new ingestor. This is a trick to have tests in the same class of its ingestor.</li>
+<li>Create the configuration inside django admin in <code>Ingestors_manager/IngestorConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Python module: <module_name>.<class_name></class_name></module_name></li>
+<li>*Description: description of the configuration</li>
+<li>*Routing key: celery queue that will be used</li>
+<li>*Soft_time_limit: maximum time for the task execution</li>
+<li>*Playbook to Execute: Playbook that <strong>will</strong> be executed on every IOC retrieved</li>
+<li>*Schedule: Crontab object that describes the schedule of the ingestor. You are able to create a new clicking the <code>plus</code> symbol.</li>
+</ol>
+</li>
+</ol>
+<h3 id="how-to-add-a-new-pivot">How to add a new Pivot</h3>
+<ol>
+<li>Put the module in the <code>pivots</code> directory</li>
+<li>Remember to use <code>_monkeypatch()</code> in its class to create automated tests for the new pivot. This is a trick to have tests in the same class of its pivot.</li>
+<li>Create the configuration inside django admin in <code>Pivots_manager/PivotConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Python module: <module_name>.<class_name></class_name></module_name></li>
+<li>*Description: description of the configuration</li>
+<li>*Routing key: celery queue that will be used</li>
+<li>*Soft_time_limit: maximum time for the task execution</li>
+<li>*Playbook to Execute: Playbook that <strong>will</strong> be executed in the Job generated by the Pivot</li>
+</ol>
+</li>
+</ol>
+<p>Most of the times you don't need to create a new Pivot Module. There are already some base modules that can be extended.
+The most important ones are the following 2:</p>
+<ul>
+<li>1.<code>AnyCompare</code>: use this module if you want to create a custom Pivot from a specific value extracted from the results of the analyzers/connectors. How? you should populate the parameter <code>field_to_compare</code> with the dotted path to the field you would like to extract the value from.</li>
+<li>2.<code>SelfAnalyzable</code>: use this module if you want to create a custom Pivot that would analyze again the same observable/file.</li>
+</ul>
+<h3 id="how-to-add-a-new-visualizer">How to add a new Visualizer</h3>
+<h4 id="configuration">Configuration</h4>
+<ol>
+<li>Put the module in the <code>visualizers</code> directory</li>
+<li>Remember to use <code>_monkeypatch()</code> in its class to create automated tests for the new visualizer. This is a trick to have tests in the same class of its visualizer.</li>
+<li>Create the configuration inside django admin in <code>Visualizers_manager/VisualizerConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Python module: <module_name>.<class_name></class_name></module_name></li>
+<li>*Description: description of the configuration</li>
+<li>*Config:
+    1. *Queue: celery queue that will be used
+    2. *Soft_time_limit: maximum time for the task execution</li>
+<li>*Playbook: Playbook that <strong>must</strong> have run to execute the visualizer</li>
+</ol>
+</li>
+</ol>
+<h4 id="python-class">Python class</h4>
+<p>The visualizers' python code could be not immediate, so a small digression on <em>how</em> it works is necessary.
+Visualizers have as goal to create a data structure inside the <code>Report</code> that the frontend is able to parse and correctly <em>visualize</em> on the page.
+To do so, some utility classes have been made:</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-7n4c{border-color:inherit;font-family:"Courier New", Courier, monospace !important;text-align:center;vertical-align:top}
+.tg .tg-zh46{border-color:inherit;font-family:"Courier New", Courier, monospace !important;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+<tr>
+<th class="tg-c3ow"><span style="font-weight:bold">Class</span></th>
+<th class="tg-c3ow"><span style="font-weight:bold">Description</span></th>
+<th class="tg-c3ow"><span style="font-weight:bold">Visual representation/example</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tg-7n4c">VisualizablePage</td>
+<td class="tg-0pky">A single page of the final report, made of different <span style="font-weight:bold">levels</span>. Each page added is represented as a new tab in frontend.</td>
+<td class="tg-c3ow"><img alt="Visualizable Page example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizablePage_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableLevel</td>
+<td class="tg-0pky">
+      Each level corresponds to a line in the final frontend visualizations. Every level is made of a 
+      <span class="tg-zh46">VisualizableHorizontalList</span>.
+      The dimension of the level can be customized with the size parameter (1 is the biggest, 6 is the smallest). 
+    </td>
+<td class="tg-c3ow"><img alt="Visualizable Level example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableLevel_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableHorizontalList</td>
+<td class="tg-0pky">An horizontal list of visualizable elements. In the example there is an horizontal list of vertical lists.</td>
+<td class="tg-c3ow"><img alt="Visualizable Horizontal List Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableHlist_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableVerticalList</td>
+<td class="tg-0pky">A vertical list made of a name, a title, and the list of elements.</td>
+<td class="tg-c3ow"><img alt="Visualizable Vertical List Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableVlist_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableTable</td>
+<td class="tg-0pky">A table of visualizable elements. In the example there is a table of base and vertical lists.</td>
+<td class="tg-c3ow"><img alt="Visualizable Table Example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableTable_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableBool</td>
+<td class="tg-0pky">The representation of a boolean value. It can be enabled or disabled with colors.</td>
+<td class="tg-c3ow"><img alt="Visualizable Bool example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableBool_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableTitle</td>
+<td class="tg-0pky">The representation of a tuple, composed of a title and a value.</td>
+<td class="tg-c3ow"><img alt="Visualizable Title example" src="https://raw.githubusercontent.com/khulnasoft/ThreatMatrix/master/docs/static/visualizableTitle_example.png"/></td>
+</tr>
+<tr>
+<td class="tg-7n4c">VisualizableBase</td>
+<td class="tg-0pky">The representation of a base string. Can have a link attached to it and even an icon. The background color can be changed.</td>
+<td class="tg-0pky">The title above is composed by two `VisualizableBase`</td>
+</tr>
+</tbody>
+</table>
+<p>Inside a <code>Visualizer</code> you can retrieve the reports of the analyzers and connectors  that have been specified inside configuration of the Visualizer itself using <code>.analyzer_reports()</code> and <code>.connector_reports()</code>.
+At this point, you can compose these values as you wish wrapping them with the <code>Visualizable</code> classes mentioned before.</p>
+<p>The best way to create a visualizer is to define several methods, one for each <code>Visualizable</code> you want to show in the UI, in your new visualizer and decore them with <code>visualizable_error_handler_with_params</code>. This decorator handles exceptions: in case there is a bug during the generation of a Visualizable element, it will be show an error instead of this component and all the other Visualizable are safe and will render correctly. Be careful using it because is a function returning a decorator! This means you need to use a syntax like this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>@visualizable_error_handler_with_params(error_name="custom visualizable", error_size=VisualizableSize.S_2)
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>def custom_visualizable(self):
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>   ...
+</span></code></pre></div>
+<p>instead of the syntax of other decorators that doesn't need the function call.</p>
+<p>You may want to look at a few existing examples to start to build a new one:</p>
+<ul>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/visualizers_manager/visualizers/dns.py">dns.py</a></li>
+<li><a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/api_app/visualizers_manager/visualizers/yara.py">yara.py</a></li>
+</ul>
+<h3 id="how-to-share-your-plugin-with-the-community">How to share your plugin with the community</h3>
+<p>To allow other people to use your configuration, that is now stored in your local database, you have to export it and create a data migration</p>
+<ol>
+<li>You can use the django management command <code>dumpplugin</code> to automatically create the migration file for your new analyzer (you will find it under <code>api_app/YOUR_PLUGIN_manager/migrations</code>). The script will create the following models:
+    1. PythonModule
+    2. AnalyzerConfig
+    3. Parameter
+    4. PluginConfig</li>
+<li>Example: <code>docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin AnalyzerConfig &lt;new_analyzer_name&gt;</code></li>
+</ol>
+<p>Add the new analyzer in the lists in the docs: <a href="./Usage.md">Usage</a>. Also, if the analyzer provides additional optional configuration, add the available options here: <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#analyzers-with-special-configuration">Advanced-Usage</a></p>
+<p>In the Pull Request remember to provide some real world examples (screenshots and raw JSON results) of some successful executions of the analyzer to let us understand how it would work.</p>
+<h2 id="how-to-add-a-new-playbook">How to add a new Playbook</h2>
+<ol>
+<li>Create the configuration inside django admin in <code>Playbooks_manager/PlaybookConfigs</code> (* = mandatory, ~ = mandatory on conditions)<ol>
+<li>*Name: specific name of the configuration</li>
+<li>*Description: description of the configuration</li>
+<li>*Type: list of types that are supported by the playbook</li>
+<li>*Analyzers: List of analyzers that will be run</li>
+<li>*Connectors: List of connectors that will be run</li>
+</ol>
+</li>
+</ol>
+<h3 id="how-to-share-your-playbook-with-the-community">How to share your playbook with the community</h3>
+<p>To allow other people to use your configuration, that is now stored in your local database, you have to export it and create a data migration
+You can use the django management command <code>dumpplugin</code> to automatically create the migration file for your new analyzer (you will find it under <code>api_app/playbook_manager/migrations</code>).</p>
+<p>Example: <code>docker exec -ti threatmatrix_uwsgi python3 manage.py dumpplugin PlaybookConfig &lt;new_analyzer_name&gt;</code></p>
+<h2 id="how-to-modify-a-plugin">How to modify a plugin</h2>
+<p>If the changes that you have to make should stay local, you can just change the configuration inside the <code>Django admin</code> page.</p>
+<p>But if, instead, you want your changes to be usable by every ThreatMatrix user, you have to create a new migration.</p>
+<p>To do so, you can use the following snippets as an example:</p>
+<ol>
+<li>You have to create a new migration file</li>
+<li>Add as dependency the previous last migration of the package</li>
+<li>You have to create a <a href="https://docs.djangoproject.com/en/4.2/ref/migration-operations/#django.db.migrations.operations.RunPython">forward and a reverse function</a></li>
+<li>You have to make the proper changes of the configuration inside these functions (change parameters, secrets, or even delete the configuration)<ol>
+<li>If changes are made, you have to validate the instance calling <code>.full_clean()</code> and then you can save the instance with <code>.save()</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="example-how-to-add-a-new-parameter-in-the-configuration-with-a-default-value">Example: how to add a new parameter in the configuration with a default value</h3>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>   <span class="n">PythonModule</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PythonModule"</span><span class="p">)</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>   <span class="n">Parameter</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"Parameter"</span><span class="p">)</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>   <span class="n">PluginConfig</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PluginConfig"</span><span class="p">)</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>   <span class="n">pm</span> <span class="o">=</span> <span class="n">PythonModule</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="s2">"test.Test"</span><span class="p">,</span> <span class="n">base_path</span><span class="o">=</span><span class="s2">"api_app.connectors_manager.connectors"</span><span class="p">)</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>   <span class="n">p</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mynewfield"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"str"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Test field"</span><span class="p">,</span> <span class="n">is_secret</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">)</span>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>   <span class="n">p</span><span class="o">.</span><span class="n">full_clean</span><span class="p">()</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>   <span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>   <span class="k">for</span> <span class="n">connector</span> <span class="ow">in</span> <span class="n">pm</span><span class="o">.</span><span class="n">connectorconfigs</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>    <span class="n">pc</span> <span class="o">=</span> <span class="n">PluginConfig</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"test"</span><span class="p">,</span> <span class="n">connector_config</span><span class="o">=</span><span class="n">connector</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">,</span> <span class="n">for_organization</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parameter</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span class="n">pc</span><span class="o">.</span><span class="n">full_clean</span><span class="p">()</span>
+</span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a>    <span class="n">pc</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="example-how-to-add-a-new-secret-in-the-configuration">Example: how to add a new secret in the configuration</h3>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>   <span class="n">PythonModule</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PythonModule"</span><span class="p">)</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>   <span class="n">Parameter</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"Parameter"</span><span class="p">)</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>   <span class="n">pm</span> <span class="o">=</span> <span class="n">PythonModule</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="s2">"test.Test"</span><span class="p">,</span> <span class="n">base_path</span><span class="o">=</span><span class="s2">"api_app.connectors_manager.connectors"</span><span class="p">)</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>   <span class="n">p</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mynewsecret"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"str"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Test field"</span><span class="p">,</span> <span class="n">is_secret</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">)</span>
+</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>   <span class="n">p</span><span class="o">.</span><span class="n">full_clean</span><span class="p">()</span>
+</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>   <span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="example-how-to-delete-a-parameter">Example: how to delete a parameter</h3>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>   <span class="n">PythonModule</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PythonModule"</span><span class="p">)</span>
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>   <span class="n">Parameter</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"Parameter"</span><span class="p">)</span>
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>   <span class="n">pm</span> <span class="o">=</span> <span class="n">PythonModule</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="s2">"test.Test"</span><span class="p">,</span> <span class="n">base_path</span><span class="o">=</span><span class="s2">"api_app.connectors_manager.connectors"</span><span class="p">)</span>
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>   <span class="n">Parameter</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"myoldfield"</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="example-how-to-change-the-default-value-of-a-parameter">Example: how to change the default value of a parameter</h3>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>   <span class="n">PythonModule</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PythonModule"</span><span class="p">)</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>   <span class="n">Parameter</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"Parameter"</span><span class="p">)</span>
+</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>   <span class="n">PluginConfig</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"api_app"</span><span class="p">,</span> <span class="s2">"PluginConfig"</span><span class="p">)</span>
+</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>   <span class="n">pm</span> <span class="o">=</span> <span class="n">PythonModule</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="s2">"test.Test"</span><span class="p">,</span> <span class="n">base_path</span><span class="o">=</span><span class="s2">"api_app.connectors_manager.connectors"</span><span class="p">)</span>
+</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>   <span class="n">p</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"myfield"</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">)</span>
+</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>   <span class="n">PluginConfig</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">python_module</span><span class="o">=</span><span class="n">pm</span><span class="p">,</span> <span class="n">for_organization</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="kc">None</span> <span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"newvalue"</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="modifying-functionalities-of-the-certego-packages">Modifying functionalities of the Certego packages</h2>
+<p>Since v4, ThreatMatrix leverages some packages from Certego:</p>
+<ul>
+<li><a href="https://github.com/certego/certego-saas">certego-saas</a> that integrates some common reusable Django applications and tools that can be used for generic services.</li>
+<li><a href="https://github.com/certego/certego-ui">certego-ui</a> that contains reusable React components for the UI.</li>
+</ul>
+<p>If you need to modify the behavior or add feature to those packages, please follow the same rules for ThreatMatrix and request a Pull Request there. The same maintainers of ThreatMatrix will answer to you.</p>
+<p>Follow these guides to understand how to start to contribute to them while developing for ThreatMatrix:</p>
+<ul>
+<li><em>certego-saas</em>: create a fork, commit your changes in your local repo, then change the commit hash to the last one you made in the <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/requirements/certego-requirements.txt">requirements file</a>. Ultimately re-build the project</li>
+<li><em>certego-ui</em>: <a href="./Contribute.md#certego-ui">Frontend doc</a></li>
+</ul>
+<h2 id="how-to-test-the-application">How to test the application</h2>
+<p>ThreatMatrix makes use of the django testing framework and the <code>unittest</code> library for unit testing of the API endpoints and End-to-End testing of the analyzers and connectors.</p>
+<h3 id="configuration_1">Configuration</h3>
+<ul>
+<li>In the encrypted folder <code>tests/test_files.zip</code> (password: "threatmatrix") there are some files that you can use for testing purposes.</li>
+</ul>
+<ul>
+<li>
+<p>With the following environment variables you can customize your tests:</p>
+<ul>
+<li><code>DISABLE_LOGGING_TEST</code> -&gt; disable logging to get a clear output</li>
+<li><code>MOCK_CONNECTIONS</code> -&gt; mock connections to external API to test the analyzers without a real connection or a valid API key</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>If you prefer to use custom inputs for tests, you can change the following environment variables in the environment file based on the data you would like to test:<ul>
+<li><code>TEST_MD5</code></li>
+<li><code>TEST_URL</code></li>
+<li><code>TEST_IP</code></li>
+<li><code>TEST_DOMAIN</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="setup-containers">Setup containers</h3>
+<p>The point here is to launch the code in your environment and not the last official image in Docker Hub.
+For this, use the <code>test</code> or the <code>ci</code> option when launching the containers with the <code>./start</code> script.</p>
+<ul>
+<li>Use the <code>test</code> option to <em>actually</em> execute tests that simulate a real world environment without mocking connections.</li>
+<li>Use the <code>ci</code> option to execute tests in a CI environment where connections are mocked.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>$<span class="w"> </span>./start<span class="w"> </span><span class="nb">test</span><span class="w"> </span>up
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>$<span class="w"> </span><span class="c1"># which corresponds to the command: docker-compose -f docker/default.yml -f docker/test.override.yml up</span>
+</span></code></pre></div>
+<h3 id="launch-tests">Launch tests</h3>
+<p>Now that the containers are up, we can launch the test suite.</p>
+<h4 id="backend_1">Backend</h4>
+<h5 id="run-all-tests">Run all tests</h5>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<h5 id="run-tests-for-a-particular-plugin">Run tests for a particular plugin</h5>
+<p>To test a plugin in real environment, i.e. without mocked data, we suggest that you use the GUI of ThreatMatrix directly.
+Meaning that you have your plugin configured, you have selected a correct observable/file to analyze,
+and the final report shown in the GUI of ThreatMatrix is exactly what you wanted.</p>
+<h5 id="run-tests-available-in-a-particular-file">Run tests available in a particular file</h5>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span><span class="w"> </span>tests.api_app<span class="w"> </span>tests.test_crons<span class="w"> </span><span class="c1"># dotted paths</span>
+</span></code></pre></div>
+<h4 id="frontend_1">Frontend</h4>
+<p>All the frontend tests must be run from the folder <code>frontend</code>.
+The tests can contain log messages, you can suppress then with the environment variable <code>SUPPRESS_JEST_LOG=True</code>.</p>
+<h5 id="run-all-tests_1">Run all tests</h5>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>npm test
+</span></code></pre></div>
+<h5 id="run-a-specific-component-tests">Run a specific component tests</h5>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>npm test -- -t &lt;componentPath&gt;
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>// example
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>npm test tests/components/auth/Login.test.jsx
+</span></code></pre></div>
+<h5 id="run-a-specific-test">Run a specific test</h5>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>npm test -- -t '&lt;describeString&gt; &lt;testString&gt;'
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>// example
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>npm test -- -t "Login component User login"
+</span></code></pre></div>
+<h2 id="create-a-pull-request">Create a pull request</h2>
+<h3 id="remember">Remember!!!</h3>
+<p>Please create pull requests only for the branch <strong>develop</strong>. That code will be pushed to master only on a new release.</p>
+<p>Also remember to pull the most recent changes available in the <strong>develop</strong> branch before submitting your PR. If your PR has merge conflicts caused by this behavior, it won't be accepted.</p>
+<h3 id="install-testing-requirements">Install testing requirements</h3>
+<p>Run <code>pip install -r requirements/test-requirements.txt</code> to install the requirements to validate your code.</p>
+<h4 id="pass-linting-and-tests">Pass linting and tests</h4>
+<ol>
+<li>Run <code>psf/black</code> to lint the files automatically, then <code>flake8</code> to check and <code>isort</code>:</li>
+</ol>
+<p>(if you installed <code>pre-commit</code> this is performed automatically at every commit)</p>
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>$<span class="w"> </span>black<span class="w"> </span>.<span class="w"> </span>--exclude<span class="w"> </span><span class="s2">"migrations|venv"</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>$<span class="w"> </span>flake8<span class="w"> </span>.<span class="w"> </span>--show-source<span class="w"> </span>--statistics
+</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>$<span class="w"> </span>isort<span class="w"> </span>.<span class="w"> </span>--profile<span class="w"> </span>black<span class="w"> </span>--filter-files<span class="w"> </span>--skip<span class="w"> </span>venv
+</span></code></pre></div>
+<p>if flake8 shows any errors, fix them.</p>
+<ol>
+<li>Run the build and start the app using the docker-compose test file. In this way, you would launch the code in your environment and not the last official image in Docker Hub:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>$<span class="w"> </span>./start<span class="w"> </span>ci<span class="w"> </span>build
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>$<span class="w"> </span>./start<span class="w"> </span>ci<span class="w"> </span>up
+</span></code></pre></div>
+<ol>
+<li>Here, we simulate the GitHub CI tests locally by running the following 3 tests:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>unzip<span class="w"> </span>-P<span class="w"> </span>threatmatrix<span class="w"> </span>tests/test_files.zip<span class="w"> </span>-d<span class="w"> </span>test_files
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span><span class="w"> </span>tests
+</span></code></pre></div>
+<blockquote>
+<p>Note: ThreatMatrix has dynamic testing suite. This means that no explicit analyzers/connector tests are required after the addition of a new analyzer or connector.</p>
+</blockquote>
+<p>If everything is working, before submitting your pull request, please squash your commits into a single one!</p>
+<h4 id="how-to-squash-commits-to-a-single-one">How to squash commits to a single one</h4>
+<ul>
+<li>Run <code>git rebase -i HEAD~[NUMBER OF COMMITS]</code></li>
+<li>You should see a list of commits, each commit starting with the word "pick".</li>
+<li>Make sure the first commit says "pick" and change the rest from "pick" to "squash". -- This will squash each commit into the previous commit, which will continue until every commit is squashed into the first commit.</li>
+<li>Save and close the editor.</li>
+<li>It will give you the opportunity to change the commit message.</li>
+<li>Save and close the editor again.</li>
+<li>Then you have to force push the final, squashed commit: <code>git push --force-with-lease origin</code>.</li>
+</ul>
+<p>Squashing commits can be a tricky process but once you figure it out, it's really helpful and keeps our repo concise and clean.</p>
+<h2 id="debug-application-problems">Debug application problems</h2>
+<p>Keep in mind that, if any errors arise during development, you would need to check the application logs to better understand what is happening so you can easily address the problem.</p>
+<p>This is the reason why it is important to add tons of logs in the application...if they are not available in time of needs you would cry really a lot.</p>
+<p>Where are ThreatMatrix logs?
+With a default installation of ThreatMatrix, you would be able to get the application data from the following paths in your OS:</p>
+<ul>
+<li><code>/var/lib/docker/volumes/threat_matrix_generic_logs/_data/django</code>: Django Application logs</li>
+<li><code>/var/lib/docker/volumes/threat_matrix_generic_logs/_data/uwsgi</code>: Uwsgi application server logs</li>
+<li><code>/var/lib/docker/volumes/threat_matrix_nginx_logs/_data/</code>: Nginx Web Server Logs</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Advanced Usage" class="md-footer__link md-footer__link--prev" href="../advanced_usage/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Advanced Usage
+              </div>
+</div>
+</a>
+<a aria-label="Next: API docs" class="md-footer__link md-footer__link--next" href="../api_docs/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                API docs
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © ThreatMatrix Project
+
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/khulnasoft" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://honeynetpublic.slack.com/archives/C01KVGMAKL6" rel="noopener" target="_blank" title="honeynetpublic.slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/threatmatrix" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/threat_matrix" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.footer", "navigation.expand", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>

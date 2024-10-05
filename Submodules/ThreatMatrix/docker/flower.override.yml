@@ -1,0 +1,46 @@
+services:
+  uwsgi:
+    environment:
+      - BROKER_URL_API=http://guest:guest@rabbitmq:15672/api/
+
+  rabbitmq:
+    image: library/rabbitmq:3.11-management-alpine
+    hostname: rabbitmq
+    container_name: threatmatrix_rabbitmq
+    logging:
+      driver: none
+    expose:
+      - "15672"
+
+  flower:
+    image: khulnasoft/threatmatrix:${REACT_APP_THREATMATRIX_VERSION}
+    container_name: threatmatrix_flower
+    hostname: flower
+    restart: unless-stopped
+    stop_grace_period: 3m
+    volumes:
+      - generic_logs:/var/log/threat_matrix
+      - shared_htpasswd:/opt/deploy/shared_htpasswd
+    expose:
+      - "5555"
+    depends_on:
+      - rabbitmq
+      - uwsgi
+    entrypoint:
+      - ./docker/entrypoints/flower.sh
+    env_file:
+      - env_file_app
+    healthcheck:
+      disable: true
+
+  nginx:
+    volumes:
+      - shared_htpasswd:/etc/nginx/shared
+      - ../configuration/nginx/flower_http.conf:/etc/nginx/conf.d/flower.conf
+    ports:
+      - "5555:5555"
+    depends_on:
+      - rabbitmq
+
+volumes:
+  shared_htpasswd:

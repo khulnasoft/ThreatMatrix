@@ -1,0 +1,1411 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A centralized documentation for all the projects under ThreatMatrix." name="description"/>
+<meta content="ThreatMatrix Project" name="author"/>
+<link href="../introduction/" rel="prev"/>
+<link href="../advanced_configuration/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<title>Installation - ThreatMatrix Project Documentation</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../assests/css/SwaggerDark.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DB4K9LZPDZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DB4K9LZPDZ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DB4K9LZPDZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="DARKUI" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#installation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ThreatMatrix Project Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ThreatMatrix Project Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../introduction/">
+          
+  
+  ThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GreedyBear/Introduction.md">
+          
+  
+  GreedyBear
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pythreatmatrix/">
+          
+  
+  PyThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GoThreatMatrix/">
+          
+  
+  GoThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Guide-documentation/">
+          
+  
+  Guides
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ThreatMatrix Project Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+    ThreatMatrix Project Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    ThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Installation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+<span class="md-ellipsis">
+      Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tldr">
+<span class="md-ellipsis">
+      TL;DR
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infrastructure-requirements">
+<span class="md-ellipsis">
+      Infrastructure Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-components">
+<span class="md-ellipsis">
+      Deployment Components
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-preparation">
+<span class="md-ellipsis">
+      Deployment Preparation
+    </span>
+</a>
+<nav aria-label="Deployment Preparation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#environment-configuration-required">
+<span class="md-ellipsis">
+      Environment configuration (required)
+    </span>
+</a>
+<nav aria-label="Environment configuration (required)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-optional-configuration-to-enable-specific-services-features">
+<span class="md-ellipsis">
+      Other optional configuration to enable specific services / features
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#database-configuration-required-if-running-postgresql-locally">
+<span class="md-ellipsis">
+      Database configuration (required if running PostgreSQL locally)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logrotate-configuration-strongly-recommended">
+<span class="md-ellipsis">
+      Logrotate configuration (strongly recommended)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crontab-configuration-recommended-for-advanced-deployments">
+<span class="md-ellipsis">
+      Crontab configuration (recommended for advanced deployments)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#web-server-configuration-required-for-enabling-https">
+<span class="md-ellipsis">
+      Web server configuration (required for enabling HTTPS)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run">
+<span class="md-ellipsis">
+      Run
+    </span>
+</a>
+<nav aria-label="Run" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stop">
+<span class="md-ellipsis">
+      Stop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cleanup-of-database-and-application">
+<span class="md-ellipsis">
+      Cleanup of database and application
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#after-deployment">
+<span class="md-ellipsis">
+      After Deployment
+    </span>
+</a>
+<nav aria-label="After Deployment" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#users-creation">
+<span class="md-ellipsis">
+      Users creation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-and-rebuild">
+<span class="md-ellipsis">
+      Update and Rebuild
+    </span>
+</a>
+<nav aria-label="Update and Rebuild" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rebuilding-the-project-creating-custom-docker-build">
+<span class="md-ellipsis">
+      Rebuilding the project / Creating custom docker build
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-to-the-most-recent-version">
+<span class="md-ellipsis">
+      Update to the most recent version
+    </span>
+</a>
+<nav aria-label="Update to the most recent version" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-600-from-a-5xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=6.0.0 from a 5.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-500-from-a-4xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=5.0.0 from a 4.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-500-from-a-3xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=5.0.0 from a 3.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-400-from-a-3xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=4.0.0 from a 3.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-200-from-a-1xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=2.0.0 from a 1.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-v13x-from-any-prior-version">
+<span class="md-ellipsis">
+      Updating to &gt;v1.3.x from any prior version
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_configuration/">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usage/">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_usage/">
+<span class="md-ellipsis">
+    Advanced Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contribute/">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api_docs/">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    GreedyBear
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            GreedyBear
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Introduction.md">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Installation.md">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Usage.md">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Contribute.md">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Api-docs.md">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    PyThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            PyThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClass/">
+<span class="md-ellipsis">
+    ThreatMatrixClass
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClientException/">
+<span class="md-ellipsis">
+    ThreatMatrixClientException
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Development
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/Tests/">
+<span class="md-ellipsis">
+    Tests
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    GoThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            GoThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GoThreatMatrix/">
+<span class="md-ellipsis">
+    index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-documentation/">
+<span class="md-ellipsis">
+    Documentation guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-docstrings/">
+<span class="md-ellipsis">
+    Docstrings guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Submodules/">
+<span class="md-ellipsis">
+    Submodules
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+<span class="md-ellipsis">
+      Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tldr">
+<span class="md-ellipsis">
+      TL;DR
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infrastructure-requirements">
+<span class="md-ellipsis">
+      Infrastructure Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-components">
+<span class="md-ellipsis">
+      Deployment Components
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-preparation">
+<span class="md-ellipsis">
+      Deployment Preparation
+    </span>
+</a>
+<nav aria-label="Deployment Preparation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#environment-configuration-required">
+<span class="md-ellipsis">
+      Environment configuration (required)
+    </span>
+</a>
+<nav aria-label="Environment configuration (required)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-optional-configuration-to-enable-specific-services-features">
+<span class="md-ellipsis">
+      Other optional configuration to enable specific services / features
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#database-configuration-required-if-running-postgresql-locally">
+<span class="md-ellipsis">
+      Database configuration (required if running PostgreSQL locally)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logrotate-configuration-strongly-recommended">
+<span class="md-ellipsis">
+      Logrotate configuration (strongly recommended)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crontab-configuration-recommended-for-advanced-deployments">
+<span class="md-ellipsis">
+      Crontab configuration (recommended for advanced deployments)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#web-server-configuration-required-for-enabling-https">
+<span class="md-ellipsis">
+      Web server configuration (required for enabling HTTPS)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run">
+<span class="md-ellipsis">
+      Run
+    </span>
+</a>
+<nav aria-label="Run" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stop">
+<span class="md-ellipsis">
+      Stop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cleanup-of-database-and-application">
+<span class="md-ellipsis">
+      Cleanup of database and application
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#after-deployment">
+<span class="md-ellipsis">
+      After Deployment
+    </span>
+</a>
+<nav aria-label="After Deployment" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#users-creation">
+<span class="md-ellipsis">
+      Users creation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-and-rebuild">
+<span class="md-ellipsis">
+      Update and Rebuild
+    </span>
+</a>
+<nav aria-label="Update and Rebuild" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rebuilding-the-project-creating-custom-docker-build">
+<span class="md-ellipsis">
+      Rebuilding the project / Creating custom docker build
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#update-to-the-most-recent-version">
+<span class="md-ellipsis">
+      Update to the most recent version
+    </span>
+</a>
+<nav aria-label="Update to the most recent version" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-600-from-a-5xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=6.0.0 from a 5.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-500-from-a-4xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=5.0.0 from a 4.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-500-from-a-3xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=5.0.0 from a 3.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-400-from-a-3xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=4.0.0 from a 3.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-200-from-a-1xx-version">
+<span class="md-ellipsis">
+      Updating to &gt;=2.0.0 from a 1.x.x version
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#updating-to-v13x-from-any-prior-version">
+<span class="md-ellipsis">
+      Updating to &gt;v1.3.x from any prior version
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/edit/master/docs/ThreatMatrix/installation.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/raw/master/docs/ThreatMatrix/installation.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="installation">Installation</h1>
+<h2 id="requirements">Requirements</h2>
+<p>The project leverages <code>docker compose</code> with a custom Bash script and you need to have the following packages installed in your machine:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">docker</a> - v19.03.0+</li>
+<li><a href="https://docs.docker.com/compose/install/">docker-compose</a> - v2.3.4+</li>
+</ul>
+<p>In some systems you could find pre-installed older versions. Please check this and install a supported version before attempting the installation. Otherwise it would fail.
+<strong>Note:</strong> We've added a new Bash script <code>initialize.sh</code> that will check compatibility with your system and attempt to install the required dependencies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>The project uses public docker images that are available on <a href="https://hub.docker.com/repository/docker/khulnasoft/threatmatrix">Docker Hub</a></li>
+<li>ThreatMatrix is tested and supported to work in a Debian distro. More precisely we suggest using Ubuntu. Other Linux-based OS <i>should</i> work but that has not been tested much. It <i>may</i> also run on Windows, but that is not officially supported.</li>
+<li>ThreatMatrix does not support ARM at the moment. We'll fix this with the next v6.0.5 release
+<li>Before installing remember that you must comply with the <a href="https://github.com/certego/ThreatMatrix/blob/master/LICENSE">LICENSE</a> and the <a href="https://github.com/certego/ThreatMatrix/blob/master/.github/legal_notice.md">Legal Terms</a></li>
+</li></ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+The <code>start</code> script requires a `bash` version &gt; 4 to run.
+
+Note that macOS is shipped with an older version of <code>bash</code>. Please ensure to upgrade before running the script.
+
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>Obviously we strongly suggest reading through all the page to configure ThreatMatrix in the most appropriate way.</p>
+<p>However, if you feel lazy, you could just install and test ThreatMatrix with the following steps.
+<code>docker</code> will be run with <code>sudo</code> if permissions/roles have not been set.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># clone the ThreatMatrix project repository</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/khulnasoft/ThreatMatrix
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>ThreatMatrix/
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># run helper script to verify installed dependencies and configure basic stuff</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>./initialize.sh
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># start the app</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>./start<span class="w"> </span>prod<span class="w"> </span>up
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># now the application is running on http://localhost:80</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># create a super user</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># now you can login with the created user from http://localhost:80/login</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># Have fun!</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+The first time you start ThreatMatrix, a lot of database migrations are being applied. This requires some time. If you get 500 status code errors in the GUI, just wait few minutes and then refresh the page.
+</div>
+<h2 id="infrastructure-requirements">Infrastructure Requirements</h2>
+<p>These are our recommendations for dedicated deployments of ThreatMatrix:</p>
+<ul>
+<li>Basic Installation in a VM: 2 CPU, 4GB RAM, 20GB Disk</li>
+<li>Intensive Usage (hundreds of analysis in a hour) in a single VM: 8CPU, 16GB RAM and 80GB Disk.</li>
+</ul>
+<p>Please remember that every environment has its own peculiarities so these numbers must not be taken as the holy grail.</p>
+<p>What should be done is a comprehensive evaluation of the environment where the application will deployed.</p>
+<p>For more complex environments, a Docker Swarm / Kubernetes cluster is recommended.</p>
+<p>ThreatMatrix's maintainers are available to offer <a href="https://opencollective.com/khulnasoft">paid consultancy and mentorship</a> about that.</p>
+<h2 id="deployment-components">Deployment Components</h2>
+<p>ThreatMatrix is composed of various different technologies, namely:</p>
+<ul>
+<li>React: Frontend, using <a href="https://create-react-app.dev/">CRA</a> and <a href="https://github.com/certego/certego-ui">certego-ui</a></li>
+<li>Django: Backend</li>
+<li>PostgreSQL: Database</li>
+<li>Redis: Message Broker</li>
+<li>Celery: Task Queue</li>
+<li>Nginx: Reverse proxy for the Django API and web asssets.</li>
+<li>Uwsgi: Application Server</li>
+<li>Daphne: Asgi Server for WebSockets</li>
+<li>Elastic Search (<em>optional</em>): Auto-sync indexing of analysis' results.</li>
+<li>Kibana (<em>optional</em>): GUI for Elastic Search. We provide a saved configuration with dashboards and visualizations.</li>
+<li>Flower (<em>optional</em>): Celery Management Web Interface</li>
+</ul>
+<p>All these components are managed via <code>docker compose</code>.</p>
+<h2 id="deployment-preparation">Deployment Preparation</h2>
+<ul>
+<li><a href="#environment-configuration-required">Environment configuration (required)</a></li>
+<li><a href="#database-configuration-required">Database configuration (required)</a></li>
+<li><a href="#web-server-configuration-optional">Web server configuration (optional)</a></li>
+<li><a href="#analyzers-or-connectors-configuration-optional">Analyzers configuration (optional)</a></li>
+</ul>
+<p>Open a terminal and execute below commands to construct new environment files from provided templates.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>./initialize.sh
+</span></code></pre></div>
+<h3 id="environment-configuration-required">Environment configuration (required)</h3>
+<p>In the <code>docker/env_file_app</code>, configure different variables as explained below.</p>
+<p><strong>REQUIRED</strong> variables to run the image:</p>
+<ul>
+<li><code>DB_HOST</code>, <code>DB_PORT</code>, <code>DB_USER</code>, <code>DB_PASSWORD</code>: PostgreSQL configuration (The DB credentals should match the ones in the <code>env_file_postgres</code>). If you like, you can configure the connection to an external PostgreSQL instance in the same variables. Then, to avoid to run PostgreSQL locally, please run ThreatMatrix with the option <code>--use-external-database</code>. Otherwise, <code>DB_HOST</code> must be <code>postgres</code> to have the app properly communicate with the PostgreSQL container.</li>
+<li>
+<p><code>DJANGO_SECRET</code>: random 50 chars key, must be unique. If you do not provide one, Intel Owl will automatically set a secret key and use the same for each run. The key is generated by <code>initialize.sh</code> script.</p>
+<p><strong>Strongly recommended</strong> variable to set:</p>
+</li>
+</ul>
+<ul>
+<li><code>THREATMATRIX_WEB_CLIENT_DOMAIN</code> (example: <code>localhost</code>/<code>mywebsite.com</code>): the web domain of your instance, this is used for generating links to analysis results.</li>
+</ul>
+<p>Optional configuration:</p>
+<ul>
+<li><code>OLD_JOBS_RETENTION_DAYS</code>: Database retention for analysis results (default: 14 days). Change this if you want to keep your old analysis longer in the database.</li>
+</ul>
+<h4 id="other-optional-configuration-to-enable-specific-services-features">Other optional configuration to enable specific services / features</h4>
+<p>Configuration required to enable integration with Slack:</p>
+<ul>
+<li><code>SLACK_TOKEN</code>: Slack token of your Slack application that will be used to send/receive notifications</li>
+<li><code>DEFAULT_SLACK_CHANNEL</code>: ID of the Slack channel you want to post the message to</li>
+</ul>
+<p>Configuration required to have InteOwl sending Emails (registration requests, mail verification, password reset/change, etc)</p>
+<ul>
+<li><code>DEFAULT_FROM_EMAIL</code>: email address used for automated correspondence from the site manager (example: <code>noreply@mydomain.com</code>)</li>
+<li><code>DEFAULT_EMAIL</code>: email address used for correspondence with users (example: <code>info@mydomain.com</code>)</li>
+<li><code>EMAIL_HOST</code>: the host to use for sending email with SMTP</li>
+<li><code>EMAIL_HOST_USER</code>: username to use for the SMTP server defined in EMAIL_HOST</li>
+<li><code>EMAIL_HOST_PASSWORD</code>: password to use for the SMTP server defined in EMAIL_HOST. This setting is used in conjunction with EMAIL_HOST_USER when authenticating to the SMTP server.</li>
+<li><code>EMAIL_PORT</code>: port to use for the SMTP server defined in EMAIL_HOST.</li>
+<li><code>EMAIL_USE_TLS</code>: whether to use an explicit TLS (secure) connection when talking to the SMTP server, generally used on port 587.</li>
+<li><code>EMAIL_USE_SSL</code>: whether to use an implicit TLS (secure) connection when talking to the SMTP server, generally used on port 465.</li>
+</ul>
+<h3 id="database-configuration-required-if-running-postgresql-locally">Database configuration (required if running PostgreSQL locally)</h3>
+<p>If you use a local PostgreSQL instance (this is the default), in the <code>env_file_postgres</code> you have to configure different variables as explained below.</p>
+<p><strong>Required</strong> variables:</p>
+<ul>
+<li><code>POSTGRES_PASSWORD</code> (same as <code>DB_PASSWORD</code>)</li>
+<li><code>POSTGRES_USER</code> (same as <code>DB_USER</code>)</li>
+<li><code>POSTGRES_DB</code> (default: <code>threat_matrix_db</code>)</li>
+</ul>
+<h3 id="logrotate-configuration-strongly-recommended">Logrotate configuration (strongly recommended)</h3>
+<p>If you want to have your logs rotated correctly, we suggest you to add the configuration for the system Logrotate.
+To do that you can leverage the <code>initialize.sh</code> script. Otherwise, if you have skipped that part, you can manually install logrotate by launching the following script:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>./docker/scripts
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>./install_logrotate.sh
+</span></code></pre></div>
+<p>We decided to do not leverage Django Rotation Configuration because it caused problematic concurrency issues, leading to logs that are not rotated correctly and to apps that do not log anymore.
+Logrotate configuration is more stable.</p>
+<h3 id="crontab-configuration-recommended-for-advanced-deployments">Crontab configuration (recommended for advanced deployments)</h3>
+<p>We added few Crontab configurations that could be installed in the host machine at system level to solve some possible edge-case issues:</p>
+<ul>
+<li>Memory leaks: Once a week it is suggested to do a full restart of the application to clean-up the memory used by the application. Practical experience suggest us to do that to solve some recurrent memory issues in Celery. A cron called <code>application_restart</code> has been added for this purpose (it uses the absolute path of <code>start</code> script in the container). This cron assumes that you have executed ThreatMatrix with the parameters <code>--all_analyzers</code>. If you didn't, feel free to change the cron as you wish.</li>
+</ul>
+<p>This configuration is optional but strongly recommended for people who want to have a production grade deployment. To install it you need to run the following script in each deployed server:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>./docker/scripts
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>./install_crontab.sh
+</span></code></pre></div>
+<h3 id="web-server-configuration-required-for-enabling-https">Web server configuration (required for enabling HTTPS)</h3>
+<p>Intel Owl provides basic configuration for:</p>
+<ul>
+<li>Nginx (<code>configuration/nginx/http.conf</code>)</li>
+<li>Uwsgi (<code>configuration/threat_matrix.ini</code>)</li>
+</ul>
+<p>In case you enable HTTPS, remember to set the environment variable <code>HTTPS_ENABLED</code> as "enabled" to increment the security of the application.</p>
+<p>There are 3 options to execute the web server:</p>
+<ul>
+<li>
+<p><strong>HTTP only (default)</strong></p>
+<p>The project would use the default deployment configuration and HTTP only.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>HTTPS with your own certificate</strong></p>
+<p>The project provides a template file to configure Nginx to serve HTTPS: <code>configuration/nginx/https.conf</code>.</p>
+<p>You should change <code>ssl_certificate</code>, <code>ssl_certificate_key</code> and <code>server_name</code> in that file and put those required files in the specified locations.</p>
+<p>Then you should call the <code>./start</code> script with the parameter <code>--https</code> to leverage the right Docker Compose file for HTTPS.</p>
+<p>Plus, if you use <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_configuration/#queue-customization">Flower</a>, you should change in the <code>docker/flower.override.yml</code> the <code>flower_http.conf</code> with <code>flower_https.conf</code>.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>HTTPS with Let's Encrypt</strong></p>
+<p>We provide a specific docker-compose file that leverages <a href="https://docs.traefik.io/">Traefik</a> to allow fast deployments of public-faced and HTTPS-enabled applications.</p>
+<p>Before using it, you should configure the configuration file <code>docker/traefik.override.yml</code> by changing the email address and the hostname where the application is served. For a detailed explanation follow the official documentation: <a href="https://docs.traefik.io/user-guides/docker-compose/acme-http/">Traefix doc</a>.</p>
+<p>After the configuration is done, you can add the option <code>--traefik</code> while executing <a href="#run"><code>./start</code></a></p>
+</li>
+</ul>
+<h2 id="run">Run</h2>
+<div class="admonition note">
+<p class="admonition-title">Important Info</p>
+ThreatMatrix depends heavily on docker and docker compose so as to hide this complexity from the enduser the project
+leverages a custom shell script (<code>start</code>) to interface with <code>docker compose</code>.
+
+You may invoke <code>$ ./start --help</code> to get help and usage info.
+
+The CLI provides the primitives to correctly build, run or stop the containers for ThreatMatrix. Therefore,
+
+<ul>
+<li>It is possible to attach every optional docker container that ThreatMatrix has:
+<a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_configuration/#multi-queue"><em>multi_queue</em></a> with <em>traefik</em> enabled while every <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#optional-analyzers">optional docker analyzer</a> is active.</li>
+<li>It is possible to insert an optional docker argument that the CLI will pass to <code>docker compose</code></li>
+</ul>
+</div>
+<p>Now that you have completed different configurations, starting the containers is as simple as invoking:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$<span class="w"> </span>./start<span class="w"> </span>prod<span class="w"> </span>up
+</span></code></pre></div>
+<p>You can add the <code>docker</code> options <code>-d</code> to run the application in the background.</p>
+<div class="admonition note">
+<p class="admonition-title">Important Info</p>
+All <code>docker</code> and <code>docker compose</code> specific options must be passed at the end of the script, after a <code>--</code> token.
+This token indicates the end of ThreatMatrix's options and the beginning of Docker options.
+
+Example:
+
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>./start<span class="w"> </span>prod<span class="w"> </span>up<span class="w"> </span>--<span class="w"> </span>-d
+</span></code></pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+Starting from ThreatMatrix 4.0.0, with the startup script you can select which version of ThreatMatrix you want to run (<code>--version</code>).
+This  can be helpful to keep using old versions in case of retrocompatibility issues. The <code>--version</code> parameter checks out the Git Repository to the Tag of the version that you have chosen. This means that if you checkout to a v3.x.x version, you won't have the <code>--version</code> parameter anymore so you would need to manually checkout back to the <code>master</code> branch to use newer versions.
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+If, for any reason, the <code>start</code> script does not work in your environment, we suggest to use plain <code>docker compose</code> and configuring manually all the optional containers you need.
+
+The basic replacement of <code>./start prod up</code> would be:
+
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>docker compose --project-directory docker -f docker/default.yml -f docker/postgres.override.yml -f docker/redis.override.yml -f docker/nginx.override.yml -p threatmatrix up
+</span></code></pre></div>
+</div>
+<h3 id="stop">Stop</h3>
+<p>To stop the application you have to:</p>
+<ul>
+<li>if executed without <code>-d</code> parameter: press <code>CTRL+C</code></li>
+<li>if executed with <code>-d</code> parameter: <code>./start prod down</code></li>
+</ul>
+<h3 id="cleanup-of-database-and-application">Cleanup of database and application</h3>
+<p>This is a destructive operation but can be useful to start again the project from scratch</p>
+<p><code>./start prod down -- -v</code></p>
+<h2 id="after-deployment">After Deployment</h2>
+<h3 id="users-creation">Users creation</h3>
+<p>You may want to run <code>docker exec -ti threatmatrix_uwsgi python3 manage.py createsuperuser</code> after first run to create a superuser.
+Then you can add other users directly from the Django Admin Interface after having logged with the superuser account.
+To manage users, organizations and their visibility please refer to this <a href="/Advanced-Usage.md#organizations-and-user-management">section</a></p>
+<h2 id="update-and-rebuild">Update and Rebuild</h2>
+<h3 id="rebuilding-the-project-creating-custom-docker-build">Rebuilding the project / Creating custom docker build</h3>
+<p>If you make some code changes and you like to rebuild the project, follow these steps:</p>
+<ol>
+<li><code>./start test build -- --tag=&lt;your_tag&gt; .</code> to build the new docker image.</li>
+<li>Add this new image tag in the <code>docker/test.override.yml</code> file.</li>
+<li>Start the containers with <code>./start test up -- --build</code>.</li>
+</ol>
+<h3 id="update-to-the-most-recent-version">Update to the most recent version</h3>
+<p>To update the project with the most recent available code you have to follow these steps:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>&lt;your_threat_matrix_directory&gt;<span class="w"> </span><span class="c1"># go into the project directory</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span><span class="c1"># pull new changes</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>$<span class="w"> </span>./start<span class="w"> </span>prod<span class="w"> </span>down<span class="w"> </span><span class="c1"># kill and destroy the currently running ThreatMatrix containers</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>$<span class="w"> </span>./start<span class="w"> </span>prod<span class="w"> </span>up<span class="w"> </span><span class="c1"># restart the ThreatMatrix application</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+After an upgrade, sometimes a database error in Celery Containers could happen. That could be related to new DB migrations which are not applied by the main Uwsgi Container yet. Do not worry. Wait few seconds for the Uwsgi container to start correctly, then put down the application again and restart it. The problem should be solved. If not, please feel free to open an issue on Github
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+After having upgraded ThreatMatrix, in case the application does not start and you get an error like this:
+
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>PermissionError:<span class="w"> </span><span class="o">[</span>Errno<span class="w"> </span><span class="m">13</span><span class="o">]</span><span class="w"> </span>Permission<span class="w"> </span>denied:<span class="w"> </span><span class="err">'</span>/var/log/threat_matrix/django/authentication.log
+</span></code></pre></div>
+
+just run this:
+
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/lib/docker/volumes/threat_matrix_generic_logs/_data/django
+</span></code></pre></div>
+
+and restart ThreatMatrix. It should solve the permissions problem.
+
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+Major versions of ThreatMatrix are usually incompatible from one another.
+Maintainers strive to keep the upgrade between major version easy but it's not always like that.
+Below you can find the additional process required to upgrade from each major versions.
+</div>
+<h4 id="updating-to-600-from-a-5xx-version">Updating to &gt;=6.0.0 from a 5.x.x version</h4>
+<p>ThreatMatrix v6 introduced some major changes regarding how the project is started.
+Before upgrading, some important things should be checked by the administrator:</p>
+<ul>
+<li>Docker Compose V1 support has been dropped project-wide. If you are still using a Compose version prior to v2.3.4, please <a href="https://docs.docker.com/compose/migrate/">upgrade</a> to a newer version or install Docker Compose V2.</li>
+<li>ThreatMatrix is now started with the new Bash <code>start</code> script that has the same options as the old Python <code>start.py</code> script but is more manageable and has decreased the overall project dependencies. The <code>start.py</code> script has now been removed. Please use the new <code>start</code> script instead.</li>
+<li>The default message broker is now Redis. We have replaced Rabbit-MQ for Redis to allow support for Websockets in the application:<ul>
+<li>This change is transparent if you use our <code>start</code> script to run ThreatMatrix. That would spawn a Redis instance instead of a Rabbit-MQ one locally.</li>
+<li>If you were using an external broker like AWS SQS or a managed Rabbit-MQ, they are still supported but we suggest to move to a Redis supported service to simplify the architecture (because Redis is now mandatory for Websockets)</li>
+</ul>
+</li>
+<li>Support for multiple jobs with multiple playbooks has been removed. Every Observable or File in the request will be processed by a single playbook.</li>
+<li>We upgraded the base PostgreSQL image from version 12 to version 16. You have 2 choice:<ul>
+<li>remove your actual database and start from scratch with a new one</li>
+<li>maintain your database and do not update Postgres. This could break the application at anytime because we do not support it anymore.</li>
+<li>if you want to keep your old DB, follow the migration procedure you can find below</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+CARE! We are providing this database migration procedure to help the users to migrate to a new PostgreSQL version.
+
+Upgrading PostgreSQL is outside the scope of the ThreatMatrix project so we do not guarantee that everything will work as intended.
+
+In case of doubt, please check the official PostgreSQL documentation.
+
+Upgrade at your own risk.
+
+</div>
+<p>The database migration procedure is as follows:</p>
+<ul>
+<li>You have ThreatMatrix version 5.x.x up and running</li>
+<li>Bring down the application (you can use the start script or manually concatenate your docker compose configuration )</li>
+<li>Go inside the docker folder <code>cd docker</code></li>
+<li>Bring only the postgres 12 container up <code>docker run -d --name threatmatrix_postgres_12 -v threat_matrix_postgres_data:/var/lib/postgresql/data/ --env-file env_file_postgres  library/postgres:12-alpine</code></li>
+<li>Dump the entire database. You need the user and the database that you configured during startup for this <code>docker exec -t threatmatrix_postgres_12  pg_dump -U &lt;POSTGRES_USER&gt; -d &lt;POSTGRES_DB&gt; --no-owner &gt; /tmp/dump_threatmatrix.sql</code></li>
+<li>Stop che container <code>docker container stop threatmatrix_postgres_12</code></li>
+<li>Remove the backup container <code>docker container rm threatmatrix_postgres_12</code></li>
+<li>Remove the postgres volume <code>docker volume rm threat_matrix_postgres_data</code> &lt;------------- remove old data, this is not exactly necessary because the new postgres has a different volume name</li>
+<li>Start the intermediary postgres 16 container <code>docker run -d --name threatmatrix_postgres_16 -v threatmatrix_postgres_data:/var/lib/postgresql/data/ --env-file env_file_postgres  library/postgres:16-alpine</code></li>
+<li>Add the data to the volume <code>cat /tmp/dump_threatmatrix.sql | docker exec -i threatmatrix_postgres_16 psql -U &lt;POSTGRES_USER&gt; -d &lt;POSTGRES_DB&gt;</code></li>
+<li>Stop the intermediary container <code>docker container stop threatmatrix_postgres_16</code></li>
+<li>Remove the intermediary container <code>docker container rm threatmatrix_postgres_16</code></li>
+<li>Update ThreatMatrix to the latest version</li>
+<li>Bring up the application back again (you can use the start script or manually concatenate your docker compose configuration)</li>
+</ul>
+<h4 id="updating-to-500-from-a-4xx-version">Updating to &gt;=5.0.0 from a 4.x.x version</h4>
+<p>ThreatMatrix v5 introduced some major changes regarding how the plugins and their related configuration are managed in the application.
+Before upgrading, some important things should be checked by the administrator:</p>
+<ul>
+<li>A lot of database migrations will need to be applied. Just be patient few minutes once you install the new major release. If you get 500 status code errors in the GUI, just wait few minutes and then refresh the page.</li>
+<li>We moved away from the old big <code>analyzer_config.json</code> which was storing all the base configuration of the Analyzers to a database model (we did the same for all the other plugins types too). This allows us to manage plugins creation/modification/deletion in a more reliable manner and via the Django Admin Interface. If you have created custom plugins and changed those <code>&lt;plugins&gt;_config.json</code> file manually, you would need to re-create those custom plugins again from the Django Admin Interface. To do that please follow the <a href="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#analyzers-customization">related new documentation</a></li>
+<li>We have REMOVED all the analyzers that we deprecated during the v4 releases cycle. Please substitute them with their respective new names, in case they have a replacement.<ul>
+<li>REMOVED <code>Pulsedive_Active_IOC</code> analyzer. Please substitute it with the new <code>Pulsedive</code> analyzer.</li>
+<li>REMOVED <code>Fortiguard</code> analyzer because endpoint does not work anymore. No substitute.</li>
+<li>REMOVED <code>Rendertron</code> analyzer not working as intended. No substitute.</li>
+<li>REMOVED <code>ThreatMiner</code>, <code>SecurityTrails</code> and <code>Robtex</code> various analyzers and substituted with new versions.</li>
+<li>REMOVED <code>Doc_Info_Experimental</code>. Its functionality (XLM Macro parsing) is moved to <code>Doc_Info</code></li>
+<li>REMOVED <code>Strings_Info_Classic</code>. Please use <code>Strings_Info</code></li>
+<li>REMOVED <code>Strings_Info_ML</code>. Please use <code>Strings_Info</code> and set the parameter <code>rank_strings</code> to <code>True</code></li>
+<li>REMOVED all <code>Yara_Scan_&lt;repo&gt;</code> analyzers. They all went merged in the single <code>Yara</code> analyzer</li>
+<li>REMOVED <code>Darksearch_Query</code> analyzer because the service does not exist anymore. No substitute.</li>
+<li>REMOVED <code>UnpacMe_EXE_Unpacker</code>. Please use <code>UnpacMe</code></li>
+<li>REMOVED <code>BoxJS_Scan_JavaScript</code>. Please use <code>BoxJS</code></li>
+<li>REMOVED all <code>Anomali_Threatstream_&lt;option&gt;</code> analyzers. Now we have a single <code>Anomali_Threatstream</code> analyzer. Use the parameters to select the specific API you need.</li>
+</ul>
+</li>
+</ul>
+<h4 id="updating-to-500-from-a-3xx-version">Updating to &gt;=5.0.0 from a 3.x.x version</h4>
+<p>This is not supported. Please perform a major upgrade once at a time.</p>
+<h4 id="updating-to-400-from-a-3xx-version">Updating to &gt;=4.0.0 from a 3.x.x version</h4>
+<p>ThreatMatrix v4 introduced some major changes regarding the permission management, allowing an easier way to manage users and visibility. But that did break the previous available DB.
+So, to migrate to the new major version you would need to delete your DB. To do that, you would need to delete your volumes and start the application from scratch.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>python3<span class="w"> </span>start.py<span class="w"> </span>prod<span class="w"> </span>down<span class="w"> </span>-v
+</span></code></pre></div>
+<p>Please be aware that, while this can be an important effort to manage, the v4 ThreatMatrix provides an easier way to add, invite and manage users from the application itself. See <a href="./Advanced-Usage.md#organizations-and-user-management">the Organization section</a>.</p>
+<h4 id="updating-to-200-from-a-1xx-version">Updating to &gt;=2.0.0 from a 1.x.x version</h4>
+<p>Users upgrading from previous versions need to manually move <code>env_file_app</code>, <code>env_file_postgres</code> and <code>env_file_integrations</code> files under the new <code>docker</code> directory.</p>
+<h4 id="updating-to-v13x-from-any-prior-version">Updating to &gt;v1.3.x from any prior version</h4>
+<p>If you are updating to &gt;<a href="https://github.com/khulnasoft/ThreatMatrix/releases/tag/v1.3.0">v1.3.0</a> from any prior version, you need to execute a helper script so that the old data present in the database doesn't break.</p>
+<ol>
+<li>
+<p>Follow the above updation steps, once the docker containers are up and running execute the following in a new terminal</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>threatmatrix_uwsgi<span class="w"> </span>bash
+</span></code></pre></div>
+<p>to get a shell session inside the ThreatMatrix's container.</p>
+</li>
+<li>
+<p>Now just copy and paste the below command into this new session,</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>curl<span class="w"> </span>https://gist.githubusercontent.com/Eshaan7/b111f887fa8b860c762aa38d99ec5482/raw/758517acf87f9b45bd22f06aee57251b1f3b1bbf/update_to_v1.3.0.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-
+</span></code></pre></div>
+</li>
+<li>
+<p>If you see "Update successful!", everything went fine and now you can enjoy the new features!</p>
+</li>
+</ol>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Introduction" class="md-footer__link md-footer__link--prev" href="../introduction/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Introduction
+              </div>
+</div>
+</a>
+<a aria-label="Next: Advanced Configuration" class="md-footer__link md-footer__link--next" href="../advanced_configuration/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Advanced Configuration
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © ThreatMatrix Project
+
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/khulnasoft" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://honeynetpublic.slack.com/archives/C01KVGMAKL6" rel="noopener" target="_blank" title="honeynetpublic.slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/threatmatrix" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/threat_matrix" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.footer", "navigation.expand", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>

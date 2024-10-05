@@ -1,0 +1,1875 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A centralized documentation for all the projects under ThreatMatrix." name="description"/>
+<meta content="ThreatMatrix Project" name="author"/>
+<link href="../advanced_configuration/" rel="prev"/>
+<link href="../advanced_usage/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
+<title>Usage - ThreatMatrix Project Documentation</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../assests/css/SwaggerDark.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DB4K9LZPDZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DB4K9LZPDZ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DB4K9LZPDZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="DARKUI" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#usage">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ThreatMatrix Project Documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ThreatMatrix Project Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Usage
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../introduction/">
+          
+  
+  ThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GreedyBear/Introduction.md">
+          
+  
+  GreedyBear
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pythreatmatrix/">
+          
+  
+  PyThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../GoThreatMatrix/">
+          
+  
+  GoThreatMatrix
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Guide-documentation/">
+          
+  
+  Guides
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ThreatMatrix Project Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ThreatMatrix Project Documentation">
+<img alt="logo" src="../../static/threat_matrix_negative.png"/>
+</a>
+    ThreatMatrix Project Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/khulnasoft/ThreatMatrix" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    khulnasoft/ThreatMatrix
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    ThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            ThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_configuration/">
+<span class="md-ellipsis">
+    Advanced Configuration
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-interact-with-threatmatrix">
+<span class="md-ellipsis">
+      How to interact with ThreatMatrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plugins-framework">
+<span class="md-ellipsis">
+      Plugins Framework
+    </span>
+</a>
+<nav aria-label="Plugins Framework" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyzers">
+<span class="md-ellipsis">
+      Analyzers
+    </span>
+</a>
+<nav aria-label="Analyzers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyzers-list">
+<span class="md-ellipsis">
+      Analyzers list
+    </span>
+</a>
+<nav aria-label="Analyzers list" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-analyzers">
+<span class="md-ellipsis">
+      File analyzers:
+    </span>
+</a>
+<nav aria-label="File analyzers:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#observable-analyzers-ip-domain-url-hash">
+<span class="md-ellipsis">
+      Observable analyzers (ip, domain, url, hash)
+    </span>
+</a>
+<nav aria-label="Observable analyzers (ip, domain, url, hash)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools_1">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services_1">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generic-analyzers-email-phone-number-etc-anything-really">
+<span class="md-ellipsis">
+      Generic analyzers (email, phone number, etc.; anything really)
+    </span>
+</a>
+<nav aria-label="Generic analyzers (email, phone number, etc.; anything really)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools_2">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services_2">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-analyzers">
+<span class="md-ellipsis">
+      Optional analyzers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connectors">
+<span class="md-ellipsis">
+      Connectors
+    </span>
+</a>
+<nav aria-label="Connectors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connectors-list">
+<span class="md-ellipsis">
+      Connectors list
+    </span>
+</a>
+<nav aria-label="Connectors list" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-connectors">
+<span class="md-ellipsis">
+      List of pre-built Connectors
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pivots">
+<span class="md-ellipsis">
+      Pivots
+    </span>
+</a>
+<nav aria-label="Pivots" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-pivots">
+<span class="md-ellipsis">
+      List of pre-built Pivots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-pivots-from-the-gui">
+<span class="md-ellipsis">
+      Creating Pivots from the GUI
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizers">
+<span class="md-ellipsis">
+      Visualizers
+    </span>
+</a>
+<nav aria-label="Visualizers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-visualizers">
+<span class="md-ellipsis">
+      List of pre-built Visualizers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ingestors">
+<span class="md-ellipsis">
+      Ingestors
+    </span>
+</a>
+<nav aria-label="Ingestors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-ingestors">
+<span class="md-ellipsis">
+      List of pre-built Ingestors
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks">
+<span class="md-ellipsis">
+      Playbooks
+    </span>
+</a>
+<nav aria-label="Playbooks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks-list">
+<span class="md-ellipsis">
+      Playbooks List
+    </span>
+</a>
+<nav aria-label="Playbooks List" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-playbooks">
+<span class="md-ellipsis">
+      List of pre-built playbooks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks-creation-and-customization">
+<span class="md-ellipsis">
+      Playbooks creation and customization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generic-plugin-creation-configuration-and-customization">
+<span class="md-ellipsis">
+      Generic Plugin Creation, Configuration and Customization
+    </span>
+</a>
+<nav aria-label="Generic Plugin Creation, Configuration and Customization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#superuser-customization">
+<span class="md-ellipsis">
+      SuperUser customization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parameters">
+<span class="md-ellipsis">
+      Parameters
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-or-disabling-plugins">
+<span class="md-ellipsis">
+      Enabling or Disabling Plugins
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#special-plugins-operations">
+<span class="md-ellipsis">
+      Special Plugins operations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tlp-support">
+<span class="md-ellipsis">
+      TLP Support
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-a-plugin">
+<span class="md-ellipsis">
+      Running a plugin
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#investigations-framework">
+<span class="md-ellipsis">
+      Investigations Framework
+    </span>
+</a>
+<nav aria-label="Investigations Framework" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-and-populate-an-investigation">
+<span class="md-ellipsis">
+      Create and populate an investigation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-output-of-a-complex-investigation">
+<span class="md-ellipsis">
+      Example output of a complex investigation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_usage/">
+<span class="md-ellipsis">
+    Advanced Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contribute/">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api_docs/">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    GreedyBear
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            GreedyBear
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Introduction.md">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Installation.md">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Usage.md">
+<span class="md-ellipsis">
+    Usage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Contribute.md">
+<span class="md-ellipsis">
+    Contribute
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GreedyBear/Api-docs.md">
+<span class="md-ellipsis">
+    API docs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    PyThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            PyThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Usage
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClass/">
+<span class="md-ellipsis">
+    ThreatMatrixClass
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/ThreatMatrixClientException/">
+<span class="md-ellipsis">
+    ThreatMatrixClientException
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Development
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pythreatmatrix/Tests/">
+<span class="md-ellipsis">
+    Tests
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    GoThreatMatrix
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            GoThreatMatrix
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../GoThreatMatrix/">
+<span class="md-ellipsis">
+    index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-documentation/">
+<span class="md-ellipsis">
+    Documentation guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Guide-docstrings/">
+<span class="md-ellipsis">
+    Docstrings guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Submodules/">
+<span class="md-ellipsis">
+    Submodules
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-interact-with-threatmatrix">
+<span class="md-ellipsis">
+      How to interact with ThreatMatrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plugins-framework">
+<span class="md-ellipsis">
+      Plugins Framework
+    </span>
+</a>
+<nav aria-label="Plugins Framework" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyzers">
+<span class="md-ellipsis">
+      Analyzers
+    </span>
+</a>
+<nav aria-label="Analyzers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyzers-list">
+<span class="md-ellipsis">
+      Analyzers list
+    </span>
+</a>
+<nav aria-label="Analyzers list" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-analyzers">
+<span class="md-ellipsis">
+      File analyzers:
+    </span>
+</a>
+<nav aria-label="File analyzers:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#observable-analyzers-ip-domain-url-hash">
+<span class="md-ellipsis">
+      Observable analyzers (ip, domain, url, hash)
+    </span>
+</a>
+<nav aria-label="Observable analyzers (ip, domain, url, hash)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools_1">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services_1">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generic-analyzers-email-phone-number-etc-anything-really">
+<span class="md-ellipsis">
+      Generic analyzers (email, phone number, etc.; anything really)
+    </span>
+</a>
+<nav aria-label="Generic analyzers (email, phone number, etc.; anything really)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internal-tools_2">
+<span class="md-ellipsis">
+      Internal tools
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-services_2">
+<span class="md-ellipsis">
+      External services
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-analyzers">
+<span class="md-ellipsis">
+      Optional analyzers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connectors">
+<span class="md-ellipsis">
+      Connectors
+    </span>
+</a>
+<nav aria-label="Connectors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connectors-list">
+<span class="md-ellipsis">
+      Connectors list
+    </span>
+</a>
+<nav aria-label="Connectors list" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-connectors">
+<span class="md-ellipsis">
+      List of pre-built Connectors
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pivots">
+<span class="md-ellipsis">
+      Pivots
+    </span>
+</a>
+<nav aria-label="Pivots" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-pivots">
+<span class="md-ellipsis">
+      List of pre-built Pivots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-pivots-from-the-gui">
+<span class="md-ellipsis">
+      Creating Pivots from the GUI
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizers">
+<span class="md-ellipsis">
+      Visualizers
+    </span>
+</a>
+<nav aria-label="Visualizers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-visualizers">
+<span class="md-ellipsis">
+      List of pre-built Visualizers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ingestors">
+<span class="md-ellipsis">
+      Ingestors
+    </span>
+</a>
+<nav aria-label="Ingestors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-ingestors">
+<span class="md-ellipsis">
+      List of pre-built Ingestors
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks">
+<span class="md-ellipsis">
+      Playbooks
+    </span>
+</a>
+<nav aria-label="Playbooks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks-list">
+<span class="md-ellipsis">
+      Playbooks List
+    </span>
+</a>
+<nav aria-label="Playbooks List" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#list-of-pre-built-playbooks">
+<span class="md-ellipsis">
+      List of pre-built playbooks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#playbooks-creation-and-customization">
+<span class="md-ellipsis">
+      Playbooks creation and customization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generic-plugin-creation-configuration-and-customization">
+<span class="md-ellipsis">
+      Generic Plugin Creation, Configuration and Customization
+    </span>
+</a>
+<nav aria-label="Generic Plugin Creation, Configuration and Customization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#superuser-customization">
+<span class="md-ellipsis">
+      SuperUser customization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parameters">
+<span class="md-ellipsis">
+      Parameters
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-or-disabling-plugins">
+<span class="md-ellipsis">
+      Enabling or Disabling Plugins
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#special-plugins-operations">
+<span class="md-ellipsis">
+      Special Plugins operations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tlp-support">
+<span class="md-ellipsis">
+      TLP Support
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-a-plugin">
+<span class="md-ellipsis">
+      Running a plugin
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#investigations-framework">
+<span class="md-ellipsis">
+      Investigations Framework
+    </span>
+</a>
+<nav aria-label="Investigations Framework" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-and-populate-an-investigation">
+<span class="md-ellipsis">
+      Create and populate an investigation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-output-of-a-complex-investigation">
+<span class="md-ellipsis">
+      Example output of a complex investigation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/edit/master/docs/ThreatMatrix/usage.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/khulnasoft/ThreatMatrix/raw/master/docs/ThreatMatrix/usage.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="usage">Usage</h1>
+<p>This page includes the most important things to know and understand when using ThreatMatrix.</p>
+<h2 id="how-to-interact-with-threatmatrix">How to interact with ThreatMatrix</h2>
+<p>Intel Owl main objective is to provide a single API interface to query in order to retrieve threat intelligence at scale.</p>
+<p>There are multiple ways to interact with the Intel Owl APIs,</p>
+<ol>
+<li>
+<p>Web Interface</p>
+<ul>
+<li>Built-in Web interface with dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, tags management and more features</li>
+</ul>
+</li>
+<li>
+<p>pyThreatMatrix (CLI/SDK)</p>
+<ul>
+<li>Official Python client that is available at: <a href="https://github.com/khulnasoft/pythreatmatrix">PyThreatMatrix</a>,</li>
+<li>Can be used as a library for your own python projects or...</li>
+<li>directly via the command line interface.</li>
+</ul>
+</li>
+<li>
+<p>goThreatMatrix (CLI/SDK)</p>
+<ul>
+<li>Official GO client that is available at: <a href="https://github.com/khulnasoft/go-threatmatrix">go-threatmatrix</a></li>
+</ul>
+</li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint: Tokens Creation</p>
+The server authentication is managed by API tokens. So, if you want to interact with Intel Owl, you have two ways to do that:
+<ul>
+<li>If you are a normal user, you can go to the "API Access/Sessions" section of the GUI and create a Token there.</li>
+<li>If you are an administrator of ThreatMatrix, you can create one or more unprivileged users from the Django Admin Interface and then generate a token for those users.
+</li>
+</ul>
+Afterwards you can leverage the created tokens with the Intel Owl Client.
+</div>
+<h2 id="plugins-framework">Plugins Framework</h2>
+<p>Plugins are the core modular components of ThreatMatrix that can be easily added, changed and customized.
+There are several types of plugins:</p>
+<ul>
+<li><a href="#analyzers">Analyzers</a></li>
+<li><a href="#connectors">Connectors</a></li>
+<li><a href="#pivots">Pivots</a></li>
+<li><a href="#visualizers">Visualizers</a></li>
+<li><a href="#ingestors">Ingestors</a></li>
+<li><a href="#playbooks">Playbooks</a></li>
+</ul>
+<h3 id="analyzers">Analyzers</h3>
+<p>Analyzers are the most important plugins in ThreatMatrix. They allow to perform data extraction on the observables and/or files that you would like to analyze.</p>
+<h4 id="analyzers-list">Analyzers list</h4>
+<p>The following is the list of the available analyzers you can run out-of-the-box. You can also navigate the same list via the</p>
+<ul>
+<li>Graphical Interface: once your application is up and running, go to the "Plugins" section</li>
+<li><a href="https://github.com/khulnasoft/pythreatmatrix">pythreatmatrix</a>: <code>$ pythreatmatrix get-analyzer-config</code></li>
+</ul>
+<h5 id="file-analyzers">File analyzers:</h5>
+<h6 id="internal-tools">Internal tools</h6>
+<ul>
+<li><code>APKiD</code>: <a href="https://github.com/rednaga/APKiD">APKiD</a> identifies many compilers, packers, obfuscators, and other weird stuff from an APK or DEX file.</li>
+<li><code>BoxJS_Scan_Javascript</code>: <a href="https://github.com/CapacitorSet/box-js">Box-JS</a> is a tool for studying JavaScript malware.</li>
+<li><code>Capa_Info</code>: <a href="https://github.com/mandiant/capa">Capa</a> detects capabilities in executable files</li>
+<li><code>Capa_Info_Shellcode</code>: <a href="https://github.com/mandiant/capa">Capa</a> detects capabilities in shellcode</li>
+<li><code>ClamAV</code>: scan a file via the <a href="https://www.clamav.net/">ClamAV AntiVirus Engine</a>. ThreatMatrix automatically keep ClamAV updated with official and <a href="https://github.com/rseichter/fangfrisch">unofficial</a> open source signatures</li>
+<li><code>Doc_Info</code>: static document analysis with new features to analyze XLM macros, encrypted macros and more (combination of Oletools and XLMMacroDeobfuscator)</li>
+<li><code>ELF_Info</code>: static ELF analysis with <a href="https://github.com/eliben/pyelftools">pyelftools</a> and <a href="https://github.com/trendmicro/telfhash">telfhash</a></li>
+<li><code>File_Info</code>: static generic File analysis (hashes, magic and <a href="https://exiftool.org/">exiftool</a>)</li>
+<li><code>Floss</code>: <a href="https://github.com/mandiant/flare-floss">Mandiant Floss</a> Obfuscated String Solver in files</li>
+<li><code>Hfinger</code>: create fingerprints of malware HTTPS requests using <a href="https://github.com/CERT-Polska/hfinger">Hfinger</a></li>
+<li><code>PE_Info</code>: static PE analysis with <a href="https://github.com/mlodic/pefile">pefile</a></li>
+<li><code>PEframe_Scan</code>: Perform static analysis on Portable Executable malware and malicious MS Office documents with <a href="https://github.com/guelfoweb/peframe">PeFrame</a></li>
+<li><code>Permhash</code>: create hash of manifest permssions found in APK, Android manifest, Chrome extensions or Chrome extension manifest using <a href="https://github.com/google/permhash">Permhash</a></li>
+<li><code>PDF_Info</code>: static PDF analysis (<a href="https://github.com/jesparza/peepdf">peepdf</a> + <a href="https://github.com/mlodic/pdfid">pdfid</a>)</li>
+<li><code>Qiling_Linux</code>: <a href="https://github.com/qilingframework/qiling">Qiling</a> qiling linux binary emulation.</li>
+<li><code>Qiling_Linux_Shellcode</code>: <a href="https://github.com/qilingframework/qiling">Qiling</a> qiling linux shellcode emulation.</li>
+<li><code>Qiling_Windows</code>: <a href="https://github.com/qilingframework/qiling">Qiling</a> qiling windows binary emulation.</li>
+<li><code>Qiling_Windows_Shellcode</code>: <a href="https://github.com/qilingframework/qiling">Qiling</a> qiling windows shellcode emulation.</li>
+<li><code>Quark_Engine</code>: <a href="https://github.com/quark-engine/quark-engine">Quark Engine</a> is an Obfuscation-Neglect Android Malware Scoring System.</li>
+<li><code>Rtf_Info</code>: static RTF analysis (<a href="https://github.com/decalage2/oletools">Oletools</a>)</li>
+<li><code>Signature_Info</code>: PE signature extractor with <a href="https://github.com/mtrojnar/osslsigncode">osslsigncode</a></li>
+<li><code>Speakeasy</code>: <a href="https://github.com/mandiant/speakeasy">Mandiant Speakeasy</a> binary emulation</li>
+<li><code>SpeakEasy_Shellcode</code>: <a href="https://github.com/mandiant/speakeasy">Mandiant Speakeasy</a> shellcode emulation</li>
+<li><code>Strings_Info</code>: Strings extraction. Leverages Mandiant's <a href="https://github.com/mandiant/stringsifter">Stringsifter</a></li>
+<li><code>Suricata</code>: Analyze PCAPs with open IDS signatures with <a href="https://github.com/OISF/suricata">Suricata engine</a></li>
+<li><code>Thug_HTML_Info</code>: Perform hybrid dynamic/static analysis on a HTML file using <a href="https://thug-honeyclient.readthedocs.io/">Thug low-interaction honeyclient</a></li>
+<li><code>Xlm_Macro_Deobfuscator</code>: <a href="https://github.com/DissectMalware/XLMMacroDeobfuscator">XlmMacroDeobfuscator</a> deobfuscate xlm macros</li>
+<li><code>Yara</code>: scan a file with<ul>
+<li><a href="https://github.com/fboldewin/YARA-rules">ATM malware yara rules</a></li>
+<li><a href="https://github.com/bartblaze/Yara-rules">bartblaze yara rules</a></li>
+<li><a href="https://github.com/Yara-Rules/rules">community yara rules</a></li>
+<li><a href="https://github.com/StrangerealIntel">StrangerealIntel</a></li>
+<li><a href="https://github.com/Neo23x0/signature-base">Neo23x0 yara rules</a></li>
+<li><a href="https://github.com/intezer/yara-rules">Intezer yara rules</a></li>
+<li><a href="https://github.com/InQuest/yara-rules">Inquest yara rules</a></li>
+<li><a href="https://github.com/advanced-threat-research/Yara-Rules">McAfee yara rules</a></li>
+<li><a href="https://github.com/sbousseaden/YaraHunts">Samir Threat Hunting yara rules</a></li>
+<li><a href="https://github.com/stratosphereips/yara-rules">Stratosphere yara rules</a></li>
+<li><a href="https://github.com/mandiant/red_team_tool_countermeasures">Mandiant yara rules</a></li>
+<li><a href="https://github.com/reversinglabs/reversinglabs-yara-rules">ReversingLabs yara rules</a></li>
+<li><a href="https://yaraify.abuse.ch/api/#download-yara-package">YARAify rules</a></li>
+<li><a href="https://github.com/SIFalcon/Detection/">SIFalcon rules</a></li>
+<li><a href="https://github.com/elastic/protections-artifacts">Elastic rules</a></li>
+<li><a href="https://github.com/JPCERTCC/jpcert-yara">JPCERTCC Yara rules</a></li>
+<li><a href="https://github.com/embee-research/Yara">HuntressLab Yara rules</a></li>
+<li><a href="https://github.com/elceef/yara-rulz">elceef Yara Rules</a></li>
+<li><a href="https://github.com/dr4k0nia/yara-rules">dr4k0nia Yara rules</a></li>
+<li><a href="https://github.com/facebook/malware-detection">Facebook Yara rules</a></li>
+<li><a href="https://github.com/edelucia/rules/tree/main/yara">edelucia Yara rules</a></li>
+<li><a href="https://github.com/magicsword-io/LOLDrivers">LOLDrivers Yara Rules</a></li>
+<li>your own added signatures. See <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#analyzers-with-special-configuration">Advanced-Usage</a> for more details.</li>
+</ul>
+</li>
+<li><code>Zippy_scan</code> : <a href="https://github.com/thinkst/zippy">Zippy</a>: Fast method to classify text as AI or human-generated; takes in <code>lzma</code>,<code>zlib</code>,<code>brotli</code> as input based engines; <code>ensemble</code> being default.</li>
+<li><code>Blint</code>: <a href="https://github.com/owasp-dep-scan/blint">Blint</a> is a Binary Linter that checks the security properties and capabilities of your executables. Supported binary formats: - Android (apk, aab) - ELF (GNU, musl) - PE (exe, dll) - Mach-O (x64, arm64)</li>
+<li><code>Mobsf</code>: <a href="https://github.com/MobSF/mobsfscan/">MobSF</a> is a static analysis tool that can find insecure code patterns in your Android and iOS source code. Supports Java, Kotlin, Android XML, Swift and Objective C Code.</li>
+<li><code>DroidLysis</code>: <a href="https://github.com/cryptax/droidlysis">DroidLysis</a> is a pre-analysis tool for Android apps: it performs repetitive and boring tasks we'd typically do at the beginning of any reverse engineering. It disassembles the Android sample, organizes output in directories, and searches for suspicious spots in the code to look at. The output helps the reverse engineer speed up the first few steps of analysis.</li>
+<li><code>Artifacts</code>: <a href="https://github.com/guelfoweb/artifacts">Artifacts</a> is a tool that does APK strings analysis. Useful for first analysis.</li>
+</ul>
+<h6 id="external-services">External services</h6>
+<ul>
+<li><code>CapeSandbox</code>: <a href="https://capesandbox.com">CAPESandbox</a> automatically scans suspicious files using the CapeSandbox API. Analyzer works for private instances as well.</li>
+<li><code>Cymru_Hash_Registry_Get_File</code>: Check if a particular file is known to be malware by <a href="https://team-cymru.com/community-services/mhr/">Team Cymru</a></li>
+<li><code>Cuckoo_Scan</code>: scan a file on Cuckoo (this analyzer is disabled by default. You have to change that flag <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/analyzer_config.json">in the config</a> to use it)</li>
+<li><code>DocGuard_Upload_File</code>: Analyze office files in seconds. <a href="https://www.docguard.io">DocGuard</a>.</li>
+<li><code>Dragonfly_Emulation</code>: Emulate malware against <a href="https://dragonfly.certego.net?utm_source=threatmatrix">Dragonfly</a> sandbox by <a href="https://certego.net?utm_source=threatmatrix">Certego S.R.L</a>.</li>
+<li><code>FileScan_Upload_File</code>: Upload your file to extract IoCs from executable files, documents and scripts via <a href="https://www.filescan.io/api/docs">FileScan.io API</a>.</li>
+<li><code>HashLookupServer_Get_File</code>: check if a md5 or sha1 is available in the database of <a href="https://github.com/adulau/hashlookup-server">known file hosted by CIRCL</a></li>
+<li><code>HybridAnalysis_Get_File</code>: check file hash on <a href="https://www.hybrid-analysis.com/">HybridAnalysis</a> sandbox reports</li>
+<li><code>Intezer_Scan</code>: scan a file on <a href="https://analyze.intezer.com/?utm_source=ThreatMatrix">Intezer</a>. Register for a free community account <a href="https://analyze.intezer.com/sign-in?utm_source=ThreatMatrix">here</a>. With TLP <code>CLEAR</code>, in case the hash is not found, you would send the file to the service.</li>
+<li><code>Malpedia_Scan</code>: scan a binary or a zip file (pwd:infected) against all the yara rules available in <a href="https://malpedia.caad.fkie.fraunhofer.de/">Malpedia</a></li>
+<li><code>MalwareBazaar_Get_File</code>: Check if a particular malware sample is known to <a href="https://bazaar.abuse.ch/">MalwareBazaar</a></li>
+<li><code>MISPFIRST_Check_Hash</code>: check a file hash on the <a href="https://misp.first.org/">FIRST MISP</a> instance</li>
+<li><code>MISP_Check_Hash</code>: check a file hash on a MISP instance</li>
+<li><code>MWDB_Scan</code>: <a href="https://mwdb.readthedocs.io/en/latest/">mwdblib</a> Retrieve malware file analysis from repository maintained by CERT Polska MWDB. With TLP <code>CLEAR</code>, in case the hash is not found, you would send the file to the service.</li>
+<li><code>OTX_Check_Hash</code>: check file hash on <a href="https://otx.alienvault.com/">Alienvault OTX</a></li>
+<li><code>SublimeSecurity</code>: Analyze an Email with <a href="https://docs.sublimesecurity.com/docs">Sublime Security</a> live flow</li>
+<li><code>Triage_Scan</code>: leverage <a href="https://tria.ge">Triage</a> sandbox environment to scan various files</li>
+<li><code>UnpacMe</code>: <a href="https://www.unpac.me/">UnpacMe</a> is an automated malware unpacking service</li>
+<li><code>Virushee_Scan</code>: Check file hash on <a href="https://api.virushee.com/">Virushee API</a>. With TLP <code>CLEAR</code>, in case the hash is not found, you would send the file to the service.</li>
+<li><code>VirusTotal_v3_File</code>: check the file hash on VirusTotal. With TLP <code>CLEAR</code>, in case the hash is not found, you would send the file to the service.</li>
+<li><code>YARAify_File_Scan</code>: scan a file against public and non-public YARA and ClamAV signatures in <a href="https://yaraify.abuse.ch/">YARAify</a> public service</li>
+<li><code>YARAify_File_Search</code>: scan an hash against <a href="https://yaraify.abuse.ch/">YARAify</a> database</li>
+</ul>
+<h5 id="observable-analyzers-ip-domain-url-hash">Observable analyzers (ip, domain, url, hash)</h5>
+<h6 id="internal-tools_1">Internal tools</h6>
+<ul>
+<li><code>CheckDMARC</code>: An SPF and DMARC DNS records validator for domains.</li>
+<li><code>DNStwist</code>: Scan a url/domain to find potentially malicious permutations via dns fuzzing. <a href="https://github.com/elceef/dnstwist">dnstwist repo</a></li>
+<li><code>Thug_URL_Info</code>: Perform hybrid dynamic/static analysis on a URL using <a href="https://thug-honeyclient.readthedocs.io/">Thug low-interaction honeyclient</a></li>
+<li><code>AILTypoSquatting</code>:<a href="https://github.com/typosquatter/ail-typo-squatting">AILTypoSquatting</a> is a Python library to generate list of potential typo squatting domains with domain name permutation engine to feed AIL and other systems.</li>
+</ul>
+<h6 id="external-services_1">External services</h6>
+<ul>
+<li><code>AbuseIPDB</code>: check if an ip was reported on <a href="https://www.abuseipdb.com/">AbuseIPDB</a></li>
+<li><code>Abusix</code>: get abuse contacts of an IP address from <a href="https://abusix.com/contact-db/">Abusix</a></li>
+<li><code>BGP Ranking</code>: <a href="https://github.com/D4-project/BGP-Ranking">BGP-Ranking</a> provides a way to collect such malicious activities, aggregate the information per ASN and provide a ranking model to rank the ASN from the most malicious to the less malicious ASN.</li>
+<li><code>Anomali_Threatstream_PassiveDNS</code>: Return information from passive dns of Anomali. On <a href="https://www.anomali.com/products/threatstream">Anomali Threatstream</a> PassiveDNS Api.</li>
+<li><code>Auth0</code>: scan an IP against the Auth0 API</li>
+<li><code>BinaryEdge</code>: Details about an Host. List of recent events for the specified host, including details of exposed ports and services using <a href="https://docs.binaryedge.io/api-v2/#v2queryiptarget">IP query</a> and return list of subdomains known from the target domains using <a href="https://docs.binaryedge.io/api-v2/#v2querydomainssubdomaintarget">domain query</a></li>
+<li><code>BitcoinAbuse</code> : Check a BTC address against bitcoinabuse.com, a public database of BTC addresses used by hackers and criminals.</li>
+<li><code>Censys_Search</code>: scan an IP address against <a href="https://censys.io/">Censys</a> View API</li>
+<li><code>CheckPhish</code>: <a href="https://checkphish.ai/checkphish-api/">CheckPhish</a> can detect phishing and fraudulent sites.</li>
+<li><code>CIRCLPassiveDNS</code>: scan an observable against the CIRCL Passive DNS DB</li>
+<li><code>CIRCLPassiveSSL</code>: scan an observable against the CIRCL Passive SSL DB</li>
+<li><code>Classic_DNS</code>: Retrieve current domain resolution with default DNS</li>
+<li><code>CloudFlare_DNS</code>: Retrieve current domain resolution with CloudFlare DoH (DNS over HTTPS)</li>
+<li><code>CloudFlare_Malicious_Detector</code>: Leverages CloudFlare DoH to check if a domain is related to malware</li>
+<li><code>Crowdsec</code>: check if an IP was reported on <a href="https://www.crowdsec.net/">Crowdsec</a> Smoke Dataset</li>
+<li><code>Cymru_Hash_Registry_Get_Observable</code>: Check if a particular hash is available in the malware hash registry of <a href="https://team-cymru.com/community-services/mhr/">Team Cymru</a></li>
+<li><code>DNSDB</code>: scan an observable against the <a href="https://www.farsightsecurity.com/solutions/dnsdb/">Passive DNS Farsight Database</a> (support both v1 and v2 versions)</li>
+<li><code>DNS0_EU</code>: Retrieve current domain resolution with DNS0.eu DoH (DNS over HTTPS)</li>
+<li><code>DNS0_EU_Malicious_Detector</code>: Check if a domain or an url is marked as malicious in DNS0.eu database (<a href="https://www.dns0.eu/zero">Zero</a> service)</li>
+<li><code>DocGuard_Get</code>: check if an hash was analyzed on DocGuard. <a href="https://www.docguard.io">DocGuard</a></li>
+<li><code>Feodo_Tracker</code>: <a href="https://feodotracker.abuse.ch/">Feodo Tracker</a> offers various blocklists, helping network owners to protect their users from Dridex and Emotet/Heodo.</li>
+<li><code>FileScan_Search</code>: Finds reports and uploaded files by various tokens, like hash, filename, verdict, IOCs etc via <a href="https://www.filescan.io/api/docs">FileScan.io API</a>.</li>
+<li><code>FireHol_IPList</code>: check if an IP is in <a href="https://iplists.firehol.org/">FireHol's IPList</a></li>
+<li><code>GoogleSafebrowsing</code>: Scan an observable against GoogleSafeBrowsing DB</li>
+<li><code>GoogleWebRisk</code>: Scan an observable against WebRisk API (Commercial version of Google Safe Browsing). Check the <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#analyzers-with-special-configuration">docs</a> to enable this properly</li>
+<li><code>Google_DNS</code>: Retrieve current domain resolution with Google DoH (DNS over HTTPS)</li>
+<li><code>GreedyBear</code>: scan an IP or a domain against the <a href="https://greedybear.honeynet.org/">GreedyBear</a> API (requires API key)</li>
+<li><code>GreyNoise</code>: scan an IP against the <a href="https://www.greynoise.io/">Greynoise</a> API (requires API key)</li>
+<li><code>GreyNoiseCommunity</code>: scan an IP against the <a href="https://www.greynoise.io/">Community Greynoise API</a> (requires API key))</li>
+<li><code>Greynoise_Labs</code>: scan an IP against the <a href="https://www.greynoise.io/">Greynoise API</a> (requires authentication token which can be obtained from cookies on Greynoise website after launching the playground from <a href="https://api.labs.greynoise.io/">here</a>)</li>
+<li><code>HashLookupServer_Get_Observable</code>: check if a md5 or sha1 is available in the database of <a href="https://github.com/adulau/hashlookup-server">known file hosted by CIRCL</a></li>
+<li><code>HoneyDB_Get</code>: <a href="https://honeydb.io/">HoneyDB</a> IP lookup service</li>
+<li><code>HoneyDB_Scan_Twitter</code>: scan an IP against HoneyDB.io's Twitter Threat Feed</li>
+<li><code>Hunter_How</code>: Scans IP and domain against <a href="https://hunter.how/search-api">Hunter_How API</a>.</li>
+<li><code>Hunter_Io</code>: Scans a domain name and returns set of data about the organisation, the email address found and additional information about the people owning those email addresses.</li>
+<li><code>HybridAnalysis_Get_Observable</code>: search an observable in the <a href="https://www.hybrid-analysis.com/">HybridAnalysis</a> sandbox reports</li>
+<li><code>IP2WHOIS</code>: <a href="https://www.ip2location.io/ip2whois-documentation">API Docs</a> IP2Location.io IP2WHOIS Domain WHOIS API helps users to obtain domain information and WHOIS record by using a domain name.</li>
+<li><code>IPQS_Fraud_And_Risk_Scoring</code>: Scan an Observable against <a href="https://www.ipqualityscore.com/">IPQualityscore</a></li>
+<li><code>InQuest_DFI</code>: Deep File Inspection by <a href="https://labs.inquest.net/dfi">InQuest Labs</a></li>
+<li><code>InQuest_IOCdb</code>: Indicators of Compromise Database by <a href="https://labs.inquest.net/iocdb">InQuest Labs</a></li>
+<li><code>InQuest_REPdb</code>: Search in <a href="https://labs.inquest.net/repdb">InQuest Lab's</a> Reputation Database</li>
+<li><code>IPApi</code>: Get information about IPs using <a href="https://ip-api.com/docs/api:batch">batch-endpoint</a> and DNS using <a href="https://ip-api.com/docs/dns">DNS-endpoint</a>.</li>
+<li><code>IPInfo</code>: Location Information about an IP</li>
+<li><code>Ip2location</code>: <a href="https://www.ip2location.io/ip2location-documentation">API Docs</a> IP2Location.io allows users to check IP address location in real time. (Supports both with or without key)</li>
+<li><code>Intezer_Get</code>: check if an analysis related to a hash is available in <a href="https://analyze.intezer.com/?utm_source=ThreatMatrix">Intezer</a>. Register for a free community account <a href="https://analyze.intezer.com/sign-in">here</a>.</li>
+<li><code>Koodous</code>: <a href="https://docs.koodous.com/api/">koodous API</a> get information about android malware.</li>
+<li><code>MalwareBazaar_Get_Observable</code>: Check if a particular malware hash is known to <a href="https://bazaar.abuse.ch/">MalwareBazaar</a></li>
+<li><code>MalwareBazaar_Google_Observable</code>: Check if a particular IP, domain or url is known to MalwareBazaar using google search</li>
+<li><code>MaxMindGeoIP</code>: extract GeoIP info for an observable</li>
+<li><code>MISP</code>: scan an observable on a MISP instance</li>
+<li><code>MISPFIRST</code>: scan an observable on the FIRST MISP instance</li>
+<li><code>Mmdb_server</code>: <a href="https://github.com/adulau/mmdb-server">Mmdb_server</a> mmdb-server is an open source fast API server to lookup IP addresses for their geographic location, AS number.</li>
+<li><code>Mnemonic_PassiveDNS</code> : Look up a domain or IP using the <a href="https://docs.mnemonic.no/display/public/API/Passive+DNS+Overview">Mnemonic PassiveDNS public API</a>.</li>
+<li><code>MWDB_Get</code>: <a href="https://mwdb.readthedocs.io/en/latest/">mwdblib</a> Retrieve malware file analysis by hash from repository maintained by CERT Polska MWDB.</li>
+<li><code>Netlas</code>: search an IP against <a href="https://netlas.io/api">Netlas</a></li>
+<li><code>ONYPHE</code>: search an observable in <a href="https://www.onyphe.io/">ONYPHE</a></li>
+<li><code>OpenCTI</code>: scan an observable on an <a href="https://github.com/OpenCTI-Platform/opencti">OpenCTI</a> instance</li>
+<li><code>OTXQuery</code>: scan an observable on <a href="https://otx.alienvault.com/">Alienvault OTX</a></li>
+<li><code>Phishstats</code>: Search <a href="https://phishstats.info/">PhishStats API</a> to determine if an IP/URL/domain is malicious.</li>
+<li><code>Phishtank</code>: Search an url against <a href="https://phishtank.org/api_info.php">Phishtank</a> API</li>
+<li><code>PhishingArmy</code>: Search an observable in the <a href="https://phishing.army/">PhishingArmy</a> blocklist</li>
+<li><code>Pulsedive</code>: Scan indicators and retrieve results from <a href="https://pulsedive.com/api/">Pulsedive's API</a>.</li>
+<li><code>Quad9_DNS</code>: Retrieve current domain resolution with Quad9 DoH (DNS over HTTPS)</li>
+<li><code>Quad9_Malicious_Detector</code>: Leverages Quad9 DoH to check if a domain is related to malware</li>
+<li><code>Robtex</code>: scan a domain/IP against the Robtex Passive DNS DB</li>
+<li><code>Securitytrails</code>: scan an IP/Domain against <a href="https://securitytrails.com/">Securitytrails</a> API</li>
+<li><code>Shodan_Honeyscore</code>: scan an IP against <a href="https://www.shodan.io/">Shodan</a> Honeyscore API</li>
+<li><code>Shodan_Search</code>: scan an IP against <a href="https://www.shodan.io/">Shodan</a> Search API</li>
+<li><code>Spyse</code>: Scan domains, IPs, emails and CVEs using Spyse's API. Register <a href="https://spyse.com/user/registration">here</a>.</li>
+<li><code>SSAPINet</code>: get a screenshot of a web page using <a href="https://screenshotapi.net/">screenshotapi.net</a> (external source); additional config options can be added to <code>extra_api_params</code> <a href="https://github.com/khulnasoft/ThreatMatrix/blob/master/configuration/analyzer_config.json">in the config</a>.</li>
+<li><code>Stalkphish</code>: Search <a href="https://www.stalkphish.io/">Stalkphish API</a> to retrieve information about a potential phishing site (IP/URL/domain/Generic).</li>
+<li><code>Stratosphere_Blacklist</code>: Cross-reference an IP from blacklists maintained by <a href="https://www.stratosphereips.org/attacker-ip-prioritization-blacklist">Stratosphere Labs</a></li>
+<li><code>TalosReputation</code>: check an IP reputation from <a href="https://talosintelligence.com/reputation_center/">Talos</a></li>
+<li><code>ThreatFox</code>: search for an IOC in <a href="https://threatfox.abuse.ch/api/">ThreatFox</a>'s database</li>
+<li><code>Threatminer</code>: retrieve data from <a href="https://www.threatminer.org/">Threatminer</a> API</li>
+<li><code>TorNodesDanMeUk</code>: check if an IP is a Tor Node using a list of all Tor nodes provided by <a href="https://www.dan.me.uk/tornodes">dan.me.uk</a></li>
+<li><code>TorProject</code>: check if an IP is a Tor Exit Node</li>
+<li><code>Triage_Search</code>: Search for reports of observables or upload from URL on triage cloud</li>
+<li><code>Tranco</code>: Check if a domain is in the latest <a href="https://tranco-list.eu/">Tranco</a> ranking top sites list</li>
+<li><code>URLhaus</code>: Query a domain or URL against <a href="https://urlhaus.abuse.ch/">URLhaus</a> API.</li>
+<li><code>UrlScan_Search</code>: Search an IP/domain/url/hash against <a href="https://urlscan.io">URLScan</a> API</li>
+<li><code>UrlScan_Submit_Result</code>: Submit &amp; retrieve result of an URL against <a href="https://urlscan.io">URLScan</a> API</li>
+<li><code>Virushee_CheckHash</code>: Search for a previous analysis of a file by its hash (SHA256/SHA1/MD5) on <a href="https://api.virushee.com/">Virushee API</a>.</li>
+<li><code>VirusTotal_v3_Get_Observable</code>: search an observable in the VirusTotal DB</li>
+<li><code>Whoisxmlapi</code>: Fetch WHOIS record data, of a domain name, an IP address, or an email address.</li>
+<li><code>WhoIs_RipeDB_Search</code> : Fetch whois record data of an IP address from Ripe DB using their <a href="https://github.com/RIPE-NCC/whois/wiki/WHOIS-REST-API-search">search API</a> (no API key required)</li>
+<li><code>XForceExchange</code>: scan an observable on <a href="https://exchange.xforce.ibmcloud.com/">IBM X-Force Exchange</a></li>
+<li><code>YARAify_Search</code>: lookup a file hash in <a href="https://yaraify.abuse.ch/">Abuse.ch YARAify</a></li>
+<li><code>YETI</code> (Your Everyday Threat Intelligence): scan an observable on a <a href="https://github.com/yeti-platform/yeti">YETI</a> instance.</li>
+<li><code>Zoomeye</code>: <a href="https://www.zoomeye.org">Zoomeye</a> Cyberspace Search Engine recording information of devices, websites, services and components etc..</li>
+<li><code>Validin</code>:<a href="https://app.validin.com/">Validin</a> investigates historic and current data describing the structure and composition of the internet.</li>
+<li><code>TweetFeed</code>: <a href="https://tweetfeed.live/">TweetFeed</a> collects Indicators of Compromise (IOCs) shared by the infosec community at Twitter.\r\nHere you will find malicious URLs, domains, IPs, and SHA256/MD5 hashes.</li>
+<li><code>HudsonRock</code>: <a href="https://cavalier.hudsonrock.com/docs">Hudson Rock</a> provides its clients the ability to query a database of over 27,541,128 computers which were compromised through global info-stealer campaigns performed by threat actors.</li>
+<li><code>CyCat</code>: <a href="https://cycat.org/">CyCat</a> or the CYbersecurity Resource CATalogue aims at mapping and documenting, in a single formalism and catalogue available cybersecurity tools, rules, playbooks, processes and controls.</li>
+<li><code>Vulners</code>: <a href="vulners.com">Vulners</a> is the most complete and the only fully correlated security intelligence database, which goes through constant updates and links 200+ data sources in a unified machine-readable format. It contains 8 mln+ entries, including CVEs, advisories, exploits, and IoCs — everything you need to stay abreast on the latest security threats.</li>
+</ul>
+<h5 id="generic-analyzers-email-phone-number-etc-anything-really">Generic analyzers (email, phone number, etc.; anything really)</h5>
+<p>Some analyzers require details other than just IP, URL, Domain, etc. We classified them as <code>generic</code> Analyzers. Since the type of field is not known, there is a format for strings to be followed.</p>
+<h6 id="internal-tools_2">Internal tools</h6>
+<ul>
+<li><code>CyberChef</code>: Run a query on a <a href="https://github.com/gchq/CyberChef-server">CyberChef server</a> using pre-defined or custom recipes.</li>
+</ul>
+<h6 id="external-services_2">External services</h6>
+<ul>
+<li><code>Anomali_Threatstream_Confidence</code>: Give max, average and minimum confidence of maliciousness for an observable. On <a href="https://www.anomali.com/products/threatstream">Anomali Threatstream</a> Confidence API.</li>
+<li><code>Anomali_Threatstream_Intelligence</code>: Search for threat intelligence information about an observable. On <a href="https://www.anomali.com/products/threatstream">Anomali Threatstream</a> Intelligence API.</li>
+<li><code>CRXcavator</code>: scans a chrome extension against crxcavator.io</li>
+<li><code>Dehashed_Search</code>: Query any observable/keyword against https://dehashed.com's search API.</li>
+<li><code>EmailRep</code>: search an email address on <a href="https://emailrep.io">emailrep.io</a></li>
+<li><code>HaveIBeenPwned</code>: <a href="https://haveibeenpwned.com/API/v3">HaveIBeenPwned</a> checks if an email address has been involved in a data breach</li>
+<li><code>IntelX_Intelligent_Search</code>: <a href="https://intelx.io/">IntelligenceX</a> is a search engine and data archive. Fetches emails, urls, domains associated with an observable or a generic string.</li>
+<li><code>IntelX_Phonebook</code>: <a href="https://intelx.io/">IntelligenceX</a> is a search engine and data archive. Fetches emails, urls, domains associated with an observable or a generic string.</li>
+<li><code>IPQS_Fraud_And_Risk_Scoring</code>: Scan an Observable against <a href="https://www.ipqualityscore.com/">IPQualityscore</a></li>
+<li><code>MISP</code>: scan an observable on a MISP instance</li>
+<li><code>VirusTotal_v3_Intelligence_Search</code>: Perform advanced queries with <a href="https://developers.virustotal.com/reference/intelligence-search">VirusTotal Intelligence</a> (requires paid plan)</li>
+<li><code>WiGLE</code>: Maps and database of 802.11 wireless networks, with statistics, submitted by wardrivers, netstumblers, and net huggers.</li>
+<li><code>YARAify_Generics</code>: lookup a YARA rule (default), ClamAV rule, imphash, TLSH, telfhash or icon_dash in <a href="https://yaraify.abuse.ch/">YARAify</a></li>
+<li><code>PhoneInfoga</code> : <a href="https://sundowndev.github.io/phoneinfoga/">PhoneInfoga</a> is one of the most advanced tools to scan international phone numbers.</li>
+<li><code>HudsonRock</code>: <a href="https://cavalier.hudsonrock.com/docs">Hudson Rock</a> provides its clients the ability to query a database of over 27,541,128 computers which were compromised through global info-stealer campaigns performed by threat actors.</li>
+</ul>
+<h5 id="optional-analyzers">Optional analyzers</h5>
+<p><a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#optional-analyzers">Some analyzers are optional</a> and need to be enabled explicitly.</p>
+<h3 id="connectors">Connectors</h3>
+<p>Connectors are designed to run after every successful analysis which makes them suitable for automated threat-sharing. They support integration with other SIEM/SOAR projects, specifically aimed at Threat Sharing Platforms.</p>
+<h4 id="connectors-list">Connectors list</h4>
+<p>The following is the list of the available connectors. You can also navigate the same list via the</p>
+<ul>
+<li>Graphical Interface: once your application is up and running, go to the "Plugins" section</li>
+<li><a href="https://github.com/khulnasoft/pythreatmatrix">pythreatmatrix</a>: <code>$ pythreatmatrix get-connector-config</code></li>
+</ul>
+<h5 id="list-of-pre-built-connectors">List of pre-built Connectors</h5>
+<ul>
+<li><code>MISP</code>: automatically creates an event on your MISP instance, linking the successful analysis on ThreatMatrix.</li>
+<li><code>OpenCTI</code>: automatically creates an observable and a linked report on your OpenCTI instance, linking the the successful analysis on ThreatMatrix.</li>
+<li><code>YETI</code>: YETI = Your Everyday Threat Intelligence. find or create observable on YETI, linking the successful analysis on ThreatMatrix.</li>
+<li><code>Slack</code>: Send the analysis link to a Slack channel (useful for external notifications)</li>
+<li><code>EmailSender</code>: Send a generic email.</li>
+<li><code>AbuseSubmitter</code>: Send an email to request to take down a malicious domain.</li>
+</ul>
+<h3 id="pivots">Pivots</h3>
+<p>With ThreatMatrix v5.2.0 we introduced the <code>Pivot</code> Plugin.</p>
+<p>Pivots are designed to create a job from another job. This plugin allows the user to set certain conditions that trigger the execution of one or more subsequent jobs, strictly connected to the first one.</p>
+<p>This is a "SOAR" feature that allows the users to connect multiple analysis together.</p>
+<h4 id="list-of-pre-built-pivots">List of pre-built Pivots</h4>
+<ul>
+<li><code>TakedownRequestToAbuseIp</code>: This Plugin leverages results from DNS resolver analyzers to extract a valid IP address to pivot to the Abusix analyzer.</li>
+<li><code>AbuseIpToSubmission</code>: This Plugin leverages results from the Abusix analyzer to extract the abuse contacts of an IP address to pivot to the AbuseSubmitter connector.</li>
+</ul>
+<p>You can build your own custom Pivot with your custom logic with just few lines of code. See the <a href="https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-add-a-new-pivot">Contribute</a> section for more info.</p>
+<h4 id="creating-pivots-from-the-gui">Creating Pivots from the GUI</h4>
+<p>From the GUI, the users can pivot in two ways:</p>
+<ul>
+<li>If a Job executed a <a href="#visualizers">Visualizer</a>, it is possible to select a field extracted and analyze its value by clicking the "Pivot" button (see following image). In this way, the user is able to "jump" from one indicator to another.
+  <img alt="img.png" src="../static/pivot_job_report.png"/></li>
+</ul>
+<ul>
+<li>Starting from an already existing <a href="#investigations-framework">Investigation</a>, it is possible to select a Job block and click the "Pivot" button to analyze the same observable again, usually choosing another <a href="#playbooks">Playbook</a> (see following image)
+  <img alt="img.png" src="../static/pivot_investigation_report.png"/></li>
+</ul>
+<p>In both cases, the user is redirected to the Scan Page that is precompiled with the observable selected. Then the user would be able to select the <a href="#playbooks">Playbook</a> to execute in the new job.
+<img alt="img.png" src="../static/pivot_scan_page.png"/></p>
+<p>After the new Job is started, a new <a href="#investigations-framework">Investigation</a> will be created (if it does not already exist) and both the jobs will be added to the same Investigation.</p>
+<p>In the following image you can find an example of an <a href="#investigations-framework">Investigation</a> composed by 3 pivots generated manually:</p>
+<ul>
+<li>leveraging the first way to create a Pivot, the 2 Jobs that analyzed IP addresses have been generated from the first <code>test\.com</code> Job</li>
+<li>leveraging the second way to create a Pivot, the second <code>test\.com</code> analysis had been created with a different Playbook.</li>
+</ul>
+<p><img alt="img.png" src="../static/pivot_investigation.png"/></p>
+<h3 id="visualizers">Visualizers</h3>
+<p>With ThreatMatrix v5 we introduced a new plugin type called <strong>Visualizers</strong>.
+You can leverage it as a framework to create <em>custom aggregated and simplified visualization of analyzer results</em>.</p>
+<p>Visualizers are designed to run after the analyzers and the connectors.
+The visualizer adds logic after the computations, allowing to show the final result in a different way than merely the list of reports.</p>
+<p>Visualizers can be executed only during <code>Scans</code> through the playbook that has been configured on the visualizer itself.</p>
+<p>This framework is extremely powerful and allows every user to customize the GUI as they wish. But you know...with great power comes great responsability. To fully leverage this framework, you would need to put some effort in place. You would need to understand which data is useful for you and then write few code lines that would create your own GUI.
+To simplify the process, take example from the pre-built visualizers listed below and follow the dedicated <a href="https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-add-a-new-visualizer">documentation</a>.</p>
+<h5 id="list-of-pre-built-visualizers">List of pre-built Visualizers</h5>
+<ul>
+<li><code>DNS</code>: displays the aggregation of every DNS analyzer report</li>
+<li><code>Yara</code>: displays the aggregation of every matched rule by the <code>Yara</code> Analyzer</li>
+<li><code>Domain_Reputation</code>: Visualizer for the Playbook "Popular_URL_Reputation_Services"</li>
+<li><code>IP_Reputation</code>: Visualizer for the Playbook "Popular_IP_Reputation_Services"</li>
+<li><code>Pivot</code>: Visualizer that can be used in a Playbook to show the Pivot execution result. See <a href="#pivots">Pivots</a> for more info.</li>
+</ul>
+<h3 id="ingestors">Ingestors</h3>
+<p>With ThreatMatrix v5.1.0 we introduced the <code>Ingestor</code> Plugin.</p>
+<p>Ingestors allow to automatically insert IOC streams from outside sources to ThreatMatrix itself.
+Each Ingestor must have a <code>Playbook</code> attached: this will allow to create a <code>Job</code> from every IOC retrieved.</p>
+<p>Ingestors are system-wide and <strong>disabled</strong> by default, meaning that only the administrator are able to configure them and enable them.
+Ingestors can be <em>spammy</em> so be careful about enabling them.</p>
+<p>A very powerful use is case is to <strong>combine Ingestors with Connectors</strong> to automatically extract data from external sources, analyze them with ThreatMatrix and push them externally to another platform (like MISP or a SIEM)</p>
+<h4 id="list-of-pre-built-ingestors">List of pre-built Ingestors</h4>
+<ul>
+<li><code>ThreatFox</code>: Retrieves daily ioc from <code>https://threatfox.abuse.ch/</code> and analyze them.</li>
+<li><code>MalwareBazaar</code>: Retrieves hourly samples from <code>https://bazaar.abuse.ch/</code> and analyze them.</li>
+<li><code>VirusTotal</code>: Perform intelligence queries at hourly intervals from <code>https://www.virustotal.com/</code> (premium api key required), then retrieves the samples and analyzes them.</li>
+</ul>
+<h3 id="playbooks">Playbooks</h3>
+<p>Playbooks are designed to be easy to share sequence of running Plugins (Analyzers, Connectors, ...) on a particular kind of observable.</p>
+<p>If you want to avoid to re-select/re-configure a particular combination of analyzers and connectors together every time, you should create a playbook out of it and use it instead. This is time saver.</p>
+<p>This is a feature introduced since ThreatMatrix v4.1.0! Please provide feedback about it!</p>
+<h4 id="playbooks-list">Playbooks List</h4>
+<p>The following is the list of the available pre-built playbooks. You can also navigate the same list via the</p>
+<ul>
+<li>Graphical Interface: once your application is up and running, go to the "Plugins" section</li>
+<li><a href="https://github.com/khulnasoft/pythreatmatrix">pythreatmatrix</a>: <code>$ pythreatmatrix get-playbook-config</code></li>
+</ul>
+<h5 id="list-of-pre-built-playbooks">List of pre-built playbooks</h5>
+<ul>
+<li><code>FREE_TO_USE_ANALYZERS</code>: A playbook containing all free to use analyzers.</li>
+<li><code>Sample_Static_Analysis</code>: A playbook containing all analyzers that perform static analysis on files.</li>
+<li><code>Popular_URL_Reputation_Services</code>: Collection of the most popular and free reputation analyzers for URLs and Domains</li>
+<li><code>Popular_IP_Reputation_Services</code>: Collection of the most popular and free reputation analyzers for IP addresses</li>
+<li><code>Dns</code>: A playbook containing all dns providers</li>
+<li><code>Takedown_Request</code>: Start investigation to request to take down a malicious domain. A mail will be sent to the domain's abuse contacts found</li>
+<li><code>Abuse_IP</code>: Playbook containing the Abusix analyzer. It is executed after the Takedown_Request playbook</li>
+<li><code>Send_Abuse_Email</code>: Playbook containing the AbuseSubmitter connector to send an email to request to take down a malicious domain. It is executed after the Abuse_IP playbook</li>
+</ul>
+<h4 id="playbooks-creation-and-customization">Playbooks creation and customization</h4>
+<p>You can create new playbooks in different ways, based on the users you want to share them with:</p>
+<p>If you want to share them to every user in ThreatMatrix, create them via the Django Admin interface at <code>/admin/playbooks_manager/playbookconfig/</code>.</p>
+<p>If you want share them to yourself or your organization only, you need to leverage the "Save as Playbook" button that you can find on the top right of the Job Result Page.
+In this way, after you have done an analysis, you can save the configuration of the Plugins you executed for re-use with a single click.</p>
+<p><img alt="img.png" src="../static/playbook_creation.png"/></p>
+<p>The created Playbook would be available to yourself only. If you want either to share it with your organization or to delete it, you need to go to the "Plugins" section and enable it manually by clicking the dedicated button.</p>
+<p><img alt="img.png" src="../static/playbooks_cr.png"/></p>
+<h3 id="generic-plugin-creation-configuration-and-customization">Generic Plugin Creation, Configuration and Customization</h3>
+<p>If you want to create completely new Plugins (not based on already existing python modules), please refer to the <a href="https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-add-a-new-plugin">Contribute</a> section. This is usually the case when you want to integrate ThreatMatrix with either a new tool or a new service.</p>
+<p>On the contrary, if you would like to just customize the already existing plugins, this is the place.</p>
+<h4 id="superuser-customization">SuperUser customization</h4>
+<p>If you are an ThreatMatrix superuser, you can create, modify, delete analyzers based on already existing modules by changing the configuration values inside the Django Admin interface at:</p>
+<ul>
+<li>for analyzers: <code>/admin/analyzers_manager/analyzerconfig/</code>.</li>
+<li>for connectors: <code>/admin/connectors_manager/connectorconfig/</code>.</li>
+<li>...and so on for all the Plugin types.</li>
+</ul>
+<p>The following are the most important fields that you can change without touching the source code:</p>
+<ul>
+<li><code>Name</code>: Name of the analyzer</li>
+<li><code>Description</code>: Description of the analyzer</li>
+<li><code>Disabled</code>: you can choose to disable certain analyzers, then they won't appear in the dropdown list and won't run if requested.</li>
+<li><code>Python Module</code>: Python path of the class that will be executed. This should not be changed most of the times.</li>
+<li><code>Maximum TLP</code>: see <a href="#tlp-support">TLP Support</a></li>
+<li><code>Soft Time Limit</code>: this is the maximum time (in seconds) of execution for an analyzer. Once reached, the task will be killed (or managed in the code by a custom Exception). Default <code>300</code>.</li>
+<li><code>Routing Key</code>: this takes effects only when <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_configuration/#multi-queue">multi-queue</a> is enabled. Choose which celery worker would execute the task: <code>local</code> (ideal for tasks that leverage local applications like Yara), <code>long</code> (ideal for long tasks) or <code>default</code> (ideal for simple webAPI-based analyzers).</li>
+</ul>
+<p>For analyzers only:</p>
+<ul>
+<li><code>Supported Filetypes</code>: can be populated as a list. If set, if you ask to analyze a file with a different mimetype from the ones you specified, it won't be executed</li>
+<li><code>Not Supported Filetypes</code>: can be populated as a list. If set, if you ask to analyze a file with a mimetype from the ones you specified, it won't be executed</li>
+<li><code>Observable Supported</code>: can be populated as a list. If set, if you ask to analyze an observable that is not in this list, it won't be executed. Valid values are: <code>ip</code>, <code>domain</code>, <code>url</code>, <code>hash</code>, <code>generic</code>.</li>
+</ul>
+<p>For connectors only:</p>
+<ul>
+<li><code>Run on Failure</code> (default: <code>true</code>): if they can be run even if the job has status <code>reported_with_fails</code></li>
+</ul>
+<p>For visualizers only:</p>
+<ul>
+<li><code>Playbooks</code>: list of playbooks that trigger the specified visualizer execution.</li>
+</ul>
+<p>Sometimes, it may happen that you would like to create a new analyzer very similar to an already existing one. Maybe you would like to just change the description and the default parameters.
+A helpful way to do that without having to copy/pasting the entire configuration, is to click on the analyzer that you want to copy, make the desired changes, and click the <code>save as new</code> button.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+Changing other keys can break a plugin. In that case, you should think about duplicating the configuration entry or python module with your changes.
+</div>
+<p>Other options can be added at the "Python module" level and not at the Plugin level. To do that, go to: <code>admin/api_app/pythonmodule/</code> and select the Python module used by the Plugin that you want to change.
+For example, the analyzer <code>AbuseIPDB</code> uses the Python module <code>abuseipdb.AbuseIPDB</code>.</p>
+<p><img alt="img.png" src="../static/python_module_abuseipdb.png"/></p>
+<p>Once there, you'll get this screen:</p>
+<p><img alt="img.png" src="../static/abuseipdb.png"/></p>
+<p>There you can change the following values:</p>
+<ul>
+<li><code>Update Schedule</code>: if the analyzer require some sort of update (local database, local rules, ...), you can specify the crontab schedule to update them.</li>
+<li><code>Health Check Schedule</code>: if the analyzer has implemented a Health Check, you can specify the crontab schedule to check whether the service works or not.</li>
+</ul>
+<h4 id="parameters">Parameters</h4>
+<p>Each Plugin could have one or more parameters available to be configured. These parameters allow the users to customize the Plugin behavior.</p>
+<p>There are 2 types of Parameters:</p>
+<ul>
+<li>classic Parameters</li>
+<li><code>Secrets</code>: these parameters usually manage sensitive data, like API keys.</li>
+</ul>
+<p>To see the list of these parameters:</p>
+<ul>
+<li>You can view the "Plugin" Section in ThreatMatrix to have a complete and updated view of all the options available</li>
+<li>You can view the parameters by exploring the Django Admin Interface:<ul>
+<li><code>admin/api_app/parameter/</code></li>
+<li>or at the very end of each Plugin configuration like <code>/admin/analyzers_manager/analyzerconfig/</code></li>
+</ul>
+</li>
+</ul>
+<p>You can change the Plugin Parameters at 5 different levels:</p>
+<ul>
+<li>if you are an ThreatMatrix superuser, you can go in the Django Admin Interface and change the default values of the parameters for every plugin you like. This option would change the default behavior for every user in the platform.</li>
+<li>if you are either Owner or Admin of an org, you can customize the default values of the parameters for every member of the organization by leveraging the GUI in the "Organization Config" section. This overrides the previous option.</li>
+<li>if you are a normal user, you can customize the default values of the parameters for your analysis only by leveraging the GUI in the "Plugin config" section. This overrides the previous option.</li>
+<li>You can choose to provide runtime configuration when requesting an analysis that will override the previous options. This override is done only for the specific analysis. See <a href="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_usage/#customize-analyzer-execution">Customize analyzer execution at time of request</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Playbook Exception</p>
+Please remember that, if you are executing a Playbook, the "Runtime configuration" of the Playbook take precedence over the Plugin Configuration.
+</div>
+<div class="admonition note">
+<p class="admonition-title">Plugin Configuration Order</p>
+Due to the multiple chances that are given to customize the parameters of the Plugins that are executed, it may be easy to confuse the order and launch Plugins without the awereness of what you are doing.
+
+This is the order to define which values are used for the parameters, starting by the most important element:
+
+- Runtime Configuration at Time of Request.
+- Runtime Configuration of the Playbook (if a Playbook is used and the Runtime Configuration at Time of Request is empty)
+- Plugin Configuration of the User
+- Plugin Configuration of the Organization
+- Default Plugin Configuration of the Parameter
+
+If you are using the GUI, please remember that you can always check the Parameters before starting a "Scan" by clicking at the "Runtime configuration" ![img.png](./static/runtime_config.png) button.
+
+Example:
+![img.png](./static/runtime_config_2.png)
+
+</div>
+<h3 id="enabling-or-disabling-plugins">Enabling or Disabling Plugins</h3>
+<p>By default, each available plugin is configured as either disabled or not. The majority of them are enabled by default, while others may be disabled to avoid potential problems in the application usability for first time users.</p>
+<p>Considering the impact that this change could have in the application, the GUI does not allow a normal user to enable/disable any plugin. On the contrary, users with specific privileges may change this configuration:</p>
+<ul>
+<li>Org Administrators may leverage the feature documented <a href="#disable-analyzers-at-org-level">here</a> to enable/disable plugins for their org. This can be helpful to control users' behavior.</li>
+<li>ThreatMatrix Superusers (full admin) can go to the Django Admin Interface and enable/disable them from there. This operation does overwrite the Org administrators configuration. To find the plugin to change, they'll need to first choose the section of its type ("ANALYZERS_MANAGER", "CONNECTORS_MANAGER", etc), then select the chosen plugin, change the flag on that option and save the plugin by pressing the right button.</li>
+</ul>
+<p><img alt="img.png" src="../static/disabled.png"/></p>
+<p><img alt="img.png" src="../static/save.png"/></p>
+<h3 id="special-plugins-operations">Special Plugins operations</h3>
+<p>All plugins, i.e. analyzers and connectors, have <code>kill</code> and <code>retry</code> actions. In addition to that, all docker-based analyzers and connectors have a <code>healthcheck</code> action to check if their associated instances are up or not.</p>
+<ul>
+<li>
+<p><strong>kill:</strong></p>
+<p>Stop a plugin whose status is <code>running</code>/<code>pending</code>:</p>
+<ul>
+<li>GUI: Buttons on reports table on job result page.</li>
+<li>PyThreatMatrix: <code>ThreatMatrix.kill_analyzer</code> and <code>ThreatMatrix.kill_connector</code> function.</li>
+<li>CLI: <code>$ pythreatmatrix jobs kill-analyzer &lt;job_id&gt; &lt;analyzer_name&gt;</code> and <code>$ pythreatmatrix jobs kill-connector &lt;job_id&gt; &lt;connector_name&gt;</code></li>
+<li>API: <code>PATCH /api/job/{job_id}/{plugin_type/{plugin_name}/kill</code> and <code>PATCH /api/job/{job_id}/connector/{connector_name}/kill</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>retry:</strong></p>
+<p>Retry a plugin whose status is <code>failed</code>/<code>killed</code>:</p>
+<ul>
+<li>GUI: Buttons on reports table on job result page.</li>
+<li>PyThreatMatrix: <code>ThreatMatrix.retry_analyzer</code> and <code>ThreatMatrix.retry_connector</code> function,</li>
+<li>CLI: <code>$ pythreatmatrix jobs retry-analyzer &lt;job_id&gt; &lt;analyzer_name&gt;</code> and <code>$ pythreatmatrix jobs retry-connector &lt;job_id&gt; &lt;connector_name&gt;</code></li>
+<li>API: <code>PATCH /api/job/{job_id}/{plugin_type}/{plugin_name}/retry</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>healthcheck:</strong></p>
+<p>Check if a plugin is able to connect to its provider:</p>
+<ul>
+<li>GUI: Buttons on every plugin table.</li>
+<li>PyThreatMatrix: <code>ThreatMatrix.analyzer_healthcheck</code> and <code>ThreatMatrix.connector_healthcheck</code> methods.</li>
+<li>CLI: <code>$ pythreatmatrix analyzer-healthcheck &lt;analyzer_name&gt;</code> and <code>$ pythreatmatrix connector-healthcheck &lt;connector_name&gt;</code></li>
+<li>API: <code>GET /api/{plugin_type}/{plugin_name}/healthcheck</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>pull:</strong></p>
+<p>Update a plugin with the newest rules/database:</p>
+<ul>
+<li>GUI: Buttons on every plugin table.</li>
+<li>API: <code>POST /api/{plugin_type}/{plugin_name}/pull</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="tlp-support">TLP Support</h3>
+<p>The <strong>Traffic Light Protocol</strong> (<a href="https://www.first.org/tlp/">TLP</a>) is a standard that was created to facilitate greater sharing of potentially sensitive information and more effective collaboration.</p>
+<p>ThreatMatrix is not a threat intel sharing platform, like the <a href="https://www.misp-project.org/">MISP platform</a>. However, ThreatMatrix is able to share analysis results to external platforms (via <a href="#connectors">Connectors</a>) and to send possible privacy related information to external services (via <a href="#analyzers">Analyzers</a>).</p>
+<p>This is why ThreatMatrix does support a customized version of the <strong>Traffic Light Protocol</strong> (TLP): to allow the user to have a better knowledge of how their data are being shared.</p>
+<p>Every <a href="#analyzers">Analyzer</a> and <a href="#connectors">Connector</a> can be configured with a <code>maximum_tlp</code> value.
+Based on that value, ThreatMatrix understands if the specific plugin is allowed or not to run (e.g. if <code>maximum_tlp</code> is <code>GREEN</code>, it would run for analysis with TLPs <code>WHITE</code> and <code>GREEN</code> only)</p>
+<p>These is how every available TLP value behaves once selected for an analysis execution:</p>
+<ol>
+<li><code>CLEAR</code>: no restriction (<code>WHITE</code> was replaced by <code>CLEAR</code> in TLP v2.0, but <code>WHITE</code> is supported for retrocompatibility)</li>
+<li><code>GREEN</code>: disable analyzers that could impact privacy</li>
+<li><code>AMBER</code> (default): disable analyzers that could impact privacy and limit view permissions to my group</li>
+<li><code>RED</code>: disable analyzers that could impact privacy, limit view permissions to my group and do not use any external service</li>
+</ol>
+<h3 id="running-a-plugin">Running a plugin</h3>
+<p>A plugin can be run when all of the following requirements have been satisfied:</p>
+<ol>
+<li>All the required parameters of the plugin have been configured</li>
+<li>The plugin is not disabled</li>
+<li>The plugin is not disabled for the user's organization</li>
+<li>If the plugin has a health check schedule, the last check has to be successful</li>
+<li>The TLP selected to run the plugin cannot be higher than the maximum TLP configured for that plugin</li>
+<li>The observable classification or the file mimetype has to be supported by the plugin</li>
+</ol>
+<h2 id="investigations-framework">Investigations Framework</h2>
+<p><em>Investigations</em> are a new framework introduced in ThreatMatrix v6 with the goal to allow the users to connect the analysis they do with each other.</p>
+<p>In this way the analysts can use ThreatMatrix as the starting point of their "Investigations", register their findings, correlate the information found, and collaborate...all in a single place.</p>
+<p>Things to know about the framework:</p>
+<ul>
+<li>an <em>Investigation</em> is a superset of ThreatMatrix Jobs. It can have attached one or more existing ThreatMatrix Jobs</li>
+<li>an <em>Investigation</em> contains a "description" section that can be changed and updated at anytime with new information from the analysts.</li>
+<li>modification to the Investigation (description, jobs, etc) can be done by every member of the Organization where the creator of the Investigation belongs. However only they creator can delete an Investigation.</li>
+</ul>
+<h3 id="create-and-populate-an-investigation">Create and populate an investigation</h3>
+<p><em>Investigations</em> are created in 2 ways:</p>
+<ul>
+<li>automatically:<ul>
+<li>if you scan multiple observables at the same time, a new investigation will be created by default and all the observables they will be automatically connected to the same investigation.</li>
+<li>if you run a Job with a Playbook which contains a <a href="#pivots">Pivot</a> that triggers another Job, a new investigation will be created and both the Jobs will be added to the same investigation. See how you can create a new <a href="#creating-pivots-from-the-gui">Pivot manually from the GUI</a>.</li>
+</ul>
+</li>
+<li>manually: by clicking on the button in the "History" section you can create an Investigation from scratch without any job attached (see following image)</li>
+</ul>
+<p><img alt="img.png" src="../static/create_investigation.png"/></p>
+<p>If you want to add a job to an Investigation, you should click to the root block of the Investigation (see following image):</p>
+<p><img alt="img_1.png" src="../static/add_job_to_investigation.png"/></p>
+<p>Once a job has been added, you'll have something like this:</p>
+<p><img alt="img.png" src="../static/simple_investigation.png"/></p>
+<p>If you want to remove a Job, you can click on the Job block and click "Remove branch". On the contrary, if you just want to see Job Results, you can click in the "Link" button. (check next image)</p>
+<p><img alt="img.png" src="../static/job_options.png"/></p>
+<h3 id="example-output-of-a-complex-investigation">Example output of a complex investigation</h3>
+<p><img alt="investigation_screen.png" src="../static/investigation_screen.png"/></p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Advanced Configuration" class="md-footer__link md-footer__link--prev" href="../advanced_configuration/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Advanced Configuration
+              </div>
+</div>
+</a>
+<a aria-label="Next: Advanced Usage" class="md-footer__link md-footer__link--next" href="../advanced_usage/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Advanced Usage
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © ThreatMatrix Project
+
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/khulnasoft" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://honeynetpublic.slack.com/archives/C01KVGMAKL6" rel="noopener" target="_blank" title="honeynetpublic.slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/threatmatrix" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/threat_matrix" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.footer", "navigation.expand", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>
