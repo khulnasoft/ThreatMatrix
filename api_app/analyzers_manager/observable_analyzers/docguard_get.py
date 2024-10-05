@@ -19,7 +19,7 @@ class DocGuard_Hash(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     @property
     def hash_type(self):

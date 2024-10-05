@@ -21,7 +21,7 @@ class GreyNoiseAnalyzer(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     @property
     def integration_name(self):

@@ -27,7 +27,7 @@ class Pulsedive(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def config(self, runtime_configuration: Dict):
         super().config(runtime_configuration)

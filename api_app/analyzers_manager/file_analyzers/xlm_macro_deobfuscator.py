@@ -16,7 +16,7 @@ class XlmMacroDeobfuscator(FileAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         results = {}

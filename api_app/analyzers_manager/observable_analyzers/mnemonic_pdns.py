@@ -17,7 +17,7 @@ class MnemonicPassiveDNS(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         if self.cof_format:

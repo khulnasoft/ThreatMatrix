@@ -15,7 +15,7 @@ class Koodous(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def get_response(self, url):
         return requests.get(

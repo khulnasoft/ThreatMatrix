@@ -55,7 +55,7 @@ class Permhash(FileAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     @classmethod
     def _monkeypatch(cls):

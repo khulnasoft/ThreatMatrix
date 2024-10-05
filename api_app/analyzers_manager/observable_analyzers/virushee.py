@@ -14,7 +14,7 @@ class VirusheeCheckHash(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         self.__session = requests.Session()

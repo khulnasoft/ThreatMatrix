@@ -15,7 +15,7 @@ class Ip2location(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def get_response(self, payload):
         return requests.get(self.url, params=payload)

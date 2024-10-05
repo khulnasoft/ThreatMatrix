@@ -24,7 +24,7 @@ class ZippyAnalyser(FileAnalyzer):
     engine: str
 
     def update(self):
-        raise NotImplementedError()
+        pass
 
     def run(self):
         z = (

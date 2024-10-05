@@ -15,7 +15,7 @@ class CyCat(classes.ObservableAnalyzer):
     """
 
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass
 
     url: str = "https://api.cycat.org"
 

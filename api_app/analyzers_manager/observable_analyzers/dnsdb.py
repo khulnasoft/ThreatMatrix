@@ -154,8 +154,7 @@ class DNSdb(classes.ObservableAnalyzer):
 
         return {"Accept": header_application_type, "X-API-Key": self._api_key_name}
 
-    @staticmethod
-    def _get_version_endpoint(api_version: int):
+    def _get_version_endpoint(self, api_version: int):
         if api_version == 1:
             return ""
         elif api_version == 2:

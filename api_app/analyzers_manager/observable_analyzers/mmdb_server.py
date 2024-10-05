@@ -14,7 +14,7 @@ class MmdbServer(classes.ObservableAnalyzer):
     """
 
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass
 
     url: str
     observable_name: str

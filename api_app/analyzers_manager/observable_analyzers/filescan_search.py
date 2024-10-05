@@ -18,7 +18,7 @@ class FileScanSearch(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         """Runs the FileScan_Search analyzer"""

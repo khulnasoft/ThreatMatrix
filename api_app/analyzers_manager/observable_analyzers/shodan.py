@@ -19,7 +19,7 @@ class Shodan(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         if self.shodan_analysis == "search":
