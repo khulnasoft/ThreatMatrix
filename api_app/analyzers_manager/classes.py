@@ -78,7 +78,7 @@ class BaseAnalyzerMixin(Plugin, metaclass=ABCMeta):
         if level == max_recursion:
             logger.info(
                 f"We have reached max_recursion {max_recursion} level. "
-                f"The following object will be pruned {result} "
+                "Sensitive data has been pruned."
             )
             return None
         if isinstance(result, dict):
