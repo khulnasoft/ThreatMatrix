@@ -1,8 +1,0 @@
-services:
-  nginx:
-    volumes:
-      - ../configuration/nginx/https.conf:/etc/nginx/conf.d/default.conf
-      - /usr/local/share/ca-certificates:/usr/local/share/ca-certificates
-      - /etc/ssl/private:/etc/ssl/private
-    ports:
-      - "443:443"
