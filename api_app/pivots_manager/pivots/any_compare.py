@@ -21,4 +21,4 @@ class AnyCompare(Compare):
         )
 
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass

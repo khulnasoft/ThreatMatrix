@@ -17,7 +17,7 @@ logger = getLogger(__name__)
 class Yara(Visualizer):
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     @visualizable_error_handler_with_params("Analyzer")
     def _yara_analyzer(self):

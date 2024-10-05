@@ -7,8 +7,8 @@ import requests
 
 from api_app.analyzers_manager import classes
 from api_app.analyzers_manager.exceptions import AnalyzerRunException
-from tests.mock_utils import MockUpResponse, if_mock_connections, patch
 from threat_matrix.consts import REGEX_CVE, REGEX_EMAIL
+from tests.mock_utils import MockUpResponse, if_mock_connections, patch
 
 
 class Spyse(classes.ObservableAnalyzer):
@@ -18,7 +18,7 @@ class Spyse(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def __build_spyse_api_uri(self) -> str:
         if self.observable_classification == self.ObservableTypes.DOMAIN:

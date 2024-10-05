@@ -8,7 +8,7 @@ from api_app.analyzers_manager.constants import ObservableTypes
 
 class HelperTests(TestCase):
     def test_accept_defanged_domains(self):
-        observable = r"www\.test\.com"
+        observable = "www\.test\.com"
         result = ObservableTypes.calculate(observable)
         self.assertEqual(result, ObservableTypes.DOMAIN)
 

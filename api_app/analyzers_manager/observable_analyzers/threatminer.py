@@ -14,7 +14,7 @@ class Threatminer(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         params = {"q": self.observable_name}

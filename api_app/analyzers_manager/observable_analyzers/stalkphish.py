@@ -15,7 +15,7 @@ class Stalkphish(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         headers = {

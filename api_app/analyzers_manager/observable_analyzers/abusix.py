@@ -23,7 +23,7 @@ class Abusix(classes.ObservableAnalyzer):
         return result
 
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass
 
     @classmethod
     def _monkeypatch(cls):

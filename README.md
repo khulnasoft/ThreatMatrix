@@ -26,23 +26,25 @@ You are in the right place!
 ThreatMatrix is an Open Source solution for management of Threat Intelligence at scale. It integrates a number of analyzers available online and a lot of cutting-edge malware analysis tools.
 
 ### Features
+
 This application is built to **scale out** and to **speed up the retrieval of threat info**.
 
 It provides:
+
 - **Enrichment of Threat Intel** for files as well as observables (IP, Domain, URL, hash, etc).
 - A Fully-fledged REST APIs written in Django and Python.
 - An easy way to be integrated in your stack of security tools to automate common jobs usually performed, for instance, by SOC analysts manually. (Thanks to the official libraries [pythreatmatrix](https://github.com/khulnasoft/pythreatmatrix) and [go-threatmatrix](https://github.com/khulnasoft/go-threatmatrix))
 - A **built-in GUI**: provides features such as dashboard, visualizations of analysis data, easy to use forms for requesting new analysis, etc.
 - A **framework** composed of modular components called **Plugins**:
-  - *analyzers* that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)
-  - *connectors* that can be run to export data to external platforms (like MISP or OpenCTI)
-  - *pivots* that are designed to trigger the execution of a chain of analysis and connect them to each other
-  - *visualizers* that are designed to create custom visualizations of analyzers results
-  - *ingestors* that allows to automatically ingest stream of observables or files to ThreatMatrix itself
-  - *playbooks* that are meant to make analysis easily repeatable
-
+  - _analyzers_ that can be run to either retrieve data from external sources (like VirusTotal or AbuseIPDB) or to generate intel from internally available tools (like Yara or Oletools)
+  - _connectors_ that can be run to export data to external platforms (like MISP or OpenCTI)
+  - _pivots_ that are designed to trigger the execution of a chain of analysis and connect them to each other
+  - _visualizers_ that are designed to create custom visualizations of analyzers results
+  - _ingestors_ that allows to automatically ingest stream of observables or files to ThreatMatrix itself
+  - _playbooks_ that are meant to make analysis easily repeatable
 
 ### Documentation
+
 We try hard to keep our documentation well written, easy to understand and always updated.
 All info about installation, usage, configuration and contribution can be found [here](https://threatmatrix.readthedocs.io/)
 
@@ -54,10 +56,10 @@ To know more about the project and its growth over time, you may be interested i
 
 You can see the full list of all available analyzers in the [documentation](https://threatmatrix.readthedocs.io/en/latest/Usage.html#available-analyzers).
 
-| Type                                               | Analyzers Available                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Inbuilt modules                                    | - Static Office Document, RTF, PDF, PE File Analysis and metadata extraction<br/> - Strings Deobfuscation and analysis ([FLOSS](https://github.com/mandiant/flare-floss), [Stringsifter](https://github.com/mandiant/stringsifter), ...)<br/> - PE Emulation with [Qiling](https://github.com/qilingframework/qiling) and [Speakeasy](https://github.com/mandiant/speakeasy)<br/> - PE Signature verification<br/> - PE Capabilities Extraction ([CAPA](https://github.com/mandiant/capa))<br/> - Javascript Emulation ([Box-js](https://github.com/CapacitorSet/box-js))<br/> - Android Malware Analysis ([Quark-Engine](https://github.com/quark-engine/quark-engine), ...)<br/> - SPF and DMARC Validator<br/> - Yara (a lot of public rules are available. You can also add your own rules)<br/> - more...                                                                                                                                                                                                                                  |
-| External services                                  | - Abuse.ch <a href="https://bazaar.abuse.ch/about/" target="_blank">MalwareBazaar</a>/<a href="https://urlhaus.abuse.ch/" target="_blank">URLhaus</a>/<a href="https://threatfox.abuse.ch/about/" target="_blank">Threatfox</a>/<a href="https://yaraify.abuse.ch/about/" target="_blank">YARAify</a></br> - <a href="https://docs.greynoise.io/docs/3rd-party-integrations" target="_blank"> GreyNoise v2</a><br/> - <a href="https://analyze.intezer.com/?utm_source=ThreatMatrix" target="_blank"> Intezer</a><br/> - VirusTotal v3<br/> - <a href="https://doc.crowdsec.net/docs/next/cti_api/integration_threatmatrix/?utm_source=ThreatMatrix" target="_blank"> Crowdsec</a><br/> - <a href="https://urlscan.io/docs/integrations/" target="_blank">URLscan</a><br/> - Shodan<br/> - AlienVault OTX<br/> - <a href="https://intelx.io/integrations" target="_blank">Intelligence_X</a><br/> - <a href="https://www.misp-project.org/" target="_blank">MISP</a><br/> - many more.. |
+| Type              | Analyzers Available                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Inbuilt modules   | - Static Office Document, RTF, PDF, PE File Analysis and metadata extraction<br/> - Strings Deobfuscation and analysis ([FLOSS](https://github.com/mandiant/flare-floss), [Stringsifter](https://github.com/mandiant/stringsifter), ...)<br/> - PE Emulation with [Qiling](https://github.com/qilingframework/qiling) and [Speakeasy](https://github.com/mandiant/speakeasy)<br/> - PE Signature verification<br/> - PE Capabilities Extraction ([CAPA](https://github.com/mandiant/capa))<br/> - Javascript Emulation ([Box-js](https://github.com/CapacitorSet/box-js))<br/> - Android Malware Analysis ([Quark-Engine](https://github.com/quark-engine/quark-engine), ...)<br/> - SPF and DMARC Validator<br/> - Yara (a lot of public rules are available. You can also add your own rules)<br/> - more...                                                                                                                                                                          |
+| External services | - Abuse.ch <a href="https://bazaar.abuse.ch/about/" target="_blank">MalwareBazaar</a>/<a href="https://urlhaus.abuse.ch/" target="_blank">URLhaus</a>/<a href="https://threatfox.abuse.ch/about/" target="_blank">Threatfox</a>/<a href="https://yaraify.abuse.ch/about/" target="_blank">YARAify</a></br> - <a href="https://docs.greynoise.io/docs/3rd-party-integrations" target="_blank"> GreyNoise v2</a><br/> - <a href="https://analyze.intezer.com/?utm_source=ThreatMatrix" target="_blank"> Intezer</a><br/> - VirusTotal v3<br/> - <a href="https://doc.crowdsec.net/docs/next/cti_api/integration_threatmatrix/?utm_source=ThreatMatrix" target="_blank"> Crowdsec</a><br/> - <a href="https://urlscan.io/docs/integrations/" target="_blank">URLscan</a><br/> - Shodan<br/> - AlienVault OTX<br/> - <a href="https://intelx.io/integrations" target="_blank">Intelligence_X</a><br/> - <a href="https://www.misp-project.org/" target="_blank">MISP</a><br/> - many more.. |
 
 ## Partnerships and sponsors
 
@@ -88,12 +90,12 @@ ThreatMatrix was born out of Certego's Threat intelligence R&D division and is c
 Thanks to Honeynet, we are hosting a public demo of the application [here](https://threatmatrix.honeynet.org). If you are interested, please contact a member of Honeynet to get access to the public service.
 
 #### Google Summer of Code
+
 <a href="https://summerofcode.withgoogle.com/"> <img style="border: 0.2px solid black" width=150 height=89 src="docs/static/gsoc_logo.png" alt="GSoC logo"> </a>
 
 Since its birth this project has been participating in the [Google Summer of Code](https://summerofcode.withgoogle.com/) (GSoC)!
 
 If you are interested in participating in the next Google Summer of Code, check all the info available in the [dedicated repository](https://github.com/khulnasoft/gsoc)!
-
 
 ### 🥈 SILVER
 
@@ -106,7 +108,6 @@ If you are interested in participating in the next Google Summer of Code, check 
 #### Docker
 
 In 2021 ThreatMatrix joined the official [Docker Open Source Program](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/). This allows ThreatMatrix developers to easily manage Docker images and focus on writing the code. You may find the official ThreatMatrix Docker images [here](https://hub.docker.com/search?q=khulnasoft).
-
 
 ## About the author and maintainers
 

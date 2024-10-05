@@ -208,7 +208,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="https://www.honeynet.org/projects/active/threat-matrix/",
+            observable_name="https://www.honeynet.org/projects/active/intel-owl/",
             observable_classification="url",
             status="reported_without_fails",
         )
@@ -221,7 +221,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@khulnasoft.com",
+            observable_name="test@threatmatrix.com",
             observable_classification="generic",
             status="reported_without_fails",
         )

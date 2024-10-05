@@ -1,6 +1,6 @@
 # This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
-
+# flake8: noqa
 from django.contrib import admin
 from django.http import HttpRequest
 
@@ -10,17 +10,20 @@ from api_app.pivots_manager.models import PivotConfig, PivotMap, PivotReport
 
 
 @admin.register(PivotReport)
-class PivotReportAdminView(AbstractReportAdminView):
-    ...
+class PivotReportAdminView(AbstractReportAdminView): ...
 
 
 @admin.register(PivotConfig)
 class PivotConfigAdminView(PythonConfigAdminView):
     list_display = PythonConfigAdminView.list_display + (
         "get_related_configs",
-        "playbook_to_execute",
+        "get_playbooks_choice",
     )
     form = PivotConfigAdminForm
+
+    @admin.display(description="Playbooks choice")
+    def get_playbooks_choice(self, instance: PivotConfig):
+        return instance.playbooks_names
 
     @admin.display(description="Related Configs")
     def get_related_configs(self, instance: PivotConfig):

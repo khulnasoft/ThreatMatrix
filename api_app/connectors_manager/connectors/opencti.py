@@ -45,9 +45,7 @@ class OpenCTI(classes.Connector):
             ]:  # sha-512 not supported
                 obs_type = THREATMATRIX_OPENCTI_TYPE_MAP["file"]
             else:
-                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[
-                    ObservableTypes.GENERIC
-                ]  # text
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
         elif self._job.observable_classification == ObservableTypes.IP:
             ip_version = helpers.get_ip_version(self._job.observable_name)
             if ip_version in [4, 6]:
@@ -55,13 +53,9 @@ class OpenCTI(classes.Connector):
                     f"v{ip_version}"
                 ]  # v4/v6
             else:
-                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[
-                    ObservableTypes.GENERIC
-                ]  # text
+                obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[ObservableTypes.GENERIC]  # text
         else:
-            obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[
-                self._job.observable_classification
-            ]
+            obs_type = THREATMATRIX_OPENCTI_TYPE_MAP[self._job.observable_classification]
 
         return obs_type
 

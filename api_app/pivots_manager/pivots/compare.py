@@ -8,7 +8,7 @@ class Compare(Pivot):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def _get_value(self, field: str) -> Any:
         report = self.related_reports.filter(
@@ -29,6 +29,8 @@ class Compare(Pivot):
 
         if isinstance(content, (int, dict)):
             raise ValueError(f"You can't use a {type(content)} as pivot")
+        if not content:
+            raise ValueError("Empty value")
         return content
 
     def should_run(self) -> Tuple[bool, Optional[str]]:

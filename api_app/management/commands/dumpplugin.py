@@ -165,8 +165,7 @@ def reverse_migrate(apps, schema_editor):
     Model.objects.get(name=plugin["name"]).delete()
 """  # noqa
 
-    @staticmethod
-    def _get_body_template():
+    def _get_body_template(self):
         return """
 
 class Migration(migrations.Migration):

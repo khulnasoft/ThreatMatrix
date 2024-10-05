@@ -1,1 +1,1 @@
-Please refer to https://threatmatrix.readthedocs.io/en/latest/Contribute.html
+Please refer to https://khulnasoft.github.io/docs/ThreatMatrix/contribute/

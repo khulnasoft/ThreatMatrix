@@ -25,7 +25,7 @@ class SSAPINet(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     def run(self):
         if self.use_proxy and not self.proxy:

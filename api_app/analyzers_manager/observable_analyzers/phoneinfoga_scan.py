@@ -28,11 +28,11 @@ class Phoneinfoga(classes.ObservableAnalyzer, classes.DockerBasedAnalyzer):
     """
 
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass
 
     observable_name: str
     scanners: List[str]
-    all_scanners: bool
+    all_scanners: bool = True
     googlecse_max_results: int = 10
     name: str = "phoneinfoga"
     # here is a list of pre declared api keys, user can put

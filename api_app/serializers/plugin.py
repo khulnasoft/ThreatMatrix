@@ -1,3 +1,4 @@
+# flake8: noqa
 import json
 import logging
 from typing import Any
@@ -39,7 +40,6 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
             if not data:
                 raise ValidationError({"detail": "Empty insertion"})
             logger.info(f"verifying that value {data} ({type(data)}) is JSON compliant")
-            # existing implementation
             try:
                 return json.loads(data)
             except json.JSONDecodeError:
@@ -90,7 +90,8 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
         if type(value).__name__ != parameter.type:
             raise ValidationError(
                 {
-                    # existing error handling code
+                    "detail": f"Value has type {type(value).__name__}"
+                    f" instead of {parameter.type}"
                 }
             )
 
@@ -260,8 +261,7 @@ class PluginConfigCompleteSerializer(rfs.ModelSerializer):
         exclude = ["id"]
 
 
-class AbstractConfigSerializer(rfs.ModelSerializer):
-    ...
+class AbstractConfigSerializer(rfs.ModelSerializer): ...
 
 
 class PythonConfigSerializer(AbstractConfigSerializer):

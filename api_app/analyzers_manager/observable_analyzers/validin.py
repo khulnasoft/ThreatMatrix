@@ -18,7 +18,7 @@ class Validin(classes.ObservableAnalyzer):
 
     # this is a framework implication
     def update(self) -> bool:
-        raise NotImplementedError()
+        pass
 
     url: str = "https://app.validin.com"
     observable_classification: str

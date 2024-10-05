@@ -17,7 +17,7 @@ logger = getLogger(__name__)
 class DomainReputationServices(Visualizer):
     @classmethod
     def update(cls) -> bool:
-        raise NotImplementedError()
+        pass
 
     @visualizable_error_handler_with_params("VirusTotal")
     def _vt3(self):

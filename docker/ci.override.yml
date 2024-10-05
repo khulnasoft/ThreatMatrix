@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     env_file:
@@ -7,9 +5,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 2000M
-          
+
   uwsgi:
     build:
       context: ..
@@ -20,7 +18,6 @@ services:
     env_file:
       - env_file_app_ci
 
-  
   daphne:
     image: khulnasoft/threatmatrix:ci
     env_file:
@@ -28,7 +25,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: "0.50"
           memory: 200M
 
   nginx:
@@ -41,7 +38,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: "0.50"
           memory: 200M
 
   celery_beat:
@@ -51,7 +48,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: "0.50"
           memory: 200M
 
   celery_worker_default:
@@ -61,12 +58,12 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: "0.50"
           memory: 200M
 
   redis:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: "0.50"
           memory: 200M

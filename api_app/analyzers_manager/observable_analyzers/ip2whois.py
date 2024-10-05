@@ -13,7 +13,7 @@ class Ip2whois(classes.ObservableAnalyzer):
     _api_key_name: str
 
     def update(self):
-        raise NotImplementedError()
+        pass
 
     def get_response(self, payload):
         return requests.get(self.url, params=payload)
