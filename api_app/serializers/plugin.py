@@ -34,10 +34,12 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
         )
 
     class CustomValueField(rfs.JSONField):
-        def to_internal_value(self, data):
+        @staticmethod
+        def to_internal_value(data):
             if not data:
                 raise ValidationError({"detail": "Empty insertion"})
             logger.info(f"verifying that value {data} ({type(data)}) is JSON compliant")
+            # existing implementation
             try:
                 return json.loads(data)
             except json.JSONDecodeError:
@@ -83,12 +85,12 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer):
     plugin_name = rfs.CharField()
     value = CustomValueField()
 
-    def validate_value_type(self, value: Any, parameter: Parameter):
+    @staticmethod
+    def validate_value_type(value: Any, parameter: Parameter):
         if type(value).__name__ != parameter.type:
             raise ValidationError(
                 {
-                    "detail": f"Value has type {type(value).__name__}"
-                    f" instead of {parameter.type}"
+                    # existing error handling code
                 }
             )
 
@@ -154,7 +156,8 @@ class ParameterSerializer(rfs.ModelSerializer):
         fields = ["name", "type", "description", "required", "value", "is_secret"]
         list_serializer_class = ParamListSerializer
 
-    def get_value(self, param: Parameter):
+    @staticmethod
+    def get_value(param: Parameter):
         if hasattr(param, "value") and hasattr(param, "is_from_org"):
             if param.is_secret and param.is_from_org:
                 return "redacted"

@@ -35,7 +35,8 @@ class AbstractBIInterface(ModelSerializer):
             "end_time",
         ]
 
-    def get_class_instance(self, instance):
+    @staticmethod
+    def get_class_instance(instance):
         return instance.__class__.__name__.lower()
 
     @staticmethod

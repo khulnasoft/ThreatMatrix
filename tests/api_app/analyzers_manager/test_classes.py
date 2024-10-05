@@ -54,6 +54,14 @@ class FileAnalyzerTestCase(CustomTestCase):
                 "AndroidManifest.xml",
                 "sample.crx",
                 "manifest.json",
+                "main.out",
+                "java_vuln.java",
+                "kotlin.kt",
+                "objectivec.m",
+                "swift.swift",
+                "android.xml",
+                "test.zip",
+                "sample.dex",
             ],
             [
                 "application/onenote",
@@ -74,6 +82,14 @@ class FileAnalyzerTestCase(CustomTestCase):
                 "application/octet-stream",
                 "application/x-chrome-extension",
                 "application/json",
+                "application/x-executable",
+                "text/x-java",
+                "text/x-kotlin",
+                "text/x-objective-c",
+                "text/x-swift",
+                "text/xml",
+                "application/zip",
+                "application/x-dex",
             ],
         ):
             try:
@@ -205,7 +221,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@threatmatrix.com",
+            observable_name="test@khulnasoft.com",
             observable_classification="generic",
             status="reported_without_fails",
         )

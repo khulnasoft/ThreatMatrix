@@ -43,10 +43,10 @@ class Slack(Connector):
     def _monkeypatch(cls):
         class MockClient:
             def __init__(self, *args, **kwargs):
-                ...
+                raise NotImplementedError()
 
             def chat_postMessage(self, *args, **kwargs):
-                ...
+                raise NotImplementedError()
 
         patches = [
             if_mock_connections(

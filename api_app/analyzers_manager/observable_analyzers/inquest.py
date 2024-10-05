@@ -25,7 +25,7 @@ class InQuest(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def config(self, runtime_configuration: Dict):
         super().config(runtime_configuration)

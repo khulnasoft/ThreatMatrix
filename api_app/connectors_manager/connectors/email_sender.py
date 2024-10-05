@@ -37,7 +37,7 @@ class EmailSender(Connector):
         }
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     @classmethod
     def _monkeypatch(cls):

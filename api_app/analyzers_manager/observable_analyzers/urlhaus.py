@@ -13,7 +13,7 @@ class URLHaus(classes.ObservableAnalyzer):
     disable: bool = False  # optional
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         if self.disable:
