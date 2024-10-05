@@ -1,0 +1,84 @@
+name: Update Submodules and Publish Docs
+
+on:
+  push:
+    branches:
+      - WEBSITE/docs
+
+  repository_dispatch:
+    types:
+      - update-docs
+  workflow_dispatch: # Allows manual triggering of the workflow from the Actions tab
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive # Recursively checkout submodules
+
+      - name: Display Git Status
+        run: git status
+
+      - name: Display Submodule Info
+        run: git submodule status --recursive
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Fetch Submodule Branches
+        run: |
+          git submodule foreach --recursive 'git fetch --all'
+          git submodule update --init --remote --recursive
+          git submodule foreach --recursive 'git fetch origin +refs/heads/*:refs/remotes/origin/*'
+
+      # - name: Fetch Submodule Branches
+      #   run: git submodule foreach --recursive 'git fetch origin +refs/heads/*:refs/remotes/origin/*'
+
+      - name: Debugging - List all branches
+        run: |
+          echo "Main repository branches:"
+          git branch -r
+          echo "Submodule branches:"
+          git submodule foreach --recursive 'git branch -r'
+
+      - name: Update submodules
+        id: update_submodules
+        run: |
+          git submodule sync --recursive
+          git submodule update --remote --recursive
+          git diff --quiet || echo "Submodules changed" && echo "::set-output name=changed::true"
+
+      - name: Verify submodule files
+        run: |
+          ls -R docs/Submodules/ThreatMatrix
+          cat docs/Submodules/ThreatMatrix/old-docs/source/schema.yml || true
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ "$(git status --porcelain)" ]]; then
+            echo "changes=true" >> $GITHUB_ENV
+          else
+            echo "changes=false" >> $GITHUB_ENV
+          fi
+
+      - name: Commit and push submodule changes
+        if: env.changes == 'true'
+        run: |
+          git add .
+          git commit -m "Update submodules"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUIREMENTS: requirements.txt

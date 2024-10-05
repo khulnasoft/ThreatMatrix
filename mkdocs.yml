@@ -1,0 +1,135 @@
+site_name: ThreatMatrix Project Documentation
+site_description: "A centralized documentation for all the projects under ThreatMatrix."
+site_author: "ThreatMatrix Project"
+
+copyright: |
+  &copy; ThreatMatrix Project
+
+repo_name: khulnasoft/ThreatMatrix
+repo_url: https://github.com/khulnasoft/ThreatMatrix
+
+nav:
+  - Home: "index.md"
+  - ThreatMatrix:
+      - Introduction: "ThreatMatrix/introduction.md"
+      - Installation: "ThreatMatrix/installation.md"
+      - Advanced Configuration: "ThreatMatrix/advanced_configuration.md"
+      - Usage: "ThreatMatrix/usage.md"
+      - Advanced Usage: "ThreatMatrix/advanced_usage.md"
+      - Contribute: "ThreatMatrix/contribute.md"
+      - API docs: "ThreatMatrix/api_docs.md"
+  - GreedyBear:
+      - Introduction: "GreedyBear/Introduction.md"
+      - Installation: "GreedyBear/Installation.md"
+      - Usage: "GreedyBear/Usage.md"
+      - Contribute: "GreedyBear/Contribute.md"
+      - API docs: "GreedyBear/Api-docs.md"
+  - PyThreatMatrix:
+      - Quickstart: "pythreatmatrix/index.md"
+      - Usage:
+          - Modules:
+              - ThreatMatrixClass: "pythreatmatrix/ThreatMatrixClass.md"
+              - ThreatMatrixClientException: "pythreatmatrix/ThreatMatrixClientException.md"
+      - Development:
+          - Tests: "pythreatmatrix/Tests.md"
+  - GoThreatMatrix:
+      - index: "GoThreatMatrix/index.md"
+  - Guides:
+      - Documentation guide: "Guide-documentation.md"
+      - Docstrings guide: "Guide-docstrings.md"
+      - Submodules: "Submodules.md"
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - monorepo
+  - mkdocstrings
+  - swagger-ui-tag:
+      background: transparent
+      text: white
+      docExpansion: none
+      filter: true
+      syntaxHighlightTheme: monokai
+      extra_css:
+        - assets/css/SwaggerDark.css
+      # tryItOutEnabled: true
+
+theme:
+  name: material
+  logo: static/threat_matrix_negative.png
+  features:
+    - navigation.tabs
+    - navigation.path
+    - navigation.footer
+    - navigation.expand
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - search.highlight
+  palette:
+    scheme: DARKUI
+  font:
+    text: IBM Plex Sans
+    code: Roboto Mono
+
+# CSS
+extra_css:
+  - assets/css/custom.css
+  - assests/css/SwaggerDark.css
+
+extra:
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-DB4K9LZPDZ
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/khulnasoft
+    - icon: fontawesome/brands/slack
+      link: https://honeynetpublic.slack.com/archives/C01KVGMAKL6
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/threatmatrix
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/threat_matrix
+
+markdown_extensions:
+  - mdx_truly_sane_lists
+  - attr_list
+  - md_in_html
+  - tables
+  - admonition
+  - def_list
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.smartsymbols
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.betterem
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: false
+      auto_title: false
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets:
+      url_download: true

@@ -1,0 +1,9 @@
+[submodule "docs/Submodules/ThreatMatrix"]
+	path = docs/Submodules/ThreatMatrix
+	url = https://github.com/khulnasoft/ThreatMatrix.git
+[submodule "docs/Submodules/pythreatmatrix"]
+	path = docs/Submodules/pythreatmatrix
+	url = https://github.com/khulnasoft/pythreatmatrix.git
+[submodule "docs/Submodules/GoThreatMatrix"]
+	path = docs/Submodules/GoThreatMatrix
+	url = https://github.com/khulnasoft/go-threatmatrix.git
