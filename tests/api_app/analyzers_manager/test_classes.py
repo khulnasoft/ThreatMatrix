@@ -221,7 +221,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@threatmatrix.com",
+            observable_name="test@khulnasoft.com",
             observable_classification="generic",
             status="reported_without_fails",
         )
