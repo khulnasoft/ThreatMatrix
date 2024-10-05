@@ -14,7 +14,7 @@ class Hunter_Io(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         url = f"{self.url}domain={self.observable_name}&api_key={self._api_key_name}"

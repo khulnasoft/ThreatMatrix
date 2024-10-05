@@ -20,7 +20,7 @@ class BGPRanking(classes.ObservableAnalyzer):
     period: int  # optional
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         final_response = {}
