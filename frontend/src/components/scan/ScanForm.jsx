@@ -433,7 +433,7 @@ export default function ScanForm() {
     formik.setFieldValue("analyzers", [], false); // reset
     formik.setFieldValue("connectors", [], false); // reset
   };
-  
+
   const updateAdvancedConfig = (
     tags,
     tlp,
@@ -922,7 +922,7 @@ export default function ScanForm() {
                       <br />
                       For more info check the{" "}
                       <Link
-                        to="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#tlp-support"
+                        to="https://khulnasoft.github.io/ThreatMatrix/docs/usage/#tlp-support"
                         target="_blank"
                       >
                         official doc.
