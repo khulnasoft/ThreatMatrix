@@ -5,7 +5,7 @@
   "proxy": "http://localhost:80/",
   "dependencies": {
     "@certego/certego-ui": "^0.1.13",
-    "@dagrejs/dagre": "^1.0.4",
+    "@dagrejs/dagre": "^1.1.4",
     "axios": "^1.7.4",
     "axios-hooks": "^3.1.5",
     "bootstrap": "^5.3.3",
