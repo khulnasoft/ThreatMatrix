@@ -17,13 +17,13 @@ Please delete options that are not relevant.
 - [ ] I have read and understood the rules about [how to Contribute](https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/contribute/) to this project
 - [ ] The pull request is for the branch `develop`
 - [ ] A new plugin (analyzer, connector, visualizer, playbook, pivot or ingestor) was added or changed, in which case:
-    - [ ] I strictly followed the documentation ["How to create a Plugin"](https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-add-a-new-plugin)
+    - [ ] I strictly followed the documentation ["How to create a Plugin"](https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/contribute/#how-to-add-a-new-plugin)
     - [ ] [Usage](https://github.com/khulnasoft/docs/blob/main/docs/ThreatMatrix/usage.md) file was updated.
     - [ ] [Advanced-Usage](https://github.com/khulnasoft/docs/blob/main/docs/ThreatMatrix/advanced_usage.md) was updated (in case the plugin provides additional optional configuration).
-    - [ ] I have dumped the configuration from Django Admin using the `dumpplugin` command and added it in the project as a data migration. (["How to share a plugin with the community"](https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-share-your-plugin-with-the-community))
+    - [ ] I have dumped the configuration from Django Admin using the `dumpplugin` command and added it in the project as a data migration. (["How to share a plugin with the community"](https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/contribute/#how-to-share-your-plugin-with-the-community))
     - [ ] If a File analyzer was added and it supports a mimetype which is not already supported, you added a sample of that type inside the archive `test_files.zip` and you added the default tests for that mimetype in [test_classes.py](https://github.com/khulnasoft/ThreatMatrix/blob/master/tests/api_app/analyzers_manager/test_classes.py).
-    - [ ] If you created a new analyzer and it is free (does not require any API key), please add it in the `FREE_TO_USE_ANALYZERS` playbook by following [this guide](https://khulnasoft.github.io/docs/ThreatMatrix/contribute/#how-to-modify-a-plugin).
-    - [ ] Check if it could make sense to add that analyzer/connector to other [freely available playbooks](https://khulnasoft.github.io/docs/ThreatMatrix/usage/#list-of-pre-built-playbooks).
+    - [ ] If you created a new analyzer and it is free (does not require any API key), please add it in the `FREE_TO_USE_ANALYZERS` playbook by following [this guide](https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/contribute/#how-to-modify-a-plugin).
+    - [ ] Check if it could make sense to add that analyzer/connector to other [freely available playbooks](https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/usage/#list-of-pre-built-playbooks).
     - [ ] I have provided the resulting raw JSON of a finished analysis and a screenshot of the results.
     - [ ] If the plugin interacts with an external service, I have created an attribute called precisely `url` that contains this information. This is required for Health Checks. 
     - [ ] If the plugin requires mocked testing, `_monkeypatch()` was used in its class to apply the necessary decorators.

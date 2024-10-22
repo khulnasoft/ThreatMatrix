@@ -36,7 +36,7 @@ export function TLPSelectInputLabel(props) {
             <br />
             For more info check the{" "}
             <Link
-              to="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#tlp-support"
+              to="https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/usage/#tlp-support"
               target="_blank"
             >
               official doc.
