@@ -44,15 +44,15 @@ It provides:
 
 ### Documentation
 We try hard to keep our documentation well written, easy to understand and always updated.
-All info about installation, usage, configuration and contribution can be found [here](https://khulnasoft.github.io/docs/)
+All info about installation, usage, configuration and contribution can be found [here](https://khulnasoft.github.io/ThreatMatrix-docs//)
 
 ### Publications and Media
 
-To know more about the project and its growth over time, you may be interested in reading [the official blog posts and/or videos about the project by clicking on this link](https://khulnasoft.github.io/docs/ThreatMatrix/introduction/#publications-and-media)
+To know more about the project and its growth over time, you may be interested in reading [the official blog posts and/or videos about the project by clicking on this link](https://khulnasoft.github.io/ThreatMatrix-docs//ThreatMatrix/introduction/#publications-and-media)
 
 ### Available services or analyzers
 
-You can see the full list of all available analyzers in the [documentation](https://khulnasoft.github.io/docs/ThreatMatrix/usage/#analyzers).
+You can see the full list of all available analyzers in the [documentation](https://khulnasoft.github.io/ThreatMatrix-docs//ThreatMatrix/usage/#analyzers).
 
 | Type                                               | Analyzers Available                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

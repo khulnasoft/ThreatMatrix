@@ -17,7 +17,7 @@ export default function GuideWrapper() {
           <p>
             Welcome to ThreatMatrixs Guide for First Time Visitors! For further
             questions you could either check out our{" "}
-            <a href="https://khulnasoft.github.io/docs/">docs</a> or reach us
+            <a href="https://khulnasoft.github.io/ThreatMatrix-docs//">docs</a> or reach us
             out on{" "}
             <a href="https://gsoc-slack.honeynet.org/">
               the official ThreatMatrix slack channel
