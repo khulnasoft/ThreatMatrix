@@ -84,7 +84,7 @@ export default function PluginWrapper({
           <span className="text-muted">
             {description} For more info check the{" "}
             <Link
-              to="https://khulnasoft.github.io/ThreatMatrix-docs//ThreatMatrix/usage/#plugins-framework"
+              to="https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/usage/#plugins-framework"
               target="_blank"
             >
               official doc.
