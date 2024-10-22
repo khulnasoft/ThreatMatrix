@@ -31,12 +31,12 @@ export function TLPSelectInputLabel(props) {
           innerClassName="p-2 text-start text-nowrap md-fit-content"
         >
           <span>
-            ThreatMatrix supports a customized version of the Traffic Light Protocol
-            (TLP).
+            ThreatMatrix supports a customized version of the Traffic Light
+            Protocol (TLP).
             <br />
             For more info check the{" "}
             <Link
-              to="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#tlp-support"
+              to="https://khulnasoft.github.io/ThreatMatrix-docs/ThreatMatrix/usage/#tlp-support"
               target="_blank"
             >
               official doc.
