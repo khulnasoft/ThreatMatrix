@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   cyberchef-server:
@@ -6,6 +6,6 @@ services:
     container_name: threatmatrix_cyberchef
     restart: unless-stopped
     expose:
-      - "3000"
+      - '3000'
     depends_on:
       - uwsgi

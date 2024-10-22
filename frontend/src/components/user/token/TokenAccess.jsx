@@ -56,9 +56,8 @@ export default function TokenAccess() {
             Note: This is an irreversible operation.
           </p>
           <p>
-            Once deleted, you cannot use this API key to access
-            ThreatMatrix&apos;s API. However, you will be able to generate a new
-            one.
+            Once deleted, you cannot use this API key to access ThreatMatrix&apos;s
+            API. However, you will be able to generate a new one.
           </p>
           Are you sure you wish to proceed ?
         </div>
