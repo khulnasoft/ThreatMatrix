@@ -80,11 +80,11 @@ def get_secret(secret_name, default=""):
             secret = aws_get_secret(secret_name)
         except RetrieveSecretException as e:
             logging.error(
-                f"Failed retrieving of secret {secret_name}. Error: {e}."
-            )  # lgtm [py/clear-text-logging-sensitive-data]
-        except NoCredentialsError as e:
+                "Failed retrieving of secret. An error occurred."
+            )
+        except NoCredentialsError:
             logging.error(
-                f"Error: {e}. Secret: {secret_name}"
-            )  # lgtm [py/clear-text-logging-sensitive-data]
+                "No credentials error occurred while retrieving secret."
+            )
 
     return secret
