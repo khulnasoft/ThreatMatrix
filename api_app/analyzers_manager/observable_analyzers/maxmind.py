@@ -25,6 +25,7 @@ from tests.mock_utils import if_mock_connections, patch
 logger = logging.getLogger(__name__)
 
 
+
 class MaxmindDBManager:
     _supported_dbs: [str] = ["GeoLite2-Country", "GeoLite2-City", "GeoLite2-ASN"]
     _default_db_extension: str = ".mmdb"
@@ -156,8 +157,12 @@ class MaxmindDBManager:
     @classmethod
     def _extract_db_to_media_root(cls, tar_db_path: str):
         logger.info(f"Started extracting {tar_db_path} to {settings.MEDIA_ROOT}.")
-        tf = tarfile.open(tar_db_path)
-        tf.extractall(str(settings.MEDIA_ROOT))
+        with tarfile.open(tar_db_path) as tf:
+            for member in tf.getmembers():
+                member_path = os.path.join(settings.MEDIA_ROOT, member.name)
+                if not cls._is_within_directory(settings.MEDIA_ROOT, member_path):
+                    raise AnalyzerRunException(f"Illegal tar archive entry: {member.name}")
+            tf.extractall(str(settings.MEDIA_ROOT))
         logger.info(f"Finished extracting {tar_db_path} to {settings.MEDIA_ROOT}.")
 
     @classmethod
