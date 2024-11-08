@@ -1,4 +1,4 @@
-<img src="static/threat_matrix_positive.png" width=547 height=150 alt="Threat Matrix"/>
+# Threat Matrix
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/ThreatMatrix)](https://github.com/khulnasoft/ThreatMatrix/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/ThreatMatrix?style=social)](https://github.com/khulnasoft/ThreatMatrix/stargazers)
@@ -17,7 +17,7 @@
 [![DeepSource](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix.svg/?label=resolved+issues&token=BSvKHrnk875Y0Bykb79GNo8w)](https://app.deepsource.com/gh/khulnasoft/ThreatMatrix/?ref=repository-badge)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix/badge)](https://api.securityscorecards.dev/projects/github.com/khulnasoft/ThreatMatrix)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/7120/badge)](https://bestpractices.coreinfrastructure.org/projects/7120)
-# Threat Matrix
+[![Documentation Status](https://readthedocs.org/projects/threatmatrix/badge/?version=latest)](https://threatmatrix.readthedocs.io/en/latest/?badge=latest)
 
 Do you want to get **threat intelligence data** about a malware, an IP address or a domain? Do you want to get this kind of data from multiple sources at the same time using **a single API request**?
 
