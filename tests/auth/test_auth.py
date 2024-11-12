@@ -290,7 +290,7 @@ class TestUserAuth(CustomOAuthTestCase):
             "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "threatmatrixthreatmatrix$",
+            "password": "trmatrixtrmatrix$",
         }
 
         response = self.client.post(register_uri, body)
