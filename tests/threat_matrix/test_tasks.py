@@ -12,9 +12,9 @@ from api_app.models import Job, LastElasticReportUpdate, PythonModule
 from api_app.pivots_manager.models import PivotConfig, PivotReport
 from api_app.visualizers_manager.models import VisualizerConfig, VisualizerReport
 from certego_saas.apps.user.models import User
-from threat_matrix.tasks import send_plugin_report_to_elastic
 from tests import CustomTestCase
 from tests.mock_utils import MockResponseNoOp
+from threat_matrix.tasks import send_plugin_report_to_elastic
 
 _now = datetime.datetime(2024, 10, 29, 11, tzinfo=datetime.UTC)
 
