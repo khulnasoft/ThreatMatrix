@@ -11,7 +11,7 @@ You'll get really tons of new analyzers this time to try out!
 
 Plus we have a new official [documentation site](https://khulnasoft.github.io/docs/)! Please refer to this one from now onwards.
 
-## [v6.0.4](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.4)
+## [v6.1.0](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.1.0)
 Mostly adjusts and fixes with few new analyzers: Vulners and AILTypoSquatting Library.
 
 ## [v6.0.2](https://github.com/khulnasoft/ThreatMatrix/releases/tag/v6.0.2)
