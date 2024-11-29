@@ -87,10 +87,12 @@ jobs:
           BUILDKIT_PROGRESS: "plain"
           STAGE: "ci"
           REPO_DOWNLOADER_ENABLED: false
-
-      - name: Startup script launch (Fast)
-        if: "!contains(github.base_ref, 'master')"
+          
+      - name: Run Startup Script (Master Branch Only)
+        if: github.base_ref == 'master'
         run: |
+          echo "Starting CI build on 'master' branch"
+          set -e  # Exit on error
           ./start ci up -- --build -d
         env:
           DOCKER_BUILDKIT: 1
@@ -123,7 +125,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 15
+          node-version: 18
       - name: Cache node modules
         uses: actions/cache@v4
         with:

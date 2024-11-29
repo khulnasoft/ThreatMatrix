@@ -17,7 +17,6 @@ WARNING: The release will be live within an hour!
 - [ ] Merge the PR to the `master` branch. **Note:** Only use "Merge and commit" as the merge strategy and not "Squash and merge". Using "Squash and merge" makes history between branches misaligned.
 - [ ] Remove the "wait" statement in the release description.
 - [ ] Publish new Post into official Twitter and LinkedIn accounts:
-
 ```commandline
 published #ThreatMatrix vX.X.X! https://github.com/khulnasoft/ThreatMatrix/releases/tag/vX.X.X #ThreatIntelligence #CyberSecurity #OpenSource #OSINT #DFIR
 ```

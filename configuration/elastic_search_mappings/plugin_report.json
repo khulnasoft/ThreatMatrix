@@ -1,0 +1,45 @@
+{
+    "index_patterns": [
+        "plugin-report-*"
+    ],
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas": 0
+    },
+    "mappings": {
+        "properties": {
+            "config": {
+                "properties": {
+                    "name": {
+                        "type": "keyword"
+                    },
+                    "plugin_name": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "job": {
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    }
+                }
+            },
+            "start_time": {
+                "type": "date"
+            },
+            "end_time": {
+                "type": "date"
+            },
+            "status": {
+                "type": "keyword"
+            },
+            "errors": {
+                "type": "text"
+            },
+            "report": {
+                "type": "flattened"
+            }
+        }
+    }
+}
