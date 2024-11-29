@@ -693,7 +693,9 @@ class AbstractReportQuerySet(SendToBiQuerySet):
         Returns:
             AbstractConfigQuerySet: The queryset of configurations.
         """
-        return self.model.config.objects.filter(pk__in=self.values("config__pk"))
+        return self.model.config.field.related_model.objects.filter(
+            pk__in=self.values("config_id")
+        )
 
 
 class ModelWithOwnershipQuerySet:
