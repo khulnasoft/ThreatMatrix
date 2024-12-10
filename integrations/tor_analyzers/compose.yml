@@ -1,3 +1,5 @@
+# All additional integrations should be added following this format only.
+
 services:
   tor_analyzers:
     image: khulnasoft/threatmatrix_tor_analyzers:${REACT_APP_THREATMATRIX_VERSION}

@@ -15,7 +15,7 @@ from django.core.paginator import Paginator
 from treebeard.mp_tree import MP_NodeQuerySet
 
 if TYPE_CHECKING:
-    from api_app.models import PythonConfig
+    from api_app.models import PythonConfig, AbstractConfig
     from api_app.serializers import AbstractBIInterface
 
 import logging
@@ -312,7 +312,7 @@ class JobQuerySet(MP_NodeQuerySet, CleanOnCreateQuerySet, SendToBiQuerySet):
         Returns:
             The filtered queryset.
         """
-        return self.filter(status__in=self.model.Status.final_statuses())
+        return self.filter(status__in=self.model.STATUSES.final_statuses())
 
     def visible_for_user(self, user: User) -> "JobQuerySet":
         """
@@ -409,10 +409,10 @@ class JobQuerySet(MP_NodeQuerySet, CleanOnCreateQuerySet, SendToBiQuerySet):
             The filtered queryset.
         """
         qs = self.exclude(
-            status__in=[status.value for status in self.model.Status.final_statuses()]
+            status__in=[status.value for status in self.model.STATUSES.final_statuses()]
         )
         if not check_pending:
-            qs = qs.exclude(status=self.model.Status.PENDING.value)
+            qs = qs.exclude(status=self.model.STATUSES.PENDING.value)
         difference = now() - datetime.timedelta(minutes=minutes_ago)
         return qs.filter(received_request_time__lte=difference)
 
@@ -574,7 +574,7 @@ class ParameterQuerySet(CleanOnCreateQuerySet):
             test_value=Case(
                 When(
                     name__icontains="url",
-                    then=Value("https://threatmatrix.com", output_field=JSONField()),
+                    then=Value("https://threatmatrix.khulnasoft.com", output_field=JSONField()),
                 ),
                 When(
                     name="pdns_credentials",
@@ -673,7 +673,7 @@ class AbstractReportQuerySet(SendToBiQuerySet):
         Returns:
             AbstractReportQuerySet: The filtered queryset.
         """
-        return self.filter(status__in=self.model.Status.final_statuses())
+        return self.filter(status__in=self.model.STATUSES.final_statuses())
 
     def filter_retryable(self):
         """
@@ -683,7 +683,10 @@ class AbstractReportQuerySet(SendToBiQuerySet):
             AbstractReportQuerySet: The filtered queryset.
         """
         return self.filter(
-            status__in=[self.model.Status.FAILED.value, self.model.Status.PENDING.value]
+            status__in=[
+                self.model.STATUSES.FAILED.value,
+                self.model.STATUSES.PENDING.value,
+            ]
         )
 
     def get_configurations(self) -> AbstractConfigQuerySet:
@@ -936,7 +939,7 @@ class PythonConfigQuerySet(AbstractConfigQuerySet):
 
             task_id = str(uuid.uuid4())
             config.generate_empty_report(
-                job, task_id, AbstractReport.Status.PENDING.value
+                job, task_id, AbstractReport.STATUSES.PENDING.value
             )
             args = [
                 job.pk,
