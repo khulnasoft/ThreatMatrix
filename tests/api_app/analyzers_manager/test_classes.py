@@ -229,7 +229,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@threatmatrix.khulnasoft.com",
+            observable_name="test@khulnasoft.com",
             observable_classification="generic",
             status="reported_without_fails",
         ),
@@ -269,7 +269,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
                             observable_name=(
                                 "CVE-2024-51181"
                                 if config.name == "NVD_CVE"
-                                else "test@threatmatrix.khulnasoft.com"
+                                else "test@khulnasoft.com"
                             ),
                         )
                     else:

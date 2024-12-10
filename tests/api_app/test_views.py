@@ -107,7 +107,7 @@ class PluginConfigViewSetTestCase(CustomViewSetTestCase):
         # they should not find anything
         self.standard_user = User.objects.create_user(
             username="standard_user",
-            email="standard_user@threatmatrix.khulnasoft.com",
+            email="standard_user@khulnasoft.com",
             password="test",
         )
         self.standard_user.save()
@@ -184,7 +184,7 @@ class PluginConfigViewSetTestCase(CustomViewSetTestCase):
         org1 = Organization.objects.create(name="testorg1")
         another_owner = User.objects.create_user(
             username="another_owner",
-            email="another_owner@threatmatrix.khulnasoft.com",
+            email="another_owner@khulnasoft.com",
             password="test",
         )
         another_owner.save()
