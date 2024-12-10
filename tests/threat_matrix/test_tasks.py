@@ -11,6 +11,8 @@ from api_app.ingestors_manager.models import IngestorConfig, IngestorReport
 from api_app.models import Job, LastElasticReportUpdate, PythonModule
 from api_app.pivots_manager.models import PivotConfig, PivotReport
 from api_app.visualizers_manager.models import VisualizerConfig, VisualizerReport
+from certego_saas.apps.organization.membership import Membership
+from certego_saas.apps.organization.organization import Organization
 from certego_saas.apps.user.models import User
 from tests import CustomTestCase
 from tests.mock_utils import MockResponseNoOp
@@ -24,8 +26,19 @@ _now = datetime.datetime(2024, 10, 29, 11, tzinfo=datetime.UTC)
 class SendElasticTestCase(CustomTestCase):
 
     def setUp(self):
+        self.user, _ = User.objects.get_or_create(
+            username="test_elastic_user",
+            email="elastic@khulnasoft.com",
+            password="test",
+        )
+        self.organization, _ = Organization.objects.get_or_create(
+            name="test_elastic_org"
+        )
+        self.membership, _ = Membership.objects.get_or_create(
+            user=self.user, organization=self.organization, is_owner=True
+        )
         self.job = Job.objects.create(
-            observable_name="dns.google.com", tlp="AMBER", user=User.objects.first()
+            observable_name="dns.google.com", tlp="AMBER", user=self.user
         )
         AnalyzerReport.objects.create(  # valid
             config=AnalyzerConfig.objects.get(
@@ -37,7 +50,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=AnalyzerReport.Status.FAILED,
+            status=AnalyzerReport.STATUSES.FAILED,
             errors=["error1", "error2"],
             task_id=uuid(),
             parameters={},
@@ -52,7 +65,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=AnalyzerReport.Status.KILLED,
+            status=AnalyzerReport.STATUSES.KILLED,
             task_id=uuid(),
             parameters={},
         )
@@ -70,7 +83,7 @@ class SendElasticTestCase(CustomTestCase):
             end_time=datetime.datetime(
                 2024, 9, 29, 10, 58, 59, tzinfo=datetime.timezone.utc
             ),
-            status=AnalyzerReport.Status.SUCCESS,
+            status=AnalyzerReport.STATUSES.SUCCESS,
             report={"observable": "dns.google.com", "malicious": False},
             task_id=uuid(),
             parameters={},
@@ -83,7 +96,7 @@ class SendElasticTestCase(CustomTestCase):
                 )
             ),
             job=self.job,
-            status=AnalyzerReport.Status.RUNNING,
+            status=AnalyzerReport.STATUSES.RUNNING,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
             task_id=uuid(),
@@ -99,7 +112,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=ConnectorReport.Status.SUCCESS,
+            status=ConnectorReport.STATUSES.SUCCESS,
             task_id=uuid(),
             report={
                 "subject": "Subject",
@@ -119,7 +132,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=IngestorReport.Status.SUCCESS,
+            status=IngestorReport.STATUSES.SUCCESS,
             task_id=uuid(),
             report={},
             parameters={},
@@ -134,7 +147,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=PivotReport.Status.SUCCESS,
+            status=PivotReport.STATUSES.SUCCESS,
             task_id=uuid(),
             report={"job_id": [1], "created": True, "motivation": None},
             parameters={},
@@ -149,7 +162,7 @@ class SendElasticTestCase(CustomTestCase):
             job=self.job,
             start_time=datetime.datetime(2024, 10, 29, 10, 49, tzinfo=datetime.UTC),
             end_time=datetime.datetime(2024, 10, 29, 10, 59, tzinfo=datetime.UTC),
-            status=VisualizerReport.Status.SUCCESS,
+            status=VisualizerReport.STATUSES.SUCCESS,
             task_id=uuid(),
             report={
                 "level_position": 1,
@@ -170,6 +183,9 @@ class SendElasticTestCase(CustomTestCase):
         PivotReport.objects.all().delete()
         VisualizerReport.objects.all().delete()
         LastElasticReportUpdate.objects.all().delete()
+        self.user.delete()
+        self.organization.delete()
+        self.membership.delete()
 
     @override_settings(ELASTICSEARCH_DSL_ENABLED=True)
     @override_settings(ELASTICSEARCH_DSL_HOST="https://elasticsearch:9200")
@@ -190,9 +206,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_op_type": "index",
                         "_index": "plugin-report-analyzer-report-2024-10-29",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "DNS0_EU_Malicious_Detector",
-                                "plugin_name": "Analyzer",
+                                "plugin_name": "analyzer",
                             },
                             "job": {"id": self.job.id},
                             "start_time": datetime.datetime(
@@ -210,9 +232,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_op_type": "index",
                         "_index": "plugin-report-analyzer-report-2024-10-29",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "Quad9_Malicious_Detector",
-                                "plugin_name": "Analyzer",
+                                "plugin_name": "analyzer",
                             },
                             "job": {"id": self.job.id},
                             "start_time": datetime.datetime(
@@ -230,9 +258,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_op_type": "index",
                         "_index": "plugin-report-connector-report-2024-10-29",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "AbuseSubmitter",
-                                "plugin_name": "Connector",
+                                "plugin_name": "connector",
                             },
                             "job": {"id": self.job.id},
                             "start_time": datetime.datetime(
@@ -255,9 +289,17 @@ class SendElasticTestCase(CustomTestCase):
                         "_op_type": "index",
                         "_index": "plugin-report-pivot-report-2024-10-29",
                         "_source": {
+                            "user": {
+                                "username": "test_elastic_user",
+                            },
+                            "membership": {
+                                "is_owner": True,
+                                "is_admin": False,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "AbuseIpToSubmission",
-                                "plugin_name": "Pivot",
+                                "plugin_name": "pivot",
                             },
                             "job": {"id": self.job.id},
                             "start_time": datetime.datetime(
@@ -303,9 +345,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_index": "plugin-report-analyzer-report-2024-10-29",
                         "_op_type": "index",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "DNS0_EU_Malicious_Detector",
-                                "plugin_name": "Analyzer",
+                                "plugin_name": "analyzer",
                             },
                             "end_time": datetime.datetime(
                                 2024, 10, 29, 10, 59, tzinfo=datetime.timezone.utc
@@ -323,9 +371,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_index": "plugin-report-analyzer-report-2024-10-29",
                         "_op_type": "index",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "Quad9_Malicious_Detector",
-                                "plugin_name": "Analyzer",
+                                "plugin_name": "analyzer",
                             },
                             "end_time": datetime.datetime(
                                 2024, 10, 29, 10, 59, tzinfo=datetime.timezone.utc
@@ -343,9 +397,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_index": "plugin-report-connector-report-2024-10-29",
                         "_op_type": "index",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "AbuseSubmitter",
-                                "plugin_name": "Connector",
+                                "plugin_name": "connector",
                             },
                             "end_time": datetime.datetime(
                                 2024, 10, 29, 10, 59, tzinfo=datetime.timezone.utc
@@ -368,9 +428,15 @@ class SendElasticTestCase(CustomTestCase):
                         "_index": "plugin-report-pivot-report-2024-10-29",
                         "_op_type": "index",
                         "_source": {
+                            "user": {"username": "test_elastic_user"},
+                            "membership": {
+                                "is_admin": False,
+                                "is_owner": True,
+                                "organization": {"name": "test_elastic_org"},
+                            },
                             "config": {
                                 "name": "AbuseIpToSubmission",
-                                "plugin_name": "Pivot",
+                                "plugin_name": "pivot",
                             },
                             "end_time": datetime.datetime(
                                 2024, 10, 29, 10, 59, tzinfo=datetime.timezone.utc

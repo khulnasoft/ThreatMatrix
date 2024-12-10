@@ -6,6 +6,7 @@ from django.core.files import File
 from kombu import uuid
 
 from api_app.analyzers_manager.classes import FileAnalyzer, ObservableAnalyzer
+from api_app.analyzers_manager.constants import ObservableTypes
 from api_app.analyzers_manager.models import AnalyzerConfig, MimeTypes
 from api_app.models import Job, PluginConfig
 from tests import CustomTestCase
@@ -215,7 +216,7 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="https://www.honeynet.org/projects/active/threat-matrix/",
+            observable_name="https://www.honeynet.org/projects/active/intel-owl/",
             observable_classification="url",
             status="reported_without_fails",
         )
@@ -228,7 +229,13 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            observable_name="test@threatmatrix.com",
+            observable_name="test@khulnasoft.com",
+            observable_classification="generic",
+            status="reported_without_fails",
+        ),
+        Job.objects.create(
+            user=self.superuser,
+            observable_name="CVE-2024-51181",
             observable_classification="generic",
             status="reported_without_fails",
         )
@@ -255,9 +262,20 @@ class ObservableAnalyzerTestCase(CustomTestCase):
                         f"Testing datatype {observable_supported}"
                         f" for {timeout_seconds} seconds"
                     )
-                    job = Job.objects.get(
-                        observable_classification=observable_supported
-                    )
+                    if observable_supported == ObservableTypes.GENERIC.value:
+                        # generic should handle different use cases
+                        job = Job.objects.get(
+                            observable_classification=ObservableTypes.GENERIC.value,
+                            observable_name=(
+                                "CVE-2024-51181"
+                                if config.name == "NVD_CVE"
+                                else "test@khulnasoft.com"
+                            ),
+                        )
+                    else:
+                        job = Job.objects.get(
+                            observable_classification=observable_supported
+                        )
                     job.analyzers_to_execute.set([config])
                     sub = subclass(
                         config,
