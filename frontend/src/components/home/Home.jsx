@@ -33,7 +33,7 @@ const blogPosts = [
     title: "New year, new tool: Threat Matrix",
     subText: "Certego Blog: First announcement",
     date: "2nd January 2020",
-    link: "https://www.certego.net/en/news/new-year-new-tool-intel-owl/",
+    link: "https://www.certego.net/en/news/new-year-new-tool-threat-matrix/",
   },
 ];
 
