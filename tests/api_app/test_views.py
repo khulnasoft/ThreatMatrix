@@ -341,9 +341,9 @@ class JobViewSetTests(CustomViewSetTestCase):
         self.assertEqual(
             resp.json(),
             {
-                "values": ["superuser@khulnasoft.com"],
+                "values": ["superuser@threatmatrix.org"],
                 "aggregation": [
-                    {"date": "2024-11-28T00:00:00Z", "superuser@khulnasoft.com": 2}
+                    {"date": "2024-11-28T00:00:00Z", "superuser@threatmatrix.org": 2}
                 ],
             },
         )
