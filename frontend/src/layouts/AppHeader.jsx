@@ -175,12 +175,12 @@ function RightLinks({ handleClickStart, isAuthenticated }) {
           </div>
           <div>
             <a
-              href="https://www.linkedin.com/company/khulnasoft"
+              href="https://www.linkedin.com/company/threatmatrix"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-social my-1 d-flex align-items-center"
             >
-              <FaLinkedin className="me-1" /> KhulnaSoft on LinkedIn{" "}
+              <FaLinkedin className="me-1" /> ThreatMatrix on LinkedIn{" "}
             </a>
           </div>
           <div>
