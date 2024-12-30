@@ -21,7 +21,7 @@ import {
 } from "react-icons/ri";
 import { FaGithub, FaGoogle, FaLinkedin } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import { TbReport } from "react-icons/tb";
+import { TbReport, TbReportSearch } from "react-icons/tb";
 
 // lib
 import { NavLink, AxiosLoadingBar } from "@certego/certego-ui";
@@ -82,6 +82,12 @@ function AuthLinks() {
         <NavLink className="d-flex-start-center" end to="/history">
           <TbReport />
           <span className="ms-1">History</span>
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink className="d-flex-start-center" end to="/search">
+          <TbReportSearch />
+          <span className="ms-1">Search</span>
         </NavLink>
       </NavItem>
       <NavItem>
@@ -169,12 +175,12 @@ function RightLinks({ handleClickStart, isAuthenticated }) {
           </div>
           <div>
             <a
-              href="https://www.linkedin.com/company/threatmatrix"
+              href="https://www.linkedin.com/company/khulnasoft"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-social my-1 d-flex align-items-center"
             >
-              <FaLinkedin className="me-1" /> ThreatMatrix on LinkedIn{" "}
+              <FaLinkedin className="me-1" /> KhulnaSoft on LinkedIn{" "}
             </a>
           </div>
           <div>
