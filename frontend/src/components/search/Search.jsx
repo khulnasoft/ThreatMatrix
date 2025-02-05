@@ -145,7 +145,7 @@ export default function Search() {
                   This section only works if Elasticsearch has been configured
                   correctly. For more info check the{" "}
                   <Link
-                    to="https://khulnasoft.github.io/devsec-docs/ThreatMatrix/advanced_configuration/#elasticsearch"
+                    to="https://khulnasoft.github.io/docs/ThreatMatrix/advanced_configuration/#elasticsearch"
                     target="_blank"
                   >
                     official doc.

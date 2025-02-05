@@ -45,7 +45,7 @@ export function PluginConfigModal({
         <br />
         For more info check the{" "}
         <Link
-          to="https://khulnasoft.github.io/devsec-docs/ThreatMatrix/usage/#parameters"
+          to="https://khulnasoft.github.io/docs/ThreatMatrix/usage/#parameters"
           target="_blank"
         >
           official doc.

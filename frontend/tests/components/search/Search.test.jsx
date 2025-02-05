@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { format } from "date-fns";
 import Search from "../../../src/components/search/Search";
 import { PLUGIN_REPORT_QUERIES } from "../../../src/constants/apiURLs";
 
@@ -86,6 +87,10 @@ describe("test Search component", () => {
   });
 
   test("Search page - search plugin name", async () => {
+    // advanceTimers: true needed with user-event
+    jest
+      .useFakeTimers({ advanceTimers: true })
+      .setSystemTime(new Date(2024, 10, 28));
     const user = userEvent.setup();
     axios.get.mockImplementation(() =>
       Promise.resolve({
@@ -201,17 +206,19 @@ describe("test Search component", () => {
     expect(searchButton.className).not.toContain("disabled");
     await user.click(searchButton);
 
+    const isoFormatString = "yyyy-MM-dd'T'HH:mm";
     const fromDate = new Date();
     fromDate.setDate(fromDate.getDate() - 30);
+    const fromDateStr = format(fromDate, isoFormatString);
 
     await waitFor(() => {
       expect(axios.get).toHaveBeenCalledWith(`${PLUGIN_REPORT_QUERIES}`, {
         params: {
           name: "Classic_DNS",
-          end_end_time: new Date(new Date().toISOString().slice(0, 16)),
-          end_start_time: new Date(new Date().toISOString().slice(0, 16)),
-          start_end_time: new Date(fromDate.toISOString().slice(0, 16)),
-          start_start_time: new Date(fromDate.toISOString().slice(0, 16)),
+          end_end_time: new Date(format(new Date(), isoFormatString)),
+          end_start_time: new Date(format(new Date(), isoFormatString)),
+          start_end_time: new Date(fromDateStr),
+          start_start_time: new Date(fromDateStr),
           page: 1,
           page_size: 10,
         },

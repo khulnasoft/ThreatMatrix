@@ -38,7 +38,7 @@ class ConnectorTestCase(CustomTestCase):
         with self.assertRaises(NotImplementedError):
             MockUpConnector(cc).health_check(self.user)
         pc = PluginConfig.objects.create(
-            value="https://threatmatrix.khulnasoft.com",
+            value="https://threatmatrix.com",
             owner=self.user,
             parameter=Parameter.objects.get(name="url_key_name", python_module=pm),
             connector_config=cc,

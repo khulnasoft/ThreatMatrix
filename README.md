@@ -8,7 +8,6 @@
 [![Official Site](https://img.shields.io/badge/official-site-blue)](https://khulnasoft.github.io)
 [![Live Instance](https://img.shields.io/badge/live-demo-blue)](https://threatmatrix.honeynet.org)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/khulnasoft/threatmatrix/badge)](https://www.codefactor.io/repository/github/khulnasoft/threatmatrix)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![CodeQL](https://github.com/khulnasoft/ThreatMatrix/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/khulnasoft/ThreatMatrix/actions/workflows/codeql-analysis.yml)
@@ -46,15 +45,15 @@ It provides:
 
 ### Documentation
 We try hard to keep our documentation well written, easy to understand and always updated.
-All info about installation, usage, configuration and contribution can be found [here](https://khulnasoft.github.io/devsec-docs/)
+All info about installation, usage, configuration and contribution can be found [here](https://khulnasoft.github.io/docs/)
 
 ### Publications and Media
 
-To know more about the project and its growth over time, you may be interested in reading [the official blog posts and/or videos about the project by clicking on this link](https://khulnasoft.github.io/devsec-docs/ThreatMatrix/introduction/#publications-and-media)
+To know more about the project and its growth over time, you may be interested in reading [the official blog posts and/or videos about the project by clicking on this link](https://khulnasoft.github.io/docs/ThreatMatrix/introduction/#publications-and-media)
 
 ### Available services or analyzers
 
-You can see the full list of all available analyzers in the [documentation](https://khulnasoft.github.io/devsec-docs/ThreatMatrix/usage/#analyzers).
+You can see the full list of all available analyzers in the [documentation](https://khulnasoft.github.io/docs/ThreatMatrix/usage/#analyzers).
 
 | Type                                               | Analyzers Available                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

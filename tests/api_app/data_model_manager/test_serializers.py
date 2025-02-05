@@ -20,10 +20,7 @@ class TestDomainDataModelSerializer(CustomTestCase):
         ar: AnalyzerReport = AnalyzerReport.objects.create(
             report={
                 "evaluation": "MALICIOUS",
-                "urls": [
-                    {"url": "www.threatmatrix.khulnasoft.com"},
-                    {"url": "www.threatmatrix.khulnasoft.com"},
-                ],
+                "urls": [{"url": "www.threatmatrix.com"}, {"url": "www.threatmatrix.com"}],
             },
             job=job,
             config=config,

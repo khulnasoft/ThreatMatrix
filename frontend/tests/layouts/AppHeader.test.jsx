@@ -50,7 +50,7 @@ describe("test AppHeader component", () => {
     const docsButton = screen.getByText("Docs");
     expect(docsButton).toBeInTheDocument();
     expect(docsButton.closest("a").href).toBe(
-      "https://khulnasoft.github.io/devsec-docs/",
+      "https://khulnasoft.github.io/docs/",
     );
 
     const socialButton = screen.getByText("Social");
@@ -119,7 +119,7 @@ describe("test AppHeader component", () => {
     const docsButton = screen.getByText("Docs");
     expect(docsButton).toBeInTheDocument();
     expect(docsButton.closest("a").href).toBe(
-      "https://khulnasoft.github.io/devsec-docs/",
+      "https://khulnasoft.github.io/docs/",
     );
 
     const socialButton = screen.getByText("Social");
@@ -173,7 +173,7 @@ describe("test AppHeader component", () => {
     const docsButton = screen.getByText("Docs");
     expect(docsButton).toBeInTheDocument();
     expect(docsButton.closest("a").href).toBe(
-      "https://khulnasoft.github.io/devsec-docs/",
+      "https://khulnasoft.github.io/docs/",
     );
 
     const socialButton = screen.getByText("Social");
