@@ -259,10 +259,10 @@ class TestUserAuth(CustomOAuthTestCase):
         body = {
             **self.creds,
             "email": self.testregisteruser["email"],
-            "username": "blahblah", 
+            "username": "blahblah",
             "first_name": "blahblah",
             "last_name": "blahblah",
-            "password": "threatmatrix"
+            "password": "threatmatrix",
         }
 
         response = self.client.post(register_uri, body)
@@ -275,7 +275,7 @@ class TestUserAuth(CustomOAuthTestCase):
             content["errors"],
         )
 
-        # db assertions 
+        # db assertions
         self.assertEqual(
             User.objects.count(), current_users, msg="no new user was created"
         )
