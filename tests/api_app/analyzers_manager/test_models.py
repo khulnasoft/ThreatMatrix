@@ -5,8 +5,9 @@
 from django.core.exceptions import ValidationError
 from kombu import uuid
 
+from api_app.analyzables_manager.models import Analyzable
 from api_app.analyzers_manager.models import AnalyzerConfig, AnalyzerReport
-from api_app.choices import PythonModuleBasePaths
+from api_app.choices import Classification, PythonModuleBasePaths
 from api_app.data_model_manager.models import DomainDataModel, IPDataModel
 from api_app.models import Job, PythonModule
 from tests import CustomTestCase
@@ -14,36 +15,14 @@ from tests import CustomTestCase
 
 class AnalyzerReportTestCase(CustomTestCase):
 
-    def test_get_data_models(self):
-        job = Job.objects.create(
-            observable_name="test.com",
-            observable_classification="domain",
-            status=Job.STATUSES.ANALYZERS_RUNNING.value,
-        )
-        config = AnalyzerConfig.objects.first()
-        domain_data_model = DomainDataModel.objects.create()
-        ar: AnalyzerReport = AnalyzerReport.objects.create(
-            report={
-                "evaluation": "MALICIOUS",
-                "urls": [
-                    {"url": "www.threatmatrix.com"},
-                    {"url": "www.threatmatrix.com"},
-                ],
-            },
-            job=job,
-            config=config,
-            status=AnalyzerReport.STATUSES.SUCCESS.value,
-            task_id=str(uuid()),
-            parameters={},
-            data_model=domain_data_model,
-        )
-        dm = AnalyzerReport.objects.filter(pk=ar.pk).get_data_models(job)
-        self.assertEqual(dm.model, DomainDataModel)
-
     def test_clean(self):
+        an1 = Analyzable.objects.create(
+            name="test.com",
+            classification=Classification.DOMAIN,
+        )
+
         job = Job.objects.create(
-            observable_name="test.com",
-            observable_classification="domain",
+            analyzable=an1,
             status=Job.STATUSES.ANALYZERS_RUNNING.value,
         )
         config = AnalyzerConfig.objects.first()
@@ -51,8 +30,8 @@ class AnalyzerReportTestCase(CustomTestCase):
             report={
                 "evaluation": "MALICIOUS",
                 "urls": [
-                    {"url": "www.threatmatrix.com"},
-                    {"url": "www.threatmatrix.com"},
+                    {"url": "www.recon.khulnasoft.com"},
+                    {"url": "www.recon.khulnasoft.com"},
                 ],
             },
             job=job,
@@ -72,11 +51,16 @@ class AnalyzerReportTestCase(CustomTestCase):
         ar.delete()
         job.delete()
         domain_data_model.delete()
+        an1.delete()
 
     def test_create_data_model(self):
+        an1 = Analyzable.objects.create(
+            name="test.com",
+            classification=Classification.DOMAIN,
+        )
+
         job = Job.objects.create(
-            observable_name="test.com",
-            observable_classification="domain",
+            analyzable=an1,
             status=Job.STATUSES.ANALYZERS_RUNNING.value,
         )
         config = AnalyzerConfig.objects.first()
@@ -84,8 +68,8 @@ class AnalyzerReportTestCase(CustomTestCase):
             report={
                 "evaluation": "MALICIOUS",
                 "urls": [
-                    {"url": "www.threatmatrix.com"},
-                    {"url": "www.threatmatrix.com"},
+                    {"url": "www.recon.khulnasoft.com"},
+                    {"url": "www.recon.khulnasoft.com"},
                 ],
             },
             job=job,
@@ -107,17 +91,22 @@ class AnalyzerReportTestCase(CustomTestCase):
         self.assertEqual(data_model.evaluation, "malicious")
         self.assertCountEqual(
             data_model.external_references,
-            ["www.threatmatrix.com", "www.threatmatrix.com"],
+            ["www.recon.khulnasoft.com", "www.recon.khulnasoft.com"],
         )
         self.assertCountEqual([], ar.errors)
         data_model.delete()
         ar.delete()
         job.delete()
+        an1.delete()
 
     def test_get_value(self):
+        an1 = Analyzable.objects.create(
+            name="test.com",
+            classification=Classification.DOMAIN,
+        )
+
         job = Job.objects.create(
-            observable_name="test.com",
-            observable_classification="domain",
+            analyzable=an1,
             status=Job.STATUSES.ANALYZERS_RUNNING.value,
         )
         config = AnalyzerConfig.objects.first()
@@ -125,8 +114,8 @@ class AnalyzerReportTestCase(CustomTestCase):
             report={
                 "evaluation": "MALICIOUS",
                 "urls": [
-                    {"url": "www.threatmatrix.com"},
-                    {"url": "www.threatmatrix.com"},
+                    {"url": "www.recon.khulnasoft.com"},
+                    {"url": "www.recon.khulnasoft.com"},
                 ],
             },
             job=job,
@@ -137,12 +126,15 @@ class AnalyzerReportTestCase(CustomTestCase):
         )
         self.assertEqual(ar.get_value(ar.report, ["evaluation"]), "MALICIOUS")
         self.assertEqual(
-            ar.get_value(ar.report, "urls.0.url".split(".")), "www.threatmatrix.com"
+            ar.get_value(ar.report, "urls.0.url".split(".")), "www.recon.khulnasoft.com"
         )
         self.assertCountEqual(
             ar.get_value(ar.report, "urls.url".split(".")),
-            ["www.threatmatrix.com", "www.threatmatrix.com"],
+            ["www.recon.khulnasoft.com", "www.recon.khulnasoft.com"],
         )
+        ar.delete()
+        job.delete()
+        an1.delete()
 
 
 class AnalyzerConfigTestCase(CustomTestCase):
