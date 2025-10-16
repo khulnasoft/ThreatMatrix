@@ -12,7 +12,7 @@ class JoeSandboxAnalyzerTestCase(BaseAnalyzerTest):
     @staticmethod
     def get_mocked_response():
         analysis_info_response = {
-            "webid": "100",
+            "webid": "1008",
             "analysisid": "4",
             "status": "finished",
             "detection": "malicious",
