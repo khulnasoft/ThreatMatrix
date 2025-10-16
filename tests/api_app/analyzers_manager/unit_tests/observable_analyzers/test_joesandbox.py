@@ -27,7 +27,7 @@ class JoeSandboxAnalyzerTestCase(BaseAnalyzerTest):
             "encrypted": False,
             "md5": "0cbc6611f5540bd0809a388dc95a615b",
             "sha1": "640ab2bae07bedc4c163f679a746f7ab7fb5d1fa",
-            "sha256": "532eaabd9574880 [...] 299550d7a6e0f345e25",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "tags": ["internal", "important"],
             "live-interaction-url": "https://joesandbox.com/analysis/123456789",
             "runs": [
