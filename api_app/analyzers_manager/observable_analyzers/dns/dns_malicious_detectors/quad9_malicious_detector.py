@@ -31,7 +31,7 @@ class Quad9MaliciousDetector(DoHMixin, classes.ObservableAnalyzer):
     google_url: str = "https://dns.google.com/resolve"
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
 

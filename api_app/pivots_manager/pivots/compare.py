@@ -8,7 +8,7 @@ class Compare(Pivot):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def should_run(self) -> Tuple[bool, Optional[str]]:
         if self.related_reports.count() != 1:

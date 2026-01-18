@@ -16,7 +16,7 @@ class Censys(classes.ObservableAnalyzer):
     """
 
     def update(self):
-        pass
+        raise NotImplementedError()
 
     url = "https://search.censys.io/api/v2"
 

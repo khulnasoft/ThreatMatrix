@@ -18,7 +18,7 @@ class BlintAnalyzer(FileAnalyzer):
     """
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self) -> dict:
         logger.info(f"Running Blint on {self.filepath} for {self.md5}")

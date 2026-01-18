@@ -14,7 +14,8 @@ def migrate(apps, schema_editor):
     param.save()
 
 
-def reverse_migrate(apps, schema_editor): ...
+def reverse_migrate(apps, schema_editor):
+    raise NotImplementedError()
 
 
 class Migration(migrations.Migration):

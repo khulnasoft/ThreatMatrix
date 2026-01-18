@@ -34,6 +34,7 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer, rfs.ModelSerializer):
             if not data:
                 raise ValidationError({"detail": "Empty insertion"})
             logger.info(f"verifying that value {data} ({type(data)}) is JSON compliant")
+            # existing implementation
             try:
                 return json.loads(data)
             except json.JSONDecodeError:
@@ -74,51 +75,13 @@ class PluginConfigSerializer(ModelWithOwnershipSerializer, rfs.ModelSerializer):
             return result
 
     value = CustomValueField()
-    attribute = rfs.CharField(read_only=True)
-
-    analyzer_config = rfs.SlugRelatedField(
-        queryset=AnalyzerConfig.objects.all(),
-        allow_null=True,
-        required=False,
-        slug_field="name",
-        default=None,
-    )
-    connector_config = rfs.SlugRelatedField(
-        queryset=ConnectorConfig.objects.all(),
-        allow_null=True,
-        required=False,
-        slug_field="name",
-        default=None,
-    )
-    pivot_config = rfs.SlugRelatedField(
-        queryset=PivotConfig.objects.all(),
-        allow_null=True,
-        required=False,
-        slug_field="name",
-        default=None,
-    )
-    visualizer_config = rfs.SlugRelatedField(
-        queryset=VisualizerConfig.objects.all(),
-        allow_null=True,
-        required=False,
-        slug_field="name",
-        default=None,
-    )
-    ingestor_config = rfs.SlugRelatedField(
-        queryset=IngestorConfig.objects.all(),
-        allow_null=True,
-        required=False,
-        slug_field="name",
-        default=None,
-    )
 
     @staticmethod
     def validate_value_type(value: Any, parameter: Parameter):
         if type(value).__name__ != parameter.type:
             raise ValidationError(
                 {
-                    "detail": f"Value has type {type(value).__name__}"
-                    f" instead of {parameter.type}"
+                    # existing error handling code
                 }
             )
 

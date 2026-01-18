@@ -59,7 +59,7 @@ class DocInfo(FileAnalyzer):
         self.passwords_to_check.extend(self.additional_passwords_to_check)
 
     def update(self) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         results = {"uris": []}

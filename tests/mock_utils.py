@@ -41,13 +41,13 @@ class MockUpResponse:
 
     @staticmethod
     def raise_for_status():
-        pass
+        raise NotImplementedError()
 
 
 # a mock response class that has no operation
 class MockResponseNoOp:
     def __init__(self, json_data, status_code):
-        pass
+        raise NotImplementedError()
 
     @staticmethod
     def search(*args, **kwargs):

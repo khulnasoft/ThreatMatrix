@@ -1,11 +1,11 @@
 # Stage 1: Frontend
 # Remove this part if it is conflicting with the frontend you are currently testing
-FROM node:lts-alpine3.21 AS frontend-build
+FROM node:lts-alpine3.18 AS frontend-build
 
 WORKDIR /
 # copy react source code
 COPY frontend/ .
-# copy version file as an env file
+# copy version file AS an env file
 COPY docker/.env .env.local
 # install and build
 RUN npm install npm@latest --location=global \

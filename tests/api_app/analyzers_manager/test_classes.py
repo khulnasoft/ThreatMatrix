@@ -261,17 +261,8 @@ class ObservableAnalyzerTestCase(CustomTestCase):
         )
         Job.objects.create(
             user=self.superuser,
-            analyzable=an5,
-            status="reported_without_fails",
-        ),
-        Job.objects.create(
-            user=self.superuser,
-            analyzable=an6,
-            status="reported_without_fails",
-        )
-        Job.objects.create(
-            user=self.superuser,
-            analyzable=an7,
+            observable_name="test@khulnasoft.com",
+            observable_classification="generic",
             status="reported_without_fails",
         )
 

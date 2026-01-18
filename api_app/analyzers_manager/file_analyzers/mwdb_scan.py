@@ -34,7 +34,7 @@ class MockUpUploadObject:
         self.data = {"id": "id_test"}
 
     def flush(self):
-        return
+        raise NotImplementedError()
 
 
 class MockUpQueryObject:
@@ -45,7 +45,7 @@ class MockUpQueryObject:
 
 class MockUpMWDB:
     def __init__(self):
-        pass
+        raise NotImplementedError()
 
     @staticmethod
     def upload_file(*args, **kwargs):

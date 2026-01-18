@@ -15,7 +15,7 @@ class Auth0(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         headers = {"X-Auth-Token": self._api_key_name}

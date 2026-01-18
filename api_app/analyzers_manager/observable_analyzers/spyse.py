@@ -19,7 +19,7 @@ class Spyse(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def __build_spyse_api_uri(self) -> str:
         if self.observable_classification == Classification.DOMAIN:

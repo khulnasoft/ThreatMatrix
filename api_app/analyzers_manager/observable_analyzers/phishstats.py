@@ -21,7 +21,7 @@ class PhishStats(ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def __build_phishstats_url(self) -> str:
         to_analyze_observable_classification = self.observable_classification

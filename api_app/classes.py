@@ -202,7 +202,7 @@ class Plugin(metaclass=ABCMeta):
                     report_content.append(n)
 
         self.report.report = report_content
-        self.report.status = self.report.STATUSES.SUCCESS.value
+        self.report.status = self.report.Status.SUCCESS.value
         self.report.save(update_fields=["status", "report"])
 
     def log_error(self, e):

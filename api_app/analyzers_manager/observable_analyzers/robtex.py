@@ -17,7 +17,7 @@ class Robtex(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         if self.observable_classification == Classification.IP:

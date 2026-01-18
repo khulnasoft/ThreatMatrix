@@ -18,7 +18,7 @@ class SecurityTrails(classes.ObservableAnalyzer):
 
     @classmethod
     def update(cls) -> bool:
-        pass
+        raise NotImplementedError()
 
     def run(self):
         headers = {"apikey": self._api_key_name, "Content-Type": "application/json"}
