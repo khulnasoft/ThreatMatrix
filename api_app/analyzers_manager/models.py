@@ -1,21 +1,20 @@
 # This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
-
+import json
 from logging import getLogger
-from typing import Optional
+from typing import Dict, Optional, Type, Union
 
-from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db import models
 
-from api_app.analyzers_manager.constants import (
-    HashChoices,
-    ObservableTypes,
-    TypeChoices,
-)
+from api_app.analyzers_manager.constants import HashChoices, TypeChoices
 from api_app.analyzers_manager.exceptions import AnalyzerConfigurationException
 from api_app.analyzers_manager.queryset import AnalyzerReportQuerySet
-from api_app.choices import TLP, PythonModuleBasePaths
+from api_app.choices import TLP, Classification, PythonModuleBasePaths
+from api_app.data_model_manager.fields import SetField
+from api_app.data_model_manager.models import BaseDataModel
 from api_app.fields import ChoiceArrayField
 from api_app.models import AbstractReport, PythonConfig, PythonModule
 
@@ -27,10 +26,113 @@ class AnalyzerReport(AbstractReport):
     config = models.ForeignKey(
         "AnalyzerConfig", related_name="reports", null=False, on_delete=models.CASCADE
     )
+    data_model_content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.CASCADE,
+        limit_choices_to={
+            "app_label": "data_model_manager",
+        },
+        null=True,
+        editable=False,
+        blank=True,
+    )
+    data_model_object_id = models.IntegerField(null=True, editable=False, blank=True)
+    data_model = GenericForeignKey("data_model_content_type", "data_model_object_id")
 
     class Meta:
         unique_together = [("config", "job")]
-        indexes = AbstractReport.Meta.indexes
+        indexes = AbstractReport.Meta.indexes + [
+            models.Index(fields=["data_model_content_type", "data_model_object_id"])
+        ]
+
+    def clean(self):
+        if (
+            self.data_model_content_type
+            and ContentType.objects.get_for_model(model=self.data_model_class)
+            != self.data_model_content_type
+        ):
+            raise ValidationError("Wrong data model for this report")
+
+    @property
+    def data_model_class(self) -> Type[BaseDataModel]:
+        return self.job.analyzable.get_data_model_class()
+
+    def _validation_before_data_model(self) -> bool:
+        if not self.status == self.STATUSES.SUCCESS.value:
+            logger.info(
+                f"Skipping data model of {self.config.name} for job {self.config_id} because status is "
+                f"{self.status}"
+            )
+            return False
+        data_model_keys = self.data_model_class.get_fields().keys()
+        for data_model_key in self.config.mapping_data_model.values():
+            if data_model_key not in data_model_keys:
+                self.errors.append(
+                    f"Field {data_model_key} not available in {self.data_model_class.__name__}"
+                )
+        return True
+
+    def _create_data_model_dictionary(self) -> Dict:
+        """
+        Returns a dictionary that will be used to create an initial data model for the report.
+
+        It uses the mapping_data_model field of the AnalyzerConfig to map the fields of the report with the fields of the data model.
+
+        For example, if we have
+
+        analyzer_report = {
+            "family": "MalwareFamily"
+        }
+
+        mapping_data_model = {"family": "malware_family"}
+
+        the method returns
+        result = {"malware_family": "MalwareFamily"}.
+        """
+        result = {}
+        logger.debug(f"Mapping is {json.dumps(self.config.mapping_data_model)}")
+        for report_key, data_model_key in self.config.mapping_data_model.items():
+            # this is a constant
+            if report_key.startswith("$"):
+                value = report_key[1:]
+            elif isinstance(report_key, int):
+                value = report_key
+            # this is a field of the report
+            else:
+                try:
+                    value = self.get_value(self.report, report_key.split("."))
+                    logger.debug(f"Retrieved {value} from key {report_key}")
+                except Exception:
+                    # validation
+                    self.errors.append(f"Field {report_key} not available in report")
+                    continue
+            fields = self.data_model_class.get_fields()
+            if isinstance(fields[data_model_key], SetField):
+                try:
+                    if isinstance(value, list):
+                        result[data_model_key].extend(value)
+                    else:
+                        result[data_model_key].append(value)
+                except KeyError:
+                    if isinstance(value, list):
+                        result[data_model_key] = value
+                    else:
+                        result[data_model_key] = [value]
+            else:
+                result[data_model_key] = value
+        return result
+
+    def create_data_model(self) -> Optional[BaseDataModel]:
+        # TODO we don't need to actually crate a new object every time.
+        #  if the report is the same of the previous one, we can just link it
+        if not self._validation_before_data_model():
+            return None
+        dictionary = self._create_data_model_dictionary()
+
+        self.data_model: BaseDataModel = self.data_model_class.objects.create()
+        self.data_model.merge(dictionary)
+        self.save()
+        return self.data_model
 
 
 class MimeTypes(models.TextChoices):
@@ -86,6 +188,12 @@ class MimeTypes(models.TextChoices):
     X_SHELLSCRIPT = "text/x-shellscript"
     CRX = "application/x-chrome-extension"
     JSON = "application/json"
+    EXECUTABLE = "application/x-executable"
+    JAVA2 = "text/x-java"
+    KOTLIN = "text/x-kotlin"
+    SWIFT = "text/x-swift"
+    OBJECTIVE_C_CODE = "text/x-objective-c"
+    LNK = "application/x-ms-shortcut"
 
     @classmethod
     def _calculate_from_filename(cls, file_name: str) -> Optional["MimeTypes"]:
@@ -101,12 +209,21 @@ class MimeTypes(models.TextChoices):
             mimetype = cls.DEX
         elif file_name.endswith(".one"):
             mimetype = cls.ONE_NOTE
+        elif file_name.endswith(".java"):
+            mimetype = cls.JAVA2
+        elif file_name.endswith(".swift"):
+            mimetype = cls.SWIFT
+        elif file_name.endswith(".kt"):
+            mimetype = cls.KOTLIN
+        elif file_name.endswith(".m"):
+            mimetype = cls.OBJECTIVE_C_CODE
+
         else:
             return None
         return mimetype
 
     @classmethod
-    def calculate(cls, file_pointer, file_name) -> str:
+    def calculate(cls, buffer: Union[bytes, str], file_name: str) -> str:
         from magic import from_buffer as magic_from_buffer
 
         mimetype = None
@@ -114,8 +231,9 @@ class MimeTypes(models.TextChoices):
             mimetype = cls._calculate_from_filename(file_name)
 
         if mimetype is None:
-            buffer = file_pointer.read()
-            mimetype = magic_from_buffer(buffer, mime=True)
+            mimetype = magic_from_buffer(
+                buffer.encode() if isinstance(buffer, str) else buffer, mime=True
+            )
             logger.debug(f"mimetype is {mimetype}")
             try:
                 mimetype = cls(mimetype)
@@ -150,7 +268,9 @@ class AnalyzerConfig(PythonConfig):
     )
     # obs
     observable_supported = ChoiceArrayField(
-        models.CharField(null=False, choices=ObservableTypes.choices, max_length=30),
+        models.CharField(
+            null=False, choices=Classification.choices[:-1], max_length=30
+        ),
         default=list,
         blank=True,
     )
@@ -172,6 +292,11 @@ class AnalyzerConfig(PythonConfig):
     )
     orgs_configuration = GenericRelation(
         "api_app.OrganizationPluginConfiguration", related_name="%(class)s"
+    )
+    mapping_data_model = models.JSONField(
+        default=dict,
+        help_text="Mapping analyzer_report_key: data_model_key. Keys preceded by the symbol $ will be considered as constants.",
+        blank=True,
     )
 
     @classmethod

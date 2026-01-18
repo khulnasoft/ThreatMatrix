@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 IP_REG = (
-    r"^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}"
+    "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}"
     "(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"
 )
 IPv6_REG = (
@@ -32,14 +32,14 @@ IPv6_REG = (
     r"((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}"
     r"(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))\b"
 )
-EMAIL_REG = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}"
+EMAIL_REG = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}"
 DOMAIN_REG = re.compile(
     r"^(?:[a-zA-Z0-9]"  # First character of the domain
     r"(?:[a-zA-Z0-9-_]{0,61}[A-Za-z0-9])?\.)"  # Sub domain + hostname
     r"+[A-Za-z0-9][A-Za-z0-9-_]{0,61}"  # First 61 characters of the gTLD
     r"[A-Za-z]$"  # Last character of the gTLD
 )
-PHONE_REG = r"^\+?[1-9]\d{1,14}$"
+PHONE_REG = "^\+?[1-9]\d{1,14}$"
 URL_REG = (
     "((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b"
     "([-a-zA-Z0-9@:%._\\+~#?&//=]*)"

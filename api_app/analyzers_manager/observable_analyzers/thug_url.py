@@ -8,7 +8,7 @@ from api_app.analyzers_manager.classes import DockerBasedAnalyzer, ObservableAna
 
 class ThugUrl(ObservableAnalyzer, DockerBasedAnalyzer):
     name: str = "Thug"
-    url: str = "http://malware_tools_analyzers:4002/thug"
+    url: str = "http://thug:4002/thug"
     # http request polling max number of tries
     max_tries: int = 15
     # interval between http request polling (in seconds)
@@ -30,7 +30,9 @@ class ThugUrl(ObservableAnalyzer, DockerBasedAnalyzer):
         enable_img_proc = self.enable_image_processing_analysis
         # make request arguments
         # analysis timeout is set to 5 minutes
-        args = ["-T", "300", "-u", str(user_agent)]
+        args = ["-T", "300"]
+        if user_agent:
+            args.extend(["-u", str(user_agent)])
         if dom_events:
             args.extend(["-e", str(dom_events)])
         if use_proxy and proxy:
@@ -46,12 +48,13 @@ class ThugUrl(ObservableAnalyzer, DockerBasedAnalyzer):
         args = self._thug_args_builder()
         # construct a valid directory name into which thug will save the result
         tmp_dir = secrets.token_hex(4)
+        tmp_dir_full_path = "/opt/deploy/thug" + tmp_dir
         # make request data
-        args.extend(["-n", "/home/thug/" + tmp_dir, self.observable_name])
+        args.extend(["-n", tmp_dir_full_path, self.observable_name])
 
         req_data = {
             "args": args,
-            "callback_context": {"read_result_from": tmp_dir},
+            "callback_context": {"read_result_from": tmp_dir_full_path},
         }
 
         return self._docker_run(req_data=req_data, req_files=None)

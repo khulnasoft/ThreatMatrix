@@ -5,19 +5,20 @@ import os
 from django.conf import settings
 from django.utils.timezone import now
 
-from api_app.analyzers_manager.constants import ObservableTypes
+from api_app.analyzables_manager.models import Analyzable
 from api_app.analyzers_manager.file_analyzers import quark_engine, yara_scan
 from api_app.analyzers_manager.models import AnalyzerConfig
 from api_app.analyzers_manager.observable_analyzers import (
     feodo_tracker,
     greynoise_labs,
+    ja4_db,
     maxmind,
     phishing_army,
     talos,
     tor,
     tweetfeeds,
 )
-from api_app.choices import PythonModuleBasePaths
+from api_app.choices import Classification, PythonModuleBasePaths
 from api_app.models import Job, Parameter, PluginConfig, PythonModule
 from threat_matrix.tasks import check_stuck_analysis, remove_old_jobs
 
@@ -31,11 +32,14 @@ class CronTests(CustomTestCase):
     def test_check_stuck_analysis(self):
         import datetime
 
+        an = Analyzable.objects.create(
+            name="8.8.8.8",
+            classification=Classification.IP,
+        )
         _job = Job.objects.create(
             user=self.user,
-            status=Job.Status.RUNNING.value,
-            observable_name="8.8.8.8",
-            observable_classification=ObservableTypes.IP,
+            status=Job.STATUSES.RUNNING.value,
+            analyzable=an,
             received_request_time=now(),
         )
         self.assertCountEqual(check_stuck_analysis(), [])
@@ -44,24 +48,29 @@ class CronTests(CustomTestCase):
         _job.save()
         self.assertCountEqual(check_stuck_analysis(), [_job.pk])
 
-        _job.status = Job.Status.PENDING.value
+        _job.status = Job.STATUSES.PENDING.value
         _job.save()
         self.assertCountEqual(check_stuck_analysis(check_pending=False), [])
 
         self.assertCountEqual(check_stuck_analysis(check_pending=True), [_job.pk])
-        _job.status = Job.Status.ANALYZERS_RUNNING.value
+        _job.status = Job.STATUSES.ANALYZERS_RUNNING.value
         _job.save()
         self.assertCountEqual(check_stuck_analysis(check_pending=False), [_job.pk])
         _job.delete()
+        an.delete()
 
     def test_remove_old_jobs(self):
         import datetime
 
+        an = Analyzable.objects.create(
+            name="8.8.8.8",
+            classification=Classification.IP,
+        )
+
         _job = Job.objects.create(
             user=self.user,
-            status=Job.Status.FAILED.value,
-            observable_name="8.8.8.8",
-            observable_classification=ObservableTypes.IP,
+            status=Job.STATUSES.FAILED.value,
+            analyzable=an,
             received_request_time=now(),
             finished_analysis_time=now(),
         )
@@ -72,6 +81,7 @@ class CronTests(CustomTestCase):
         self.assertEqual(remove_old_jobs(), 1)
 
         _job.delete()
+        an.delete()
 
     @if_mock_connections(skip("not working without connection"))
     def test_maxmind_updater(self):
@@ -172,7 +182,73 @@ class CronTests(CustomTestCase):
     )
     def test_tweetfeed_updater(self, mock_get=None):
         tweetfeeds.TweetFeeds.update()
-        self.assertTrue(os.path.exists(f"{settings.MEDIA_ROOT}/tweetfeed_month.json"))
+        location, _ = tweetfeeds.TweetFeeds.location()
+        self.assertTrue(os.path.exists(location))
+
+    @if_mock_connections(
+        patch(
+            "requests.get",
+            return_value=MockUpResponse(
+                [
+                    {
+                        "application": "Nmap",
+                        "library": None,
+                        "device": None,
+                        "os": None,
+                        "user_agent_string": None,
+                        "certificate_authority": None,
+                        "observation_count": 1,
+                        "verified": True,
+                        "notes": "",
+                        "ja4_fingerprint": None,
+                        "ja4_fingerprint_string": None,
+                        "ja4s_fingerprint": None,
+                        "ja4h_fingerprint": None,
+                        "ja4x_fingerprint": None,
+                        "ja4t_fingerprint": "1024_2_1460_00",
+                        "ja4ts_fingerprint": None,
+                        "ja4tscan_fingerprint": None,
+                    },
+                    {
+                        "application": None,
+                        "library": None,
+                        "device": None,
+                        "os": None,
+                        "user_agent_string": """Mozilla/5.0
+                                (Windows NT 10.0; Win64; x64)
+                                AppleWebKit/537.36 (KHTML, like Gecko)
+                                Chrome/125.0.0.0
+                                Safari/537.36""",
+                        "certificate_authority": None,
+                        "observation_count": 1,
+                        "verified": False,
+                        "notes": None,
+                        "ja4_fingerprint": """t13d1517h2_
+                                8daaf6152771_
+                                b0da82dd1658""",
+                        "ja4_fingerprint_string": """t13d1517h2_002f,0035,009c,
+                                009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,
+                                cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,
+                                002d,0033,4469,fe0d,ff01_0403,0804,0401,
+                                0503,0805,0501,0806,0601""",
+                        "ja4s_fingerprint": None,
+                        "ja4h_fingerprint": """ge11cn20enus_
+                                60ca1bd65281_
+                                ac95b44401d9_
+                                8df6a44f726c""",
+                        "ja4x_fingerprint": None,
+                        "ja4t_fingerprint": None,
+                        "ja4ts_fingerprint": None,
+                        "ja4tscan_fingerprint": None,
+                    },
+                ],
+                200,
+            ),
+        ),
+    )
+    def test_ja4_db_updater(self, mock_get=None):
+        ja4_db.Ja4DB.update()
+        self.assertTrue(os.path.exists(ja4_db.Ja4DB.location()))
 
     def test_quark_updater(self):
         from quark.config import DIR_PATH

@@ -1,9 +1,11 @@
 # This file is a part of ThreatMatrix https://github.com/khulnasoft/ThreatMatrix
 # See the file 'LICENSE' for copying permission.
+from gettext import ngettext
 from typing import Any
 
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.contrib.admin import widgets
+from django.contrib.admin.models import LogEntry
 from django.db.models import JSONField, ManyToManyField
 from django.http import HttpRequest
 from prettyjson.widgets import PrettyJSONWidget
@@ -47,10 +49,8 @@ class JobAdminView(CustomAdminView):
         "id",
         "status",
         "user",
-        "observable_name",
-        "observable_classification",
-        "file_name",
-        "file_mimetype",
+        "get_analyzable_name",
+        "get_analyzable_classification",
         "received_request_time",
         "analyzers_executed",
         "connectors_executed",
@@ -61,11 +61,6 @@ class JobAdminView(CustomAdminView):
         "id",
         "user",
         "status",
-    )
-    search_fields = (
-        "md5",
-        "observable_name",
-        "file_name",
     )
     list_filter = ("status", "user", "tags")
 
@@ -120,8 +115,6 @@ class PluginConfigAdminView(ModelWithOwnershipAdminView, CustomAdminView):
         "pk",
         "get_config",
         "parameter",
-        "for_organization",
-        "get_owner",
         "get_type",
         "value",
     ) + ModelWithOwnershipAdminView.list_display
@@ -196,6 +189,7 @@ class AbstractConfigAdminView(CustomAdminView):
     list_filter = ("disabled",)
     # allow to clone the object
     save_as = True
+    actions = ["disable", "enable"]
 
     @admin.display(description="Disabled in orgs")
     def disabled_in_orgs(self, instance: AbstractConfig):
@@ -204,6 +198,34 @@ class AbstractConfigAdminView(CustomAdminView):
                 "organization__name", flat=True
             )
         )
+
+    def disable(self, request, queryset):
+        counter = queryset.update(disabled=True)
+        self.message_user(
+            request,
+            ngettext(
+                f"{counter} {queryset.model._meta.verbose_name} was disabled.",
+                f"{counter} {queryset.model._meta.verbose_name_plural} were disabled.",
+                counter,
+            ),
+            messages.SUCCESS,
+        )
+
+    disable.short_description = "Disable configurations"
+
+    def enable(self, request, queryset):
+        counter = queryset.update(disabled=False)
+        self.message_user(
+            request,
+            ngettext(
+                f"{counter} {queryset.model._meta.verbose_name} was enabled.",
+                f"{counter} {queryset.model._meta.verbose_name_plural} were enabled.",
+                counter,
+            ),
+            messages.SUCCESS,
+        )
+
+    enable.short_description = "Enable configurations"
 
 
 class PythonConfigAdminView(AbstractConfigAdminView):
@@ -224,3 +246,30 @@ class OrganizationPluginConfigurationAdminView(CustomAdminView):
     exclude = ["content_type", "object_id"]
     list_filter = ["organization", "content_type"]
     form = OrganizationPluginConfigurationForm
+
+
+@admin.register(LogEntry)
+class LogEntryAdmin(admin.ModelAdmin):
+    ordering = ["-action_time"]
+    list_display = [
+        "pk",
+        "user",
+        "object_repr",
+        "action_flag",
+        "change_message",
+        "action_time",
+    ]
+    list_filter = ["user", "action_flag", "action_time", "content_type"]
+    search_fields = ["user__username", "object_repr", "change_message"]
+
+    @staticmethod
+    def has_delete_permission(request, obj=None):
+        return False
+
+    @staticmethod
+    def has_add_permission(request):
+        return False
+
+    @staticmethod
+    def has_change_permission(request, obj=None):
+        return False

@@ -1,138 +1,36 @@
 import React, { Suspense } from "react";
 import { AiOutlineApi } from "react-icons/ai";
-import { BsPeopleFill, BsSliders } from "react-icons/bs";
 import { TiFlowChildren, TiBook } from "react-icons/ti";
 import { IoIosEye } from "react-icons/io";
 import { MdInput } from "react-icons/md";
 import { PiGraphFill } from "react-icons/pi";
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { NavLink as RRNavLink, useLocation } from "react-router-dom";
+import { Button, Col, Nav, NavItem } from "reactstrap";
 
-import {
-  RouterTabs,
-  FallBackLoading,
-  ContentSection,
-} from "@certego/certego-ui";
-import { Link } from "react-router-dom";
-import { Button, Col } from "reactstrap";
-import { useOrganizationStore } from "../../stores/useOrganizationStore";
+import { FallBackLoading } from "@certego/certego-ui";
 import { useGuideContext } from "../../contexts/GuideContext";
+import { PluginsTypes } from "../../constants/pluginConst";
+import { PluginConfigModal } from "./PluginConfigModal";
 
-const Analyzers = React.lazy(() => import("./types/Analyzers"));
-const Connectors = React.lazy(() => import("./types/Connectors"));
-const Pivots = React.lazy(() => import("./types/Pivots"));
-const Visualizers = React.lazy(() => import("./types/Visualizers"));
-const Ingestors = React.lazy(() => import("./types/Ingestors"));
-const Playbooks = React.lazy(() => import("./types/Playbooks"));
-
-const routes = [
-  {
-    key: "plugins-analyzers",
-    location: "analyzers",
-    Title: () => (
-      <span id="Analyzers">
-        <AiOutlineApi />
-        &nbsp;Analyzers
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Analyzers />
-      </Suspense>
-    ),
-  },
-  {
-    key: "plugins-connectors",
-    location: "connectors",
-    Title: () => (
-      <span id="Connectors">
-        <TiFlowChildren />
-        &nbsp;Connectors
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Connectors />
-      </Suspense>
-    ),
-  },
-  {
-    key: "plugins-pivots",
-    location: "pivots",
-    Title: () => (
-      <span id="Pivots">
-        <PiGraphFill />
-        &nbsp;Pivots
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Pivots />
-      </Suspense>
-    ),
-  },
-  {
-    key: "plugins-visualizers",
-    location: "visualizers",
-    Title: () => (
-      <span>
-        <IoIosEye />
-        &nbsp;Visualizers
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Visualizers />
-      </Suspense>
-    ),
-  },
-  {
-    key: "plugins-ingestors",
-    location: "ingestors",
-    Title: () => (
-      <span>
-        <MdInput />
-        &nbsp;Ingestors
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Ingestors />
-      </Suspense>
-    ),
-  },
-  {
-    key: "plugins-playbooks",
-    location: "playbooks",
-    Title: () => (
-      <span>
-        <TiBook />
-        &nbsp;Playbooks
-      </span>
-    ),
-    Component: () => (
-      <Suspense fallback={<FallBackLoading />}>
-        <Playbooks />
-      </Suspense>
-    ),
-  },
-];
+const Analyzers = React.lazy(() => import("./tables/Analyzers"));
+const Connectors = React.lazy(() => import("./tables/Connectors"));
+const Pivots = React.lazy(() => import("./tables/Pivots"));
+const Visualizers = React.lazy(() => import("./tables/Visualizers"));
+const Ingestors = React.lazy(() => import("./tables/Ingestors"));
+const Playbooks = React.lazy(() => import("./tables/Playbooks"));
 
 export default function PluginsContainer() {
   console.debug("PluginsContainer rendered!");
-  const {
-    isUserOwner,
-    organization,
-    fetchAll: fetchAllOrganizations,
-  } = useOrganizationStore(
-    React.useCallback(
-      (state) => ({
-        isUserOwner: state.isUserOwner,
-        fetchAll: state.fetchAll,
-        organization: state.organization,
-      }),
-      [],
-    ),
-  );
+  const location = useLocation();
+  const pluginsPage = location?.pathname?.split("/")[2]?.slice(0, -1);
+  const enableCreateButton = [
+    PluginsTypes.ANALYZER,
+    PluginsTypes.PIVOT,
+    PluginsTypes.PLAYBOOK,
+  ].includes(pluginsPage);
 
+  const [showModalCreate, setShowModalCreate] = React.useState(false);
   const { guideState, setGuideState } = useGuideContext();
 
   React.useEffect(() => {
@@ -144,49 +42,113 @@ export default function PluginsContainer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // on component mount
-  React.useEffect(() => {
-    if (!isUserOwner) {
-      fetchAllOrganizations();
-    }
-  }, [isUserOwner, fetchAllOrganizations]);
-  const configButtons = (
+  const createButton = (
     <Col className="d-flex justify-content-end">
-      <ContentSection className="d-inline-flex mb-0 py-0">
-        {organization?.name ? (
-          <Link
-            className="d-flex"
-            to="/me/organization/config"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Button
-              size="sm"
-              color="darker"
-              onClick={() => null}
-              className="me-2"
-            >
-              <BsPeopleFill className="me-2" /> Organization {organization.name}
-              &apos;s plugin config
-            </Button>
-          </Link>
-        ) : null}
-        <Link
-          className="d-flex"
-          to="/me/config"
-          style={{ color: "inherit", textDecoration: "inherit" }}
+      {enableCreateButton && (
+        <Button
+          id="createbutton"
+          className="d-flex align-items-center"
+          size="sm"
+          color="darker"
+          onClick={() => setShowModalCreate(true)}
         >
-          <Button
-            id="pluginconfigbutton"
-            size="sm"
-            color="darker"
-            onClick={() => null}
-          >
-            <BsSliders className="me-2" id="plugin_config" />
-            Your plugin config
-          </Button>
-        </Link>
-      </ContentSection>
+          <BsFillPlusCircleFill />
+          &nbsp;Create {pluginsPage}
+        </Button>
+      )}
+      {showModalCreate && (
+        <PluginConfigModal
+          pluginType={pluginsPage}
+          toggle={setShowModalCreate}
+          isOpen={showModalCreate}
+        />
+      )}
     </Col>
   );
-  return <RouterTabs routes={routes} extraNavComponent={configButtons} />;
+
+  /* switch is requested or each time a section is selected everything need to be rendered again
+  slowing down the performance and the UX */
+  let selectedComponent;
+  switch (pluginsPage) {
+    case PluginsTypes.ANALYZER:
+      selectedComponent = <Analyzers />;
+      break;
+    case PluginsTypes.CONNECTOR:
+      selectedComponent = <Connectors />;
+      break;
+    case PluginsTypes.PIVOT:
+      selectedComponent = <Pivots />;
+      break;
+    case PluginsTypes.VISUALIZER:
+      selectedComponent = <Visualizers />;
+      break;
+    case PluginsTypes.INGESTOR:
+      selectedComponent = <Ingestors />;
+      break;
+    case PluginsTypes.PLAYBOOK:
+      selectedComponent = <Playbooks />;
+      break;
+    default:
+      selectedComponent = undefined;
+  }
+  selectedComponent = (
+    <Suspense fallback={<FallBackLoading />}>{selectedComponent}</Suspense>
+  );
+
+  return (
+    <>
+      <Nav className="nav-tabs">
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/analyzers">
+            <span id="analyzers">
+              <AiOutlineApi />
+              &nbsp;Analyzers
+            </span>
+          </RRNavLink>
+        </NavItem>
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/connectors">
+            <span id="connectors">
+              <TiFlowChildren />
+              &nbsp;Connectors
+            </span>
+          </RRNavLink>
+        </NavItem>
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/pivots">
+            <span id="pivots">
+              <PiGraphFill />
+              &nbsp;Pivots
+            </span>
+          </RRNavLink>
+        </NavItem>
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/visualizers">
+            <span id="visualizers">
+              <IoIosEye />
+              &nbsp;Visualizers
+            </span>
+          </RRNavLink>
+        </NavItem>
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/ingestors">
+            <span id="ingestors">
+              <MdInput />
+              &nbsp;Ingestors
+            </span>
+          </RRNavLink>
+        </NavItem>
+        <NavItem>
+          <RRNavLink className="nav-link" to="/plugins/playbooks">
+            <span id="playbooks">
+              <TiBook />
+              &nbsp;Playbooks
+            </span>
+          </RRNavLink>
+        </NavItem>
+        {createButton}
+      </Nav>
+      {selectedComponent}
+    </>
+  );
 }

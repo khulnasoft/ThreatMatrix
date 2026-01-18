@@ -11,7 +11,6 @@ from django.conf import settings
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.hashers import check_password
 from django.shortcuts import redirect
-from drf_spectacular.utils import extend_schema as add_docs
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
@@ -22,7 +21,6 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 
-from certego_saas.ext.mixins import RecaptchaV2Mixin
 from certego_saas.ext.throttling import POSTUserRateThrottle
 from threat_matrix.settings import AUTH_USER_MODEL
 
@@ -41,16 +39,13 @@ logger = logging.getLogger(__name__)
 User: AUTH_USER_MODEL = get_user_model()
 
 
-class PasswordResetRequestView(
-    rest_email_auth.views.PasswordResetRequestView, RecaptchaV2Mixin
-):
+class PasswordResetRequestView(rest_email_auth.views.PasswordResetRequestView):
     """
     Handles requests for password reset.
 
     Args:
         rest_email_auth.views.PasswordResetRequestView:
         The parent view class for password reset requests.
-        RecaptchaV2Mixin: A mixin for reCAPTCHA verification.
     """
 
     authentication_classes: List = []
@@ -58,14 +53,13 @@ class PasswordResetRequestView(
     throttle_classes: List = [POSTUserRateThrottle]
 
 
-class PasswordResetView(rest_email_auth.views.PasswordResetView, RecaptchaV2Mixin):
+class PasswordResetView(rest_email_auth.views.PasswordResetView):
     """
     Handles password reset.
 
     Args:
         rest_email_auth.views.PasswordResetView:
         The parent view class for password reset.
-        RecaptchaV2Mixin: A mixin for reCAPTCHA verification.
     """
 
     authentication_classes: List = []
@@ -88,14 +82,13 @@ class EmailVerificationView(rest_email_auth.views.EmailVerificationView):
     serializer_class = EmailVerificationSerializer
 
 
-class RegistrationView(rest_email_auth.views.RegistrationView, RecaptchaV2Mixin):
+class RegistrationView(rest_email_auth.views.RegistrationView):
     """
     Handles user registration.
 
     Args:
         rest_email_auth.views.RegistrationView:
         The parent view class for user registration.
-        RecaptchaV2Mixin: A mixin for reCAPTCHA verification.
     """
 
     authentication_classes: List = []
@@ -113,16 +106,13 @@ class RegistrationView(rest_email_auth.views.RegistrationView, RecaptchaV2Mixin)
         return RegistrationSerializer
 
 
-class ResendVerificationView(
-    rest_email_auth.views.ResendVerificationView, RecaptchaV2Mixin
-):
+class ResendVerificationView(rest_email_auth.views.ResendVerificationView):
     """
     Handles re-sending email verification.
 
     Args:
         rest_email_auth.views.ResendVerificationView:
         The parent view class for resending email verification.
-        RecaptchaV2Mixin: A mixin for reCAPTCHA verification.
     """
 
     authentication_classes: List = []
@@ -130,13 +120,9 @@ class ResendVerificationView(
     throttle_classes: List = [POSTUserRateThrottle]
 
 
-class LoginView(RecaptchaV2Mixin):
+class LoginView(APIView):
     """
-    Handles user login.
-
-    Args:
-        RecaptchaV2Mixin: A mixin for reCAPTCHA verification.
-    """
+    Handles user login."""
 
     authentication_classes: List = []
     permission_classes: List = []
@@ -167,11 +153,6 @@ class LoginView(RecaptchaV2Mixin):
         Returns:
             Response: The response object.
         """
-        try:
-            self.get_serializer()  # for RecaptchaV2Mixin
-        except AssertionError:
-            # it will raise this bcz `serializer_class` is not defined
-            pass
         user = self.validate_and_return_user(request=request)
         logger.info(f"perform_login received request from '{user.username}''.")
         login(request, user)
@@ -241,9 +222,6 @@ class LogoutView(APIView):
         return Response()
 
 
-@add_docs(
-    description="""This endpoint redirects to Google OAuth login.""",
-)
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def google_login(request: Request):
@@ -354,12 +332,6 @@ def checkConfiguration(request):
                 ]
             ):
                 errors["SMTP backend"] = "configuration required"
-
-    # if you are in production environment
-    if settings.USE_RECAPTCHA:
-        # recaptcha key
-        if settings.DRF_RECAPTCHA_SECRET_KEY == "fake":
-            errors["RECAPTCHA_SECRET_KEY"] = "required"
 
     logger.info(f"Configuration errors: {errors}")
     return Response(

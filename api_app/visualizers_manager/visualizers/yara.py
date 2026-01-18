@@ -51,7 +51,7 @@ class Yara(Visualizer):
         )
 
     def run(self) -> List[Dict]:
-        yara_report = self.analyzer_reports().get(config__name="Yara")
+        yara_report = self.get_analyzer_reports().get(config__name="Yara")
         yara_num_matches = sum(len(matches) for matches in yara_report.report.values())
         signatures = [
             match["match"]
@@ -86,7 +86,7 @@ class Yara(Visualizer):
             report = AnalyzerReport(
                 config=AnalyzerConfig.objects.get(name="Yara"),
                 job=Job.objects.first(),
-                status=AnalyzerReport.Status.SUCCESS,
+                status=AnalyzerReport.STATUSES.SUCCESS,
                 report={
                     "inquest_yara-rules": [
                         {

@@ -14,10 +14,11 @@ from django.conf import settings
 from certego_saas.apps.user.models import User
 from tests.mock_utils import MockUpResponse, if_mock_connections, patch
 
-from ..choices import PythonModuleBasePaths
+from ..choices import Classification, PythonModuleBasePaths
 from ..classes import Plugin
+from ..data_model_manager.enums import DataModelEvaluations
 from ..models import PythonConfig
-from .constants import HashChoices, ObservableTypes, TypeChoices
+from .constants import HashChoices, TypeChoices
 from .exceptions import AnalyzerConfigurationException, AnalyzerRunException
 from .models import AnalyzerConfig, AnalyzerReport
 
@@ -32,26 +33,62 @@ class BaseAnalyzerMixin(Plugin, metaclass=ABCMeta):
     """
 
     HashChoices = HashChoices
-    ObservableTypes = ObservableTypes
     TypeChoices = TypeChoices
+    EVALUATIONS = DataModelEvaluations
+
+    def _do_create_data_model(self) -> bool:
+        if self.report.job.analyzable.classification == Classification.GENERIC.value:
+            return False
+        if (
+            not self._config.mapping_data_model
+            and self.__class__._create_data_model_mtm
+            == BaseAnalyzerMixin._create_data_model_mtm
+            and self.__class__._update_data_model
+            == BaseAnalyzerMixin._update_data_model
+        ):
+            return False
+        return True
+
+    def _create_data_model_mtm(self):
+        return {}
+
+    def _update_data_model(self, data_model) -> None:
+        mtm = self._create_data_model_mtm()
+        for field_name, value in mtm.items():
+            field = getattr(data_model, field_name)
+            field.add(*value)
+
+    def create_data_model(self):
+        self.report: AnalyzerReport
+        if self._do_create_data_model():
+            data_model = self.report.create_data_model()
+            if data_model:
+                self._update_data_model(data_model)
+                data_model.save()
+            return data_model
+        return None
 
     @classmethod
     @property
     def config_exception(cls):
+        """Returns the AnalyzerConfigurationException class."""
         return AnalyzerConfigurationException
 
     @property
     def analyzer_name(self) -> str:
+        """Returns the name of the analyzer."""
         return self._config.name
 
     @classmethod
     @property
     def report_model(cls):
+        """Returns the AnalyzerReport model."""
         return AnalyzerReport
 
     @classmethod
     @property
     def config_model(cls):
+        """Returns the AnalyzerConfig model."""
         return AnalyzerConfig
 
     def get_exceptions_to_catch(self):
@@ -98,7 +135,20 @@ class BaseAnalyzerMixin(Plugin, metaclass=ABCMeta):
         return result
 
     def after_run_success(self, content):
+        """
+        Handles actions after a successful run.
+
+        Args:
+            content (any): The content to process after a successful run.
+        """
         super().after_run_success(self._validate_result(content, max_recursion=15))
+        try:
+            self.create_data_model()
+        except Exception as e:
+            logger.exception(e)
+            self._job.errors.append(
+                f"Data model creation failed for {self._config.name}"
+            )
 
 
 class ObservableAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
@@ -123,16 +173,16 @@ class ObservableAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
         super().config(runtime_configuration)
         self._config: AnalyzerConfig
         if self._job.is_sample and self._config.run_hash:
-            self.observable_classification = ObservableTypes.HASH
+            self.observable_classification = Classification.HASH
             # check which kind of hash the analyzer needs
             run_hash_type = self._config.run_hash_type
             if run_hash_type == HashChoices.SHA256:
-                self.observable_name = self._job.sha256
+                self.observable_name = self._job.analyzable.sha256
             else:
-                self.observable_name = self._job.md5
+                self.observable_name = self._job.analyzable.md5
         else:
-            self.observable_name = self._job.observable_name
-            self.observable_classification = self._job.observable_classification
+            self.observable_name = self._job.analyzable.name
+            self.observable_classification = self._job.analyzable.classification
 
     @classmethod
     @property
@@ -175,13 +225,13 @@ class FileAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
 
     def config(self, runtime_configuration: Dict):
         super().config(runtime_configuration)
-        self.md5 = self._job.md5
-        self.filename = self._job.file_name
+        self.md5 = self._job.analyzable.md5
+        self.filename = self._job.analyzable.name
         # this is updated in the filepath property, like a cache decorator.
         # if the filepath is requested, it means that the analyzer downloads...
         # ...the file from AWS because it requires a path and it needs to be deleted
         self.__filepath = None
-        self.file_mimetype = self._job.file_mimetype
+        self.file_mimetype = self._job.analyzable.mimetype
 
     @classmethod
     @property
@@ -189,14 +239,18 @@ class FileAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
         return PythonModuleBasePaths[FileAnalyzer.__name__].value
 
     def read_file_bytes(self) -> bytes:
-        self._job.file.seek(0)
-        return self._job.file.read()
+        return self._job.analyzable.read()
 
     @property
     def filepath(self) -> str:
+        """Returns the file path, retrieving the file from storage if necessary.
+
+        Returns:
+            str: The file path.
+        """
         if not self.__filepath:
-            self.__filepath = self._job.file.storage.retrieve(
-                file=self._job.file, analyzer=self.analyzer_name
+            self.__filepath = self._job.analyzable.file.storage.retrieve(
+                file=self._job.analyzable.file, analyzer=self.analyzer_name
             )
         return self.__filepath
 
@@ -311,7 +365,7 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
             return self.__polling(req_key, chance, re_poll_try=re_poll_try + 1)
         else:
             status = json_data.get("status", None)
-            if status and status == self._job.Status.RUNNING.value:
+            if status and status == self._job.STATUSES.RUNNING.value:
                 logger.info(
                     f"Poll number #{chance + 1}, "
                     f"status: 'running' <-- {self.__repr__()}"
@@ -345,7 +399,11 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
         )
 
     def _docker_run(
-        self, req_data: dict, req_files: dict = None, analyzer_name: str = None
+        self,
+        req_data: dict,
+        req_files: dict = None,
+        analyzer_name: str = None,
+        avoid_polling: bool = False,
     ) -> dict:
         """
         Helper function that takes of care of requesting new analysis,
@@ -379,14 +437,19 @@ class DockerBasedAnalyzer(BaseAnalyzerMixin, metaclass=ABCMeta):
             self._raise_container_not_running()
 
         # step #2: raise AnalyzerRunException in case of error
-        if not self.__raise_in_case_bad_request(self.name, resp1):
-            raise AssertionError
+        # Modified to support synchronous analyzers that return results directly in the initial response, avoiding unnecessary polling.
+        if avoid_polling:
+            report = resp1.json().get("report", None)
+            err = resp1.json().get("error", None)
+        else:
+            if not self.__raise_in_case_bad_request(self.name, resp1):
+                raise AssertionError
 
-        # step #3: if no error, continue and try to fetch result
-        key = resp1.json().get("key")
-        final_resp = self.__poll_for_result(key)
-        err = final_resp.get("error", None)
-        report = final_resp.get("report", None)
+            # step #3: if no error, continue and try to fetch result
+            key = resp1.json().get("key")
+            final_resp = self.__poll_for_result(key)
+            err = final_resp.get("error", None)
+            report = final_resp.get("report", None)
 
         # APKiD provides empty result in case it does not support the binary type
         if not report and (analyzer_name != "APKiD"):

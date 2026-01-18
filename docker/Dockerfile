@@ -15,14 +15,18 @@ RUN npm install npm@latest --location=global \
 # Stage 2: Backend
 FROM python:3.11.7 AS backend-build
 
-ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE threat_matrix.settings
-ENV PYTHONPATH /opt/deploy/threat_matrix
-ENV LOG_PATH /var/log/threat_matrix
+ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=threat_matrix.settings
+ENV PYTHONPATH=/opt/deploy/threat_matrix
+ENV LOG_PATH=/var/log/threat_matrix
 ARG REPO_DOWNLOADER_ENABLED=true
 ARG WATCHMAN=false
-ENV watch_logs_cmd "watch -n1 tail -n10 /var/log/threat_matrix/django/api_app.log"
-ARG PYCTI_VERSION=6.1.0
+ARG TARGETARCH
+ENV watch_logs_cmd="watch -n1 tail -n10 /var/log/threat_matrix/django/api_app.log"
+# This is required to allow compatibility with different OpenCTI instances
+ARG PYCTI_VERSION=6.5.1
+# this is required for if/else statements
+SHELL ["/bin/bash", "-c"]
 
 RUN mkdir -p ${LOG_PATH} \
     ${LOG_PATH}/django \
@@ -34,17 +38,14 @@ RUN mkdir -p ${LOG_PATH} \
 # python3-psycopg2 is required to use PostgresSQL with Django
 # apache2-utils is required to execute htpasswd
 # tshark is required for Hfinger file analyzer
+# libemail-outlook-message-perl and libemail-address-perl are required for msgconvert
 RUN apt-get update \
     && apt-get install -y --no-install-recommends apt-utils libsasl2-dev libssl-dev netcat-traditional \
-    vim libldap2-dev libfuzzy-dev net-tools python3-psycopg2 git apache2-utils tshark \
-    && apt-get clean \
+    vim libldap2-dev libfuzzy-dev net-tools python3-psycopg2 git apache2-utils tshark  \
+    libemail-outlook-message-perl libemail-address-perl \
+    && apt-get clean && apt-get autoclean && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install --no-cache-dir --upgrade pip
-
-# perl not interactive
-ENV PERL_MM_USE_DEFAULT 1
-# msgconvert
-RUN cpan -T Email::Outlook::Message
 
 COPY requirements/project-requirements.txt $PYTHONPATH/project-requirements.txt
 COPY requirements/certego-requirements.txt $PYTHONPATH/certego-requirements.txt
@@ -64,8 +65,6 @@ RUN touch ${LOG_PATH}/django/api_app.log ${LOG_PATH}/django/api_app_errors.log \
     && touch ${LOG_PATH}/django/authentication.log ${LOG_PATH}/django/authentication_errors.log \
     && touch ${LOG_PATH}/asgi/daphne.log \
     && chown -R www-data:www-data ${LOG_PATH} /opt/deploy/ \
-    # this is cause stringstifer creates this directory during the build and cause celery to crash
-    && rm -rf /root/.local \
     && ${PYTHONPATH}/docker/scripts/watchman_install.sh \
     # download github stuff
     && ${PYTHONPATH}/api_app/analyzers_manager/repo_downloader.sh
@@ -74,10 +73,9 @@ FROM backend-build
 
 COPY --from=frontend-build /build /var/www/reactapp
 
-
 # quarkengine calls
 # HOME_DIR = f"{Path.home()}/.quark-engine/"
 # Path(HOME_DIR).mkdir(parents=True, exist_ok=True)
 # so we have to set the home env variable to allow to create its directory
-ENV HOME ${PYTHONPATH}
+ENV HOME="${PYTHONPATH}"
 

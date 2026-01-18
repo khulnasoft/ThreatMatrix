@@ -3,7 +3,6 @@
 
 import logging
 
-from drf_spectacular.utils import extend_schema as add_docs
 from rest_framework import mixins, status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -25,7 +24,7 @@ class PlaybookConfigViewSet(
     ModelWithOwnershipViewSet, AbstractConfigViewSet, mixins.CreateModelMixin
 ):
     serializer_class = PlaybookConfigSerializer
-    ordering = ["-weight", "-executed_by_pivot", "name"]
+    ordering = ["-weight", "-executed_by_pivots", "name"]
     permission_classes = [IsAuthenticated]
     queryset = PlaybookConfig.objects.all()
 
@@ -43,13 +42,12 @@ class PlaybookConfigViewSet(
             )
         )
 
-    @add_docs(
-        description="This endpoint allows to start a Job related to an observable",
-        request=ObservableAnalysisSerializer,
-        responses={200: JobResponseSerializer},
-    )
     @action(methods=["POST"], url_name="analyze_multiple_observables", detail=False)
     def analyze_multiple_observables(self, request):
+        """
+        This endpoint allows to start a Job related to an observable with a Playbook
+        """
+        logger.debug(f"{request.data=}")
         oas = ObservableAnalysisSerializer(
             data=request.data, many=True, context={"request": request}
         )
@@ -61,18 +59,18 @@ class PlaybookConfigViewSet(
             status=status.HTTP_200_OK,
         )
 
-    @add_docs(
-        description="This endpoint allows to start a Job related to a file",
-        request=FileJobSerializer,
-        responses={200: JobResponseSerializer},
-    )
     @action(methods=["POST"], url_name="analyze_multiple_files", detail=False)
     def analyze_multiple_files(self, request):
+        """
+        This endpoint allows to start a Job related to a file with a Playbook
+        """
+        logger.debug(f"{request.data=}")
         oas = FileJobSerializer(
             data=request.data, many=True, context={"request": request}
         )
         oas.is_valid(raise_exception=True)
-        jobs = oas.save(send_task=True)
+        parent_job = oas.validated_data[0].get("parent_job", None)
+        jobs = oas.save(send_task=True, parent=parent_job)
         return Response(
             JobResponseSerializer(jobs, many=True).data,
             status=status.HTTP_200_OK,

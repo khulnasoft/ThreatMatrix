@@ -7,11 +7,11 @@ updates:
       day: "tuesday"
     target-branch: "develop"
     ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
       - dependency-name: "boto3"
+        update-types: ["version-update:semver-minor"]
+      - dependency-name: "faker"
         update-types: ["version-update:semver-minor"]
 
   - package-ecosystem: "pip"
@@ -19,10 +19,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
-    target-branch: "dependabot-validation"
+    target-branch: "develop"
     ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
 
@@ -31,10 +29,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
-    target-branch: "dependabot-validation"
+    target-branch: "develop"
     ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
       - dependency-name: "*"
         update-types: [ "version-update:semver-patch" ]
 
@@ -43,10 +39,42 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
-    target-branch: "dependabot-validation"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-patch" ]
+
+  - package-ecosystem: "pip"
+    directory: "/integrations/nuclei_analyzer"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
     ignore:
       # ignore all patch updates since we are using ~=
       # this does not work for security updates
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-patch" ]
+
+  - package-ecosystem: "pip"
+    directory: "/integrations/nuclei_analyzer"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      # ignore all patch updates since we are using ~=
+      # this does not work for security updates
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-patch" ]
+
+  - package-ecosystem: "pip"
+    directory: "/integrations/phishing_analyzers"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
       - dependency-name: "*"
         update-types: [ "version-update:semver-patch" ]
 
@@ -57,10 +85,60 @@ updates:
       day: "tuesday"
     target-branch: "develop"
     reviewers:
-      - khulnasoft-lab
+      - drosetti
 
   - package-ecosystem: "docker"
     directory: "/docker"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/tor_analyzers"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/phoneinfoga"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/pcap_analyzers"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/cyberchef"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/nuclei_analyzer"
     schedule:
       interval: "weekly"
       day: "tuesday"
@@ -72,35 +150,11 @@ updates:
         update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: "docker"
-    directory: "/integrations/tor_analyzers"
+    directory: "/integrations/nuclei_analyzer"
     schedule:
       interval: "weekly"
       day: "tuesday"
-    target-branch: "dependabot-validation"
-    ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-
-  - package-ecosystem: "docker"
-    directory: "/integrations/phoneinfoga"
-    schedule:
-      interval: "weekly"
-      day: "tuesday"
-    target-branch: "dependabot-validation"
-    ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-
-  - package-ecosystem: "docker"
-    directory: "/integrations/pcap_analyzers"
-    schedule:
-      interval: "weekly"
-      day: "tuesday"
-    target-branch: "dependabot-validation"
+    target-branch: "develop"
     ignore:
       # ignore all patch updates since we are using ~=
       # this does not work for security updates
@@ -112,10 +166,28 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
-    target-branch: "dependabot-validation"
+    target-branch: "develop"
     ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/thug"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-patch" ]
+
+  - package-ecosystem: "docker"
+    directory: "/integrations/phishing_analyzers"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    target-branch: "develop"
+    ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
 
@@ -126,7 +198,5 @@ updates:
       day: "tuesday"
     target-branch: "develop"
     ignore:
-      # ignore all patch updates since we are using ~=
-      # this does not work for security updates
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
