@@ -3,6 +3,7 @@
 import dataclasses
 import io
 import logging
+import math
 import os
 import zipfile
 from pathlib import PosixPath
@@ -104,6 +105,9 @@ class YaraRepo:
             response.raise_for_status()
         except Exception as e:
             logger.exception(e)
+            os.makedirs(
+                self.directory, exist_ok=True
+            )  # still create the folder or raise errors
         else:
             zipfile_ = zipfile.ZipFile(io.BytesIO(response.content))
             zipfile_.extractall(self.directory)
@@ -438,3 +442,34 @@ class YaraScan(FileAnalyzer):
         logger.info("Finished updating yara rules")
         set_permissions(settings.YARA_RULES_PATH)
         return True
+
+    def _create_data_model_mtm(self):
+        from api_app.data_model_manager.models import Signature
+
+        signatures = []
+        for yara_signatures in self.report.report.values():
+            for yara_signature in yara_signatures:
+                url = yara_signature.pop("rule_url", None)
+                sign = Signature.objects.create(
+                    provider=Signature.PROVIDERS.YARA.value,
+                    signature=yara_signature,
+                    url=url if url else "",
+                    score=1,
+                )
+                signatures.append(sign)
+
+        return {"signatures": signatures}
+
+    def _update_data_model(self, data_model):
+        from api_app.data_model_manager.models import FileDataModel
+
+        super()._update_data_model(data_model)
+        data_model: FileDataModel
+        signatures = data_model.signatures.count()
+
+        if signatures:
+            data_model.evaluation = self.EVALUATIONS.MALICIOUS.value
+            data_model.reliability = min(math.floor(signatures / 2), 10)
+        else:
+            data_model.evaluation = self.EVALUATIONS.TRUSTED.value
+            data_model.reliability = 3

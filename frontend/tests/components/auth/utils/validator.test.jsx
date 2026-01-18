@@ -5,13 +5,8 @@ import {
   UsernameValidator,
   ProfileValidator,
   EmailValidator,
-  RecaptchaValidator,
 } from "../../../../src/components/auth/utils/validator";
 import { HACKER_MEME_STRING } from "../../../../src/constants/miscConst";
-
-jest.mock("../../../../src/constants/environment", () => ({
-  RECAPTCHA_SITEKEY: "key",
-}));
 
 describe("Compare Password", () => {
   test("Password do match", () => {
@@ -21,7 +16,7 @@ describe("Compare Password", () => {
   });
   test("Password do not match", () => {
     const password = "threatmatrixpassword";
-    const confirmPassword = "ThreatmatrixPassword";
+    const confirmPassword = "IntelowlPassword";
     expect(ComparePassword(password, confirmPassword)).toEqual({
       password: "Passwords do not match.",
       confirmPassword: "Passwords do not match.",
@@ -151,16 +146,5 @@ describe("Email", () => {
   test("Invalid email", () => {
     const email = "test@test";
     expect(EmailValidator(email)).toEqual({ email: "Invalid email address" });
-  });
-});
-
-describe("Recaptcha", () => {
-  test("Recaptcha", () => {
-    const recaptcha = "";
-    expect(RecaptchaValidator(recaptcha)).toEqual({});
-  });
-  test("Required recaptcha", () => {
-    const recaptcha = "noKey";
-    expect(RecaptchaValidator(recaptcha)).toEqual({ recaptcha: "Required" });
   });
 });

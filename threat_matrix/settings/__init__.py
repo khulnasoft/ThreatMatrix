@@ -20,12 +20,10 @@ INSTALLED_APPS = [
     "prettyjson",
     # celery, elasticsearch
     "django_celery_results",
-    "django_elasticsearch_dsl",
     # rest framework libs
     "rest_framework",
     "rest_framework_filters",
     "rest_framework.authtoken",
-    "drf_spectacular",
     # certego libs
     "durin",
     "certego_saas",
@@ -42,9 +40,12 @@ INSTALLED_APPS = [
     "api_app.pivots_manager",
     "api_app.ingestors_manager",
     "api_app.investigations_manager",
+    "api_app.data_model_manager",
+    "api_app.engines_manager",
+    "api_app.analyzables_manager",
+    "api_app.user_events_manager",
     # auth
     "rest_email_auth",
-    "drf_recaptcha",
     # performance debugging
     "silk",
     # celery
@@ -53,8 +54,11 @@ INSTALLED_APPS = [
     "channels",
     # tree structure
     "treebeard",
+    # shell functionalities
+    "django_extensions",
 ]
 
+from .a_secrets import *  # lgtm [py/polluting-import]
 from .auth import *  # lgtm [py/polluting-import]
 from .aws import *  # lgtm [py/polluting-import]
 from .cache import *  # lgtm [py/polluting-import]

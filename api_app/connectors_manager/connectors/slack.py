@@ -30,7 +30,7 @@ class Slack(Connector):
         return (
             "Analysis executed "
             f"{f'by <@{self.slack_username}> ' if self.slack_username else ''}"
-            f"for <{self._job.url}/raw|{self._job.analyzed_object_name}>"
+            f"for <{self._job.url}/raw|{self._job.analyzable.name}>"
         )
 
     def run(self) -> dict:
@@ -41,6 +41,7 @@ class Slack(Connector):
 
     @classmethod
     def _monkeypatch(cls):
+        # flake8: noqa
         class MockClient:
             def __init__(self, *args, **kwargs):
                 raise NotImplementedError()

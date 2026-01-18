@@ -5,7 +5,6 @@
 
 from datetime import timedelta
 
-from ._util import get_secret
 from .commons import VERSION
 from .security import WEB_CLIENT_URL
 
@@ -28,7 +27,6 @@ REST_FRAMEWORK = {
         "rest_framework_filters.backends.RestFrameworkFilterBackend",
         "rest_framework.filters.OrderingFilter",
     ],
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # Django-Rest-Durin
@@ -64,13 +62,6 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "ThreatMatrix API specification",
     "VERSION": VERSION,
 }
-USE_RECAPTCHA = get_secret("USE_RECAPTCHA", False) == "True"
-# drf-recaptcha
-DRF_RECAPTCHA_SECRET_KEY = str(get_secret("RECAPTCHA_SECRET_KEY", ""))
-# this is necessary to avoid to have the related Django app to yell
-# and to have this populated also for people who upgraded from previous versions
-if not DRF_RECAPTCHA_SECRET_KEY:
-    DRF_RECAPTCHA_SECRET_KEY = "fake"
 
-DRF_RECAPTCHA_TESTING = not USE_RECAPTCHA
-DRF_RECAPTCHA_TESTING_PASS = True
+# required by the certego-saas, but GreedyBear doesn't use the recaptcha, for this reason is filled with a placeholder
+DRF_RECAPTCHA_SECRET_KEY = "not-active"

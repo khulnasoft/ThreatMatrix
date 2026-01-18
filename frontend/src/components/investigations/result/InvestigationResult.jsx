@@ -30,7 +30,7 @@ export default function InvestigationResult() {
 
   console.debug(
     `InvestigationResult - initialLoading: ${initialLoading}, isRunning: ${isRunning}, ` +
-      ` investigationConcluded: ${investigationConcluded}`,
+      ` investigationConcluded: ${investigationConcluded}, error: ${error}`,
   );
 
   // HTTP polling only in case the investigation is running
@@ -40,14 +40,11 @@ export default function InvestigationResult() {
   );
 
   // every time the investigation data are downloaded we check if it terminated or not
-  React.useEffect(
-    () =>
-      setIsRunning(
-        investigation === undefined ||
-          ["running"].includes(investigation.status),
-      ),
-    [investigation],
-  );
+  React.useEffect(() => {
+    // isRunning should only reflect the status from the API response.
+    // The initial loading state is handled separately.
+    setIsRunning(investigation?.status === "running");
+  }, [investigation]);
 
   // initial loading (spinner)
   React.useEffect(() => {

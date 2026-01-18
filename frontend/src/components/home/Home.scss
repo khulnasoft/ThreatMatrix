@@ -1,6 +1,6 @@
 // Home.jsx
 
-@import "https://fonts.googleapis.com/css?family=Pacifico:400";
+@import url("https://fonts.googleapis.com/css?family=Pacifico:400");
 
 html {
   overflow-x: hidden;
@@ -26,6 +26,7 @@ html {
   left: 70%;
   font-family: Pacifico;
   transform: rotate(335deg) !important;
+  -ms-transform: rotate(335deg) !important;
 }
 
 #guidebox {

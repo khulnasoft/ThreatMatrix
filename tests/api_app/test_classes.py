@@ -5,7 +5,8 @@ from unittest.mock import patch
 
 from kombu import uuid
 
-from api_app.choices import PythonModuleBasePaths
+from api_app.analyzables_manager.models import Analyzable
+from api_app.choices import Classification, PythonModuleBasePaths
 from api_app.classes import Plugin
 from api_app.connectors_manager.classes import Connector
 from api_app.connectors_manager.models import ConnectorConfig
@@ -16,8 +17,14 @@ from tests import CustomTestCase
 class PluginTestCase(CustomTestCase):
     def setUp(self) -> None:
         super().setUp()
+        self.an = Analyzable.objects.create(
+            name="8.8.8.8",
+            classification=Classification.IP,
+        )
         self.job, _ = Job.objects.get_or_create(
-            user=self.user, status=Job.Status.REPORTED_WITHOUT_FAILS
+            user=self.user,
+            status=Job.STATUSES.REPORTED_WITHOUT_FAILS,
+            analyzable=self.an,
         )
         self.cc, _ = ConnectorConfig.objects.get_or_create(
             name="test",
@@ -33,6 +40,7 @@ class PluginTestCase(CustomTestCase):
     def tearDown(self) -> None:
         self.job.delete()
         self.cc.delete()
+        self.an.delete()
 
     def test_abstract(self):
         with self.assertRaises(TypeError):
@@ -50,7 +58,7 @@ class PluginTestCase(CustomTestCase):
             except Exception as e:
                 self.fail(e)
             else:
-                self.assertEqual(plugin.report.status, plugin.report.Status.SUCCESS)
+                self.assertEqual(plugin.report.status, plugin.report.STATUSES.SUCCESS)
 
     def test_start_errors(self):
         def raise_error(self):
@@ -62,7 +70,7 @@ class PluginTestCase(CustomTestCase):
             plugin = Connector(self.cc)
             with self.assertRaises(TypeError):
                 plugin.start(self.job.pk, {}, uuid())
-            self.assertEqual(plugin.report.status, plugin.report.Status.FAILED)
+            self.assertEqual(plugin.report.status, plugin.report.STATUSES.FAILED)
             self.assertEqual(1, len(plugin.report.errors))
             self.assertEqual("Test", plugin.report.errors[0])
 
